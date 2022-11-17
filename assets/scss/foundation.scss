@@ -1,0 +1,11 @@
+/* Initial Template Style */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+body {
+  font-family: pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'sans-serif';
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}

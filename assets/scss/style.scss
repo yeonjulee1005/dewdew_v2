@@ -1,0 +1,30 @@
+@use './basic/size_list.scss' as *;
+@use './basic/color_list.scss' as *;
+@use './basic/style_class_list.scss' as *;
+@use './_mixin.scss' as *;
+
+@use "element-plus/dist/index.css" as *;
+@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
+
+@use './foundation.scss' as *;
+
+@include desktop {
+  @import './basic/reset_element_ui_style.scss';
+
+  @import './desktop/layouts.scss';
+  @import './desktop/404.scss';
+}
+
+@include tablet {
+  @import './basic/reset_element_ui_style.scss';
+
+  @import './tablet/layouts.scss';
+  @import './tablet/404.scss';
+}
+
+@include mobile {
+  @import './basic/reset_element_ui_style.scss';
+
+  @import './mobile/layouts.scss';
+  @import './mobile/404.scss';
+}
