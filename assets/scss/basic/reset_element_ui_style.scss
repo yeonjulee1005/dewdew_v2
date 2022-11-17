@@ -1,0 +1,10 @@
+/** Init Element Ui Style */
+
+.el-table .cell {
+  @include unset-padding;
+}
+
+.el-button:focus-visible {
+  outline: unset;
+  outline-offset: unset;
+}
