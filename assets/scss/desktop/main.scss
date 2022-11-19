@@ -1,0 +1,14 @@
+/** Main Page */
+.main-intro {
+  position: relative;
+  .main-title, .main-text, .sub-text, .scroll-down {
+    position: absolute;
+    z-index: 10;
+  }
+  .main-image {
+    height: auto;
+    max-height: 740px;
+    width: 100vw;
+    max-width: 1600px;
+  }
+}

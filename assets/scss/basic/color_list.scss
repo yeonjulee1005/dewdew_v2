@@ -1,3 +1,83 @@
 /* Color Lists */
 
-/* main-colors */
+/** Bg Color */
+$d-color-00: hsla(0, 100%, 100%);
+$d-color-00-opacity: hsla(0, 100%, 100%, .3);
+$d-color-05: hsla(0, 17%, 95%);
+$d-color-05-opacity: hsla(0, 17%, 95%, .3);
+$d-color-10: hsla(0, 14%, 90%);
+$d-color-10-opacity: hsla(0, 14%, 90%, .3);
+$d-color-15: hsla(0, 15%, 86%);
+$d-color-20: hsla(0, 15%, 81%);
+$d-color-30: hsla(357, 13%, 72%);
+$d-color-40: hsla(0, 12%, 63%);
+$d-color-50: hsla(358, 11%, 55%);
+$d-color-60: hsla(0, 11%, 46%);
+$d-color-70: hsla(0, 13%, 39%);
+$d-color-80: hsla(0, 15%, 31%);
+$d-color-85: hsla(357, 17%, 23%);
+$d-color-90: hsla(0, 20%, 16%);
+$d-color-95: hsla(0, 22%, 9%);
+$d-color-100: hsla(0, 23%, 3%);
+
+$d-footer-color-light: hsla(150, 18%, 85%);
+$d-footer-color-dark: hsla(154, 13%, 24%);
+
+$d-bg-color-light: hsla(289, 15%, 86%);
+$d-bg-color-dark: hsla(338, 16%, 23%);
+
+/** Text Color */
+$d-red-color-light: hsla(359, 33%, 49%);
+$d-yellow-color-light: hsla(41, 55%, 62%);
+$d-green-color-light: hsla(152, 15%, 45%);
+$d-blue-color-light: hsla(213, 33%, 42%);
+$d-red-color-light-deep: hsla(359, 50%, 36%);
+$d-yellow-color-light-deep: hsla(41, 53%, 52%);
+$d-green-color-light-deep: hsla(153, 21%, 29%);
+$d-blue-color-light-deep: hsla(215, 50%, 28%);
+
+$d-red-color-dark: hsla(359, 36%, 64%);
+$d-yellow-color-dark: hsla(41, 56%, 74%);
+$d-green-color-dark: hsla(152, 15%, 62%);
+$d-blue-color-dark: hsla(210, 29%, 59%);
+$d-red-color-dark-deep: hsla(358, 40%, 81%);
+$d-yellow-color-dark-deep: hsla(41, 59%, 86%);
+$d-green-color-dark-deep: hsla(152, 19%, 80%);
+$d-blue-color-dark-deep: hsla(208, 33%, 78%);
+
+
+:root {
+  --d-bg-main-color: #{$d-color-05};
+  --d-bg-sub-color: #{$d-color-15};
+  --d-bg-side-color: #{$d-bg-color-light};
+  --d-header-bg-color: #{$d-color-10-opacity};
+  --d-footer-bg-color: #{$d-footer-color-light};
+  --d-text-color: #{$d-color-90};
+  --d-text-color-deep: #{$d-color-70};
+  --d-red-color: #{$d-red-color-light};
+  --d-red-color-deep: #{$d-red-color-light-deep};
+  --d-yellow-color: #{$d-yellow-color-light};
+  --d-yellow-color-deep: #{$d-yellow-color-light-deep};
+  --d-green-color: #{$d-green-color-light};
+  --d-green-color-deep: #{$d-green-color-light-deep};
+  --d-blue-color: #{$d-blue-color-light};
+  --d-blue-color-deep: #{$d-blue-color-light-deep};
+}
+
+html.dark {
+  --d-bg-main-color: #{$d-color-95};
+  --d-bg-sub-color: #{$d-color-85};
+  --d-bg-side-color: #{$d-bg-color-dark};
+  --d-header-bg-color: #{$d-color-00-opacity};
+  --d-footer-bg-color: #{$d-footer-color-dark};
+  --d-text-color: #{$d-color-10};
+  --d-text-color-deep: #{$d-color-30};
+  --d-red-color: #{$d-red-color-dark};
+  --d-red-color-deep: #{$d-red-color-dark-deep};
+  --d-yellow-color: #{$d-yellow-color-dark};
+  --d-yellow-color-deep: #{$d-yellow-color-dark-deep};
+  --d-green-color: #{$d-green-color-dark};
+  --d-green-color-deep: #{$d-green-color-dark-deep};
+  --d-blue-color: #{$d-blue-color-dark};
+  --d-blue-color-deep: #{$d-blue-color-dark-deep};
+}

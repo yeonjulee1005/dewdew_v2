@@ -11,6 +11,7 @@
 /* Layouts */
 .m-auto { margin: auto; }
 .mx-auto { margin-left: auto; margin-right: auto; }
+.mx-20 { margin-left: $space-20; margin-right: $space-20; }
 
 .mt-5 { margin-top: $space-5; }
 .mb-5 { margin-bottom: $space-5; }
