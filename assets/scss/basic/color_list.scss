@@ -9,12 +9,14 @@ $d-color-10: hsla(0, 14%, 90%);
 $d-color-10-opacity: hsla(0, 14%, 90%, .3);
 $d-color-15: hsla(0, 15%, 86%);
 $d-color-20: hsla(0, 15%, 81%);
+$d-color-20-opacity: hsla(0, 15%, 81%, .5);
 $d-color-30: hsla(357, 13%, 72%);
 $d-color-40: hsla(0, 12%, 63%);
 $d-color-50: hsla(358, 11%, 55%);
 $d-color-60: hsla(0, 11%, 46%);
 $d-color-70: hsla(0, 13%, 39%);
 $d-color-80: hsla(0, 15%, 31%);
+$d-color-80-opacity: hsla(0, 15%, 31%, .5);
 $d-color-85: hsla(357, 17%, 23%);
 $d-color-90: hsla(0, 20%, 16%);
 $d-color-95: hsla(0, 22%, 9%);
@@ -50,10 +52,21 @@ $d-blue-color-dark-deep: hsla(208, 33%, 78%);
   --d-bg-main-color: #{$d-color-05};
   --d-bg-sub-color: #{$d-color-15};
   --d-bg-side-color: #{$d-bg-color-light};
+  --d-bg-red-color: #{$d-red-color-dark};
+  --d-bg-red-color-deep: #{$d-red-color-dark-deep};
+  --d-bg-yellow-color: #{$d-yellow-color-dark};
+  --d-bg-yellow-color-deep: #{$d-yellow-color-dark-deep};
+  --d-bg-green-color: #{$d-green-color-dark};
+  --d-bg-green-color-deep: #{$d-green-color-dark-deep};
+  --d-bg-blue-color: #{$d-blue-color-dark};
+  --d-bg-blue-color-deep: #{$d-blue-color-dark-deep};
+
   --d-header-bg-color: #{$d-color-10-opacity};
+  --d-content-bg-color: #{$d-color-20-opacity};
   --d-footer-bg-color: #{$d-footer-color-light};
   --d-text-color: #{$d-color-90};
   --d-text-color-deep: #{$d-color-70};
+
   --d-red-color: #{$d-red-color-light};
   --d-red-color-deep: #{$d-red-color-light-deep};
   --d-yellow-color: #{$d-yellow-color-light};
@@ -62,16 +75,28 @@ $d-blue-color-dark-deep: hsla(208, 33%, 78%);
   --d-green-color-deep: #{$d-green-color-light-deep};
   --d-blue-color: #{$d-blue-color-light};
   --d-blue-color-deep: #{$d-blue-color-light-deep};
+
 }
 
 html.dark {
   --d-bg-main-color: #{$d-color-95};
   --d-bg-sub-color: #{$d-color-85};
   --d-bg-side-color: #{$d-bg-color-dark};
+  --d-bg-red-color: #{$d-red-color-light};
+  --d-bg-red-color-deep: #{$d-red-color-light-deep};
+  --d-bg-yellow-color: #{$d-yellow-color-light};
+  --d-bg-yellow-color-deep: #{$d-yellow-color-light-deep};
+  --d-bg-green-color: #{$d-green-color-light};
+  --d-bg-green-color-deep: #{$d-green-color-light-deep};
+  --d-bg-blue-color: #{$d-blue-color-light};
+  --d-bg-blue-color-deep: #{$d-blue-color-light-deep};
+
   --d-header-bg-color: #{$d-color-00-opacity};
+  --d-content-bg-color: #{$d-color-80-opacity};
   --d-footer-bg-color: #{$d-footer-color-dark};
   --d-text-color: #{$d-color-10};
   --d-text-color-deep: #{$d-color-30};
+
   --d-red-color: #{$d-red-color-dark};
   --d-red-color-deep: #{$d-red-color-dark-deep};
   --d-yellow-color: #{$d-yellow-color-dark};
@@ -80,4 +105,5 @@ html.dark {
   --d-green-color-deep: #{$d-green-color-dark-deep};
   --d-blue-color: #{$d-blue-color-dark};
   --d-blue-color-deep: #{$d-blue-color-dark-deep};
+
 }

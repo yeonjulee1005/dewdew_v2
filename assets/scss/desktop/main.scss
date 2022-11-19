@@ -1,14 +1,291 @@
 /** Main Page */
 .main-intro {
   position: relative;
+  height: fit-content;
   .main-title, .main-text, .sub-text, .scroll-down {
     position: absolute;
     z-index: 10;
   }
+  .main-title {
+    position: absolute;
+    width: fit-content;
+    top: 0px;
+    right: 5%;
+    padding-top: $space-80;
+    font-size: 6em;
+    line-height: $space-90;
+    font-weight: 800;
+    text-align: left;
+    writing-mode: vertical-rl;
+    z-index: 10;
+    transition: opacity .5s;
+  }
+  .main-title-off {
+    opacity: 0;
+  }
+  .main-text {
+    position: absolute;
+    top: $space-percent-80;
+    left: 5%;
+    width: fit-content;
+    height: 80px;
+    padding: $space-20;
+    @include headline3;
+    text-align: left;
+    background-color: var(--d-content-bg-color);
+    z-index: 10;
+    opacity: 1;
+    transition: opacity .5s;
+    p {
+      @include unset-margin;
+    }
+    .sub-text {
+      @include headline5;
+    }
+  }
+  .main-text-off {
+    opacity: 0;
+  }
+  .scroll-down {
+    position: absolute;
+    width: 10vw;
+    top: 95%;
+    left: 50%;
+    transform: translateY(-50%), translateX(-50%);
+    font-size: 14px;
+    font-weight: 400;
+    color: #fcfcfc;
+    z-index: 10;
+    transition: opacity .5s;
+    animation: motion .5s ease-in .5s infinite alternate;
+    @keyframes motion {
+      0% { margin-top: 0; }
+      100% { margin-top: $space-default; }
+    }
+  }
+  .main-scroll-off {
+    opacity: 0;
+  }
   .main-image {
     height: auto;
-    max-height: 740px;
-    width: 100vw;
-    max-width: 1600px;
+    max-height: $space-740;
+    width: $space-100vw;
+  }
+}
+
+.main-resume {
+  position: relative;
+  max-width: $space-1200;
+  width: 90vw;
+  height: fit-content;
+  margin: $space-240 auto $space-200;
+  .resume-container {
+    width: $space-percent-100;
+    height: $space-550;
+    border-radius: $space-30;
+    background-color: var(--d-bg-blue-color);
+    .resume-image {
+      width: $space-percent-40;
+      text-align: center;
+      img {
+        width: $space-percent-80;
+        height: auto;
+        border-radius: $space-percent-50;
+      }
+    }
+    .resume-texts {
+      width: $space-percent-60;
+      p { @include unset-margin; }
+      .title-container {
+        .title {
+          @include headline1;
+          text-align: left;
+        }
+        .educate {
+          @include headline3;
+          text-align: left;
+        }
+      }
+      .career-container {
+        @include headline5;
+        text-align: left;
+        .career-title {
+          font-weight: 700;
+        }
+        .career-desc {
+          margin-left: $space-20;
+        }
+      }
+    }
+  }
+}
+
+.main-skills {
+  position: relative;
+  max-width: $space-1200;
+  width: 90vw;
+  height: fit-content;
+  margin: $space-240 auto $space-200;
+  .skill-image {
+    .el-image.azure {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: -150px;
+      left: 600px;
+      width: 100px;
+    }
+    .css3 {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: -350px;
+      left: 600px;
+      width: 100px;
+    }
+    .html5 {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 200px;
+      left: 400px;
+      width: 100px;
+    }
+    .github {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 350px;
+      left: 100px;
+      width: 250px;
+    }
+    .node {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 650px;
+      left: 900px;
+      width: 200px;
+    }
+    .illustration {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 50px;
+      left: 400px;
+      width: 50px;
+    }
+    .xd {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: -300px;
+      left: 900px;
+      width: 150px;
+    }
+    .javascript {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: -170px;
+      left: -70px;
+      width: 200px;
+    }
+    .typescript {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: -430px;
+      left: 150px;
+      width: 200px;
+    }
+    .nuxt {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: -250px;
+      left: 250px;
+      width: 300px;
+    }
+    .pgadmin {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 350px;
+      left: 650px;
+      width: 100px;
+    }
+    .postman {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 100px;
+      left: 600px;
+      width: 100px;
+    }
+    .python {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 0px; 
+      left: 1000px; 
+      width: 100px;
+    }
+    .sass {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 100px; 
+      left: 800px; 
+      width: 300px;
+    }
+    .vim {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 120px; 
+      left: 200px; 
+      width: 100px;
+    }
+    .vscode {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: -80px; 
+      left: 750px; 
+      width: 80px;
+    }
+    .vue {
+      position: absolute;
+      opacity: .05;
+      z-index: -10;
+      top: 530px;
+      left: 480px; 
+      width: 300px;
+    }
+  }
+  .skills-text {
+    margin-right: $space-60;
+    @include headline5;
+    z-index: 10;
+    &:nth-child(1),
+    &:nth-child(2) {
+      @include headline3;
+    }
+    &:nth-child(3),
+    &:nth-child(6),
+    &:nth-child(9) {
+      margin-top: $space-default;
+    }
+  }
+  .skills-title-box {
+    position: absolute;
+    top: -56px;
+    right: 0px;
+    width: $space-425;
+    height: $space-425; 
+    background-color: var(--d-bg-red-color);
+    border-radius: $space-percent-50;
+    box-shadow: $space-5 $space-5 $space-20 var(--d-bg-sub-color);
   }
 }

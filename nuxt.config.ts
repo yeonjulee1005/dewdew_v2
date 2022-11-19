@@ -25,6 +25,11 @@ export default {
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     }
   },
+  loadingIndicator: {
+    name: 'chasing-dots',
+    color: 'purple',
+    background: 'green'
+  },
   // css
   css: ['~/assets/scss/style.scss'],
   // plugins
