@@ -1,5 +1,5 @@
 <template>
-  <el-row class="flex-align-center">
+  <div class="flex-align-center">
     <span class="skills-text">
       {{ progressProps.progressData.title }}
     </span>
@@ -17,13 +17,13 @@
         {{ progressProps.progressData.percentText }}
       </span>
     </el-progress>
-  </el-row>
+  </div>
 </template>
 
 <script setup lang="ts">
 const progressProps = defineProps({
   progressData: { type: Object, default: () => null },
-  width: { type: String, default: 'width: 300px;' }
+  width: { type: String, default: 'width: 360px;' }
 })
 
 </script>

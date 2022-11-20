@@ -61,6 +61,22 @@ export interface SkillsData {
   thirdDesc: Texts[]
 }
 
+export interface ReferenceData {
+  title: string,
+  desc: string,
+  background: string
+}
+
+export interface ReferenceImage {
+  alt: string,
+  index: number,
+  title: string,
+  desc: string,
+  url: string,
+  image: string,
+  detailsImage: string,
+}
+
 export interface Main {
   intro: IntroData,
   resume: ResumeData,

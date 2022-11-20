@@ -15,6 +15,7 @@
     line-height: $space-90;
     font-weight: 800;
     text-align: left;
+    transform: rotateZ(90deg);
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     z-index: 10;
@@ -25,10 +26,10 @@
   }
   .main-text {
     position: absolute;
-    top: $space-percent-80;
+    top: $space-500;
     left: 5%;
     width: fit-content;
-    height: 80px;
+    height: $space-80;
     padding: $space-20;
     @include headline3;
     text-align: left;
