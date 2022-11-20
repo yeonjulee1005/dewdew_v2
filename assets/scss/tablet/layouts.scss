@@ -1,6 +1,108 @@
 /* Layouts */
-
-/* Default Layout */
 .default-layout-container {
-  height: $space-100vh;
+  position: relative;
+  flex-direction: column;
+  height: $space-percent-100;
+  .header {
+    position: fixed;
+    width: $space-100vw;
+    height: $space-80;
+    align-items: center;
+    background-color: var(--d-header-bg-color);
+    filter: alpha(opacity=30);
+    z-index: 100;
+    .header-container {
+      width: $space-1000;
+      .logo {
+        width: $space-200;
+        margin: $space-default $space-20;
+      }
+      .desktop-menu {
+        .menu-links {
+          @include headline3;
+          text-decoration: none;
+          transition: all .1s ease-in-out;
+        }
+        .menu-links:hover {
+          color: var(--d-red-color-deep);
+        }
+      }
+      .dark-mode-switch {
+        --el-switch-on-color: var(--d-footer-bg-color);
+        --el-switch-off-color: var(--d-footer-bg-color);
+      }
+      .mobile-menu {
+        position: relative;
+        background-color: transparent;
+        border: unset;
+        .el-sub-menu {
+          .el-sub-menu__title {
+            .el-icon {
+              @include unset-margin;
+              transition: all .3s ease-in-out;
+            }
+            .el-sub-menu__icon-arrow {
+              display: none;
+            }
+          &:hover {
+            background-color: unset;
+            .el-icon {
+              font-size: $space-30;
+            }
+          }
+          }
+          .el-menu--inline {
+            position: absolute;
+            top: $space-68;
+            right: 0;
+            background-color: transparent;
+            .el-menu-item {
+              .menu-links {
+                @include headline3;
+                text-decoration: unset;
+                transition: all .3s ease-in-out;
+              }
+              &:hover {
+                background-color: unset;
+                .menu-links {
+                  @include headline2;
+                  text-decoration: unset;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .main {
+    position: relative;
+    height: $space-percent-100;
+    overflow-x: hidden;
+    @include unset-padding;
+  }
+  .footer {
+    position: relative;
+    height: fit-content;
+    background-color: var(--d-footer-bg-color);
+    .footer-section {
+      height: $space-200;
+      font-weight: 400;
+      font-size: $space-16;
+      .footer-menu-container {
+        width: $space-300;
+        .footer-links {
+          @include headline5;
+          text-decoration: unset;
+          transition: all .1s ease-in-out;
+        }
+        .footer-links:hover {
+          color: var(--d-red-color);
+        }
+      }
+      .copyright {
+        @include headline6;
+      }
+    }
+  }
 }

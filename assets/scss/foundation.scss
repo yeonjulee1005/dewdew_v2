@@ -1,6 +1,10 @@
 /* Initial Template Style */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
+html {
+  overscroll-behavior: contain;
+}
+
 body {
   font-family: pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'sans-serif';
   position: relative;
@@ -8,4 +12,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  height: fit-content;
+  overflow-x: hidden;
+  -webkit-touch-callout: none;
+  user-select:  none;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

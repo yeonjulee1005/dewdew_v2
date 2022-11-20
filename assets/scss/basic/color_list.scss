@@ -1,3 +1,292 @@
 /* Color Lists */
 
-/* main-colors */
+/** Bg Color */
+$d-bg-origin-light: hsla(0, 0%, 90.2%);
+$d-bg-origin-dark: hsla(0, 0%, 0%);
+
+$d-bg-sub-origin-light: hsla(0, 0%, 89.4%);
+$d-bg-sub-origin-dark: hsla(0, 0%, 47.8%);
+
+$d-bg-color-00: hsla(0, 100%, 100%);
+$d-bg-color-00-opacity: hsla(0, 100%, 100%, .3);
+$d-bg-color-05: hsla(0, 17%, 95%);
+$d-bg-color-05-opacity: hsla(0, 17%, 95%, .3);
+$d-bg-color-10: hsla(0, 14%, 90%);
+$d-bg-color-10-opacity: hsla(0, 14%, 90%, .3);
+$d-bg-color-15: hsla(0, 15%, 86%);
+$d-bg-color-20: hsla(0, 15%, 81%);
+$d-bg-color-20-opacity: hsla(0, 15%, 81%, .5);
+$d-bg-color-30: hsla(357, 13%, 72%);
+$d-bg-color-40: hsla(0, 12%, 63%);
+$d-bg-color-50: hsla(358, 11%, 55%);
+$d-bg-color-60: hsla(0, 11%, 46%);
+$d-bg-color-70: hsla(0, 13%, 39%);
+$d-bg-color-80: hsla(0, 15%, 31%);
+$d-bg-color-80-opacity: hsla(0, 15%, 31%, .5);
+$d-bg-color-85: hsla(357, 17%, 23%);
+$d-bg-color-90: hsla(0, 20%, 16%);
+$d-bg-color-95: hsla(0, 22%, 9%);
+$d-bg-color-100: hsla(0, 23%, 3%);
+
+$d-footer-color-light: hsla(150, 18%, 85%);
+$d-footer-color-dark: hsla(154, 13%, 24%);
+
+$d-bg-color-light: hsla(289, 15%, 86%);
+$d-bg-color-dark: hsla(338, 16%, 23%);
+
+$d-color-01-light: hsla(0, 93.1%, 71.8%);
+$d-color-01-light-opacity: hsla(0, 93.1%, 71.8%, .5);
+$d-color-01-light-deep: hsla(0, 95.9%, 80.8%);
+$d-color-01-dark: hsla(0, 75.3%, 47.6%);
+$d-color-01-dark-opacity: hsla(0, 75.3%, 47.6%, .5);
+$d-color-01-dark-deep: hsla(0, 83.3%, 39.8%);
+
+$d-color-02-light: hsla(10.1, 91.2%, 64.3%);
+$d-color-02-light-opacity: hsla(10.1, 91.2%, 64.3%, .5);
+$d-color-02-light-deep: hsla(9.6, 95.9%, 80.8%);
+$d-color-02-dark: hsla(10.2, 75.9%, 52.7%);
+$d-color-02-dark-opacity: hsla(10.2, 75.9%, 52.7%, .5);
+$d-color-02-dark-deep: hsla(9.9, 83.3%, 39.8%);
+
+$d-color-03-light: hsla(30, 91.2%, 64.3%);
+$d-color-03-light-opacity: hsla(30, 91.2%, 64.3%, .5);
+$d-color-03-light-deep: hsla(30, 95.9%, 80.8%);
+$d-color-03-dark: hsla(30.2, 75.9%, 52.7%);
+$d-color-03-dark-opacity: hsla(30.2, 75.9%, 52.7%, .5);
+$d-color-03-dark-deep: hsla(29.8, 83.3%, 39.8%);
+
+$d-color-04-light: hsla(44.8, 91.2%, 64.3%);
+$d-color-04-light-opacity: hsla(44.8, 91.2%, 64.3%, .5);
+$d-color-04-light-deep: hsla(44.7, 95.9%, 80.8%);
+$d-color-04-dark: hsla(44.9, 75.9%, 52.7%);
+$d-color-04-dark-opacity: hsla(44.9, 75.9%, 52.7%, .5);
+$d-color-04-dark-deep: hsla(45.1, 83.3%, 39.8%);
+
+$d-color-05-light: hsla(60, 91.2%, 64.3%);
+$d-color-05-light-opacity: hsla(60, 91.2%, 64.3%, .5);
+$d-color-05-light-deep: hsla(60, 95.9%, 80.8%);
+$d-color-05-dark: hsla(60, 75.9%, 52.7%);
+$d-color-05-dark-opacity: hsla(60, 75.9%, 52.7%, .5);
+$d-color-05-dark-deep: hsla(60, 83.3%, 39.8%);
+
+$d-color-06-light: hsla(79.9, 91.2%, 64.3%);
+$d-color-06-light-opacity: hsla(79.9, 91.2%, 64.3%, .5);
+$d-color-06-light-deep: hsla(80.4, 95.9%, 80.8%);
+$d-color-06-dark: hsla(80, 75.9%, 52.7%);
+$d-color-06-dark-opacity: hsla(80, 75.9%, 52.7%, .5);
+$d-color-06-dark-deep: hsla(79.9, 83.3%, 39.8%);
+
+$d-color-07-light: hsla(109.9, 91.2%, 64.3%);
+$d-color-07-light-opacity: hsla(109.9, 91.2%, 64.3%, .5);
+$d-color-07-light-deep: hsla(110.4, 95.9%, 80.8%);
+$d-color-07-dark: hsla(109.8, 75.9%, 52.7%);
+$d-color-07-dark-opacity: hsla(109.8, 75.9%, 52.7%, .5);
+$d-color-07-dark-deep: hsla(110.1, 83.3%, 39.8%);
+
+$d-color-08-light: hsla(140.2, 91.2%, 64.3%);
+$d-color-08-light-opacity: hsla(140.2, 91.2%, 64.3%, .5);
+$d-color-08-light-deep: hsla(139.8, 95.9%, 80.8%);
+$d-color-08-dark: hsla(140, 75.9%, 52.7%);
+$d-color-08-dark-opacity: hsla(140, 75.9%, 52.7%, .5);
+$d-color-08-dark-deep: hsla(139.9, 83.3%, 39.8%);
+
+$d-color-09-light: hsla(160.1, 91.2%, 64.3%);
+$d-color-09-light-opacity: hsla(160.1, 91.2%, 64.3%, .5);
+$d-color-09-light-deep: hsla(159.6, 95.9%, 80.8%);
+$d-color-09-dark: hsla(160, 75.9%, 52.7%);
+$d-color-09-dark-opacity: hsla(160, 75.9%, 52.7%, .5);
+$d-color-09-dark-deep: hsla(160.1, 83.3%, 39.8%);
+
+$d-color-10-light: hsla(180, 91.2%, 64.3%);
+$d-color-10-light-opacity: hsla(180, 91.2%, 64.3%, .5);
+$d-color-10-light-deep: hsla(180, 95.9%, 80.8%);
+$d-color-10-dark: hsla(180, 75.9%, 52.7%);
+$d-color-10-dark-opacity: hsla(180, 75.9%, 52.7%, .5);
+$d-color-10-dark-deep: hsla(180, 83.3%, 39.8%);
+
+$d-color-11-light: hsla(199.9, 91.2%, 64.3%);
+$d-color-11-light-deep: hsla(200.4, 95.9%, 80.8%);
+$d-color-11-dark: hsla(200, 75.9%, 52.7%);
+$d-color-11-dark-deep: hsla(199.9, 83.3%, 39.8%);
+
+$d-color-12-light: hsla(219.8, 91.2%, 64.3%);
+$d-color-12-light-deep: hsla(220.2, 95.9%, 80.8%);
+$d-color-12-dark: hsla(220, 75.9%, 52.7%);
+$d-color-12-dark-deep: hsla(220.1, 83.3%, 39.8%);
+
+$d-color-13-light: hsla(240, 91.2%, 64.3%);
+$d-color-13-light-deep: hsla(240, 95.9%, 80.8%);
+$d-color-13-dark: hsla(240, 75.9%, 52.7%);
+$d-color-13-dark-deep: hsla(240, 83.3%, 39.8%);
+
+$d-color-14-light: hsla(260.2, 91.2%, 64.3%);
+$d-color-14-light-deep: hsla(259.8, 95.9%, 80.8%);
+$d-color-14-dark: hsla(260, 75.9%, 52.7%);
+$d-color-14-dark-deep: hsla(259.9, 83.3%, 39.8%);
+
+$d-color-15-light: hsla(280.1, 91.2%, 64.3%);
+$d-color-15-light-deep: hsla(279.6, 95.9%, 80.8%);
+$d-color-15-dark: hsla(280, 75.9%, 52.7%);
+$d-color-15-dark-deep: hsla(280.1, 83.3%, 39.8%);
+
+$d-color-16-light: hsla(300, 91.2%, 64.3%);
+$d-color-16-light-deep: hsla(300, 95.9%, 80.8%);
+$d-color-16-dark: hsla(300, 75.9%, 52.7%);
+$d-color-16-dark-deep: hsla(300, 83.3%, 39.8%);
+
+$d-color-17-light: hsla(319.9, 91.2%, 64.3%);
+$d-color-17-light-deep: hsla(320.4, 95.9%, 80.8%);
+$d-color-17-dark: hsla(320, 75.9%, 52.7%);
+$d-color-17-dark-deep: hsla(319.9, 83.3%, 39.8%);
+
+$d-color-18-light: hsla(339.8, 91.2%, 64.3%);
+$d-color-18-light-deep: hsla(340.2, 95.9%, 80.8%);
+$d-color-18-dark: hsla(340, 75.9%, 52.7%);
+$d-color-18-dark-deep: hsla(340.1, 83.3%, 39.8%);
+
+$d-color-19-light: hsla(0, 91.2%, 64.3%);
+$d-color-19-light-deep: hsla(0, 95.9%, 80.8%);
+$d-color-19-dark: hsla(0, 75.9%, 52.7%);
+$d-color-19-dark-deep: hsla(0, 83.3%, 39.8%);
+
+/** Text Color */
+$d-red-color-light: hsla(359, 33%, 49%);
+$d-yellow-color-light: hsla(41, 55%, 62%);
+$d-green-color-light: hsla(152, 15%, 45%);
+$d-blue-color-light: hsla(213, 33%, 42%);
+$d-red-color-light-deep: hsla(359, 50%, 36%);
+$d-yellow-color-light-deep: hsla(41, 53%, 52%);
+$d-green-color-light-deep: hsla(153, 21%, 29%);
+$d-blue-color-light-deep: hsla(215, 50%, 28%);
+
+$d-red-color-dark: hsla(359, 36%, 64%);
+$d-yellow-color-dark: hsla(41, 56%, 74%);
+$d-green-color-dark: hsla(152, 15%, 62%);
+$d-blue-color-dark: hsla(210, 29%, 59%);
+$d-red-color-dark-deep: hsla(358, 40%, 81%);
+$d-yellow-color-dark-deep: hsla(41, 59%, 86%);
+$d-green-color-dark-deep: hsla(152, 19%, 80%);
+$d-blue-color-dark-deep: hsla(208, 33%, 78%);
+
+
+:root {
+  --d-bg-main-color: #{$d-bg-color-05};
+  --d-bg-sub-color: #{$d-bg-color-15};
+  --d-bg-side-color: #{$d-bg-color-light};
+  --d-bg-sub-origin-color: #{$d-bg-sub-origin-light};
+  --d-bg-red-color: #{$d-red-color-dark};
+  --d-bg-red-color-deep: #{$d-red-color-dark-deep};
+  --d-bg-yellow-color: #{$d-yellow-color-dark};
+  --d-bg-yellow-color-deep: #{$d-yellow-color-dark-deep};
+  --d-bg-green-color: #{$d-green-color-dark};
+  --d-bg-green-color-deep: #{$d-green-color-dark-deep};
+  --d-bg-blue-color: #{$d-blue-color-dark};
+  --d-bg-blue-color-deep: #{$d-blue-color-dark-deep};
+
+  --d-header-bg-color: #{$d-bg-color-10-opacity};
+  --d-content-bg-color: #{$d-bg-color-20-opacity};
+  --d-footer-bg-color: #{$d-footer-color-light};
+  --d-text-color: #{$d-bg-color-90};
+  --d-text-color-deep: #{$d-bg-color-70};
+
+  --d-red-color: #{$d-red-color-light};
+  --d-red-color-deep: #{$d-red-color-light-deep};
+  --d-yellow-color: #{$d-yellow-color-light};
+  --d-yellow-color-deep: #{$d-yellow-color-light-deep};
+  --d-green-color: #{$d-green-color-light};
+  --d-green-color-deep: #{$d-green-color-light-deep};
+  --d-blue-color: #{$d-blue-color-light};
+  --d-blue-color-deep: #{$d-blue-color-light-deep};
+
+  --d-color-01: #{$d-color-01-light};
+  --d-color-02: #{$d-color-02-light};
+  --d-color-03: #{$d-color-03-light};
+  --d-color-04: #{$d-color-04-light};
+  --d-color-05: #{$d-color-05-light};
+  --d-color-06: #{$d-color-06-light};
+  --d-color-07: #{$d-color-07-light};
+  --d-color-08: #{$d-color-08-light};
+  --d-color-09: #{$d-color-09-light};
+  --d-color-10: #{$d-color-10-light};
+  --d-color-11: #{$d-color-11-light};
+  --d-color-12: #{$d-color-12-light};
+  --d-color-13: #{$d-color-13-light};
+  --d-color-14: #{$d-color-14-light};
+  --d-color-15: #{$d-color-15-light};
+  --d-color-16: #{$d-color-16-light};
+  --d-color-17: #{$d-color-17-light};
+  --d-color-18: #{$d-color-18-light};
+  --d-color-19: #{$d-color-19-light};
+
+  --d-color-01-opacity: #{$d-color-01-light-opacity};
+  --d-color-02-opacity: #{$d-color-02-light-opacity};
+  --d-color-03-opacity: #{$d-color-03-light-opacity};
+  --d-color-04-opacity: #{$d-color-04-light-opacity};
+  --d-color-05-opacity: #{$d-color-05-light-opacity};
+  --d-color-06-opacity: #{$d-color-06-light-opacity};
+  --d-color-07-opacity: #{$d-color-07-light-opacity};
+  --d-color-08-opacity: #{$d-color-08-light-opacity};
+  --d-color-09-opacity: #{$d-color-09-light-opacity};
+  --d-color-10-opacity: #{$d-color-10-light-opacity};
+}
+
+html.dark {
+  --d-bg-main-color: #{$d-bg-color-95};
+  --d-bg-sub-color: #{$d-bg-color-85};
+  --d-bg-side-color: #{$d-bg-color-dark};
+  --d-bg-sub-origin-color: #{$d-bg-sub-origin-dark};
+  --d-bg-red-color: #{$d-red-color-light};
+  --d-bg-red-color-deep: #{$d-red-color-light-deep};
+  --d-bg-yellow-color: #{$d-yellow-color-light};
+  --d-bg-yellow-color-deep: #{$d-yellow-color-light-deep};
+  --d-bg-green-color: #{$d-green-color-light};
+  --d-bg-green-color-deep: #{$d-green-color-light-deep};
+  --d-bg-blue-color: #{$d-blue-color-light};
+  --d-bg-blue-color-deep: #{$d-blue-color-light-deep};
+
+  --d-header-bg-color: #{$d-bg-color-00-opacity};
+  --d-content-bg-color: #{$d-bg-color-80-opacity};
+  --d-footer-bg-color: #{$d-footer-color-dark};
+  --d-text-color: #{$d-bg-color-10};
+  --d-text-color-deep: #{$d-bg-color-30};
+
+  --d-red-color: #{$d-red-color-dark};
+  --d-red-color-deep: #{$d-red-color-dark-deep};
+  --d-yellow-color: #{$d-yellow-color-dark};
+  --d-yellow-color-deep: #{$d-yellow-color-dark-deep};
+  --d-green-color: #{$d-green-color-dark};
+  --d-green-color-deep: #{$d-green-color-dark-deep};
+  --d-blue-color: #{$d-blue-color-dark};
+  --d-blue-color-deep: #{$d-blue-color-dark-deep};
+
+  --d-color-01: #{$d-color-01-dark};
+  --d-color-02: #{$d-color-02-dark};
+  --d-color-03: #{$d-color-03-dark};
+  --d-color-04: #{$d-color-04-dark};
+  --d-color-05: #{$d-color-05-dark};
+  --d-color-06: #{$d-color-06-dark};
+  --d-color-07: #{$d-color-07-dark};
+  --d-color-08: #{$d-color-08-dark};
+  --d-color-09: #{$d-color-09-dark};
+  --d-color-10: #{$d-color-10-dark};
+  --d-color-11: #{$d-color-11-dark};
+  --d-color-12: #{$d-color-12-dark};
+  --d-color-13: #{$d-color-13-dark};
+  --d-color-14: #{$d-color-14-dark};
+  --d-color-15: #{$d-color-15-dark};
+  --d-color-16: #{$d-color-16-dark};
+  --d-color-17: #{$d-color-17-dark};
+  --d-color-18: #{$d-color-18-dark};
+  --d-color-19: #{$d-color-19-dark};
+
+  --d-color-01-opacity: #{$d-color-01-dark-opacity};
+  --d-color-02-opacity: #{$d-color-02-dark-opacity};
+  --d-color-03-opacity: #{$d-color-03-dark-opacity};
+  --d-color-04-opacity: #{$d-color-04-dark-opacity};
+  --d-color-05-opacity: #{$d-color-05-dark-opacity};
+  --d-color-06-opacity: #{$d-color-06-dark-opacity};
+  --d-color-07-opacity: #{$d-color-07-dark-opacity};
+  --d-color-08-opacity: #{$d-color-08-dark-opacity};
+  --d-color-09-opacity: #{$d-color-09-dark-opacity};
+  --d-color-10-opacity: #{$d-color-10-dark-opacity};
+}

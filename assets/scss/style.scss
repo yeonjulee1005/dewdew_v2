@@ -1,5 +1,6 @@
 @use './basic/size_list.scss' as *;
 @use './basic/color_list.scss' as *;
+@use './basic/font_variables.scss' as *;
 @use './basic/style_class_list.scss' as *;
 @use './_mixin.scss' as *;
 
@@ -13,6 +14,11 @@
 
   @import './desktop/layouts.scss';
   @import './desktop/404.scss';
+
+  @import './desktop/main/intro_banner.scss';
+  @import './desktop/main/resume.scss';
+  @import './desktop/main/skills.scss';
+  @import './desktop/main/references.scss';
 }
 
 @include tablet {
