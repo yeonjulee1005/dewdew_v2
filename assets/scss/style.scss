@@ -15,7 +15,9 @@
   @import './desktop/layouts.scss';
   @import './desktop/404.scss';
 
-  @import './desktop/main.scss';
+  @import './desktop/main/intro_banner.scss';
+  @import './desktop/main/resume.scss';
+  @import './desktop/main/skills.scss';
 }
 
 @include tablet {

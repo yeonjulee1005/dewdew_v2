@@ -2,11 +2,17 @@
 
 /* Device */
 $breakpoint-mobile: 500px;
-$breakpoint-desktop: 800px;
+$breakpoint-desktop: 1000px;
 
 /* Space */
 $space-unset: unset;
 $space-fit-content: fit-content;
+
+$space--50: -50px;
+$space--200: -200px;
+$space--400: -400px;
+
+$space-0: 0px;
 $space-1: 1px;
 $space-2: 2px;
 $space-4: 4px;
@@ -23,23 +29,32 @@ $space-28: 28px;
 $space-30: 30px;
 $space-40: 40px;
 $space-48: 48px;
+$space-50: 50px;
 $space-60: 60px;
 $space-68: 68px;
 $space-80: 80px;
 $space-90: 90px;
 $space-100: 100px;
 $space-120: 120px;
+$space-150: 150px;
 $space-160: 160px;
 $space-200: 200px;
 $space-240: 240px;
+$space-250: 250px;
 $space-290: 290px;
 $space-300: 300px;
 $space-360: 360px;
 $space-400: 400px;
 $space-425: 425px;
+$space-450: 450px;
+$space-500: 500px;
 $space-550: 550px;
+$space-600: 600px;
+$space-650: 650px;
 $space-740: 740px;
+$space-900: 900px;
 $space-1000: 1000px;
+$space-1100: 1100px;
 $space-1200: 1200px;
 $space-1600: 1600px;
 
@@ -50,6 +65,7 @@ $space-100vh: 100vh;
 $space-10vw: 10vw;
 $space-20vw: 20vw;
 $space-50vw: 50vw;
+$space-90vw: 90vw;
 $space-100vw: 100vw;
 
 $space-percent-40: 40%;
@@ -58,3 +74,16 @@ $space-percent-60: 60%;
 $space-percent-75: 75%;
 $space-percent-80: 80%;
 $space-percent-100: 100%;
+
+/* Opacity */
+:root {
+  --d-bg-opacity-01: .1;
+  --d-bg-opacity-02: .25;
+  --d-bg-opacity-03: .4;
+}
+
+html.dark {
+  --d-bg-opacity-01: .9;
+  --d-bg-opacity-02: .75;
+  --d-bg-opacity-03: .6;
+}

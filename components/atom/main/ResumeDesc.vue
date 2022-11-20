@@ -1,5 +1,8 @@
 <template>
-  <div class="main-resume flex flex-justify-center flex-align-center">
+  <div
+    class="main-resume flex flex-justify-center flex-align-center"
+    :class="{'main-resume-on': resumeProps.mainResumeTrigger}"
+  >
     <div class="resume-container flex flex-row">
       <div class="resume-image flex flex-justify-center flex-align-center">
         <el-image :src="resumeProps.resumeImage" />
@@ -32,6 +35,7 @@
 <script setup lang="ts">
 const resumeProps = defineProps({
   resumeText: { type: Object, default: () => null },
-  resumeImage: { type: String, default: '' }
+  resumeImage: { type: String, default: '' },
+  mainResumeTrigger: { type: Boolean, default: false }
 })
 </script>

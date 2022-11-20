@@ -78,6 +78,7 @@
   .main {
     position: relative;
     height: $space-percent-100;
+    overflow-x: hidden;
     @include unset-padding;
   }
   .footer {

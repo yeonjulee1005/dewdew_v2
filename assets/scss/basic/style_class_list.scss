@@ -72,13 +72,13 @@
   transform: translate(-$space-percent-50, -$space-percent-50);
 }
 
-/* Colors & Features */
+/* Color & Features */
 .w-full { width: $space-percent-100; }
 .w-half { width: $space-percent-50; }
 .h-full { height: $space-percent-100; }
 .size-full { width: $space-percent-100; height: $space-percent-100; }
 
-/* Reset Styling */
+/* Reset Style */
 @mixin unset-color { color: unset; }
 @mixin unset-padding { padding: $space-unset; }
 @mixin unset-margin { margin: $space-unset; }
@@ -86,3 +86,10 @@
 @mixin unset-bg-color { background-color: unset; }
 @mixin unset-box-shadow { box-shadow: unset; }
 @mixin hidden-overflow { overflow: hidden; }
+
+/* Reuse Style */
+@mixin skills {
+  position: absolute;
+  width: $space-100;
+  opacity: var(--d-bg-opacity-01);
+}

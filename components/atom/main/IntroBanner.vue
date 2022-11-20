@@ -2,13 +2,13 @@
   <div class="main-intro flex flex-justify-center">
     <div
       class="main-title"
-      :class="{'main-title-off': mainTitleTrigger}"
+      :class="{'main-title-off': mainIntroProps.mainTitleTrigger}"
     >
       {{ mainIntroProps.introText.mainTitle }}
     </div>
     <div
       class="main-text"
-      :class="{'main-text-off': mainTextTrigger}"
+      :class="{'main-text-off': mainIntroProps.mainTextTrigger}"
     >
       <p
         v-for="item in mainIntroProps.introText.mainText"
@@ -23,7 +23,7 @@
     <div
       ref="scrollDown"
       class="scroll-down"
-      :class="{'main-scroll-off': scrollDownTrigger}"
+      :class="{'main-scroll-off': mainIntroProps.scrollDownTrigger}"
     >
       {{ mainIntroProps.introText.scrollDown }}
     </div>
@@ -34,54 +34,12 @@
 import { PropType } from 'vue'
 import { IntroData } from '~/interfaces/types'
 
-const mainTitleTrigger = ref(false)
-const mainTextTrigger = ref(false)
-const scrollDownTrigger = ref(false)
-
-const lastScrollY = ref(0)
-
 const mainIntroProps = defineProps({
   introText: { type: Object as PropType<IntroData>, default: () => null },
-  bannerImages: { type: String, default: '' }
+  bannerImages: { type: String, default: '' },
+  mainTitleTrigger: { type: Boolean, default: false },
+  mainTextTrigger: { type: Boolean, default: false },
+  scrollDownTrigger: { type: Boolean, default: false }
 })
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
-
-const handleScroll = () => {
-  const scrollY = window.scrollY
-  const direction = scrollY > lastScrollY.value ? 'down' : 'up'
-  lastScrollY.value = scrollY
-
-  const titleRange = scrollY > 450 && scrollY <= 550
-  const textRange = scrollY > 520 && scrollY <= 620
-  const downRange = scrollY > 560 && scrollY <= 660
-  if (titleRange) {
-    transitionMainTitle(direction)
-  }
-  if (textRange) {
-    transitionMainText(direction)
-  }
-  if (downRange) {
-    transitionScrollDown(direction)
-  }
-}
-
-const transitionMainTitle = (direction:string) => {
-  direction === 'down' ? mainTitleTrigger.value = true : mainTitleTrigger.value = false
-}
-
-const transitionMainText = (direction:string) => {
-  direction === 'down' ? mainTextTrigger.value = true : mainTextTrigger.value = false
-}
-
-const transitionScrollDown = (direction:string) => {
-  direction === 'down' ? scrollDownTrigger.value = true : scrollDownTrigger.value = false
-}
 
 </script>

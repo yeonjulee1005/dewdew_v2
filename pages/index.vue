@@ -3,26 +3,22 @@
     <AtomMainIntroBanner
       :intro-text="introTextData"
       :banner-images="bannersImage"
+      :main-title-trigger="mainTitleTrigger"
+      :main-text-trigger="mainTextTrigger"
+      :scroll-down-trigger="scrollDownTrigger"
     />
     <AtomMainResumeDesc
       :resume-text="resumeTextData"
       :resume-image="resumeImage"
+      :main-resume-trigger="mainResumeTrigger"
     />
-    <div class="main-skills flex flex-column">
-      <AtomMainSkillsDescriptions
-        :skills-text="skillsTextData"
-      />
-    </div>
-    <div
-      v-for="image in skillsImageData"
-      :key="image.index"
-      class="skill-image"
-    >
-      <el-image
-        :class="image.title"
-        :src="image.url"
-      />
-    </div>
+    <AtomMainSkillContents
+      :skills-text="skillsTextData"
+      :skills-image="skillsImageData"
+    />
+    <MoleculesAFooter
+      :core-data="coreData"
+    />
   </NuxtLayout>
 </template>
 <script setup lang="ts">
@@ -63,8 +59,20 @@ const imageData = ref<any[]>([])
 const bannersImage = ref('')
 const resumeImage = ref('')
 
+const mainTitleTrigger = ref(false)
+const mainTextTrigger = ref(false)
+const scrollDownTrigger = ref(false)
+const mainResumeTrigger = ref(false)
+
+const lastScrollY = ref(0)
+
 onMounted(() => {
   initData()
+  window.addEventListener('scroll', handleScroll)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 
 const initData = () => {
@@ -76,7 +84,6 @@ const initData = () => {
         break
       case 'resources' :
         skillsImageData.value = image.logos
-        console.log(skillsImageData.value)
         break
       default :
         imageData.value.push(image)
@@ -92,6 +99,54 @@ const initData = () => {
         break
     }
   })
+}
+
+const handleScroll = () => {
+  const scrollY = window.scrollY
+  const windowWidth = window.innerWidth
+  const direction = scrollY > lastScrollY.value ? 'down' : 'up'
+  let titleRange = false
+  let textRange = false
+  let downRange = false
+  let resumeRange = false
+
+  if (windowWidth > 1000) {
+    titleRange = scrollY > 450 && scrollY <= 550
+    textRange = scrollY > 520 && scrollY <= 620
+    downRange = scrollY > 560 && scrollY <= 660
+    resumeRange = scrollY > 50 && scrollY < 1250
+  } else if (windowWidth > 500 || windowWidth <= 1000) {
+    titleRange = scrollY > 450 && scrollY <= 550
+    textRange = scrollY > 520 && scrollY <= 620
+    downRange = scrollY > 560 && scrollY <= 660
+  } else {
+    titleRange = scrollY > 450 && scrollY <= 550
+    textRange = scrollY > 520 && scrollY <= 620
+    downRange = scrollY > 560 && scrollY <= 660
+  }
+  lastScrollY.value = scrollY
+  if (titleRange) {
+    transitionMainTitle(direction)
+  }
+  if (textRange) {
+    transitionMainText(direction)
+  }
+  if (downRange) {
+    transitionScrollDown(direction)
+  }
+  mainResumeTrigger.value = resumeRange
+}
+
+const transitionMainTitle = (direction:string) => {
+  direction === 'down' ? mainTitleTrigger.value = true : mainTitleTrigger.value = false
+}
+
+const transitionMainText = (direction:string) => {
+  direction === 'down' ? mainTextTrigger.value = true : mainTextTrigger.value = false
+}
+
+const transitionScrollDown = (direction:string) => {
+  direction === 'down' ? scrollDownTrigger.value = true : scrollDownTrigger.value = false
 }
 
 </script>
