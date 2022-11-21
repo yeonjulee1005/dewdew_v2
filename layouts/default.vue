@@ -7,6 +7,9 @@
     <el-main class="main">
       <slot />
     </el-main>
+    <MoleculesAFooter
+      :core-data="coreData"
+    />
   </el-container>
 </template>
 

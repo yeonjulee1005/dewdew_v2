@@ -2,8 +2,6 @@ const lifecycle = process.env.npm_lifecycle_event
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default {
-  // ssr: false,
-  // target: 'static',
   app: {
     head: {
       charset: 'utf-16',
@@ -74,8 +72,12 @@ export default {
   vueuse: {
     ssrHandlers: false
   },
-  publicRuntimeConfig: {
-    API_BASE_URL:
-      lifecycle === 'build' || lifecycle === 'generate' ? process.env.API_LIVE_URL : process.env.API_BASE_URL
+  runtimeConfig: {
+    public: {
+      API_BASE_URL:
+      lifecycle === 'build' || lifecycle === 'generate'
+        ? process.env.API_LIVE_URL
+        : process.env.API_BASE_URL
+    }
   }
 }
