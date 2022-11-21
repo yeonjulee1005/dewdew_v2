@@ -184,13 +184,13 @@
       box-shadow: $space-2 $space-2 $space-4 var(--d-bg-sub-color), -2px -2px $space-4 var(--d-bg-main-color);
     }
     .frontend-list {
-      background-color: var(--d-color-03-opacity);
+      background-color: var(--d-color-06-deep);
     }
     .backend-list {
-      background-color: var(--d-color-10-opacity);
+      background-color: var(--d-color-04-deep);
     }
     .tools-list {
-      background-color: var(--d-color-09-opacity);
+      background-color: var(--d-color-18-deep);
     }
   }
 }

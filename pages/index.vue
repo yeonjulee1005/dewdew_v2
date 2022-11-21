@@ -47,9 +47,6 @@
       <div class="reference-background" />
       <div class="reference-background" />
     </div>
-    <MoleculesAFooter
-      :core-data="coreData"
-    />
     <el-backtop :bottom="60" :right="60" />
   </NuxtLayout>
 </template>

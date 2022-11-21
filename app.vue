@@ -4,6 +4,7 @@
   </div>
 </template>
 <script setup lang="ts">
+
 useHead({
   titleTemplate: (titleChunk:any) => {
     let title = titleChunk
