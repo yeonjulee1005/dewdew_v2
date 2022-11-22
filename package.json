@@ -1,5 +1,8 @@
 {
+  "name": "dewdew_page",
+  "author": "Yeonju Lee",
   "private": true,
+  "version": "1.0.2",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 4000",
@@ -10,10 +13,12 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
     "@nuxt/typescript": "^2.8.1",
+    "@pinia/nuxt": "^0.4.0",
     "@vueuse/core": "^9.1.0",
     "@vueuse/nuxt": "^9.1.0",
     "element-plus": "^2.2.21",
     "firebase": "^9.14.0",
+    "pinia": "^2.0.18",
     "sass": "^1.54.4",
     "sass-loader": "^13.0.2",
     "unplugin-icons": "^0.14.8",

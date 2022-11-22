@@ -4,6 +4,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useDatabase } from '@/store/database'
 
 useHead({
   titleTemplate: (titleChunk:any) => {
@@ -14,5 +15,8 @@ useHead({
     return title
   }
 })
+
+useDatabase().updateCoreData()
+useDatabase().updateImageData()
 
 </script>
