@@ -53,7 +53,9 @@
       .reference-thumb {
         width: $space-200;
         height: $space-200;
+        cursor: pointer;
         border-radius: $space-20;
+        border: $space-2 solid var(--d-bg-green-color-deep);
         box-shadow: 6px 6px 12px var(--d-bg-main-color), -6px -6px 12px var(--d-bg-main-color);
         transition: all 0.2s ease-in-out;
         &:hover {

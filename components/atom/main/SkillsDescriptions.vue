@@ -1,5 +1,8 @@
 <template>
-  <div class="skills-descriptions flex flex-column">
+  <div
+    class="skills-descriptions flex flex-column"
+    :class="{'skills-descriptions-on': skillsDescProps.skillsTextTrigger}"
+  >
     <span
       v-for="(item, index) in skillsDescProps.skillsText.title"
       :key="index"
@@ -33,6 +36,7 @@
 </template>
 <script setup lang="ts">
 const skillsDescProps = defineProps({
-  skillsText: { type: Object, default: () => null }
+  skillsText: { type: Object, default: () => null },
+  skillsTextTrigger: { type: Boolean, default: false }
 })
 </script>

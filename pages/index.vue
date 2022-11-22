@@ -15,38 +15,14 @@
     <AtomMainSkillContents
       :skills-text="skillsTextData"
       :skills-image="skillsImageData"
+      :skills-text-trigger="mainSkillsTextTrigger"
+      :skills-bg-trigger="mainSkillsBgTrigger"
+      :skills-list-trigger="mainSkillsListTrigger"
     />
-    <div class="main-references flex flex-column flex-justify-center">
-      <div class="section-title">
-        {{ referenceTextData.title }}
-      </div>
-      <div class="section-text">
-        {{ referenceTextData.desc }}
-      </div>
-      <div class="section-bg-text">
-        {{ referenceTextData.background }}
-      </div>
-      <div class="references-list flex flex-row flex-wrap flex-justify-center flex-align-center mx-80">
-        <div
-          v-for="item in referencesImageData"
-          :key="item.index"
-          class="reference-item flex flex-column"
-        >
-          <div class="reference-item flex flex-column flex-align-center">
-            <el-image
-              class="reference-thumb"
-              :src="item.image"
-              fit="cover"
-            />
-            <div class="reference-text mt-default">
-              {{ item.title }}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reference-background" />
-      <div class="reference-background" />
-    </div>
+    <AtomMainReferenceList
+      :reference-text-data="referenceTextData"
+      :reference-image-data="referencesImageData"
+    />
     <el-backtop :bottom="60" :right="60" />
   </NuxtLayout>
 </template>
@@ -90,7 +66,11 @@ const referencesImageData = ref<ReferenceImage[]>([])
 const mainTitleTrigger = ref(false)
 const mainTextTrigger = ref(false)
 const scrollDownTrigger = ref(false)
+
 const mainResumeTrigger = ref(false)
+const mainSkillsTextTrigger = ref(false)
+const mainSkillsBgTrigger = ref(false)
+const mainSkillsListTrigger = ref(false)
 
 const lastScrollY = ref(0)
 
@@ -115,7 +95,6 @@ const initData = () => {
       case 'resources' :
         skillsImageData.value = image.logos
         referencesImageData.value = image.references
-        console.log(referencesImageData.value)
         break
       default :
         imageData.value.push(image)
@@ -141,21 +120,23 @@ const handleScroll = () => {
   let titleRange = false
   let textRange = false
   let downRange = false
-  let resumeRange = false
 
   if (windowWidth > 1000) {
-    titleRange = scrollY > 450 && scrollY <= 550
-    textRange = scrollY > 520 && scrollY <= 620
-    downRange = scrollY > 560 && scrollY <= 660
-    resumeRange = scrollY > 150 && scrollY < 1250
-  } else if (windowWidth > 500 || windowWidth <= 1000) {
-    titleRange = scrollY > 450 && scrollY <= 550
-    textRange = scrollY > 520 && scrollY <= 620
-    downRange = scrollY > 560 && scrollY <= 660
+    titleRange = scrollY > 450 && scrollY < 550
+    textRange = scrollY > 500 && scrollY < 600
+    downRange = scrollY > 550 && scrollY < 650
+    mainResumeTrigger.value = scrollY > 150 && scrollY < 1250
+    mainSkillsTextTrigger.value = scrollY > 1300 && scrollY < 2200
+    mainSkillsBgTrigger.value = scrollY > 900 && scrollY < 2700
+    mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 3800
+  } else if (windowWidth > 500 || windowWidth < 1000) {
+    titleRange = scrollY > 450 && scrollY < 550
+    textRange = scrollY > 500 && scrollY < 600
+    downRange = scrollY > 550 && scrollY < 650
   } else {
-    titleRange = scrollY > 450 && scrollY <= 550
-    textRange = scrollY > 520 && scrollY <= 620
-    downRange = scrollY > 560 && scrollY <= 660
+    titleRange = scrollY > 450 && scrollY < 550
+    textRange = scrollY > 500 && scrollY < 600
+    downRange = scrollY > 550 && scrollY < 650
   }
   lastScrollY.value = scrollY
   if (titleRange) {
@@ -167,7 +148,6 @@ const handleScroll = () => {
   if (downRange) {
     transitionScrollDown(direction)
   }
-  mainResumeTrigger.value = resumeRange
 }
 
 const transitionMainTitle = (direction:string) => {

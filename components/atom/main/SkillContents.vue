@@ -2,11 +2,16 @@
   <div class="main-skills flex flex-column">
     <AtomMainSkillsDescriptions
       :skills-text="skillsProps.skillsText"
+      :skills-text-trigger="skillsProps.skillsTextTrigger"
     />
     <AtomMainSkillsImage
       :skills-image="skillsProps.skillsImage"
+      :skills-bg-trigger="skillsProps.skillsBgTrigger"
     />
-    <div class="skill-list flex flex-row flex-space-evenly flex-align-center">
+    <div
+      class="skill-list flex flex-row flex-space-evenly flex-align-center"
+      :class="{'skill-list-on': skillsProps.skillsListTrigger}"
+    >
       <div class="flex flex-column">
         <div class="frontend-list flex flex-column flex-justify-center mb-40">
           <div class="skill-title-text flex flex-column">
@@ -51,7 +56,10 @@ import { Images } from '~/interfaces/types'
 
 const skillsProps = defineProps({
   skillsText: { type: Object, default: () => null },
-  skillsImage: { type: Array as PropType<Images[]>, default: () => [] }
+  skillsImage: { type: Array as PropType<Images[]>, default: () => [] },
+  skillsTextTrigger: { type: Boolean, default: false },
+  skillsBgTrigger: { type: Boolean, default: false },
+  skillsListTrigger: { type: Boolean, default: false }
 })
 
 const titleLists = ref({
