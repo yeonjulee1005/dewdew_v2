@@ -6,6 +6,8 @@
   height: fit-content;
   margin: $space-600 auto $space-600;
   .skill-images {
+    transition: opacity .9s;
+    opacity: 0;
     .azure {
       @include skills;
       top: $space-160;
@@ -128,10 +130,15 @@
       width: $space-300;
     }
   }
+  .skill-images-on {
+    opacity: 1;
+  }
   .skills-descriptions {
     position: relative;
     height: fit-content;
     z-index: 10;
+    transition: opacity .9s;
+    opacity: 0;
     .skills-text {
       margin-right: $space-68;
       @include headline5;
@@ -159,8 +166,13 @@
       box-shadow: $space-2 $space-2 $space-4 var(--d-bg-sub-color), -2px -2px $space-4 var(--d-bg-main-color);
     }
   }
+  .skills-descriptions-on {
+    opacity: 1;
+  }
   .skill-list {
     margin-top: $space-650;
+    transition: opacity .9s;
+    opacity: 0;
     .skill-title-text {
       width: $space-200;
       margin-bottom: $space-30;
@@ -192,5 +204,8 @@
     .tools-list {
       background-color: var(--d-color-18-deep);
     }
+  }
+  .skill-list-on {
+    opacity: 1;
   }
 }

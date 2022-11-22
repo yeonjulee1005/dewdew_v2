@@ -19,7 +19,7 @@
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     z-index: 10;
-    transition: opacity .5s;
+    transition: opacity .75s;
   }
   .main-title-off {
     opacity: 0;
@@ -36,7 +36,7 @@
     background-color: var(--d-content-bg-color);
     z-index: 10;
     opacity: 1;
-    transition: opacity .5s;
+    transition: opacity .75s;
     p {
       @include unset-margin;
     }
@@ -57,7 +57,7 @@
     font-weight: 400;
     color: #fcfcfc;
     z-index: 10;
-    transition: opacity .5s;
+    transition: opacity .75s;
     animation: motion .5s ease-in .5s infinite alternate;
     @keyframes motion {
       0% { margin-top: 0; }

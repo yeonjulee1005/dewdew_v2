@@ -1,5 +1,8 @@
 <template>
-  <div class="skill-images">
+  <div
+    class="skill-images"
+    :class="{'skill-images-on': skillsImageProps.skillsBgTrigger}"
+  >
     <el-image
       v-for="image in skillsImageProps.skillsImage"
       :key="image.index"
@@ -13,6 +16,7 @@ import { PropType } from 'vue'
 import { Images } from '~/interfaces/types'
 
 const skillsImageProps = defineProps({
-  skillsImage: { type: Array as PropType<Images[]>, default: () => [] }
+  skillsImage: { type: Array as PropType<Images[]>, default: () => [] },
+  skillsBgTrigger: { type: Boolean, default: false }
 })
 </script>

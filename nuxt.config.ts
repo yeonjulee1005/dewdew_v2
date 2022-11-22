@@ -48,6 +48,7 @@ export default {
   },
   // modules
   modules: [
+    '@nuxtjs/robots',
     '@pinia/nuxt',
     '@vueuse/nuxt'
   ],

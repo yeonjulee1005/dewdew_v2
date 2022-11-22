@@ -1051,6 +1051,14 @@
     eslint-plugin-unicorn "^42.0.0"
     eslint-plugin-vue "^8.7.1"
 
+"@nuxtjs/robots@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/robots/-/robots-3.0.0.tgz#057f0a68d847f22c36b4e574b456173e3f3d80b0"
+  integrity sha512-qsHGW1KXBvV5Kq7u3huPnFCUTbHS4Fk8Za2mNPgmUXcwLgp3exvhPtdZfIdjrCF/aZk3A8OZONNmGghs6CecBA==
+  dependencies:
+    "@nuxt/kit" "^3.0.0"
+    h3 "^1.0.1"
+
 "@pinia/nuxt@^0.4.0":
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/@pinia/nuxt/-/nuxt-0.4.5.tgz#be97fe6d074955f1709231e336cb8ea2b3b1e147"
