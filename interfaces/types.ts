@@ -1,13 +1,9 @@
 
 /** Global Interfaces */
-export interface SearchField<L, V> {
+
+export interface Label<L, V> {
   label: L,
   value: V
-}
-
-export interface SupplierSearchField<L, V> {
-  supplierName: L,
-  supplierId: V
 }
 
 export interface Images {

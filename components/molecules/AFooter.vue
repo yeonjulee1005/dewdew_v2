@@ -23,7 +23,7 @@
 <script setup type="ts">
 
 const footerProps = defineProps({
-  coreData: { type: Array, default: () => [] }
+  coreData: { type: Object, default: () => null }
 })
 
 const menuData = ref([])
@@ -34,7 +34,7 @@ onMounted(() => {
 })
 
 const loadCoreData = () => {
-  footerProps.coreData.forEach((core) => {
+  footerProps.coreData.data.forEach((core) => {
     switch (core.id) {
       case 'footer' :
         staticTexts.value = core

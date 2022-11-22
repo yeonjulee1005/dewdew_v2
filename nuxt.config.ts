@@ -44,10 +44,11 @@ export default {
   // build
   build: {
     transpile:
-      lifecycle === 'build' || lifecycle === 'generate' ? ['element-plus', 'vue-echarts', 'resize-detector'] : ['vue-echarts', 'resize-detector']
+      lifecycle === 'build' || lifecycle === 'generate' ? ['element-plus'] : []
   },
   // modules
   modules: [
+    '@pinia/nuxt',
     '@vueuse/nuxt'
   ],
   // build modules

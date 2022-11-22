@@ -51,16 +51,11 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
+import { useDatabase } from '@/store/database'
 import { Images, IntroData, ResumeData, SkillsData, ReferenceData, ReferenceImage } from '~/interfaces/types'
-
-const getCoreData = await useFetch('/api/query?col=core')
-const getImageData = await useFetch('/api/query?col=images')
 
 const coreData = ref()
 const coreImages = ref()
-
-coreData.value = getCoreData.data.value
-coreImages.value = getImageData.data.value
 
 const introTextData = ref<IntroData>({
   mainText: [],
@@ -109,7 +104,9 @@ onBeforeUnmount(() => {
 })
 
 const initData = () => {
-  coreImages.value.forEach((image:any) => {
+  coreData.value = useDatabase().coreData
+  coreImages.value = useDatabase().imageData
+  coreImages.value.data.forEach((image:any) => {
     switch (image.id) {
       case 'assets' :
         bannersImage.value = image.data.banners.main.url
@@ -125,7 +122,7 @@ const initData = () => {
         break
     }
   })
-  coreData.value.forEach((core:any) => {
+  coreData.value.data.forEach((core:any) => {
     switch (core.id) {
       case 'main' :
         introTextData.value = core.intro
