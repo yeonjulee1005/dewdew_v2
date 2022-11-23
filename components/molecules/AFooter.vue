@@ -29,20 +29,14 @@ const footerProps = defineProps({
 const menuData = ref([])
 const staticTexts = ref({})
 
-onMounted(() => {
-  loadCoreData()
+footerProps.coreData.forEach((core) => {
+  switch (core.id) {
+    case 'footer' :
+      staticTexts.value = core
+      break
+    case 'pages' :
+      menuData.value = core.menu
+      break
+  }
 })
-
-const loadCoreData = () => {
-  footerProps.coreData.data.forEach((core) => {
-    switch (core.id) {
-      case 'footer' :
-        staticTexts.value = core
-        break
-      case 'pages' :
-        menuData.value = core.menu
-        break
-    }
-  })
-}
 </script>

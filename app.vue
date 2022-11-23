@@ -14,7 +14,6 @@ useHead({
   }
 })
 
-useDatabase().updateCoreData()
-useDatabase().updateImageData()
+useDatabase().updateData(await useApi().getAsyncData('core', 'images'))
 
 </script>

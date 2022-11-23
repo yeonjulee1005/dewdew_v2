@@ -1,11 +1,19 @@
-### 사용한 스킬은 아래와 같습니다.
+## 안녕하세요. FE 개발자 이연주 입니다.
+
+## 사용한 스킬은 아래와 같습니다.
 
 [![My Skills](https://skillicons.dev/icons?i=nuxtjs,vue,ts,html,sass,firebase,wasm,vscode,vim,github,git)](https://skillicons.dev)
 
 
-# Nuxt 3 Minimal Starter
+## 사용한 모듈은 아래와 같습니다.
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+1. ElementPlus
+2. Sass
+3. Pinia
+4. Vueuse
+5. Firebase
+
+아직 개발중으로~ 추가예정!🫣
 
 ## Setup
 
@@ -14,20 +22,12 @@ Make sure to install the dependencies:
 ```bash
 # yarn
 yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
 ```
 
 ## Development Server
 
-Start the development server on http://localhost:3000
-
 ```bash
-npm run dev
+yarn dev
 ```
 
 ## Production
@@ -35,17 +35,15 @@ npm run dev
 Build the application for production:
 
 ```bash
-npm run build
+yarn build
 ```
 
 Locally preview production build:
 
 ```bash
-npm run preview
+yarn generate
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
-# dewdew_v2
 ## 셋업이 진행 안될 경우 조치사항
 ```
 yarn.lock, node_modules 삭제, .nuxt 삭제, yarn 캐시클린 진행 

@@ -30,8 +30,8 @@
 import { useDatabase } from '~/stores/database'
 import { Images, IntroData, ResumeData, SkillsData, ReferenceData, ReferenceImage } from '~/interfaces/types'
 
-const coreData = ref()
-const coreImages = ref()
+const coreData = useDatabase().coreData.value
+const coreImages = useDatabase().imageData.value
 
 const introTextData = ref<IntroData>({
   mainText: [],
@@ -84,9 +84,7 @@ onBeforeUnmount(() => {
 })
 
 const initData = () => {
-  coreData.value = useDatabase().coreData
-  coreImages.value = useDatabase().imageData
-  coreImages.value.data.forEach((image:any) => {
+  coreImages.forEach((image:any) => {
     switch (image.id) {
       case 'assets' :
         bannersImage.value = image.data.banners.main.url
@@ -101,7 +99,7 @@ const initData = () => {
         break
     }
   })
-  coreData.value.data.forEach((core:any) => {
+  coreData.forEach((core:any) => {
     switch (core.id) {
       case 'main' :
         introTextData.value = core.intro

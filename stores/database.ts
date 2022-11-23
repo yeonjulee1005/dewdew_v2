@@ -1,20 +1,17 @@
 import { defineStore } from 'pinia'
 
 export const useDatabase = defineStore('database', () => {
-  const coreData = ref()
-  const imageData = ref()
+  const coreData:any = {}
+  const imageData:any = {}
 
-  const updateCoreData = async () => {
-    coreData.value = await useFetch('/api/query?col=core')
-  }
-  const updateImageData = async () => {
-    imageData.value = await useFetch('/api/query?col=images')
+  const updateData = async (data:any) => {
+    coreData.value = await data.core
+    imageData.value = await data.images
   }
 
   return {
     coreData,
     imageData,
-    updateCoreData,
-    updateImageData
+    updateData
   }
 })
