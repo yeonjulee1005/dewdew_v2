@@ -2,7 +2,7 @@
   <NuxtPage />
 </template>
 <script setup lang="ts">
-import { useDatabase } from '@/store/database'
+import { useDatabase } from '~/stores/database'
 
 useHead({
   titleTemplate: (titleChunk:any) => {

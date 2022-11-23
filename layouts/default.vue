@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { useDatabase } from '@/store/database'
+import { useDatabase } from '~/stores/database'
 
 const coreData = ref()
 const coreImages = ref()

@@ -4,11 +4,10 @@ export const useDatabase = defineStore('database', () => {
   const coreData = ref()
   const imageData = ref()
 
-  async function updateCoreData () {
+  const updateCoreData = async () => {
     coreData.value = await useFetch('/api/query?col=core')
   }
-
-  async function updateImageData () {
+  const updateImageData = async () => {
     imageData.value = await useFetch('/api/query?col=images')
   }
 

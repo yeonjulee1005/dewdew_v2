@@ -27,7 +27,7 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-import { useDatabase } from '@/store/database'
+import { useDatabase } from '~/stores/database'
 import { Images, IntroData, ResumeData, SkillsData, ReferenceData, ReferenceImage } from '~/interfaces/types'
 
 const coreData = ref()
