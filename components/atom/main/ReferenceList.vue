@@ -1,5 +1,8 @@
 <template>
-  <div class="main-references flex flex-column flex-justify-center">
+  <div
+    class="main-references flex flex-column flex-justify-center"
+    :class="{'main-references-on': referenceProps.referenceListTrigger}"
+  >
     <div class="section-title">
       {{ referenceTextData.title }}
     </div>
@@ -34,15 +37,21 @@
     <div class="reference-background" />
     <MoleculesADialog
       :dialog-trigger="referenceDialogTrigger"
+      custom-class="reference-dialog"
       @close-dialog="closeReferenceDialog"
     >
-      <div>
+      <div class="title mb-default">
         {{ selectReference.title }}
       </div>
-      <div>
+      <div class="description mb-default">
         {{ selectReference.desc }}
       </div>
-      <el-image :src="selectReference.detailsImage" />
+      <el-image
+        :src="selectReference.detailsImage"
+        class="image"
+        loading="eager"
+        @click="openReference"
+      />
     </MoleculesADialog>
   </div>
 </template>
@@ -63,8 +72,13 @@ const referenceDialogTrigger = ref(false)
 
 const referenceProps = defineProps({
   referenceTextData: { type: Object, default: () => null },
-  referenceImageData: { type: Array as PropType<ReferenceImage[]>, default: () => [] }
+  referenceImageData: { type: Array as PropType<ReferenceImage[]>, default: () => [] },
+  referenceListTrigger: { type: Boolean, default: false }
 })
+
+const openReference = () => {
+  window.open(selectReference.value.url, '_blank')
+}
 
 const clickReference = (data:ReferenceImage) => {
   selectReference.value = data

@@ -22,15 +22,40 @@
     <AtomMainReferenceList
       :reference-text-data="referenceTextData"
       :reference-image-data="referencesImageData"
+      :reference-list-trigger="referenceListTrigger"
     />
+    <div class="main-contact flex flex-column">
+      <div class="contact-title">
+        {{ contactTextData.title }}
+      </div>
+      <div class="contact-lists flex flex-row">
+        <div class="kakaotalk">
+          <div class="kakaotalk-title">
+            {{ contactTextData.kakaoTalk.title }}
+            카톡타이틀
+          </div>
+          <nuxt-link :to="contactTextData.kakaoTalk.url" target="_blank">
+            <el-image :src="kakaoImage" />
+          </nuxt-link>
+          <div class="kakaotalk-desc">
+            {{ contactTextData.kakaoTalk.desc }}
+          </div>
+        </div>
+        <div class="email">
+          <div>
+            {{ contactTextData.email.title }}
+          </div>
+        </div>
+      </div>
+    </div>
     <el-backtop :bottom="60" :right="60" />
   </NuxtLayout>
 </template>
 <script setup lang="ts">
 import { useDatabase } from '~/stores/database'
-import { Images, IntroData, ResumeData, SkillsData, ReferenceData, ReferenceImage } from '~/interfaces/types'
+import { CoreData, Images, IntroData, ResumeData, SkillsData, ReferenceData, ReferenceImage, ContactData } from '~/interfaces/types'
 
-const coreData = useDatabase().coreData.value
+const coreData:CoreData[] = useDatabase().coreData.value
 const coreImages = useDatabase().imageData.value
 
 const introTextData = ref<IntroData>({
@@ -55,10 +80,25 @@ const referenceTextData = ref<ReferenceData>({
   desc: '',
   background: ''
 })
+const contactTextData = ref<ContactData>({
+  id: '',
+  title: '',
+  email: {
+    key: '',
+    template: '',
+    title: ''
+  },
+  kakaoTalk: {
+    title: '',
+    url: '',
+    desc: ''
+  }
+})
 
 const imageData = ref<any[]>([])
 const bannersImage = ref('')
 const resumeImage = ref('')
+const kakaoImage = ref('')
 
 const skillsImageData = ref<Images[]>([])
 const referencesImageData = ref<ReferenceImage[]>([])
@@ -71,6 +111,7 @@ const mainResumeTrigger = ref(false)
 const mainSkillsTextTrigger = ref(false)
 const mainSkillsBgTrigger = ref(false)
 const mainSkillsListTrigger = ref(false)
+const referenceListTrigger = ref(false)
 
 const lastScrollY = ref(0)
 
@@ -89,6 +130,7 @@ const initData = () => {
       case 'assets' :
         bannersImage.value = image.data.banners.main.url
         resumeImage.value = image.data.thumb.url
+        kakaoImage.value = image.data.kakao.url
         break
       case 'resources' :
         skillsImageData.value = image.logos
@@ -106,6 +148,7 @@ const initData = () => {
         resumeTextData.value = core.resume
         skillsTextData.value = core.skills
         referenceTextData.value = core.reference
+        contactTextData.value = core.contact
         break
     }
   })
@@ -127,6 +170,7 @@ const handleScroll = () => {
     mainSkillsTextTrigger.value = scrollY > 1300 && scrollY < 2200
     mainSkillsBgTrigger.value = scrollY > 900 && scrollY < 2700
     mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 3800
+    referenceListTrigger.value = scrollY > 4000 && scrollY < 5800
   } else if (windowWidth > 500 || windowWidth < 1000) {
     titleRange = scrollY > 450 && scrollY < 550
     textRange = scrollY > 500 && scrollY < 600

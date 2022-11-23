@@ -33,6 +33,7 @@ export interface SalesStatsData {
 
 /** Interfaces */
 export interface Footer {
+  id: string,
   copyright: string,
   designed: string
 }
@@ -73,7 +74,27 @@ export interface ReferenceImage {
   detailsImage: string,
 }
 
+export interface EmailSend {
+  key: string,
+  template: string,
+  title: string
+}
+
+export interface Kakao {
+  title: string,
+  desc: string,
+  url: string
+}
+
+export interface ContactData {
+  id: string,
+  title: string
+  email: EmailSend,
+  kakaoTalk: Kakao
+}
+
 export interface Main {
+  id: string,
   intro: IntroData,
   resume: ResumeData,
   skills: SkillsData
@@ -85,12 +106,13 @@ export interface Information {
 }
 
 export interface Pages {
+  id: string,
   info: Information,
   menu: Images[]
 }
 
 export interface CoreData {
-  footer: Footer,
-  main: Main,
-  pages: Pages,
+  footer: Footer[],
+  main: Main[],
+  pages: Pages[],
 }
