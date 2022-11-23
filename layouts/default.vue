@@ -14,20 +14,17 @@
 </template>
 
 <script setup lang="ts">
-import { useDatabase } from '@/store/database'
+import { useDatabase } from '~/stores/database'
 
-const coreData = ref()
-const coreImages = ref()
+const coreData = useDatabase().coreData.value
+const coreImages = useDatabase().imageData.value
 
 const menuData = ref([])
 const assetsImageData = ref([])
 
-coreData.value = useDatabase().coreData
-coreImages.value = useDatabase().imageData
+menuData.value = coreData.filter((core:any) => core.id === 'pages')[0].menu
 
-menuData.value = coreData.value.data.filter((core:any) => core.id === 'pages')[0].menu
-
-coreImages.value.data.forEach((image:any) => {
+coreImages.forEach((image:any) => {
   switch (image.id) {
     case 'assets' :
       assetsImageData.value = image.data
