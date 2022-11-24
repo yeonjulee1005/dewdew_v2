@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
+    "@emailjs/browser": "^3.9.1",
     "@nuxt/typescript": "^2.8.1",
     "@nuxtjs/robots": "^3.0.0",
     "@pinia/nuxt": "^0.4.0",

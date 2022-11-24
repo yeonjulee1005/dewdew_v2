@@ -54,6 +54,7 @@ export default {
   ],
   // build modules
   buildModules: [
+    '@emailjs/browser',
     'unplugin-icons/nuxt'
   ],
   typescript: {
