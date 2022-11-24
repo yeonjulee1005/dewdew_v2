@@ -19,7 +19,7 @@
       }
       .desktop-menu {
         .menu-links {
-          @include headline3;
+          @include headline4;
           text-decoration: none;
           transition: all .1s ease-in-out;
         }
@@ -92,7 +92,7 @@
       .footer-menu-container {
         width: $space-300;
         .footer-links {
-          @include headline5;
+          @include headline6;
           text-decoration: unset;
           transition: all .1s ease-in-out;
         }
@@ -101,7 +101,7 @@
         }
       }
       .copyright {
-        @include headline6;
+        @include headline7;
       }
     }
   }

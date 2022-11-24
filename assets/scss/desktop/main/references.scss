@@ -65,7 +65,7 @@
         }
       }
       .reference-text {
-        @include headline5;
+        @include headline6;
       }
     }
   }
@@ -76,7 +76,7 @@
       border-bottom: 1px solid var(--d-text-color);
     }
     .description {
-      @include headline5;
+      @include headline6;
     }
     .image {
       cursor: pointer;

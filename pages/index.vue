@@ -24,30 +24,11 @@
       :reference-image-data="referencesImageData"
       :reference-list-trigger="referenceListTrigger"
     />
-    <div class="main-contact flex flex-column">
-      <div class="contact-title">
-        {{ contactTextData.title }}
-      </div>
-      <div class="contact-lists flex flex-row">
-        <div class="kakaotalk">
-          <div class="kakaotalk-title">
-            {{ contactTextData.kakaoTalk.title }}
-            카톡타이틀
-          </div>
-          <nuxt-link :to="contactTextData.kakaoTalk.url" target="_blank">
-            <el-image :src="kakaoImage" />
-          </nuxt-link>
-          <div class="kakaotalk-desc">
-            {{ contactTextData.kakaoTalk.desc }}
-          </div>
-        </div>
-        <div class="email">
-          <div>
-            {{ contactTextData.email.title }}
-          </div>
-        </div>
-      </div>
-    </div>
+    <AtomMainContactMe
+      :contact-data="contactTextData"
+      :kakao-image="kakaoImage"
+      :contact-trigger="contactTrigger"
+    />
     <el-backtop :bottom="60" :right="60" />
   </NuxtLayout>
 </template>
@@ -112,6 +93,7 @@ const mainSkillsTextTrigger = ref(false)
 const mainSkillsBgTrigger = ref(false)
 const mainSkillsListTrigger = ref(false)
 const referenceListTrigger = ref(false)
+const contactTrigger = ref(false)
 
 const lastScrollY = ref(0)
 
@@ -163,14 +145,15 @@ const handleScroll = () => {
   let downRange = false
 
   if (windowWidth > 1000) {
-    titleRange = scrollY > 450 && scrollY < 550
-    textRange = scrollY > 500 && scrollY < 600
-    downRange = scrollY > 550 && scrollY < 650
+    titleRange = scrollY > 100 && scrollY < 550
+    textRange = scrollY > 120 && scrollY < 600
+    downRange = scrollY > 140 && scrollY < 650
     mainResumeTrigger.value = scrollY > 150 && scrollY < 1250
     mainSkillsTextTrigger.value = scrollY > 1300 && scrollY < 2200
     mainSkillsBgTrigger.value = scrollY > 900 && scrollY < 2700
     mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 3800
     referenceListTrigger.value = scrollY > 4000 && scrollY < 5800
+    contactTrigger.value = scrollY > 5500
   } else if (windowWidth > 500 || windowWidth < 1000) {
     titleRange = scrollY > 450 && scrollY < 550
     textRange = scrollY > 500 && scrollY < 600
