@@ -12,6 +12,11 @@ export interface Images {
   url: string
 }
 
+export interface MassImages {
+  title: string,
+  url: string
+}
+
 export interface listTexts {
   index: number,
   title: string,
@@ -115,4 +120,11 @@ export interface CoreData {
   footer: Footer[],
   main: Main[],
   pages: Pages[],
+}
+
+/** Archives Page */
+export interface ArchivesData {
+  year: string,
+  url: string,
+  route: string
 }

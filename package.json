@@ -20,13 +20,13 @@
     "@vueuse/nuxt": "^9.1.0",
     "element-plus": "^2.2.21",
     "firebase": "^9.14.0",
-    "keen-slider": "^6.8.5",
     "pinia": "^2.0.18",
     "sass": "^1.54.4",
     "sass-loader": "^13.0.2",
     "unplugin-icons": "^0.14.8",
     "unplugin-vue-components": "^0.22.4",
-    "vue": "^3.2.33"
+    "vue": "^3.2.33",
+    "vue3-carousel": "^0.2.5"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^2.1.0",

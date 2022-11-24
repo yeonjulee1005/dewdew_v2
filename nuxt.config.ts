@@ -54,6 +54,7 @@ export default {
   ],
   // build modules
   buildModules: [
+    'vue3-carousel',
     '@emailjs/browser',
     'unplugin-icons/nuxt'
   ],
