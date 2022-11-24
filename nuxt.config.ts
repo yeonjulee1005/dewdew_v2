@@ -34,12 +34,12 @@ export default {
   plugins: [
   ],
   vite: {
-    build: {
-      chunkSizeWarningLimit: 3000,
-      commonjsOptions: {
-        esmExternals: true
-      }
-    }
+    // build: {
+    //   chunkSizeWarningLimit: 3000,
+    //   commonjsOptions: {
+    //     esmExternals: true
+    //   }
+    // }
   },
   // build
   build: {
@@ -73,13 +73,5 @@ export default {
   // vueuse
   vueuse: {
     ssrHandlers: false
-  },
-  runtimeConfig: {
-    public: {
-      API_BASE_URL:
-      lifecycle === 'build' || lifecycle === 'generate'
-        ? process.env.API_LIVE_URL
-        : process.env.API_BASE_URL
-    }
   }
 }
