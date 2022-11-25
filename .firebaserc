@@ -2,13 +2,21 @@
   "projects": {
     "default": "dewdew-4c122"
   },
-  "functions": { "source": ".output/server" },
+  "functions": {
+    "source": ".output/server",
+    "codebase": "nuxt"
+  },
   "hosting": [
     {
       "site": "dewdew-4c122",
       "public": ".output/public",
       "cleanUrls": true,
-      "rewrites": [{ "source": "**", "function": "server" }]
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "server"
+        }
+      ]
     }
   ]
 }
