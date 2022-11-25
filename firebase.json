@@ -2,10 +2,12 @@
   "functions": [
     {
       "source": ".output/server",
+      "runtime": "nodejs16" ,
       "codebase": "nuxt"
     },
     {
       "source": "functions",
+      "runtime": "nodejs16" ,
       "codebase": "functions"
     }
   ],
