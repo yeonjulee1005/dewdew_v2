@@ -6,6 +6,12 @@ export interface Label<L, V> {
   value: V
 }
 
+export interface SnsLogo {
+  title: string,
+  route: string,
+  url: string
+}
+
 export interface Images {
   index?: number,
   title: string,

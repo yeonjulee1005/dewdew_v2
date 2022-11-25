@@ -11,6 +11,7 @@
 /* Layouts */
 .m-auto { margin: auto; }
 .mx-auto { margin-left: auto; margin-right: auto; }
+.mx-default { margin-left: $space-default; margin-right: $space-default; }
 .mx-20 { margin-left: $space-20; margin-right: $space-20; }
 .mx-80 { margin-left: $space-80; margin-right: $space-80; }
 

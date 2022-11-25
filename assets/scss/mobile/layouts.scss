@@ -6,7 +6,7 @@
   .header {
     position: fixed;
     width: $space-100vw;
-    height: $space-80;
+    height: $space-60;
     align-items: center;
     background-color: var(--d-header-bg-color);
     filter: alpha(opacity=30);
@@ -14,7 +14,7 @@
     .header-container {
       width: $space-1000;
       .logo {
-        width: $space-200;
+        width: $space-120;
         margin: $space-default $space-20;
       }
       .desktop-menu {
@@ -28,6 +28,11 @@
           color: var(--d-red-color-deep);
         }
       }
+      .github {
+        width: $space-20;
+        height: $space-20;
+        cursor: pointer;
+      }
       .dark-mode-switch {
         --el-switch-on-color: var(--d-footer-bg-color);
         --el-switch-off-color: var(--d-footer-bg-color);
@@ -35,9 +40,11 @@
       .mobile-menu {
         position: relative;
         background-color: transparent;
+        margin: 0 $space-default;
         border: unset;
         .el-sub-menu {
           .el-sub-menu__title {
+            @include unset-padding;
             .el-icon {
               @include unset-margin;
               transition: all .3s ease-in-out;
@@ -59,7 +66,7 @@
             background-color: transparent;
             .el-menu-item {
               .menu-links {
-                @include headline6;
+                @include headline5;
                 text-decoration: unset;
                 transition: all .3s ease-in-out;
               }
@@ -99,6 +106,20 @@
         }
         .footer-links:hover {
           color: var(--d-red-color);
+        }
+      }
+      .footer-sns-container {
+        width: $space-160;
+        .sns-links {
+          transition: all .1s ease-in-out;
+          width: $space-30;
+          height: fit-content;
+          margin: auto $space-8;
+          &:last-child {
+            width: $space-40;
+            height: fit-content;
+            margin: auto $space-4;
+          }
         }
       }
       .copyright {

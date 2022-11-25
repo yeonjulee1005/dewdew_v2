@@ -1,7 +1,7 @@
 <template>
   <el-container class="default-layout-container">
     <MoleculesAHeader
-      :menu-list="menuData"
+      :core-data="coreData"
       :images="assetsImageData"
     />
     <el-main class="main">
@@ -19,10 +19,7 @@ import { useDatabase } from '~/stores/database'
 const coreData = useDatabase().coreData.value
 const coreImages = useDatabase().imageData.value
 
-const menuData = ref([])
 const assetsImageData = ref([])
-
-menuData.value = coreData.filter((core:any) => core.id === 'pages')[0].menu
 
 coreImages.forEach((image:any) => {
   switch (image.id) {

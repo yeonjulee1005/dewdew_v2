@@ -6,7 +6,7 @@
   .header {
     position: fixed;
     width: $space-100vw;
-    height: $space-80;
+    height: $space-60;
     align-items: center;
     background-color: var(--d-header-bg-color);
     filter: alpha(opacity=30);
@@ -14,7 +14,7 @@
     .header-container {
       width: $space-1000;
       .logo {
-        width: $space-200;
+        width: $space-120;
         margin: $space-default $space-20;
       }
       .desktop-menu {
@@ -27,6 +27,11 @@
         .menu-links:hover {
           color: var(--d-red-color-deep);
         }
+      }
+      .github {
+        width: $space-30;
+        height: $space-30;
+        cursor: pointer;
       }
       .dark-mode-switch {
         --el-switch-on-color: var(--d-footer-bg-color);
@@ -59,14 +64,14 @@
             background-color: transparent;
             .el-menu-item {
               .menu-links {
-                @include headline3;
+                @include headline5;
                 text-decoration: unset;
                 transition: all .3s ease-in-out;
               }
               &:hover {
                 background-color: unset;
                 .menu-links {
-                  @include headline2;
+                  @include headline4;
                   text-decoration: unset;
                 }
               }
@@ -99,6 +104,20 @@
         }
         .footer-links:hover {
           color: var(--d-red-color);
+        }
+      }
+      .footer-sns-container {
+        width: $space-160;
+        .sns-links {
+          transition: all .1s ease-in-out;
+          width: $space-30;
+          height: fit-content;
+          margin: auto $space-8;
+          &:last-child {
+            width: $space-40;
+            height: fit-content;
+            margin: auto $space-4;
+          }
         }
       }
       .copyright {

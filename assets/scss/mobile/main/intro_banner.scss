@@ -8,11 +8,10 @@
   }
   .main-title {
     position: absolute;
-    width: $space-600;
-    top: $space-300;
-    right: $space--100;
-    font-size: 6em;
-    line-height: $space-90;
+    width: $space-200;
+    top: $space-150;
+    right: $space--50;
+    font-size: 2em;
     font-weight: 800;
     text-align: left;
     transform: rotateZ(90deg);
@@ -26,13 +25,11 @@
   }
   .main-text {
     position: absolute;
-    top: $space-500;
-    left: 5%;
-    width: fit-content;
-    height: $space-80;
+    top: $space-450;
+    width: $space-percent-80;
+    height: $space-60;
     padding: $space-20;
-    @include headline4;
-    text-align: left;
+    @include headline7;
     background-color: var(--d-content-bg-color);
     z-index: 10;
     opacity: 1;
@@ -41,7 +38,8 @@
       @include unset-margin;
     }
     .sub-text {
-      @include headline6;
+      @include headline7;
+      margin-top: $space-default;
     }
   }
   .main-text-off {
@@ -49,8 +47,8 @@
   }
   .scroll-down {
     position: absolute;
-    width: 10vw;
-    top: 95%;
+    width: fit-content;
+    top: $space-percent-100;
     @include headline7;
     z-index: 10;
     transition: opacity .75s;

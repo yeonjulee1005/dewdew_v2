@@ -154,14 +154,26 @@ const handleScroll = () => {
     mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 3800
     referenceListTrigger.value = scrollY > 4000 && scrollY < 5800
     contactTrigger.value = scrollY > 5500
-  } else if (windowWidth > 500 || windowWidth < 1000) {
-    titleRange = scrollY > 450 && scrollY < 550
-    textRange = scrollY > 500 && scrollY < 600
-    downRange = scrollY > 550 && scrollY < 650
+  } else if (windowWidth > 500 && windowWidth < 1000) {
+    titleRange = scrollY > 250 && scrollY < 350
+    textRange = scrollY > 400 && scrollY < 500
+    downRange = scrollY > 400 && scrollY < 500
+    mainResumeTrigger.value = scrollY > 200 && scrollY < 1250
+    mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
+    mainSkillsBgTrigger.value = scrollY > 1200 && scrollY < 2600
+    mainSkillsListTrigger.value = scrollY > 2700 && scrollY < 5100
+    referenceListTrigger.value = scrollY > 5000 && scrollY < 7300
+    contactTrigger.value = scrollY > 7200
   } else {
-    titleRange = scrollY > 450 && scrollY < 550
-    textRange = scrollY > 500 && scrollY < 600
-    downRange = scrollY > 550 && scrollY < 650
+    titleRange = scrollY > 150 && scrollY < 250
+    textRange = scrollY > 350 && scrollY < 450
+    downRange = scrollY > 200 && scrollY < 300
+    mainResumeTrigger.value = scrollY > 200 && scrollY < 1400
+    mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
+    mainSkillsBgTrigger.value = scrollY > 1300 && scrollY < 2600
+    mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 5100
+    referenceListTrigger.value = scrollY > 5000 && scrollY < 8800
+    contactTrigger.value = scrollY > 8800
   }
   lastScrollY.value = scrollY
   if (titleRange) {

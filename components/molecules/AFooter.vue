@@ -11,6 +11,17 @@
           {{ menu.title }}
         </nuxt-link>
       </div>
+      <div class="footer-sns-container flex flex-row mb-default">
+        <nuxt-link
+          v-for="image in snsData"
+          :key="image.title"
+          class="sns-links"
+          :to="image.route"
+          target="_blank"
+        >
+          <el-image :src="image.url" />
+        </nuxt-link>
+      </div>
       <div class="flex copyright">
         {{ staticTexts.copyright }}
       </div>
@@ -27,6 +38,7 @@ const footerProps = defineProps({
 })
 
 const menuData = ref([])
+const snsData = ref([])
 const staticTexts = ref({})
 
 footerProps.coreData.forEach((core) => {
@@ -36,6 +48,7 @@ footerProps.coreData.forEach((core) => {
       break
     case 'pages' :
       menuData.value = core.menu
+      snsData.value = core.sns
       break
   }
 })

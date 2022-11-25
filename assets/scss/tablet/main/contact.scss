@@ -11,9 +11,12 @@
     @include headline1;
   }
   .contact-lists {
-    width: $space-800;
+    flex-direction: column;
+    align-items: center;
+    width: $space-percent-100;
     .kakaotalk {
       width: $space-percent-50;
+      margin-bottom: $space-30;
       .title {
         @include headline3;
       }

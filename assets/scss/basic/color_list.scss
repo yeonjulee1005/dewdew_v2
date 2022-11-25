@@ -29,7 +29,9 @@ $d-bg-color-95: hsla(0, 22%, 9%);
 $d-bg-color-100: hsla(0, 23%, 3%);
 
 $d-footer-color-light: hsla(150, 18%, 85%);
+$d-footer-color-light-deep: hsla(150, 18%, 75%);
 $d-footer-color-dark: hsla(154, 13%, 24%);
+$d-footer-color-dark-deep: hsla(154, 13%, 28%);
 
 $d-bg-color-light: hsla(289, 15%, 86%);
 $d-bg-color-dark: hsla(338, 16%, 23%);
@@ -186,6 +188,7 @@ $d-blue-color-dark-deep: hsla(208, 33%, 78%);
   --d-header-bg-color: #{$d-bg-color-10-opacity};
   --d-content-bg-color: #{$d-bg-color-20-opacity};
   --d-footer-bg-color: #{$d-footer-color-light};
+  --d-footer-bg-color-deep: #{$d-footer-color-light-deep};
   --d-text-color: #{$d-bg-color-90};
   --d-text-dark-color: #{$d-bg-color-80};
   --d-text-color-deep: #{$d-bg-color-70};
@@ -268,6 +271,7 @@ html.dark {
   --d-header-bg-color: #{$d-bg-color-00-opacity};
   --d-content-bg-color: #{$d-bg-color-80-opacity};
   --d-footer-bg-color: #{$d-footer-color-dark};
+  --d-footer-bg-color-deep: #{$d-footer-color-dark-deep};
   --d-text-color: #{$d-bg-color-10};
   --d-text-dark-color: #{$d-bg-color-90};
   --d-text-color-deep: #{$d-bg-color-30};

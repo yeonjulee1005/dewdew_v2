@@ -8,11 +8,10 @@
   }
   .main-title {
     position: absolute;
-    width: $space-600;
-    top: $space-300;
+    width: $space-360;
+    top: $space-180;
     right: $space--100;
-    font-size: 6em;
-    line-height: $space-90;
+    font-size: 3.5em;
     font-weight: 800;
     text-align: left;
     transform: rotateZ(90deg);
@@ -26,13 +25,12 @@
   }
   .main-text {
     position: absolute;
-    top: $space-500;
-    left: 5%;
+    top: $space-450;
     width: fit-content;
     height: $space-80;
+    margin: $space-20;
     padding: $space-20;
-    @include headline4;
-    text-align: left;
+    @include headline6;
     background-color: var(--d-content-bg-color);
     z-index: 10;
     opacity: 1;
@@ -49,9 +47,9 @@
   }
   .scroll-down {
     position: absolute;
-    width: 10vw;
-    top: 95%;
-    @include headline7;
+    width: fit-content;
+    top: 90%;
+    @include headline6;
     z-index: 10;
     transition: opacity .75s;
     animation: motion .5s ease-in .5s infinite alternate;

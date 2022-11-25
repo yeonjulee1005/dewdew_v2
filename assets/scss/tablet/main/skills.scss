@@ -1,0 +1,215 @@
+/** Main Skills */
+.main-skills {
+  position: relative;
+  max-width: $space-1200;
+  width: $space-90vw;
+  height: fit-content;
+  margin: $space-600 auto $space-600;
+  .skill-images {
+    transition: opacity .9s;
+    opacity: 0;
+    .azure {
+      @include skills;
+      top: $space-160;
+      left: $space--50;
+      width: $space-200;
+    }
+    .bitbucket {
+      @include skills;
+      top: $space-360;
+      left: $space-240; 
+      width: $space-50;
+    }
+    .css3 {
+      @include skills;
+      top: $space--400;
+      left: $space-600;
+    }
+    .html5 {
+      @include skills;
+      top: $space-450;
+      left: $space--50;
+    }
+    .github {
+      @include skills;
+      opacity: var(--d-bg-opacity-03);
+      top: $space-600;
+      left: $space-150;
+      width: $space-250;
+    }
+    .node {
+      @include skills;
+      top: $space-650;
+      left: $space-900;
+      width: $space-200;
+    }
+    .illustration {
+      @include skills;
+      top: $space-500;
+      left: $space-900;
+      width: $space-50;
+    }
+    .xd {
+      @include skills;
+      top: $space--200;
+      left: $space-1100;
+    }
+    .javaScript {
+      @include skills;
+      opacity: var(--d-bg-opacity-02);
+      top: $space--170;
+      left: $space--70;
+      width: $space-200;
+    }
+    .typeScript {
+      @include skills;
+      opacity: var(--d-bg-opacity-02);
+      top: $space--430;
+      left: $space-200;
+      width: $space-200;
+    }
+    .nuxt {
+      @include skills;
+      opacity: var(--d-bg-opacity-02);
+      top: $space--250;
+      left: $space-250;
+      width: $space-400;
+    }
+    .pgadmin {
+      @include skills;
+      top: $space-360;
+      left: $space-740;
+    }
+    .postman {
+      @include skills;
+      top: $space-160;
+      left: $space-600;
+    }
+    .python {
+      @include skills;
+      top: $space-400; 
+      left: $space-1100; 
+    }
+    .sass {
+      @include skills;
+      opacity: var(--d-bg-opacity-02);
+      top: $space-250; 
+      left: $space-360; 
+      width: $space-300;
+    }
+    .vim {
+      @include skills;
+      opacity: var(--d-bg-opacity-02);
+      top: $space-160;
+      left: $space-240; 
+    }
+    .vscode {
+      @include skills;
+      top: $space--150; 
+      left: $space-740; 
+      width: $space-80;
+    }
+    .jira {
+      @include skills;
+      top: $space--400; 
+      left: $space--50; 
+      width: $space-80;
+    }
+    .vue {
+      @include skills;
+      opacity: var(--d-bg-opacity-02);
+      top: $space-650;
+      left: $space-480; 
+      width: $space-300;
+    }
+    .firebase {
+      @include skills;
+      opacity: var(--d-bg-opacity-02);
+      top: $space--450;
+      left: $space-800;
+      width: $space-300;
+    }
+  }
+  .skill-images-on {
+    opacity: 1;
+  }
+  .skills-descriptions {
+    position: relative;
+    height: fit-content;
+    z-index: 10;
+    transition: opacity .9s;
+    opacity: 0;
+    .skills-text {
+      margin-right: $space-68;
+      @include headline6;
+      text-align: right;
+      z-index: 10;
+      &:nth-child(1),
+      &:nth-child(2) {
+        @include headline3;
+        text-align: right;
+      }
+      &:nth-child(3),
+      &:nth-child(6),
+      &:nth-child(9) {
+        margin-top: $space-default;
+      }
+    }
+    .skills-title-box {
+      position: absolute;
+      top: $space--50;
+      right: $space-0;
+      width: $space-425;
+      height: $space-425; 
+      background-color: var(--d-color-01-opacity);
+      border-radius: $space-percent-50;
+      box-shadow: $space-2 $space-2 $space-4 var(--d-bg-sub-color), -2px -2px $space-4 var(--d-bg-main-color);
+    }
+  }
+  .skills-descriptions-on {
+    opacity: 1;
+  }
+  .skill-list {
+    flex-direction: column;
+    margin-top: $space-650;
+    transition: opacity .9s;
+    opacity: 0;
+    .main-skill-list {
+      flex-direction: column;
+    }
+    .skill-title-text {
+      width: $space-200;
+      margin-bottom: $space-30;
+      @include headline2;
+      text-align: left;
+    }
+    .skills-text {
+      width: $space-100;
+      margin-bottom: $space-20;
+      @include headline6;
+    }
+    .progress {
+      margin-bottom: $space-20;
+    }
+    .frontend-list,
+    .backend-list,
+    .tools-list {
+      padding: $space-30;
+      width: fit-content;
+      height: fit-content;
+      box-shadow: $space-2 $space-2 $space-4 var(--d-bg-sub-color), -2px -2px $space-4 var(--d-bg-main-color);
+    }
+    .frontend-list {
+      background-color: var(--d-color-06-deep);
+    }
+    .backend-list {
+      background-color: var(--d-color-04-deep);
+    }
+    .tools-list {
+      background-color: var(--d-color-18-deep);
+    }
+  }
+  .skill-list-on {
+    opacity: 1;
+  }
+}

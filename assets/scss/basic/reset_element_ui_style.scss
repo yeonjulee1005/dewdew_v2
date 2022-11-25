@@ -1,13 +1,11 @@
 /** Init Element Ui Style */
 
-.el-table .cell {
-  @include unset-padding;
-}
-
 .el-button:focus-visible {
   outline: unset;
   outline-offset: unset;
 }
+
+/** el-backtop */
 
 .el-backtop {
   width: 50px;
@@ -23,4 +21,27 @@
 
 .el-backtop:hover {
   background-color: var(--d-green-color-deep);
+}
+
+/** el-form */
+
+.el-input__wrapper.is-focus,
+.el-input__wrapper.is-hover,
+.el-textarea__inner:focus {
+  box-shadow: 0 0 0 $space-1 var(--d-green-color) !important;
+}
+.el-form-item.is-error {
+  .el-input__wrapper,
+  .el-textarea__inner {
+    box-shadow: 0 0 0 $space-1 var(--d-red-color) !important;
+  }
+  .el-form-item__error,
+  .el-textarea__inner {
+    color: var(--d-red-color);
+  }
+}
+
+.el-form-item.is-required:not(.is-no-asterisk).asterisk-left > .el-form-item__label-wrap > .el-form-item__label:before,
+.el-form-item.is-required:not(.is-no-asterisk).asterisk-left > .el-form-item__label:before {
+  color: var(--d-red-color);
 }

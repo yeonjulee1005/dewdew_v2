@@ -28,6 +28,11 @@
           color: var(--d-red-color-deep);
         }
       }
+      .github {
+        width: $space-30;
+        height: $space-30;
+        cursor: pointer;
+      }
       .dark-mode-switch {
         --el-switch-on-color: var(--d-footer-bg-color);
         --el-switch-off-color: var(--d-footer-bg-color);
@@ -99,6 +104,20 @@
         }
         .footer-links:hover {
           color: var(--d-red-color);
+        }
+      }
+      .footer-sns-container {
+        width: $space-160;
+        .sns-links {
+          transition: all .1s ease-in-out;
+          width: $space-30;
+          height: fit-content;
+          margin: auto $space-8;
+          &:last-child {
+            width: $space-40;
+            height: fit-content;
+            margin: auto $space-4;
+          }
         }
       }
       .copyright {
