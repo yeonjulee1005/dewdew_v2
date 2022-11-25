@@ -10,7 +10,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "fb:start": "NITRO_PRESET=firebase yarn build && firebase emulators:start",
-    "fb:deploy": "NITRO_PRESET=firebase yarn build && firebase deploy --only hosting,functions:nuxt:server",
+    "fb:deploy": "NITRO_PRESET=firebase yarn build && firebase deploy",
     "clean": "cd .output/server && rm -rf node_modules && yarn install",
     "deploy": "NITRO_PRESET=firebase yarn build && yarn cache clean && firebase deploy --only hosting,functions:nuxt:server"
   },
