@@ -143,7 +143,7 @@ const handleScroll = () => {
   let titleRange = false
   let textRange = false
   let downRange = false
-
+  console.log(scrollY)
   if (windowWidth > 1000) {
     titleRange = scrollY > 100 && scrollY < 550
     textRange = scrollY > 120 && scrollY < 600
