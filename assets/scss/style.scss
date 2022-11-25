@@ -29,6 +29,14 @@
 
   @import './tablet/layouts.scss';
   @import './tablet/404.scss';
+
+  @import './tablet/main/intro_banner.scss';
+  @import './tablet/main/resume.scss';
+  @import './tablet/main/skills.scss';
+  @import './tablet/main/references.scss';
+  @import './tablet//main/contact.scss';
+
+  @import './tablet/archives/main_slider.scss';
 }
 
 @include mobile {
@@ -36,4 +44,12 @@
 
   @import './mobile/layouts.scss';
   @import './mobile/404.scss';
+
+  @import './mobile/main/intro_banner.scss';
+  @import './mobile/main/resume.scss';
+  @import './mobile/main/skills.scss';
+  @import './mobile/main/references.scss';
+  @import './mobile//main/contact.scss';
+
+  @import './mobile/archives/main_slider.scss';
 }

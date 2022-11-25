@@ -23,11 +23,13 @@
         </nuxt-link>
       </div>
       <client-only>
+        <nuxt-link class="github mx-default" :to="snsData[0].route" target="_blank">
+          <el-image :src="snsData[0].url" />
+        </nuxt-link>
         <el-switch
           v-model="darkModeTrigger"
-          class="dark-mode-switch flex-end"
+          class="dark-mode-switch flex-end mx-default"
           inline-prompt
-          size="large"
           :active-icon="Moon"
           :inactive-icon="Sunny"
           @change="toggleDark()"
@@ -35,6 +37,7 @@
       </client-only>
       <el-menu
         v-if="!desktopModeTrigger"
+        v-show="!desktopModeTrigger"
         ref="mobileMenu"
         class="mobile-menu flex-end mx-20"
         :router="true"
@@ -61,15 +64,26 @@
 </template>
 <script setup lang="ts">
 import { Sunny, Moon } from '@element-plus/icons-vue'
+import { SnsLogo, Images } from '~/interfaces/types'
 
 const headerProps = defineProps({
-  menuList: { type: Array, default: () => [] },
+  coreData: { type: Object, default: () => null },
   images: { type: Object, default: () => null }
 })
 
-const menuData:any[] = reactive(headerProps.menuList)
+const menuData = ref<Images[]>([])
+const snsData = ref<SnsLogo[]>([])
 const darkModeTrigger = ref(false)
 const desktopModeTrigger = ref(false)
+
+headerProps.coreData.forEach((core:any) => {
+  switch (core.id) {
+    case 'pages' :
+      menuData.value = core.menu
+      snsData.value = core.sns
+      break
+  }
+})
 
 onMounted(() => {
   window.addEventListener('resize', handleResize)

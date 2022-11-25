@@ -69,26 +69,26 @@ const titleLists = ref({
 })
 
 const frontEndData = reactive([
-  { title: 'Nuxt3', duration: 8, percent: 85, percentText: '⚙️ 90%', color: 'hsla(0, 93.1%, 71.8%)', style: 'font-size: 20px; margin-right: 120px;' },
+  { title: 'Nuxt3', duration: 8, percent: 90, percentText: '⚙️ 90%', color: 'hsla(0, 93.1%, 71.8%)', style: 'font-size: 20px; margin-right: 120px;' },
   { title: 'Nuxt2', duration: 8, percent: 90, percentText: '⚙️ 90%', color: 'hsla(10.1, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
-  { title: 'Vue2/3', duration: 11, percent: 90, percentText: '⚙️ 85%', color: 'hsla(30, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
-  { title: 'TypeScript', duration: 5, percent: 70, percentText: '⚙️ 65%', color: 'hsla(44.8, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
+  { title: 'Vue2/3', duration: 11, percent: 85, percentText: '⚙️ 85%', color: 'hsla(30, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
+  { title: 'TypeScript', duration: 5, percent: 65, percentText: '⚙️ 65%', color: 'hsla(44.8, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
   { title: 'JavaScript', duration: 8, percent: 80, percentText: '⚙️ 80%', color: 'hsla(60, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
   { title: 'SASS/SCSS', duration: 7, percent: 90, percentText: '⚙️ 90%', color: 'hsla(79.9, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
   { title: 'HTML5', duration: 6, percent: 100, percentText: '⚙️ 100%', color: 'hsla(109.9, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
   { title: 'CSS3', duration: 10, percent: 100, percentText: '⚙️ 100%', color: 'hsla(140.2, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
-  { title: 'Flutter', duration: 6, percent: 20, percentText: '⚙️ 40%', color: 'hsla(160.1, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' }
+  { title: 'Flutter', duration: 6, percent: 40, percentText: '⚙️ 40%', color: 'hsla(160.1, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' }
 ])
 
 const backEndData = reactive([
   { title: 'Node.js', duration: 7, percent: 60, percentText: '⚙️ 60%', color: 'hsla(180, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
   { title: 'PostgreSQL', duration: 8, percent: 70, percentText: '⚙️ 70%', color: 'hsla(199.9, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
-  { title: 'Python', duration: 10, percent: 30, percentText: '⚙️ 60%', color: 'hsla(219.8, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' }
+  { title: 'Python', duration: 10, percent: 60, percentText: '⚙️ 60%', color: 'hsla(219.8, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' }
 ])
 
 const toolsData = reactive([
   { title: 'Azure', duration: 6, percent: 85, percentText: '⚙️ 85%', color: 'hsla(240, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
-  { title: 'Firebase', duration: 11, percent: 90, percentText: '⚙️ 80%', color: 'hsla(260.2, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
+  { title: 'Firebase', duration: 11, percent: 80, percentText: '⚙️ 80%', color: 'hsla(260.2, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
   { title: 'VS Code', duration: 7, percent: 100, percentText: '⚙️ 100%', color: 'hsla(280.1, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
   { title: 'Vim', duration: 10, percent: 95, percentText: '⚙️ 95%', color: 'hsla(300, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },
   { title: 'GitHub', duration: 5, percent: 100, percentText: '⚙️ 100%', color: 'hsla(319.9, 91.2%, 64.3%)', style: 'font-size: 20px; margin-right: 120px;' },

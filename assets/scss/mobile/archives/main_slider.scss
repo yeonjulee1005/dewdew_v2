@@ -1,0 +1,48 @@
+/** Archives Page */
+.prev-button {
+  position: absolute;
+  margin: $space-160 0 0 $space-160;
+  &:focus, &:hover {
+    color: var(--d-text-color);
+    border: $space-1 solid var(--d-bg-main-color);
+    background-color: var(--d-footer-bg-color);
+  }
+}
+.main-slider-section {
+  position: relative;
+  max-width: $space-1000;
+  width: $space-90vw;
+  height: $space-360;
+  margin: $space-200 auto $space-120;
+  .carousel {
+    display: flex;
+    align-items: center;
+    height: $space-360;
+  }
+  .image-component {
+    position: relative;
+    cursor: pointer;
+    .image {
+      width: $space-360;
+      height: $space-300;
+      border-radius: $space-36;
+    }
+    .text-group {
+      position: absolute;
+      bottom: $space-20;
+      right: $space-default;
+      .title {
+        @include headline1;
+        color: $d-bg-color-00;
+        text-align: right;
+        @include unset-margin;
+      }
+      .subtitle {
+        @include headline1;
+        color: $d-bg-color-00;
+        text-align: right;
+        @include unset-margin;
+      }
+    }
+  }
+}
