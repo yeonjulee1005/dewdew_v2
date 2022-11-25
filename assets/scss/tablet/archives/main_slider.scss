@@ -1,7 +1,8 @@
 /** Archives Page */
 .prev-button {
   position: absolute;
-  margin: $space-160 0 0 $space-160;
+  top: $space-100;
+  left: $space-10vw;
   &:focus, &:hover {
     color: var(--d-text-color);
     border: $space-1 solid var(--d-bg-main-color);
@@ -23,8 +24,8 @@
     position: relative;
     cursor: pointer;
     .image {
-      width: $space-360;
-      height: $space-300;
+      width: $space-30vw;
+      height: $space-30vw;
       border-radius: $space-36;
     }
     .text-group {
@@ -32,13 +33,13 @@
       bottom: $space-20;
       right: $space-default;
       .title {
-        @include headline1;
+        @include headline5;
         color: $d-bg-color-00;
         text-align: right;
         @include unset-margin;
       }
       .subtitle {
-        @include headline1;
+        @include headline5;
         color: $d-bg-color-00;
         text-align: right;
         @include unset-margin;

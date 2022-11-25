@@ -22,7 +22,7 @@ import { ArchivesData, MassImages } from '~/interfaces/types'
 import { useDatabase } from '~/stores/database'
 
 useHead({
-  title: '블로그'
+  title: '블로그!'
 })
 
 const coreImages = useDatabase().imageData.value
@@ -38,6 +38,9 @@ onMounted(() => {
 })
 
 const initImageData = () => {
+  if (!coreImages.length) {
+    useRouter().push('/')
+  }
   imageData.value = []
   coreImages.forEach((images:any) => {
     if (images.id === routeUrl.split('/')[2]) {

@@ -1,7 +1,7 @@
 <template>
   <div class="main-slider-section">
     <Carousel
-      :items-to-show="2.5"
+      :items-to-show="sliderShowCount"
       :transition="1600"
       :autoplay="1800"
       :wrap-around="true"
@@ -61,6 +61,21 @@ const imageSliderEmits = defineEmits([
 ])
 
 const title = ref('HISTORY OF')
+const sliderShowCount = ref(0)
+
+window.innerWidth >= 500 ? sliderShowCount.value = 2.5 : sliderShowCount.value = 1.5
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
+})
+
+const handleResize = () => {
+  window.innerWidth >= 500 ? sliderShowCount.value = 2.5 : sliderShowCount.value = 1.5
+}
 
 const imageClick = (imageData:ArchivesData) => {
   imageSliderEmits('open-dialog', imageData)
