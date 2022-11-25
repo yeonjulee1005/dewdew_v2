@@ -53,8 +53,8 @@
     .reference-item {
       margin: $space-default;
       .reference-thumb {
-        width: $space-70vw;
-        height: $space-70vw;
+        width: $space-200;
+        height: $space-200;
         cursor: pointer;
         border-radius: $space-20;
         border: $space-2 solid var(--d-bg-green-color-deep);
