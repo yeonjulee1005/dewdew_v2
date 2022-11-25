@@ -33,17 +33,17 @@
         padding-bottom: $space-4;
         border-bottom:  $space-2 double var(--d-text-color);
         .title {
-          @include headline3;
+          @include headline2;
           margin-bottom: $space-default;
           text-align: left;
         }
         .educate {
-          @include headline5;
+          @include headline4;
           text-align: left;
         }
       }
       .career-container {
-        @include headline6;
+        @include headline5;
         text-align: left;
         .career-title {
           font-weight: 700;
