@@ -1,5 +1,8 @@
 <template>
   <NuxtLayout>
+    <div class="main-archives-title">
+      {{ title }}
+    </div>
     <AtomArchivesImageSlider
       :image-data="thumbImageData"
       :main-slider-trigger="true"
@@ -14,6 +17,7 @@ useHead({
   title: '아카이브'
 })
 
+const title = ref('Dewdew History')
 const coreImages = useDatabase().imageData.value
 const thumbImageData = ref<ArchivesData[]>([])
 
@@ -24,7 +28,7 @@ onMounted(() => {
 const initImageData = () => {
   thumbImageData.value = []
   coreImages.forEach((images:any) => {
-    if (images.id !== 'assets' && images.id !== 'resources') {
+    if (images.id !== 'assets' && images.id !== 'resources' && images.data.length) {
       const randomNumber = Math.floor(Math.random() * images.data.length)
       const data:ArchivesData = {
         year: images.id,

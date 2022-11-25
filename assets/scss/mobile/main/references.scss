@@ -53,8 +53,8 @@
     .reference-item {
       margin: $space-default;
       .reference-thumb {
-        width: $space-200;
-        height: $space-200;
+        width: $space-70vw;
+        height: $space-70vw;
         cursor: pointer;
         border-radius: $space-20;
         border: $space-2 solid var(--d-bg-green-color-deep);
@@ -65,7 +65,8 @@
         }
       }
       .reference-text {
-        @include headline6;
+        margin-top: $space-default;
+        @include headline5;
       }
     }
   }

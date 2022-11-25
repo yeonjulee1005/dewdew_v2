@@ -140,8 +140,8 @@
     transition: opacity .9s;
     opacity: 0;
     .skills-text {
-      margin-right: $space-68;
-      @include headline6;
+      margin-right: $space-80;
+      @include headline5;
       text-align: right;
       z-index: 10;
       &:nth-child(1),
@@ -159,8 +159,8 @@
       position: absolute;
       top: $space--50;
       right: $space-0;
-      width: $space-425;
-      height: $space-425; 
+      width: $space-500;
+      height: $space-500; 
       background-color: var(--d-color-01-opacity);
       border-radius: $space-percent-50;
       box-shadow: $space-2 $space-2 $space-4 var(--d-bg-sub-color), -2px -2px $space-4 var(--d-bg-main-color);
@@ -171,11 +171,13 @@
   }
   .skill-list {
     flex-direction: column;
+    width: $space-percent-100;
     margin-top: $space-650;
     transition: opacity .9s;
     opacity: 0;
     .main-skill-list {
       flex-direction: column;
+      width: $space-percent-100;
     }
     .skill-title-text {
       width: $space-200;
@@ -186,7 +188,7 @@
     .skills-text {
       width: $space-100;
       margin-bottom: $space-20;
-      @include headline6;
+      @include headline5;
     }
     .progress {
       margin-bottom: $space-20;
@@ -194,10 +196,16 @@
     .frontend-list,
     .backend-list,
     .tools-list {
+      width: $space-percent-80 !important;
+      height: fit-content;
+      margin: 0 auto $space-40;
       padding: $space-30;
       width: fit-content;
       height: fit-content;
       box-shadow: $space-2 $space-2 $space-4 var(--d-bg-sub-color), -2px -2px $space-4 var(--d-bg-main-color);
+      .el-progress {
+        width: $space-percent-100 !important;
+      }
     }
     .frontend-list {
       background-color: var(--d-color-06-deep);

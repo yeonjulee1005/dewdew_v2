@@ -34,6 +34,7 @@
     }
     .email {
       width: $space-percent-50;
+      margin-top: $space-40;
       .email-title {
         @include headline3;
       }

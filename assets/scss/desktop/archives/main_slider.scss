@@ -1,4 +1,11 @@
 /** Archives Page */
+.main-archives-title {
+  position: absolute;
+  top: $space-120;
+  left: $space-200;
+  @include headline1;
+}
+
 .prev-button {
   position: absolute;
   margin: $space-160 0 0 $space-160;
@@ -8,6 +15,7 @@
     background-color: var(--d-footer-bg-color);
   }
 }
+
 .main-slider-section {
   position: relative;
   max-width: $space-1000;
