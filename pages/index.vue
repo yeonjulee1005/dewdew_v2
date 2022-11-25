@@ -170,9 +170,9 @@ const handleScroll = () => {
     downRange = scrollY > 200 && scrollY < 300
     mainResumeTrigger.value = scrollY > 200 && scrollY < 1400
     mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
-    mainSkillsBgTrigger.value = scrollY > 1300 && scrollY < 2600
-    mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 5100
-    referenceListTrigger.value = scrollY > 5000 && scrollY < 8800
+    mainSkillsBgTrigger.value = scrollY > 1300 && scrollY < 2900
+    mainSkillsListTrigger.value = scrollY > 2600 && scrollY < 5000
+    referenceListTrigger.value = scrollY > 5000 && scrollY < 8900
     contactTrigger.value = scrollY > 8800
   }
   lastScrollY.value = scrollY
