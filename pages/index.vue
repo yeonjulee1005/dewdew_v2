@@ -143,7 +143,6 @@ const handleScroll = () => {
   let titleRange = false
   let textRange = false
   let downRange = false
-  console.log(scrollY)
 
   if (windowWidth > 1000) {
     titleRange = scrollY > 100 && scrollY < 550
@@ -162,9 +161,9 @@ const handleScroll = () => {
     mainResumeTrigger.value = scrollY > 200 && scrollY < 1250
     mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
     mainSkillsBgTrigger.value = scrollY > 1200 && scrollY < 2600
-    mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 3800
-    referenceListTrigger.value = scrollY > 4000 && scrollY < 5800
-    contactTrigger.value = scrollY > 5500
+    mainSkillsListTrigger.value = scrollY > 2700 && scrollY < 5100
+    referenceListTrigger.value = scrollY > 5000 && scrollY < 7300
+    contactTrigger.value = scrollY > 7200
   } else {
     titleRange = scrollY > 150 && scrollY < 250
     textRange = scrollY > 350 && scrollY < 450
@@ -172,9 +171,9 @@ const handleScroll = () => {
     mainResumeTrigger.value = scrollY > 200 && scrollY < 1400
     mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
     mainSkillsBgTrigger.value = scrollY > 1300 && scrollY < 2600
-    mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 3800
-    referenceListTrigger.value = scrollY > 4000 && scrollY < 5800
-    contactTrigger.value = scrollY > 5500
+    mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 5100
+    referenceListTrigger.value = scrollY > 5000 && scrollY < 8800
+    contactTrigger.value = scrollY > 8800
   }
   lastScrollY.value = scrollY
   if (titleRange) {

@@ -8,12 +8,11 @@
   transition: opacity .9s;
   opacity: 0;
   .section-title {
-    margin-left: $space-150;
     @include headline1;
   }
   .section-text {
     width: fit-content;
-    margin: $space-default 0 $space-default $space-150;
+    margin: $space-default 0 $space-default;
     @include headline5;
     border-bottom: $space-2 solid var(--d-bg-side-color);
     border-spacing: $space-default;
@@ -50,11 +49,12 @@
     }
   }
   .references-list {
+    margin: 0 $space-default;
     .reference-item {
       margin: $space-default;
       .reference-thumb {
-        width: $space-200;
-        height: $space-200;
+        width: $space-160;
+        height: $space-160;
         cursor: pointer;
         border-radius: $space-20;
         border: $space-2 solid var(--d-bg-green-color-deep);

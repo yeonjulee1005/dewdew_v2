@@ -12,7 +12,7 @@
       class="skill-list flex flex-row flex-space-evenly flex-align-center"
       :class="{'skill-list-on': skillsProps.skillsListTrigger}"
     >
-      <div class="flex flex-column">
+      <div class="main-skill-list flex flex-column">
         <div class="frontend-list flex flex-column flex-justify-center mb-40">
           <div class="skill-title-text flex flex-column">
             {{ titleLists.frontEndTitle }}

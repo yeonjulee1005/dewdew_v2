@@ -170,9 +170,13 @@
     opacity: 1;
   }
   .skill-list {
+    flex-direction: column;
     margin-top: $space-650;
     transition: opacity .9s;
     opacity: 0;
+    .main-skill-list {
+      flex-direction: column;
+    }
     .skill-title-text {
       width: $space-200;
       margin-bottom: $space-30;

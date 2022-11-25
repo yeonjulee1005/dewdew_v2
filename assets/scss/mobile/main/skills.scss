@@ -171,9 +171,15 @@
     opacity: 1;
   }
   .skill-list {
+    flex-direction: column;
+    width: $space-percent-100;
     margin-top: $space-650;
     transition: opacity .9s;
     opacity: 0;
+    .main-skill-list {
+      flex-direction: column;
+      width: $space-percent-100;
+    }
     .skill-title-text {
       width: $space-200;
       margin-bottom: $space-30;
@@ -191,10 +197,14 @@
     .frontend-list,
     .backend-list,
     .tools-list {
-      padding: $space-30;
-      width: fit-content;
+      width: $space-percent-80;
       height: fit-content;
+      margin: 0 auto $space-40;
+      padding: $space-20;
       box-shadow: $space-2 $space-2 $space-4 var(--d-bg-sub-color), -2px -2px $space-4 var(--d-bg-main-color);
+      .el-progress {
+        width: $space-percent-100 !important;
+      }
     }
     .frontend-list {
       background-color: var(--d-color-06-deep);
