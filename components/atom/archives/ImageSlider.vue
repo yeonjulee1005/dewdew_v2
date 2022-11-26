@@ -64,8 +64,6 @@ const imageSliderEmits = defineEmits([
 const title = ref('HISTORY OF')
 const sliderShowCount = ref(0)
 
-window.innerWidth >= 500 ? sliderShowCount.value = 2.5 : sliderShowCount.value = 1.5
-
 watch(width, () => { handleResize(width.value) })
 
 onMounted(() => {

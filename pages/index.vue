@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <NuxtLayout>
     <AtomMainIntroBanner
       :intro-text="introTextData"
       :banner-images="bannersImage"
@@ -30,7 +30,7 @@
       :contact-trigger="contactTrigger"
     />
     <el-backtop :bottom="60" :right="30" />
-  </section>
+  </NuxtLayout>
 </template>
 <script setup lang="ts">
 import { useDatabase } from '~/stores/database'
@@ -110,8 +110,8 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 
-const initData = () => {
-  coreImages.forEach((image:any) => {
+const initData = async () => {
+  await coreImages.forEach((image:any) => {
     switch (image.id) {
       case 'assets' :
         bannersImage.value = image.data.banners.main.url
@@ -127,7 +127,7 @@ const initData = () => {
         break
     }
   })
-  coreData.forEach((core:any) => {
+  await coreData.forEach((core:any) => {
     switch (core.id) {
       case 'main' :
         introTextData.value = core.intro
