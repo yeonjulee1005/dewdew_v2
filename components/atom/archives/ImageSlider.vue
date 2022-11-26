@@ -46,9 +46,10 @@
 <script setup lang="ts">
 import { Carousel, Slide } from 'vue3-carousel'
 import { PropType } from 'vue'
-import { ArchivesData } from '~~/interfaces/types'
+import { ArchivesData } from '~/interfaces/types'
 import 'vue3-carousel/dist/carousel.css'
 
+const { width } = useWindowSize()
 const imageSliderProps = defineProps({
   imageData: { type: Array as PropType<ArchivesData[]>, default: () => [] },
   touchDrag: { type: Boolean, default: true },
@@ -65,16 +66,14 @@ const sliderShowCount = ref(0)
 
 window.innerWidth >= 500 ? sliderShowCount.value = 2.5 : sliderShowCount.value = 1.5
 
+watch(width, () => { handleResize(width.value) })
+
 onMounted(() => {
-  window.addEventListener('resize', handleResize)
+  handleResize(width.value)
 })
 
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize)
-})
-
-const handleResize = () => {
-  window.innerWidth >= 500 ? sliderShowCount.value = 2.5 : sliderShowCount.value = 1.5
+const handleResize = (width:number) => {
+  width >= 500 ? sliderShowCount.value = 2.5 : sliderShowCount.value = 1.5
 }
 
 const imageClick = (imageData:ArchivesData) => {

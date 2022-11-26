@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <section>
     <el-button class="prev-button" round @click="routerBack">
       {{ prev }}
     </el-button>
@@ -15,14 +15,18 @@
         :src="selectImageData?.url"
       />
     </MoleculesADialog>
-  </NuxtLayout>
+  </section>
 </template>
 <script setup lang="ts">
 import { ArchivesData, MassImages } from '~/interfaces/types'
 import { useDatabase } from '~/stores/database'
 
 useHead({
-  title: '블로그!'
+  title: '추억'
+})
+
+definePageMeta({
+  title: 'Images'
 })
 
 const coreImages = useDatabase().imageData.value

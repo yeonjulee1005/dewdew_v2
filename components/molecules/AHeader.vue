@@ -71,6 +71,9 @@ const headerProps = defineProps({
   images: { type: Object, default: () => null }
 })
 
+const favicon = ref('')
+const { width } = useWindowSize()
+
 const menuData = ref<Images[]>([])
 const snsData = ref<SnsLogo[]>([])
 const darkModeTrigger = ref(false)
@@ -85,22 +88,23 @@ headerProps.coreData.forEach((core:any) => {
   }
 })
 
-onMounted(() => {
-  window.addEventListener('resize', handleResize)
-  darkModeTrigger.value = isDarkTrigger.value
-  handleResize()
+watch(width, () => { handleResize(width.value) })
+watch(darkModeTrigger, () => {
+  darkModeTrigger.value ? favicon.value = 'favicon_black.png' : favicon.value = 'favicon_white.png'
 })
+useFavicon(favicon)
 
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize)
+onMounted(() => {
+  darkModeTrigger.value = isDarkTrigger.value
+  handleResize(width.value)
 })
 
 onUpdated(() => {
   darkModeTrigger.value = isDarkTrigger.value
 })
 
-const handleResize = () => {
-  window.innerWidth < 800 ? desktopModeTrigger.value = false : desktopModeTrigger.value = true
+const handleResize = (width:number) => {
+  width < 800 ? desktopModeTrigger.value = false : desktopModeTrigger.value = true
 }
 
 </script>
