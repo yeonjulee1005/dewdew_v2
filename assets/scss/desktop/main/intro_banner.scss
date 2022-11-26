@@ -10,7 +10,7 @@
     position: absolute;
     width: $space-600;
     top: $space-300;
-    right: $space--100;
+    right: $space--150;
     font-size: 6em;
     line-height: $space-90;
     font-weight: 800;
@@ -19,10 +19,11 @@
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     z-index: 10;
+    opacity: 0;
     transition: opacity .75s;
   }
-  .main-title-off {
-    opacity: 0;
+  .main-title-on {
+    opacity: 1;
   }
   .main-text {
     position: absolute;
@@ -35,7 +36,7 @@
     text-align: left;
     background-color: var(--d-content-bg-color);
     z-index: 10;
-    opacity: 1;
+    opacity: 0;
     transition: opacity .75s;
     p {
       @include unset-margin;
@@ -44,15 +45,16 @@
       @include headline6;
     }
   }
-  .main-text-off {
-    opacity: 0;
+  .main-text-on {
+    opacity: 1;
   }
   .scroll-down {
     position: absolute;
-    width: 10vw;
-    top: 95%;
-    @include headline7;
+    width: $space-10vw;
+    top: $space-percent-105;
+    @include headline6;
     z-index: 10;
+    opacity: 0;
     transition: opacity .75s;
     animation: motion .5s ease-in .5s infinite alternate;
     @keyframes motion {
@@ -60,8 +62,8 @@
       100% { margin-top: $space-default; }
     }
   }
-  .main-scroll-off {
-    opacity: 0;
+  .main-scroll-on {
+    opacity: 1;
   }
   .main-image {
     height: auto;
