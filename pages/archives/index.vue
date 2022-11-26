@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <NuxtLayout>
     <div class="main-archives-title">
       {{ title }}
     </div>
@@ -7,7 +7,7 @@
       :image-data="thumbImageData"
       :main-slider-trigger="true"
     />
-  </section>
+  </NuxtLayout>
 </template>
 <script setup lang="ts">
 import { ArchivesData } from '~/interfaces/types'
