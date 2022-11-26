@@ -16,6 +16,12 @@
 <script setup lang="ts">
 import { useDatabase } from '~/stores/database'
 
+const route = useRoute()
+
+useHead({
+  meta: [{ property: 'og:title', content: `개발자 이연주 | ${route.meta.title}` }]
+})
+
 const coreData = useDatabase().coreData.value
 const coreImages = useDatabase().imageData.value
 

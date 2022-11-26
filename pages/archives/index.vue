@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <section>
     <div class="main-archives-title">
       {{ title }}
     </div>
@@ -7,7 +7,7 @@
       :image-data="thumbImageData"
       :main-slider-trigger="true"
     />
-  </NuxtLayout>
+  </section>
 </template>
 <script setup lang="ts">
 import { ArchivesData } from '~/interfaces/types'
@@ -15,6 +15,10 @@ import { useDatabase } from '~/stores/database'
 
 useHead({
   title: '아카이브'
+})
+
+definePageMeta({
+  title: 'Archives'
 })
 
 const title = ref('Dewdew History')

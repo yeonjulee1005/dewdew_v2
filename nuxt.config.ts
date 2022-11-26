@@ -11,7 +11,7 @@ export default {
         { name: 'Author', content: 'Dewdew' },
         { name: 'description', content: '안녕하세요. FE 개발자 이연주입니다.' },
         { name: 'format-detection', content: 'telephone=no' },
-        { name: 'theme-color', content: '#4dba87' },
+        { name: 'theme-color', content: '#705757' },
         { name: 'keywords', content: 'developer,develop,web,portfolio,개발자,FE웹개발자,웹개발자,포트폴리오,개발자 포트폴리오' },
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: 'FE 개발자 이연주' },

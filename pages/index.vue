@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <section>
     <AtomMainIntroBanner
       :intro-text="introTextData"
       :banner-images="bannersImage"
@@ -29,12 +29,19 @@
       :kakao-image="kakaoImage"
       :contact-trigger="contactTrigger"
     />
-    <el-backtop :bottom="60" :right="60" />
-  </NuxtLayout>
+    <el-backtop :bottom="60" :right="30" />
+  </section>
 </template>
 <script setup lang="ts">
 import { useDatabase } from '~/stores/database'
 import { CoreData, Images, IntroData, ResumeData, SkillsData, ReferenceData, ReferenceImage, ContactData } from '~/interfaces/types'
+
+definePageMeta({
+  title: 'Main'
+})
+
+const { width } = useWindowSize()
+const { y } = useWindowScroll()
 
 const coreData:CoreData[] = useDatabase().coreData.value
 const coreImages = useDatabase().imageData.value
@@ -134,8 +141,8 @@ const initData = () => {
 }
 
 const handleScroll = () => {
-  const scrollY = window.scrollY
-  const windowWidth = window.innerWidth
+  const scrollY = y.value
+  const windowWidth = width.value
   const scrollValue = Math.min(Math.ceil(windowWidth / 500), 3) - 1
 
   switch (scrollValue) {
