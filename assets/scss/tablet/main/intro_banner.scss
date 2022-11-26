@@ -18,10 +18,11 @@
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     z-index: 10;
+    opacity: 0;
     transition: opacity .75s;
   }
-  .main-title-off {
-    opacity: 0;
+  .main-title-on {
+    opacity: 1;
   }
   .main-text {
     position: absolute;
@@ -33,24 +34,25 @@
     @include headline6;
     background-color: var(--d-content-bg-color);
     z-index: 10;
-    opacity: 1;
+    opacity: 0;
     transition: opacity .75s;
     p {
       @include unset-margin;
     }
     .sub-text {
-      @include headline6;
+      @include headline7;
     }
   }
-  .main-text-off {
-    opacity: 0;
+  .main-text-on {
+    opacity: 1;
   }
   .scroll-down {
     position: absolute;
     width: fit-content;
-    top: 90%;
+    top: $space-percent-105;
     @include headline6;
     z-index: 10;
+    opacity: 0;
     transition: opacity .75s;
     animation: motion .5s ease-in .5s infinite alternate;
     @keyframes motion {
@@ -58,8 +60,8 @@
       100% { margin-top: $space-default; }
     }
   }
-  .main-scroll-off {
-    opacity: 0;
+  .main-scroll-on {
+    opacity: 1;
   }
   .main-image {
     height: auto;

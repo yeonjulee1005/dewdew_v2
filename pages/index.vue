@@ -84,18 +84,15 @@ const kakaoImage = ref('')
 const skillsImageData = ref<Images[]>([])
 const referencesImageData = ref<ReferenceImage[]>([])
 
-const mainTitleTrigger = ref(false)
-const mainTextTrigger = ref(false)
-const scrollDownTrigger = ref(false)
-
+const mainTitleTrigger = ref(true)
+const mainTextTrigger = ref(true)
+const scrollDownTrigger = ref(true)
 const mainResumeTrigger = ref(false)
 const mainSkillsTextTrigger = ref(false)
 const mainSkillsBgTrigger = ref(false)
 const mainSkillsListTrigger = ref(false)
 const referenceListTrigger = ref(false)
 const contactTrigger = ref(false)
-
-const lastScrollY = ref(0)
 
 onMounted(() => {
   initData()
@@ -139,64 +136,55 @@ const initData = () => {
 const handleScroll = () => {
   const scrollY = window.scrollY
   const windowWidth = window.innerWidth
-  const direction = scrollY > lastScrollY.value ? 'down' : 'up'
-  let titleRange = false
-  let textRange = false
-  let downRange = false
-  console.log(scrollY)
-  if (windowWidth > 1000) {
-    titleRange = scrollY > 100 && scrollY < 550
-    textRange = scrollY > 120 && scrollY < 600
-    downRange = scrollY > 140 && scrollY < 650
-    mainResumeTrigger.value = scrollY > 150 && scrollY < 1250
-    mainSkillsTextTrigger.value = scrollY > 1300 && scrollY < 2200
-    mainSkillsBgTrigger.value = scrollY > 900 && scrollY < 2700
-    mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 3800
-    referenceListTrigger.value = scrollY > 4000 && scrollY < 5800
-    contactTrigger.value = scrollY > 5500
-  } else if (windowWidth > 500 && windowWidth < 1000) {
-    titleRange = scrollY > 250 && scrollY < 350
-    textRange = scrollY > 400 && scrollY < 500
-    downRange = scrollY > 400 && scrollY < 500
-    mainResumeTrigger.value = scrollY > 200 && scrollY < 1250
-    mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
-    mainSkillsBgTrigger.value = scrollY > 1200 && scrollY < 2600
-    mainSkillsListTrigger.value = scrollY > 2700 && scrollY < 5100
-    referenceListTrigger.value = scrollY > 5000 && scrollY < 7300
-    contactTrigger.value = scrollY > 7200
-  } else {
-    titleRange = scrollY > 150 && scrollY < 250
-    textRange = scrollY > 350 && scrollY < 450
-    downRange = scrollY > 200 && scrollY < 300
-    mainResumeTrigger.value = scrollY > 200 && scrollY < 1400
-    mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
-    mainSkillsBgTrigger.value = scrollY > 1300 && scrollY < 2900
-    mainSkillsListTrigger.value = scrollY > 2600 && scrollY < 5000
-    referenceListTrigger.value = scrollY > 5000 && scrollY < 8900
-    contactTrigger.value = scrollY > 8800
-  }
-  lastScrollY.value = scrollY
-  if (titleRange) {
-    transitionMainTitle(direction)
-  }
-  if (textRange) {
-    transitionMainText(direction)
-  }
-  if (downRange) {
-    transitionScrollDown(direction)
+  const scrollValue = Math.min(Math.ceil(windowWidth / 500), 3) - 1
+
+  switch (scrollValue) {
+    case 0 :
+      mobile(scrollY)
+      break
+    case 1 :
+      tablet(scrollY)
+      break
+    case 2 :
+      pc(scrollY)
+      break
   }
 }
 
-const transitionMainTitle = (direction:string) => {
-  direction === 'down' ? mainTitleTrigger.value = true : mainTitleTrigger.value = false
+const mobile = (scrollY:number) => {
+  mainTitleTrigger.value = scrollY < 200
+  mainTextTrigger.value = scrollY < 350
+  scrollDownTrigger.value = scrollY < 200
+  mainResumeTrigger.value = scrollY > 200 && scrollY < 1400
+  mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
+  mainSkillsBgTrigger.value = scrollY > 1300 && scrollY < 2900
+  mainSkillsListTrigger.value = scrollY > 2600 && scrollY < 5000
+  referenceListTrigger.value = scrollY > 5000 && scrollY < 8900
+  contactTrigger.value = scrollY > 8800
 }
 
-const transitionMainText = (direction:string) => {
-  direction === 'down' ? mainTextTrigger.value = true : mainTextTrigger.value = false
+const tablet = (scrollY:number) => {
+  mainTitleTrigger.value = scrollY < 300
+  mainTextTrigger.value = scrollY < 500
+  scrollDownTrigger.value = scrollY < 500
+  mainResumeTrigger.value = scrollY > 200 && scrollY < 1250
+  mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
+  mainSkillsBgTrigger.value = scrollY > 1200 && scrollY < 2600
+  mainSkillsListTrigger.value = scrollY > 2700 && scrollY < 5100
+  referenceListTrigger.value = scrollY > 5000 && scrollY < 7300
+  contactTrigger.value = scrollY > 7200
 }
 
-const transitionScrollDown = (direction:string) => {
-  direction === 'down' ? scrollDownTrigger.value = true : scrollDownTrigger.value = false
+const pc = (scrollY:number) => {
+  mainTitleTrigger.value = scrollY < 500
+  mainTextTrigger.value = scrollY < 450
+  scrollDownTrigger.value = scrollY < 650
+  mainResumeTrigger.value = scrollY > 150 && scrollY < 1250
+  mainSkillsTextTrigger.value = scrollY > 1300 && scrollY < 2200
+  mainSkillsBgTrigger.value = scrollY > 900 && scrollY < 2700
+  mainSkillsListTrigger.value = scrollY > 2300 && scrollY < 3800
+  referenceListTrigger.value = scrollY > 4000 && scrollY < 5800
+  contactTrigger.value = scrollY > 5500
 }
 
 </script>

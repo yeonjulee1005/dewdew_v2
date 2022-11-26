@@ -2,13 +2,13 @@
   <div class="main-intro flex flex-justify-center">
     <div
       class="main-title"
-      :class="{'main-title-off': mainIntroProps.mainTitleTrigger}"
+      :class="{'main-title-on': mainIntroProps.mainTitleTrigger}"
     >
       {{ mainIntroProps.introText.mainTitle }}
     </div>
     <div
       class="main-text"
-      :class="{'main-text-off': mainIntroProps.mainTextTrigger}"
+      :class="{'main-text-on': mainIntroProps.mainTextTrigger}"
     >
       <p
         v-for="item in mainIntroProps.introText.mainText"
@@ -16,14 +16,14 @@
       >
         {{ item.text }}
       </p>
-      <div class="sub-text">
+      <p class="sub-text">
         {{ mainIntroProps.introText.subText }}
-      </div>
+      </p>
     </div>
     <div
       ref="scrollDown"
       class="scroll-down"
-      :class="{'main-scroll-off': mainIntroProps.scrollDownTrigger}"
+      :class="{'main-scroll-on': mainIntroProps.scrollDownTrigger}"
     >
       {{ mainIntroProps.introText.scrollDown }}
     </div>
