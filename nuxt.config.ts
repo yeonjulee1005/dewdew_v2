@@ -7,6 +7,9 @@ export default {
       charset: 'utf-16',
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0',
       title: 'Dewdew',
+      htmlAttrs: {
+        lang: 'ko'
+      },
       meta: [
         { name: 'Author', content: 'Dewdew' },
         { name: 'description', content: '안녕하세요. FE 개발자 이연주입니다.' },

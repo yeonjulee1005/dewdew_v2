@@ -24,9 +24,13 @@
 }
 
 /** el-form */
+.el-input-group__append {
+  margin-left: $space-1;
+}
 
 .el-input__wrapper.is-focus,
 .el-input__wrapper.is-hover,
+.el-input-group__append:hover,
 .el-textarea__inner:focus {
   box-shadow: 0 0 0 $space-1 var(--d-green-color) !important;
 }

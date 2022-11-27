@@ -15,7 +15,7 @@
       </div>
       <el-progress
         type="dashboard"
-        class="mt-default"
+        class="mt-20"
         :stroke-width="20"
         :percentage="displayCount(count)"
         :color="leaveCountProps.colors"
@@ -32,16 +32,20 @@ import { PropType } from 'vue'
 import { Texts, Colors } from '~/interfaces/types'
 
 const leaveCountProps = defineProps({
+  idleTrigger: { type: Boolean, default: false },
   texts: { type: Array as PropType<Texts[]>, default: () => [] },
   colors: { type: Array as PropType<Colors[]>, default: () => [] }
 })
 
-const isInside = useWindowFocus()
+const leaveCounterEmits = defineEmits([
+  'dialog-close'
+])
+
 const leaveDialogTrigger = ref(false)
 const count = ref(60)
 
-watch(isInside, () => {
-  isInside.value ? leaveDialogTrigger.value = false : leaveDialogTrigger.value = true
+onUpdated(() => {
+  leaveDialogTrigger.value = leaveCountProps.idleTrigger
 })
 
 watch(leaveDialogTrigger, () => {
@@ -49,10 +53,6 @@ watch(leaveDialogTrigger, () => {
     generateCountInterval(0, 1000, countDisplay)
   }
 })
-
-const closeLeaveDialog = () => {
-  leaveDialogTrigger.value = false
-}
 
 const generateCountInterval = (count: number, delay: number, callback: (countDown: number, count: number) => void): void => {
   let countDown = 60
@@ -66,7 +66,10 @@ const generateCountInterval = (count: number, delay: number, callback: (countDow
 
 const countDisplay = (index: number, _count: number): void => {
   if (!index) {
-    leaveDialogTrigger.value = false
+    closeLeaveDialog()
+    useRoute().path === '/'
+      ? useAlarm().notify('', 'info', '페이지를 이용해주세요:(', true, 3000, 0)
+      : useAlarm().notify('', 'info', '메인페이지로 이동되었습니다.', true, 3000, 0)
     useRouter().push('/')
   }
   count.value = index
@@ -74,6 +77,11 @@ const countDisplay = (index: number, _count: number): void => {
 
 const displayCount = (value:number) => {
   return ((value / 60) * 100)
+}
+
+const closeLeaveDialog = () => {
+  leaveDialogTrigger.value = false
+  leaveCounterEmits('dialog-close', false)
 }
 
 </script>
