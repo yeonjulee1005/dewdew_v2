@@ -3,8 +3,9 @@
   position: relative;
   max-width: $space-800;
   width: $space-80vw;
-  height: fit-content;
-  margin: $space-200 auto $space-120;
+  height: $space-80vh;
+  margin: 0 auto;
+  overflow: auto;
   .project-list {
     width: $space-400;
     @include headline3;

@@ -21,12 +21,12 @@
   position: relative;
   max-width: $space-1000;
   width: $space-90vw;
-  height: $space-360;
-  margin: $space-200 auto $space-120;
+  height: $space-80vh;
+  margin: 0 auto;
   .carousel {
     display: flex;
     align-items: center;
-    height: $space-360;
+    height: $space-percent-100;
   }
   .image-component {
     position: relative;

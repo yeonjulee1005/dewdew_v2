@@ -93,7 +93,7 @@
     height: fit-content;
     background-color: var(--d-footer-bg-color);
     .footer-section {
-      height: $space-200;
+      height: $space-20vh;
       font-weight: 400;
       font-size: $space-16;
       .footer-menu-container {
@@ -123,6 +123,7 @@
       }
       .copyright {
         @include headline7;
+        text-align: center;
       }
     }
   }
