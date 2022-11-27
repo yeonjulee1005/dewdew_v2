@@ -10,11 +10,16 @@
     <MoleculesAFooter
       :core-data="coreData"
     />
+    <AtomDialogLeaveCounter
+      :texts="leaveText"
+      :colors="colors"
+    />
   </el-container>
 </template>
 
 <script setup lang="ts">
 import { useDatabase } from '~/stores/database'
+import { Texts, Colors } from '~/interfaces/types'
 
 const route = useRoute()
 
@@ -26,6 +31,18 @@ const coreData = useDatabase().coreData.value
 const coreImages = useDatabase().imageData.value
 
 const assetsImageData = ref([])
+
+const leaveText = ref<Texts[]>([])
+const colors = ref<Colors[]>([])
+
+coreData.forEach((core:any) => {
+  switch (core.id) {
+    case 'main' :
+      leaveText.value = core.leaveCount.texts
+      colors.value = core.leaveCount.colors
+      break
+  }
+})
 
 coreImages.forEach((image:any) => {
   switch (image.id) {
