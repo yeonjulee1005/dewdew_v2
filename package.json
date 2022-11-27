@@ -30,6 +30,7 @@
     "vue3-carousel": "^0.2.5"
   },
   "devDependencies": {
+    "@kevinmarrec/nuxt-pwa": "^0.13.0",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^5.33.1",

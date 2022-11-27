@@ -25,7 +25,8 @@
           transition: all .1s ease-in-out;
         }
         .menu-links:hover {
-          color: var(--d-red-color-deep);
+          scale: 1.1;
+          color: var(--d-text-dark-color-deep);
         }
       }
       .github {
