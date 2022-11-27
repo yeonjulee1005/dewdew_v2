@@ -40,7 +40,9 @@
   @import './tablet//main/contact.scss';
 
   @import './tablet/archives/main_slider.scss';
+
   @import './tablet/project/projects.scss';
+  @import './tablet/project/color_translate.scss';
 }
 
 @include mobile {
@@ -56,5 +58,7 @@
   @import './mobile//main/contact.scss';
 
   @import './mobile/archives/main_slider.scss';
+
   @import './mobile/project/projects.scss';
+  @import './mobile/project/color_translate.scss';
 }

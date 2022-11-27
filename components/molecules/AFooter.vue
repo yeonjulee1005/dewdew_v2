@@ -11,7 +11,7 @@
           {{ menu.title }}
         </nuxt-link>
       </div>
-      <div class="footer-sns-container flex flex-row mb-default">
+      <div class="footer-sns-container flex flex-row flex-justify-center mb-default">
         <nuxt-link
           v-for="image in snsData"
           :key="image.title"
