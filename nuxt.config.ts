@@ -48,7 +48,6 @@ export default {
   },
   // modules
   modules: [
-    '@kevinmarrec/nuxt-pwa',
     '@nuxtjs/robots',
     '@pinia/nuxt',
     '@vueuse/nuxt'
@@ -77,25 +76,13 @@ export default {
   vueuse: {
     ssrHandlers: false
   },
-  pwa: {
-    meta: {
-      charset: 'utf-16',
-      viewport: 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0',
-      name: 'Dewdew',
-      author: 'Dewdew',
-      description: '안녕하세요. FE 개발자 이연주입니다.',
-      theme_color: '#705757',
-      lang: 'ko',
-      // Generate splash screens for iOS
-      mobileAppIOS: true
-    },
-    manifest: {
-      name: 'Dewdew',
-      lang: 'ko',
-      useWebmanifestExtension: false
-    },
-    workbox: {
-      enabled: true
+  runtimeConfig: {
+    public: {
+      GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
+      // API_BASE_URL:
+      // lifecycle === 'build' || lifecycle === 'generate'
+      //   ? process.env.API_LIVE_URL
+      //   : process.env.API_BASE_URL
     }
   }
 }
