@@ -1,0 +1,9 @@
+/** Color Translate Page */
+.color-translate {
+  position: relative;
+  height: $space-100vh;
+  width: $space-100vw;
+  .color-translate-form {
+    width: $space-260;
+  }
+}

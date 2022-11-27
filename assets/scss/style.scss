@@ -22,6 +22,9 @@
   @import './desktop//main/contact.scss';
 
   @import './desktop/archives/main_slider.scss';
+
+  @import './desktop/project/projects.scss';
+  @import './desktop/project/color_translate.scss';
 }
 
 @include tablet {
@@ -37,6 +40,7 @@
   @import './tablet//main/contact.scss';
 
   @import './tablet/archives/main_slider.scss';
+  @import './tablet/project/projects.scss';
 }
 
 @include mobile {
@@ -52,4 +56,5 @@
   @import './mobile//main/contact.scss';
 
   @import './mobile/archives/main_slider.scss';
+  @import './mobile/project/projects.scss';
 }

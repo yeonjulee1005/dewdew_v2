@@ -12,6 +12,12 @@ export interface SnsLogo {
   url: string
 }
 
+export interface Route {
+  index: number,
+  title: string,
+  route: string
+}
+
 export interface Colors {
   color: string,
   percentage: number
