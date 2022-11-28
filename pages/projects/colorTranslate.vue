@@ -21,15 +21,22 @@
         class="color-translate-form ml-40"
         label-position="top"
       >
-        <el-form-item label="HEX Color">
-          <el-input v-model="hexColor" maxlength="7" clearable>
-            <template #append>
-              <el-button v-if="isSupported" @click="copy(hexColor)">
-                <el-icon><DocumentCopy /></el-icon>
-              </el-button>
-            </template>
-          </el-input>
-        </el-form-item>
+        <el-space fill>
+          <el-alert type="info" show-icon :cloasble="false">
+            <p>
+              {{ '스포이드가 동작 안하는 환경일 경우, HEX 컬러를 입력하여 나머지 컬러 색을 확인하세요.' }}
+            </p>
+          </el-alert>
+          <el-form-item label="HEX Color">
+            <el-input v-model="hexColor" maxlength="7" clearable>
+              <template #append>
+                <el-button v-if="isSupported" @click="copy(hexColor)">
+                  <el-icon><DocumentCopy /></el-icon>
+                </el-button>
+              </template>
+            </el-input>
+          </el-form-item>
+        </el-space>
         <el-form-item label="RGB Color">
           <el-input v-model="rgbColor" readonly>
             <template #append>
@@ -140,7 +147,7 @@ const rgbToHex = (value:number) => {
 const hexToRgb = (color:string) => {
   const initColor = color.split('#')[1].match(/.{1,2}/g)
   if (!initColor?.length) { return }
-  const rgb = 'RGB ('.concat(String(parseInt(initColor[0], 16)), ', ', String(parseInt(initColor[1], 16)), ', ', String(parseInt(initColor[2], 16)), ')')
+  const rgb = 'rgb('.concat(String(parseInt(initColor[0], 16)), ', ', String(parseInt(initColor[1], 16)), ', ', String(parseInt(initColor[2], 16)), ')')
   rgbToCmyk(parseInt(initColor[0], 16), parseInt(initColor[1], 16), parseInt(initColor[2], 16))
   rgbColor.value = rgb
 }
@@ -160,7 +167,7 @@ const hexToHsl = (color:string) => {
   let l = h
 
   if (max === min) {
-    hslColor.value = 'HSL ('.concat('0, 0% ,', String(l), '% )')
+    hslColor.value = 'hsl('.concat('0, 0% ,', String(l), '% )')
     return
   }
 
@@ -184,7 +191,7 @@ const hexToHsl = (color:string) => {
   l = l * 100
   l = Math.round(l)
   h = Math.round(360 * h)
-  hslColor.value = 'HSL ('.concat(String(h), ', ', String(s), '% ,', String(l), '% )')
+  hslColor.value = 'hsl('.concat(String(h), ', ', String(s), '% ,', String(l), '% )')
 }
 
 const rgbToCmyk = (red:number, green:number, blue:number) => {
@@ -207,7 +214,7 @@ const rgbToCmyk = (red:number, green:number, blue:number) => {
   y = isNaN(y) ? 0 : y
   k = isNaN(k) ? 0 : k
 
-  cmykColor.value = 'CMYK ('.concat(String(c), ', ', String(m), ', ', String(y), ', ', String(k), ')')
+  cmykColor.value = 'cmyk('.concat(String(c), ', ', String(m), ', ', String(y), ', ', String(k), ')')
 }
 
 const textInclude = (text:string, search:string) => {
