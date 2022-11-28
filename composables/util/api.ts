@@ -1,15 +1,33 @@
 export const useApi = () => {
-  const getAsyncData = async (coreUrl:string, imageUrl:string) => {
+  const getCoreData = async (coreUrl:string, imageUrl:string) => {
     const [{ data: core }, { data: images }] = await Promise.all([
       useFetch(`/api/query?col=${coreUrl}`),
       useFetch(`/api/query?col=${imageUrl}`)
     ])
-    return {
-      core,
-      images
-    }
+    return { core, images }
+  }
+  const getSingleData = async (url:string) => {
+    const { data } = await useFetch(`/api/query?col=${url}`)
+    return { data }
+  }
+  const postAddData = async (url:string, params:any) => {
+    const { data } = await useFetch(`/api/add?col=${url}`, {
+      method: 'POST',
+      body: { article: params }
+    })
+    return { data }
+  }
+  const postSetData = async (url:string, id:string, params:any) => {
+    const { data } = await useFetch(`/api/set?col=${url}`, {
+      method: 'POST',
+      body: { id, params }
+    })
+    return { data }
   }
   return {
-    getAsyncData
+    getCoreData,
+    getSingleData,
+    postAddData,
+    postSetData
   }
 }

@@ -22,11 +22,6 @@
         label-position="top"
       >
         <el-space fill>
-          <el-alert type="info" show-icon :cloasble="false">
-            <p>
-              {{ '스포이드가 동작 안하는 환경일 경우, HEX 컬러를 입력하여 나머지 컬러 색을 확인하세요.' }}
-            </p>
-          </el-alert>
           <el-form-item label="HEX Color">
             <el-input v-model="hexColor" maxlength="7" clearable>
               <template #append>
@@ -36,6 +31,11 @@
               </template>
             </el-input>
           </el-form-item>
+          <el-alert type="info" show-icon :cloasble="false">
+            <p>
+              {{ '스포이드가 동작 안하는 환경일 경우, HEX 컬러를 입력하여 나머지 컬러 색을 확인하세요.' }}
+            </p>
+          </el-alert>
         </el-space>
         <el-form-item label="RGB Color">
           <el-input v-model="rgbColor" readonly>

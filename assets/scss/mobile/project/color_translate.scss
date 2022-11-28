@@ -2,31 +2,35 @@
 .color-translate {
   position: relative;
   flex-direction: column;
-  height: $space-100vh;
+  height: fit-content;
   width: $space-100vw;
   .eye-dropper {
-    margin-top: $space-20;
+    margin-top: $space-80;
   }
   .color-translate-form {
     width: $space-80vw;
     @include unset-margin;
-    margin-top: $space-40;
+    margin: $space-80 0;
   }
   .upload-drag-files {
     width: $space-80vw;
     height: $space-220;
     .image-preview {
-      width: $space-percent-100;
-      height: $space-percent-90;
+      width: $space-percent-80;
+      height: $space-160;
     }
     .el-icon--upload {
       height: unset;
+      width: $space-percent-100;
       .el-upload__text {
-        width: $space-400;
+        display: flex;
+        flex-direction: column;
+        width: $space-percent-90;
         @include headline7;
         text-align: center;
         .accent {
           @include headline6;
+          text-align: center;
           color: var(--d-blue-color-deep)
         }
       }
