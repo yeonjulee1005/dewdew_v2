@@ -31,7 +31,7 @@
 .el-input__wrapper.is-focus,
 .el-input__wrapper.is-hover,
 .el-input-group__append:hover,
-.el-textarea__inner:focus {
+.el-textarea__inner:focus{
   box-shadow: 0 0 0 $space-1 var(--d-green-color) !important;
 }
 .el-form-item.is-error {
@@ -48,4 +48,11 @@
 .el-form-item.is-required:not(.is-no-asterisk).asterisk-left > .el-form-item__label-wrap > .el-form-item__label:before,
 .el-form-item.is-required:not(.is-no-asterisk).asterisk-left > .el-form-item__label:before {
   color: var(--d-red-color);
+}
+
+.el-button:focus,
+.el-button:hover {
+  color: var(--d-bg-main-color);
+  border-color: var(--d-blue-color) !important;
+  background-color: var(--d-blue-color-deep) !important;
 }

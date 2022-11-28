@@ -1,9 +1,35 @@
 /** Color Translate Page */
 .color-translate {
   position: relative;
-  height: $space-80vh;
+  flex-direction: column;
+  height: $space-100vh;
   width: $space-100vw;
+  .eye-dropper {
+    margin-top: $space-20;
+  }
   .color-translate-form {
-    width: $space-60vw;
+    width: $space-80vw;
+    @include unset-margin;
+    margin-top: $space-40;
+  }
+  .upload-drag-files {
+    width: $space-80vw;
+    height: $space-220;
+    .image-preview {
+      width: $space-percent-100;
+      height: $space-percent-90;
+    }
+    .el-icon--upload {
+      height: unset;
+      .el-upload__text {
+        width: $space-400;
+        @include headline7;
+        text-align: center;
+        .accent {
+          @include headline6;
+          color: var(--d-blue-color-deep)
+        }
+      }
+    }
   }
 }

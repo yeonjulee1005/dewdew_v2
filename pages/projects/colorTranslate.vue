@@ -1,11 +1,24 @@
 <template>
   <NuxtLayout>
     <div
-      class="color-translate flex flex-justify-center flex-align-center"
+      class="color-translate flex flex-row flex-justify-center flex-align-center"
       :style="backgroundColor"
     >
+      <div class="flex flex-column">
+        <el-button class="eye-dropper mb-default" :icon="BrushFilled" @click="colorPicker">
+          {{ '스포이드' }}
+        </el-button>
+        <AtomElementUiUploadFile
+          :file-size-alarm="'파일사이즈는 2048*2048 이하만 가능해요!'"
+          :file-type-alarm="'파일 타입은 jpg,png,gif만 가능해요!'"
+          :limit-type="['image/jpeg', 'image/png', 'image/gif']"
+          :limit-height="2048"
+          :limit-width="2048"
+          :limit-size="10"
+        />
+      </div>
       <el-form
-        class="color-translate-form"
+        class="color-translate-form ml-40"
         label-position="top"
       >
         <el-form-item label="HEX Color">
@@ -49,11 +62,12 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-
+import { BrushFilled } from '@element-plus/icons-vue'
+const { open } = useEyeDropper()
 const { copy, copied, isSupported } = useClipboard()
 
 useHead({
-  title: '컬러 값 변경'
+  title: '내 색상 찾아줘..'
 })
 
 definePageMeta({
@@ -83,6 +97,27 @@ const initColorData = () => {
   hexColor.value = '#'.concat(String(initColor.value))
 }
 
+const colorPicker = () => {
+  open().then((res) => {
+    if (res) {
+      const rgbCode = res.sRGBHex.replace('rgb(', '').replace(')', '').split(', ')
+
+      let red = ''
+      let green = ''
+      let blue = ''
+
+      const r = rgbToHex(parseInt(rgbCode[0]))
+      const g = rgbToHex(parseInt(rgbCode[1]))
+      const b = rgbToHex(parseInt(rgbCode[2]))
+
+      r.length === 1 ? red = '0'.concat(String(r)) : red = String(r)
+      g.length === 1 ? green = '0'.concat(String(g)) : green = String(g)
+      b.length === 1 ? blue = '0'.concat(String(b)) : blue = String(g)
+      hexColor.value = '#'.concat(red, green, blue).toUpperCase()
+    }
+  })
+}
+
 watch(hexColor, () => {
   if (textInclude(hexColor.value, 'rgb') || textInclude(hexColor.value, 'hls') || textInclude(hexColor.value, 'cmyk')) {
     hexColor.value = ''
@@ -97,6 +132,10 @@ watch(hexColor, () => {
     hexToHsl(hexColor.value)
   }
 })
+
+const rgbToHex = (value:number) => {
+  return value.toString(16)
+}
 
 const hexToRgb = (color:string) => {
   const initColor = color.split('#')[1].match(/.{1,2}/g)

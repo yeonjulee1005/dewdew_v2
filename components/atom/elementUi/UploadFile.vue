@@ -1,0 +1,73 @@
+<template>
+  <el-upload
+    :drag="uploadFileProps.draggable"
+    :file-list="fileList"
+    :class="uploadFileProps.customClass"
+    action="fileUrl"
+    :show-file-list="false"
+    :auto-upload="false"
+    :multiple="false"
+    :on-change="changeBadgeImage"
+  >
+    <div v-if="previewFile">
+      <img class="image-preview" :src="previewFile" fit="cover">
+    </div>
+    <el-icon
+      v-else
+      class="el-icon--upload flex-column"
+    >
+      <Upload-filled />
+      <div class="el-upload__text">
+        {{ '파일을 올려주세요.' }}
+        <span class="accent">
+          {{ '그리고 스포이드로 컬러를' }}
+        </span>
+        {{ '확인해주세요.' }}
+      </div>
+    </el-icon>
+    <template #tip>
+      <div class="el-upload__tip">
+        {{ uploadFileProps.fileTypeAlarm + ', ' + uploadFileProps.fileSizeAlarm }}
+      </div>
+    </template>
+  </el-upload>
+</template>
+
+<script setup lang="ts">
+import type { UploadProps } from 'element-plus'
+
+const fileList = ref<UploadProps[]>([])
+const previewFile = ref('')
+
+const uploadFileProps = defineProps({
+  draggable: { type: Boolean, default: true },
+  // imageData: { type: String, default: '' },
+  customClass: { type: String, default: 'upload-drag-files' },
+  fileTypeAlarm: { type: String, default: '' },
+  fileSizeAlarm: { type: String, default: '' },
+  limitType: { type: Array, default: () => ['image/jpeg', 'image/jpg'] },
+  limitWidth: { type: Number, default: 0 },
+  limitHeight: { type: Number, default: 0 },
+  limitSize: { type: Number, default: 0 }
+})
+
+// const uploadFileEmits = defineEmits([
+//   'upload'
+// ])
+
+const changeBadgeImage: UploadProps['onChange'] = (file:any) => {
+  let fileType = false
+  uploadFileProps.limitType.includes(file.raw?.type) ? fileType = true : fileType = false
+  if (!fileType) {
+    useAlarm().notify('', 'warning', uploadFileProps.fileTypeAlarm, true, 3000, 0)
+    fileList.value = []
+  } else if (file?.size / uploadFileProps.limitHeight / uploadFileProps.limitWidth > uploadFileProps.limitSize) {
+    useAlarm().notify('', 'warning', uploadFileProps.fileSizeAlarm, true, 3000, 0)
+    fileList.value = []
+  } else {
+    previewFile.value = URL.createObjectURL(file.raw!)
+  }
+  // uploadFileEmits('upload', file.raw)
+}
+
+</script>

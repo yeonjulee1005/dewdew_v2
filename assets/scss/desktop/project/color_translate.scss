@@ -6,4 +6,24 @@
   .color-translate-form {
     width: $space-260;
   }
+  .upload-drag-files {
+    width: $space-400;
+    height: $space-220;
+    .image-preview {
+      width: $space-300;
+      height: $space-200;
+    }
+    .el-icon--upload {
+      height: $space-120;
+      .el-upload__text {
+        width: $space-400;
+        @include headline7;
+        text-align: center;
+        .accent {
+          @include headline6;
+          color: var(--d-blue-color-deep)
+        }
+      }
+    }
+  }
 }
