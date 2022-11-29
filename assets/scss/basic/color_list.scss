@@ -173,6 +173,7 @@ $d-blue-color-dark-deep: hsla(208, 33%, 78%);
 
 :root {
   --d-bg-main-color: #{$d-bg-color-05};
+  --d-bg-white-color: #{$d-bg-color-15};
   --d-bg-sub-color: #{$d-bg-color-15};
   --d-bg-side-color: #{$d-bg-color-light};
   --d-bg-sub-origin-color: #{$d-bg-sub-origin-light};
@@ -257,6 +258,7 @@ $d-blue-color-dark-deep: hsla(208, 33%, 78%);
 
 html.dark {
   --d-bg-main-color: #{$d-bg-color-95};
+  --d-bg-white-color: #{$d-bg-color-05};
   --d-bg-sub-color: #{$d-bg-color-85};
   --d-bg-side-color: #{$d-bg-color-dark};
   --d-bg-sub-origin-color: #{$d-bg-sub-origin-dark};

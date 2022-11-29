@@ -4,7 +4,7 @@
       <div class="write-button-container flex flex-justify-end">
         <el-button
           class="write-blog"
-          @click="writeBlogButton"
+          @click="openAdminCheckDialog"
         >
           {{ writeButtonText }}
         </el-button>
@@ -25,23 +25,17 @@
         </el-timeline-item>
       </el-timeline>
     </div>
-    <MoleculesADialog
-      :dialog-trigger="adminConfirmDialog"
-      custom-class="admin-check-dialog"
-      top="30vh"
-      :width="300"
-    >
-      <div class="title mb-20">
-        {{ adminConfirmTitle }}
-      </div>
-      <el-input v-model="writePassword" class="mb-20" @keyup.prevent.enter="checkPassword">
-        <template #append>
-          <el-button @click="checkPassword">
-            <el-icon><Lock /></el-icon>
-          </el-button>
-        </template>
-      </el-input>
-    </MoleculesADialog>
+    <AtomBlogAdminCheckDialog
+      :admin-trigger="adminConfirmDialogTrigger"
+      :title="'관리자 비밀번호를 입력해주세요!'"
+      @confirm-password="openCreateArticleDialog"
+      @close-dialog="closeAdminCheckDialog"
+    />
+    <AtomBlogCreateArticleDialog
+      :create-article-trigger="createArticleTrigger"
+      :title="'글을 써보자!'"
+      @close-dialog="closeCreateArticleDialog"
+    />
   </NuxtLayout>
 </template>
 <script setup lang="ts">
@@ -56,18 +50,15 @@ definePageMeta({
   title: 'Blog'
 })
 
-const config = useRuntimeConfig()
-
 const blogData = ref<BlogList[]>([])
 const selectBlogData = ref({})
 
-const writePassword = ref('')
 const writeButtonText = ref('Write')
-const adminConfirmTitle = ref('관리자 비밀번호를 입력해주세요.')
-const adminConfirmDialog = ref(false)
+const adminConfirmDialogTrigger = ref(false)
+const createArticleTrigger = ref(false)
 
 useDatabase().blogData.value.forEach((blog:any) => {
-  const processData:BlogList = {
+  const processData = {
     id: blog.id,
     index: blog.article.index,
     title: blog.article.title,
@@ -85,14 +76,21 @@ const clickBlogArticle = (selectBlog:BlogList) => {
   console.log(selectBlogData.value)
 }
 
-const writeBlogButton = () => {
-  adminConfirmDialog.value = true
+const openAdminCheckDialog = () => {
+  adminConfirmDialogTrigger.value = true
 }
 
-const checkPassword = () => {
-  if (config.public.ADMIN_PASSWORD === writePassword.value) {
-    console.log('얼레? 맞는뎅?')
-  }
+const closeAdminCheckDialog = () => {
+  adminConfirmDialogTrigger.value = false
+}
+
+const openCreateArticleDialog = () => {
+  createArticleTrigger.value = true
+  adminConfirmDialogTrigger.value = false
+}
+
+const closeCreateArticleDialog = () => {
+  createArticleTrigger.value = false
 }
 
 // 아래는 add 로 문서 추가하는 것(이걸로 블로그 글 쓸거당)

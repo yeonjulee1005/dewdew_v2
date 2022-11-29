@@ -1,11 +1,12 @@
 import {
   collection,
+  query,
+  orderBy,
   getDocs,
   // getDoc,
   addDoc,
   deleteDoc,
   doc,
-  // query,
   // where,
   setDoc,
   // collectionGroup,
@@ -14,10 +15,11 @@ import {
 } from 'firebase/firestore'
 import { firestoreDb } from './firebase'
 
-export const queryByCollection = async (col: string) => {
-  const colRef = collection(firestoreDb, col)
+export const queryByCollection = async (col: string, sort:string) => {
+  let queryText = null
+  sort ? queryText = query(collection(firestoreDb, col), orderBy('article', 'desc')) : queryText = collection(firestoreDb, col)
 
-  const snapshot = await getDocs(colRef)
+  const snapshot = await getDocs(queryText)
 
   const docs = Array.from(snapshot.docs).map((doc) => {
     return {

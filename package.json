@@ -16,6 +16,12 @@
     "@nuxt/typescript": "^2.8.1",
     "@nuxtjs/robots": "^3.0.0",
     "@pinia/nuxt": "^0.4.0",
+    "@tiptap/extension-highlight": "^2.0.0-beta.204",
+    "@tiptap/extension-paragraph": "^2.0.0-beta.204",
+    "@tiptap/extension-text": "^2.0.0-beta.204",
+    "@tiptap/extension-text-align": "^2.0.0-beta.204",
+    "@tiptap/starter-kit": "^2.0.0-beta.204",
+    "@tiptap/vue-3": "^2.0.0-beta.204",
     "@vueuse/core": "^9.1.0",
     "@vueuse/nuxt": "^9.1.0",
     "element-plus": "^2.2.21",
@@ -30,6 +36,7 @@
     "vue3-carousel": "^0.2.5"
   },
   "devDependencies": {
+    "@iconify/vue": "^4.0.0",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
