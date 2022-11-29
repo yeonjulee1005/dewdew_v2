@@ -5,21 +5,30 @@
   width: $space-100vw;
   .write-button-container {
     margin-top: $space-100;
-    margin-left: $space-40;
+    margin-left: unset;
     width: $space-80vw;
     overflow-y: auto;
   }
   .blog-timeline {
     height: 60vh;
     width: $space-80vw;
+    padding-left: unset;
     scrollbar-width: none;
     ::-webkit-scrollbar {
       display: none;
     }
     .blog-card {
       cursor: pointer;
-      .title {
-        @include headline4;
+      .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        .title {
+          @include headline4;
+        }
+        .like {
+          margin-top: $space-16;
+          margin-left: unset;
+        }
       }
       .desc {
         @include headline6;

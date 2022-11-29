@@ -171,6 +171,21 @@ export interface BlogList {
   comment: Comment[]
 }
 
+export interface Article {
+  index: number,
+  title: string,
+  rawArticle: string,
+  desc: string,
+  like: number,
+  comment: Comment[]
+}
+
+export interface BlogData {
+  id: string,
+  article: Article,
+  createdAt: TimeStamp
+}
+
 export interface CreateArticle {
   index: number,
   title: string,
