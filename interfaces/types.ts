@@ -145,3 +145,37 @@ export interface ArchivesData {
   url: string,
   route: string
 }
+
+/** Blog Page */
+
+export interface TimeStamp {
+  seconds: number,
+  nanoseconds: number
+}
+
+export interface Comment {
+  message: number,
+  password: number,
+  createdAt: TimeStamp
+}
+
+export interface BlogList {
+  id?: string,
+  index: number,
+  title: string,
+  rawArticle: string,
+  desc: string,
+  like: number,
+  timeAgo: any,
+  createdAt: Date,
+  comment: Comment[]
+}
+
+export interface CreateArticle {
+  index: number,
+  title: string,
+  rawArticle: string,
+  desc: string,
+  like: number,
+  comment: []
+}

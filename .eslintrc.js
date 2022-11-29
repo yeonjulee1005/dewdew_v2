@@ -1,7 +1,8 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es2021: true
+    node: true
   },
   extends: [
     'eslint:recommended',
@@ -21,5 +22,9 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
+    quotes: ['error', 'single'],
+    indent: [2, 2, {
+      SwitchCase: 1
+    }]
   }
 }

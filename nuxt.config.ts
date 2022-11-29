@@ -81,7 +81,8 @@ export default {
   },
   runtimeConfig: {
     public: {
-      GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
+      GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID,
+      ADMIN_PASSWORD: process.env.ADMIN_PASSWORD
       // API_BASE_URL:
       // lifecycle === 'build' || lifecycle === 'generate'
       //   ? process.env.API_LIVE_URL

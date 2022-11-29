@@ -1,22 +1,25 @@
 import {
   collection,
+  query,
+  orderBy,
   getDocs,
   // getDoc,
   addDoc,
   deleteDoc,
   doc,
-  // query,
   // where,
-  setDoc
+  setDoc,
   // collectionGroup,
-  // Timestamp
+  // Timestamp,
+  serverTimestamp
 } from 'firebase/firestore'
 import { firestoreDb } from './firebase'
 
-export const queryByCollection = async (col: string) => {
-  const colRef = collection(firestoreDb, col)
+export const queryByCollection = async (col: string, sort:string) => {
+  let queryText = null
+  sort ? queryText = query(collection(firestoreDb, col), orderBy('createdAt', 'desc')) : queryText = collection(firestoreDb, col)
 
-  const snapshot = await getDocs(colRef)
+  const snapshot = await getDocs(queryText)
 
   const docs = Array.from(snapshot.docs).map((doc) => {
     return {
@@ -28,15 +31,18 @@ export const queryByCollection = async (col: string) => {
   return docs
 }
 
-export const set = async (col:string, document:object) => {
-  await setDoc(doc(collection(firestoreDb, col)), document, { merge: true })
+export const set = async (col:string, id:string, document:object) => {
+  await setDoc(doc(firestoreDb, col, id), document, { merge: true })
 }
 
 export const add = async (col:string, document:object) => {
+  const addData = {
+    ...document,
+    createdAt: serverTimestamp()
+  }
   const colRef = collection(firestoreDb, col)
 
-  const docRef = await addDoc(colRef, document)
-
+  const docRef = await addDoc(colRef, addData)
   return docRef
 }
 

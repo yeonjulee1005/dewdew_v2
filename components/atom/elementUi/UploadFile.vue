@@ -10,7 +10,7 @@
     :on-change="changeBadgeImage"
   >
     <div v-if="previewFile">
-      <img class="image-preview" :src="previewFile" fit="cover">
+      <el-image class="image-preview" :src="previewFile" fit="cover" />
     </div>
     <el-icon
       v-else

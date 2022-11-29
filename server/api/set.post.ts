@@ -1,10 +1,11 @@
-import { add } from '../lib/firestore'
+import { set } from '../lib/firestore'
 
 export default defineEventHandler(async (event:any) => {
   try {
     const query = getQuery(event)
     const body = await readBody(event)
-    const docRef = await add(query.col as string, body)
+    if (!query.col) { return }
+    const docRef = await set(query.col as string, body.id as string, body)
 
     return { result: docRef }
   } catch (error:any) {

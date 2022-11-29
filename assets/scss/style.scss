@@ -13,6 +13,8 @@
   @import './basic/reset_element_ui_style.scss';
 
   @import './desktop/layouts.scss';
+  @import './desktop/dialogs.scss';
+  @import './desktop/tiptap.scss';
   @import './desktop/404.scss';
 
   @import './desktop/main/intro_banner.scss';
@@ -23,8 +25,10 @@
 
   @import './desktop/archives/main_slider.scss';
 
-  @import './desktop/project/projects.scss';
+  @import './desktop/project/index.scss';
   @import './desktop/project/color_translate.scss';
+
+  @import './desktop/blog/index.scss';
 }
 
 @include tablet {
@@ -41,7 +45,7 @@
 
   @import './tablet/archives/main_slider.scss';
 
-  @import './tablet/project/projects.scss';
+  @import './tablet/project/index.scss';
   @import './tablet/project/color_translate.scss';
 }
 
@@ -59,6 +63,6 @@
 
   @import './mobile/archives/main_slider.scss';
 
-  @import './mobile/project/projects.scss';
+  @import './mobile/project/index.scss';
   @import './mobile/project/color_translate.scss';
 }
