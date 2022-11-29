@@ -16,9 +16,14 @@
       :label-width="80"
       @submit.prevent
     >
-      <el-form-item>
+      <el-form-item label="제목">
+        <el-input
+          v-model="createArticleData.title"
+        />
+      </el-form-item>
+      <el-form-item label="컨텐츠">
         <AtomTiptapTextEditor
-          @update:model-value="writeArticle"
+          @update:model-value="updateArticle"
         />
       </el-form-item>
       <!-- <el-form-item label="비밀번호" prop="password">
@@ -36,6 +41,12 @@
           </template>
         </el-input>
       </el-form-item> -->
+      <el-form-item>
+        <el-button type="primary" @click="checkPassword(createArticleRef)">
+          Create
+        </el-button>
+        <el-button>Cancel</el-button>
+      </el-form-item>
     </el-form>
   </MoleculesADialog>
 </template>
@@ -44,17 +55,23 @@ import type { FormInstance, FormRules } from 'element-plus'
 
 const createArticleProps = defineProps({
   createArticleTrigger: { type: Boolean, default: false },
-  title: { type: String, default: '' }
+  title: { type: String, default: '' },
+  articleIndex: { type: Number, default: 0 }
 })
 
-const adminCheckEmits = defineEmits([
-  'confirm-password',
+const createArticleEmits = defineEmits([
+  'create-article',
   'close-dialog'
 ])
 
 const createArticleRef = ref<FormInstance>()
 const createArticleData = reactive({
-  password: ''
+  title: '',
+  rawArticle: '',
+  desc: '',
+  like: 0,
+  index: createArticleProps.articleIndex + 1,
+  comment: []
 })
 
 const validatePassword = (_rule:any, value:any, callback:any) => {
@@ -74,23 +91,24 @@ const createArticleRules = reactive<FormRules>({
   password: [{ required: true, validator: validatePassword, trigger: 'blur' }]
 })
 
-// const checkPassword = async (formEl:FormInstance|undefined) => {
-//   if (!formEl) { return }
-//   await formEl.validate((valid, _fields) => {
-//     if (valid) {
-//       useAlarm().notify('', 'error', '어딜...감히..', true, 3000, 0)
-//     } else {
-//       useAlarm().notify('', 'warning', '비밀번호를 입력해주시죠..', true, 3000, 0)
-//     }
-//   })
-// }
+const updateArticle = (article:string, rawArticle:string) => {
+  createArticleData.desc = article
+  createArticleData.rawArticle = rawArticle
+}
 
-const writeArticle = (item:any) => {
-  console.log(item)
+const checkPassword = async (formEl:FormInstance|undefined) => {
+  if (!formEl) { return }
+  await formEl.validate((valid, _fields) => {
+    if (valid) {
+      createArticleEmits('create-article', createArticleData)
+    } else {
+      useAlarm().notify('', 'warning', '비밀번호를 입력해주시죠..', true, 3000, 0)
+    }
+  })
 }
 
 const closeCreateArticleDialog = () => {
-  adminCheckEmits('close-dialog')
+  createArticleEmits('close-dialog')
 }
 
 </script>

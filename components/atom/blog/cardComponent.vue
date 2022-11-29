@@ -9,7 +9,7 @@
       </el-tag>
     </p>
     <p class="desc">
-      {{ blogCardProps.cardItem.desc }}
+      {{ blogCardProps.cardItem.rawArticle }}
     </p>
   </el-card>
 </template>

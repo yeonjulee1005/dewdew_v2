@@ -34,13 +34,15 @@
     <AtomBlogCreateArticleDialog
       :create-article-trigger="createArticleTrigger"
       :title="'글을 써보자!'"
+      :article-index="writeIndex"
+      @create-article="writeArticle"
       @close-dialog="closeCreateArticleDialog"
     />
   </NuxtLayout>
 </template>
 <script setup lang="ts">
 import { useDatabase } from '~/stores/database'
-import { BlogList } from '~/interfaces/types'
+import { BlogList, CreateArticle } from '~/interfaces/types'
 
 useHead({
   title: '블로그'
@@ -54,6 +56,7 @@ const blogData = ref<BlogList[]>([])
 const selectBlogData = ref({})
 
 const writeButtonText = ref('Write')
+const writeIndex = ref(useDatabase().blogData.value.length)
 const adminConfirmDialogTrigger = ref(false)
 const createArticleTrigger = ref(false)
 
@@ -62,6 +65,7 @@ useDatabase().blogData.value.forEach((blog:any) => {
     id: blog.id,
     index: blog.article.index,
     title: blog.article.title,
+    rawArticle: blog.article.rawArticle,
     desc: blog.article.desc,
     like: blog.article.like,
     timeAgo: useTimeAgo(new Date(blog.article.createdAt.seconds * 1000 + blog.article.createdAt.nanoseconds / 1000)),
@@ -89,12 +93,16 @@ const openCreateArticleDialog = () => {
   adminConfirmDialogTrigger.value = false
 }
 
-const closeCreateArticleDialog = () => {
-  createArticleTrigger.value = false
-}
-
+const writeArticle = (data:CreateArticle) => {
+  console.log(data)
 // 아래는 add 로 문서 추가하는 것(이걸로 블로그 글 쓸거당)
 // await useApi().postAddData('blog/', { desc: '내용3', index: 0, title: '제11목이댱' }).then((res:any) => {
 //   console.log(res)
 // })
+}
+
+const closeCreateArticleDialog = () => {
+  createArticleTrigger.value = false
+}
+
 </script>

@@ -154,18 +154,28 @@ export interface TimeStamp {
 }
 
 export interface Comment {
-  message: string,
-  password: string,
+  message: number,
+  password: number,
   createdAt: TimeStamp
 }
 
 export interface BlogList {
-  id: string,
+  id?: string,
   index: number,
   title: string,
+  rawArticle: string,
   desc: string,
   like: number,
   timeAgo: any,
   createdAt: Date,
   comment: Comment[]
+}
+
+export interface CreateArticle {
+  index: number,
+  title: string,
+  rawArticle: string,
+  desc: string,
+  like: number,
+  comment: []
 }

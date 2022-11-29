@@ -250,7 +250,7 @@ const editor = useEditor({
     Highlight.configure({ multicolor: true })
   ],
   onUpdate: ({ editor }) => {
-    textEditorEmits('update:model-value', editor.getHTML())
+    textEditorEmits('update:model-value', editor.getHTML(), editor.state.doc.textContent)
   }
 })
 
