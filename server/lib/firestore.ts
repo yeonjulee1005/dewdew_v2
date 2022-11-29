@@ -11,7 +11,8 @@ import {
   setDoc,
   // collectionGroup,
   // Timestamp,
-  serverTimestamp
+  serverTimestamp,
+  updateDoc
 } from 'firebase/firestore'
 import { firestoreDb } from './firebase'
 
@@ -43,6 +44,17 @@ export const add = async (col:string, document:object) => {
   const colRef = collection(firestoreDb, col)
 
   const docRef = await addDoc(colRef, addData)
+  return docRef
+}
+
+export const update = async (col:string, id:string, document:object) => {
+  const addData = {
+    ...document,
+    createdAt: serverTimestamp()
+  }
+  const colRef = doc(firestoreDb, col, id)
+
+  const docRef = await updateDoc(colRef, addData)
   return docRef
 }
 

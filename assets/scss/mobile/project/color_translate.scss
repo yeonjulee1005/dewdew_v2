@@ -11,6 +11,9 @@
     width: $space-80vw;
     @include unset-margin;
     margin: $space-80 0;
+    .el-space {
+      width: $space-percent-100;
+    }
   }
   .upload-drag-files {
     width: $space-80vw;

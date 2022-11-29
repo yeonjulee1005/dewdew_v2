@@ -53,13 +53,11 @@ definePageMeta({
 })
 
 const blogData = ref<BlogList[]>([])
-const selectBlogData = ref({})
 
 const writeButtonText = ref('Write')
+const writeIndex = ref(0)
 const adminConfirmDialogTrigger = ref(false)
 const createArticleTrigger = ref(false)
-
-const writeIndex = ref(useDatabase().blogData.value.length)
 
 useDatabase().blogData.value.forEach((blog:any) => {
   const processData = {
@@ -74,11 +72,15 @@ useDatabase().blogData.value.forEach((blog:any) => {
     comment: blog.article.comment
   }
   blogData.value.push(processData)
+  writeIndex.value = blogData.value.length
 })
 
-const clickBlogArticle = (selectBlog:BlogList) => {
-  selectBlogData.value = selectBlog
-  console.log(selectBlogData.value)
+const clickBlogArticle = (selectBlog:any) => {
+  const id = selectBlog.id
+  useRouter().push({
+    name: 'blog-id',
+    params: { id }
+  })
 }
 
 const openAdminCheckDialog = () => {
@@ -98,7 +100,7 @@ const writeArticle = async (data:CreateArticle) => {
   await useApi().postAddData('blog/', data).then((res:any) => {
     if (res.data.value.result.type) {
       useAlarm().notify('', 'success', '글이 작성되었네용!!', true, 3000, 0)
-      useRouter().push('/')
+      reloadBlogData()
       closeCreateArticleDialog()
     } else {
       useAlarm().notify('', 'error', '글 작성이 실패했넹??', true, 3000, 0)
@@ -108,6 +110,31 @@ const writeArticle = async (data:CreateArticle) => {
 
 const closeCreateArticleDialog = () => {
   createArticleTrigger.value = false
+}
+
+const reloadBlogData = async () => {
+  await useApi().getSingleData('blog').then((res:any) => {
+    blogData.value = []
+    res.data.value.forEach((blog:any) => {
+      modifyData(blog)
+    })
+  })
+}
+
+const modifyData = (blogData:any) => {
+  const processData = {
+    id: blogData.id,
+    index: blogData.article.index,
+    title: blogData.article.title,
+    rawArticle: blogData.article.rawArticle,
+    desc: blogData.article.desc,
+    like: blogData.article.like,
+    timeAgo: useTimeAgo(new Date(blogData.createdAt.seconds * 1000 + blogData.createdAt.nanoseconds / 1000000)),
+    createdAt: new Date(blogData.createdAt.seconds * 1000 + blogData.createdAt.nanoseconds / 1000000),
+    comment: blogData.article.comment
+  }
+  blogData.value.push(processData)
+  writeIndex.value = blogData.value.length
 }
 
 </script>

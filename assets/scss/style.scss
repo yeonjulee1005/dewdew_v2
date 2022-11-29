@@ -47,6 +47,8 @@
 
   @import './tablet/project/index.scss';
   @import './tablet/project/color_translate.scss';
+  
+  @import './tablet/blog/index.scss';
 }
 
 @include mobile {
@@ -65,4 +67,6 @@
 
   @import './mobile/project/index.scss';
   @import './mobile/project/color_translate.scss';
+  
+  @import './mobile/blog/index.scss';
 }
