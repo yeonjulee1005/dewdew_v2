@@ -6,7 +6,7 @@
     width="80vw"
     @close-dialog="closeCreateArticleDialog"
   >
-    <div class="title mb-20">
+    <div class="title ml-40 mb-20">
       {{ createArticleProps.title }}
     </div>
     <el-form
@@ -41,11 +41,10 @@
           </template>
         </el-input>
       </el-form-item> -->
-      <el-form-item>
-        <el-button type="primary" @click="checkPassword(createArticleRef)">
-          Create
+      <el-form-item class="submit-form-item">
+        <el-button class="submit-button" type="primary" @click="checkPassword(createArticleRef)">
+          {{ submitButtonText }}
         </el-button>
-        <el-button>Cancel</el-button>
       </el-form-item>
     </el-form>
   </MoleculesADialog>
@@ -64,13 +63,14 @@ const createArticleEmits = defineEmits([
   'close-dialog'
 ])
 
+const submitButtonText = ref('글쓰기!')
 const createArticleRef = ref<FormInstance>()
 const createArticleData = reactive({
   title: '',
   rawArticle: '',
   desc: '',
   like: 0,
-  index: createArticleProps.articleIndex + 1,
+  index: createArticleProps.articleIndex,
   comment: []
 })
 

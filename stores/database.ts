@@ -6,11 +6,14 @@ export const useDatabase = defineStore('database', () => {
   const blogData:any = []
 
   const updateCoreData = async (data:any) => {
+    coreData.value = {}
+    imageData.value = {}
     coreData.value = await data.core
     imageData.value = await data.images
   }
 
   const updateBlogData = async (data:any) => {
+    blogData.value = []
     blogData.value = await data.data
   }
 

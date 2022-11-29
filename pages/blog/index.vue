@@ -56,9 +56,10 @@ const blogData = ref<BlogList[]>([])
 const selectBlogData = ref({})
 
 const writeButtonText = ref('Write')
-const writeIndex = ref(useDatabase().blogData.value.length)
 const adminConfirmDialogTrigger = ref(false)
 const createArticleTrigger = ref(false)
+
+const writeIndex = ref(useDatabase().blogData.value.length)
 
 useDatabase().blogData.value.forEach((blog:any) => {
   const processData = {
@@ -68,8 +69,8 @@ useDatabase().blogData.value.forEach((blog:any) => {
     rawArticle: blog.article.rawArticle,
     desc: blog.article.desc,
     like: blog.article.like,
-    timeAgo: useTimeAgo(new Date(blog.article.createdAt.seconds * 1000 + blog.article.createdAt.nanoseconds / 1000)),
-    createdAt: new Date(blog.article.createdAt.seconds * 1000 + blog.article.createdAt.nanoseconds / 1000),
+    timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
+    createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
     comment: blog.article.comment
   }
   blogData.value.push(processData)
@@ -93,12 +94,16 @@ const openCreateArticleDialog = () => {
   adminConfirmDialogTrigger.value = false
 }
 
-const writeArticle = (data:CreateArticle) => {
-  console.log(data)
-// 아래는 add 로 문서 추가하는 것(이걸로 블로그 글 쓸거당)
-// await useApi().postAddData('blog/', { desc: '내용3', index: 0, title: '제11목이댱' }).then((res:any) => {
-//   console.log(res)
-// })
+const writeArticle = async (data:CreateArticle) => {
+  await useApi().postAddData('blog/', data).then((res:any) => {
+    if (res.data.value.result.type) {
+      useAlarm().notify('', 'success', '글이 작성되었네용!!', true, 3000, 0)
+      useRouter().push('/')
+      closeCreateArticleDialog()
+    } else {
+      useAlarm().notify('', 'error', '글 작성이 실패했넹??', true, 3000, 0)
+    }
+  })
 }
 
 const closeCreateArticleDialog = () => {
