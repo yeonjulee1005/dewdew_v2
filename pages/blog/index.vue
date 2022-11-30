@@ -59,31 +59,23 @@ const writeIndex = ref(0)
 const adminConfirmDialogTrigger = ref(false)
 const createArticleTrigger = ref(false)
 
-onMounted(() => {
-  setTimeout(() => {
-    loadBlogData()
-  }, 2)
-})
-
-const loadBlogData = async () => {
-  await useApi().getSingleData('blog').then((res:any) => {
-    res.data.value.forEach((blog:any) => {
-      const processData = {
-        id: blog.id,
-        index: blog.article.index,
-        title: blog.article.title,
-        rawArticle: blog.article.rawArticle.slice(0, 160).concat('...'),
-        desc: blog.article.desc,
-        like: blog.article.like,
-        timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
-        createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
-        comment: blog.article.comment
-      }
-      blogData.value.push(processData)
-    })
-    writeIndex.value = blogData.value.length
+await useApi().getSingleData('blog').then((res:any) => {
+  res.data.value.forEach((blog:any) => {
+    const processData = {
+      id: blog.id,
+      index: blog.article.index,
+      title: blog.article.title,
+      rawArticle: blog.article.rawArticle.slice(0, 160).concat('...'),
+      desc: blog.article.desc,
+      like: blog.article.like,
+      timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
+      createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
+      comment: blog.article.comment
+    }
+    blogData.value.push(processData)
   })
-}
+  writeIndex.value = blogData.value.length
+})
 
 const clickBlogArticle = (selectBlog:any) => {
   const id = selectBlog.id
