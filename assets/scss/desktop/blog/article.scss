@@ -1,10 +1,12 @@
 /** Blog Article */
 .blog-article {
   position: relative;
-  height: $space-80vh;
+  min-height: $space-80vh;
+  height: fit-content;
   width: $space-100vw;
   .article-header {
     width: $space-80vw;
+    max-width: $space-1000;
     margin-top: $space-120;
     .title {
       @include headline3;
@@ -17,6 +19,7 @@
   }
   .article-add-on {
     width: $space-80vw;
+    max-width: $space-1000;
     .like {
       cursor: pointer;
     }
@@ -68,5 +71,6 @@
   }
   .article-comments {
     width: $space-80vw;
+    max-width: $space-1000;
   }
 }

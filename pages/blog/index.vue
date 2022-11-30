@@ -42,7 +42,6 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-import { useDatabase } from '~/stores/database'
 import { BlogList, CreateArticle } from '~/interfaces/types'
 
 useHead({
@@ -50,6 +49,7 @@ useHead({
 })
 
 definePageMeta({
+  pageTransition: false,
   title: 'Blog'
 })
 
@@ -60,21 +60,30 @@ const writeIndex = ref(0)
 const adminConfirmDialogTrigger = ref(false)
 const createArticleTrigger = ref(false)
 
-useDatabase().blogData.value.forEach((blog:any) => {
-  const processData = {
-    id: blog.id,
-    index: blog.article.index,
-    title: blog.article.title,
-    rawArticle: blog.article.rawArticle,
-    desc: blog.article.desc,
-    like: blog.article.like,
-    timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
-    createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
-    comment: blog.article.comment
-  }
-  blogData.value.push(processData)
-  writeIndex.value = blogData.value.length
+onMounted(async () => {
+  await nextTick()
+  await loadBlogData()
 })
+
+const loadBlogData = async () => {
+  await useApi().getSingleData('blog').then((res:any) => {
+    res.data.value.forEach((blog:any) => {
+      const processData = {
+        id: blog.id,
+        index: blog.article.index,
+        title: blog.article.title,
+        rawArticle: blog.article.rawArticle.slice(0, 160).concat('...'),
+        desc: blog.article.desc,
+        like: blog.article.like,
+        timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
+        createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
+        comment: blog.article.comment
+      }
+      blogData.value.push(processData)
+    })
+    writeIndex.value = blogData.value.length
+  })
+}
 
 const clickBlogArticle = (selectBlog:any) => {
   const id = selectBlog.id
@@ -114,28 +123,24 @@ const closeCreateArticleDialog = () => {
 }
 
 const reloadBlogData = async () => {
+  blogData.value = []
   await useApi().getSingleData('blog').then((res:any) => {
-    blogData.value = []
     res.data.value.forEach((blog:any) => {
-      modifyData(blog)
+      const processData = {
+        id: blog.id,
+        index: blog.article.index,
+        title: blog.article.title,
+        rawArticle: blog.article.rawArticle,
+        desc: blog.article.desc,
+        like: blog.article.like,
+        timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
+        createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
+        comment: blog.article.comment
+      }
+      blogData.value.push(processData)
     })
+    writeIndex.value = blogData.value.length
   })
-}
-
-const modifyData = (blogData:any) => {
-  const processData = {
-    id: blogData.id,
-    index: blogData.article.index,
-    title: blogData.article.title,
-    rawArticle: blogData.article.rawArticle,
-    desc: blogData.article.desc,
-    like: blogData.article.like,
-    timeAgo: useTimeAgo(new Date(blogData.createdAt.seconds * 1000 + blogData.createdAt.nanoseconds / 1000000)),
-    createdAt: new Date(blogData.createdAt.seconds * 1000 + blogData.createdAt.nanoseconds / 1000000),
-    comment: blogData.article.comment
-  }
-  blogData.value.push(processData)
-  writeIndex.value = blogData.value.length
 }
 
 </script>

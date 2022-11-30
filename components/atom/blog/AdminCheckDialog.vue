@@ -37,6 +37,7 @@
 </template>
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
+import { useDatabase } from '~/stores/database'
 
 const adminCheckProps = defineProps({
   adminTrigger: { type: Boolean, default: false },
@@ -48,7 +49,6 @@ const adminCheckEmits = defineEmits([
   'close-dialog'
 ])
 
-const config = useRuntimeConfig()
 const adminKeyRef = ref<FormInstance>()
 const adminKeyData = reactive({
   password: ''
@@ -75,7 +75,7 @@ const checkPassword = async (formEl:FormInstance|undefined) => {
   if (!formEl) { return }
   await formEl.validate((valid, _fields) => {
     if (valid) {
-      config.public.ADMIN_PASSWORD === adminKeyData.password
+      useDatabase().adminPassword.value === adminKeyData.password
         ? adminCheckEmits('confirm-password')
         : useAlarm().notify('', 'error', '어딜...감히..', true, 3000, 0)
     } else {

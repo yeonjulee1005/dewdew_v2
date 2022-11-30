@@ -23,26 +23,12 @@
       </el-form-item>
       <el-form-item label="컨텐츠">
         <AtomTiptapTextEditor
+          :full-option="true"
           @update:model-value="updateArticle"
         />
       </el-form-item>
-      <!-- <el-form-item label="비밀번호" prop="password">
-        <el-input
-          v-model="createArticleData.password"
-          type="password"
-          show-password
-          clearable
-          class="mb-20"
-        >
-          <template #append>
-            <el-button @click="checkPassword(createArticleRef)">
-              <el-icon><Lock /></el-icon>
-            </el-button>
-          </template>
-        </el-input>
-      </el-form-item> -->
       <el-form-item class="submit-form-item">
-        <el-button class="submit-button" type="primary" @click="checkPassword(createArticleRef)">
+        <el-button class="submit-button" type="primary" @click="submitArticle(createArticleRef)">
           {{ submitButtonText }}
         </el-button>
       </el-form-item>
@@ -70,7 +56,7 @@ const createArticleData = reactive({
   rawArticle: '',
   desc: '',
   like: 0,
-  index: createArticleProps.articleIndex,
+  index: 0,
   comment: []
 })
 
@@ -94,9 +80,10 @@ const createArticleRules = reactive<FormRules>({
 const updateArticle = (article:string, rawArticle:string) => {
   createArticleData.desc = article
   createArticleData.rawArticle = rawArticle
+  createArticleData.index = createArticleProps.articleIndex
 }
 
-const checkPassword = async (formEl:FormInstance|undefined) => {
+const submitArticle = async (formEl:FormInstance|undefined) => {
   if (!formEl) { return }
   await formEl.validate((valid, _fields) => {
     if (valid) {

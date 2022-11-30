@@ -9,10 +9,11 @@ import {
   doc,
   // where,
   setDoc,
+  updateDoc,
   // collectionGroup,
   // Timestamp,
   serverTimestamp,
-  updateDoc
+  increment
 } from 'firebase/firestore'
 import { firestoreDb } from './firebase'
 
@@ -47,11 +48,17 @@ export const add = async (col:string, document:object) => {
   return docRef
 }
 
-export const update = async (col:string, id:string, document:object) => {
-  const addData = {
-    ...document,
-    createdAt: serverTimestamp()
+export const update = async (col:string, id:string, root:string, method:string, document:object) => {
+  let addData = {}
+  switch (method) {
+    case 'increment' :
+      addData = incrementValue(root, document)
+      break
   }
+  // const addData = {
+  //   ...document,
+  //   createdAt: serverTimestamp()
+  // }
   const colRef = doc(firestoreDb, col, id)
 
   const docRef = await updateDoc(colRef, addData)
@@ -61,4 +68,8 @@ export const update = async (col:string, id:string, document:object) => {
 export const del = async (col:any, id:any) => {
   const docRef = doc(firestoreDb, col, id)
   return await deleteDoc(docRef)
+}
+
+function incrementValue (root:string, data:any) {
+  return { [root]: increment(data) }
 }
