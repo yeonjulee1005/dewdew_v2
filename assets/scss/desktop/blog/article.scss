@@ -35,16 +35,19 @@
     ul, ol {
       padding: 0 1rem;
     }
+    p {
+      line-height: 1.5;
+    }
     h1, h2, h3, h4, h5, h6 {
       line-height: 1.1;
     }
     code {
-      background-color: rgba(#616161, 0.1);
-      color: #616161;
+      background-color: $d-bg-sub-origin-dark;
+      color: $d-bg-sub-origin-light;
     }
     pre {
-      background: #0D0D0D;
-      color: #FFF;
+      background: $d-bg-origin-dark;
+      color: $d-bg-origin-light;
       font-family: 'JetBrainsMono', monospace;
       padding: 0.75rem 1rem;
       border-radius: 0.5rem;
@@ -56,16 +59,16 @@
       }
     }
     img {
-      max-width: 100%;
+      max-width: $space-percent-100;
       height: auto;
     }
     blockquote {
-      padding-left: 1rem;
-      border-left: 2px solid rgba(#0D0D0D, 0.1);
+      padding-left: $space-8;
+      border-left: $space-4 solid var(--d-text-color);
     }
     hr {
       border: none;
-      border-top: 2px solid rgba(#0D0D0D, 0.1);
+      border-top: $space-2 solid var(--d-text-color);
       margin: 2rem 0;
     }
   }
