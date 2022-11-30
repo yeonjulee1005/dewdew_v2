@@ -9,6 +9,7 @@
           type="bold"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('italic') : null"
           :action="() => editor ? editor.chain().focus().toggleItalic().run() : null"
@@ -21,6 +22,7 @@
           type="strikethrough-2"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('highlight') : null"
           :action="() => editor ? editor.chain().focus().toggleHighlight().run() : null"
@@ -33,78 +35,91 @@
           type="mark-pen-line"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'left' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('left').run() : null"
           type="align-left"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'center' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('center').run() : null"
           type="align-center"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'right' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('right').run() : null"
           type="align-right"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'justify' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('justify').run() : null"
           type="align-justify"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('paragraph') : null"
           :action="() => editor ? editor.chain().focus().setParagraph().run() : null"
           type="paragraph"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('heading', { level: 1 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 1 }).run() : null"
           type="h-1"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('heading', { level: 2 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 2 }).run() : null"
           type="h-2"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('heading', { level: 3 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 3 }).run() : null"
           type="h-3"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('heading', { level: 4 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 4 }).run() : null"
           type="h-4"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('heading', { level: 5 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 5 }).run() : null"
           type="h-5"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('heading', { level: 6 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 6 }).run() : null"
           type="h-6"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('bulletList') : null"
           :action="() => editor ? editor.chain().focus().toggleBulletList().run() : null"
           type="list-unordered"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('orderedList') : null"
           :action="() => editor ? editor.chain().focus().toggleOrderedList().run() : null"
@@ -117,23 +132,27 @@
           type="code-box-line"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('blockquote') : null"
           :action="() => editor ? editor.chain().focus().toggleBlockquote().run() : null"
           type="double-quotes-l"
         />
         <AtomTiptapEditSpecialButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :action="() => editor ? editor.chain().focus().setHorizontalRule().run() : null"
           type="separator"
         />
         <AtomTiptapEditSpecialButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :disabled="!editor.can().chain().focus().undo().run()"
           :action="() => editor ? editor.chain().focus().undo().run() : null"
           type="arrow-go-back-line"
         />
         <AtomTiptapEditSpecialButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :disabled="!editor.can().chain().focus().redo().run()"
           :action="() => editor ? editor.chain().focus().redo().run() : null"
@@ -158,18 +177,21 @@
           type="mark-pen-fill"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'left' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('left').run() : null"
           type="align-left"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'center' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('center').run() : null"
           type="align-center"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'right' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('right').run() : null"
@@ -201,18 +223,21 @@
           type="mark-pen-fill"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'left' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('left').run() : null"
           type="align-left"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'center' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('center').run() : null"
           type="align-center"
         />
         <AtomTiptapEditNormalButtons
+          v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive({ textAlign: 'right' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('right').run() : null"
@@ -235,6 +260,10 @@ import { useEditor, EditorContent, BubbleMenu, FloatingMenu } from '@tiptap/vue-
 import TextAlign from '@tiptap/extension-text-align'
 import Highlight from '@tiptap/extension-highlight'
 import StarterKit from '@tiptap/starter-kit'
+
+const textEditorProps = defineProps({
+  fullOption: { type: Boolean, default: false }
+})
 
 const textEditorEmits = defineEmits([
   'update:model-value'

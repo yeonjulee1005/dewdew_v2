@@ -155,6 +155,7 @@ export interface TimeStamp {
 
 export interface Comment {
   index: number,
+  name: string,
   message: string,
   password: string,
   createdAt: TimeStamp

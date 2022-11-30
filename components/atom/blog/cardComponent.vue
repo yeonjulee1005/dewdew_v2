@@ -9,7 +9,7 @@
         type="success"
         effect="light"
       >
-        {{ blogCardProps.cardItem.like + ' 👍🏻' }}
+        {{ blogCardProps.cardItem.like + ' ❤️' }}
       </el-tag>
     </div>
     <p class="desc">

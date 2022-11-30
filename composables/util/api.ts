@@ -17,6 +17,13 @@ export const useApi = () => {
     })
     return { data }
   }
+  const postUpdateData = async (url:string, params:any) => {
+    const { data } = await useFetch(`/api/update?col=${url}`, {
+      method: 'POST',
+      body: params
+    })
+    return { data }
+  }
   const postSetData = async (url:string, id:string, params:any) => {
     const { data } = await useFetch(`/api/set?col=${url}`, {
       method: 'POST',
@@ -28,6 +35,7 @@ export const useApi = () => {
     getCoreData,
     getSingleData,
     postAddData,
+    postUpdateData,
     postSetData
   }
 }
