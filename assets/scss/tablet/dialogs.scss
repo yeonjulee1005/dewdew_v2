@@ -1,0 +1,17 @@
+/** Dialog List */
+.admin-check-dialog {
+  .title {
+    @include headline6;
+  }
+}
+
+.create-article-dialog {
+  .title {
+    @include headline5;
+  }
+  .submit-form-item {
+    .el-form-item__content {
+      justify-content: flex-end;
+    }
+  }
+}
