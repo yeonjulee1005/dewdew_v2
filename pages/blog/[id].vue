@@ -7,7 +7,7 @@
       <AtomBlogArticleAddOn
         :article-id="String(articleId)"
         :data="articleData"
-        :activate-like="articleLike.trigger"
+        :activate-like="articleLike ? articleLike : ''"
         @update-count="updateLikeCount"
       />
       <div class="article-body mt-default" v-html="articleData.desc" />
@@ -33,7 +33,6 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-import { useStorage } from '@vueuse/core'
 import { BlogData } from '~/interfaces/types'
 
 useHead({
@@ -45,7 +44,8 @@ definePageMeta({
 })
 
 const articleId = useRoute().params.id
-const articleLike = useStorage(String(articleId), { id: articleId, trigger: false }, sessionStorage)
+const articleLike = useCookie(String(articleId))
+articleLike.value = '0'
 const articleData = ref({
   title: '',
   desc: '',
@@ -83,15 +83,15 @@ const updateLikeCount = async () => {
     id: articleId,
     data: 0
   }
-  articleLike.value.trigger
+  articleLike.value === '1'
     ? updateData.data = -1
     : updateData.data = 1
   await useApi().postUpdateData('blog', updateData).then(() => {
     loadArticleData()
-    articleLike.value.trigger
-      ? articleLike.value.trigger = false
-      : articleLike.value.trigger = true
-    useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
+    articleLike.value === '1'
+      ? articleLike.value = '0'
+      : articleLike.value = '1'
+    useAlarm().notify('', articleLike.value === '1' ? 'success' : 'error', '❤️', true, 1000, 0)
   })
 }
 
