@@ -7,8 +7,7 @@ export const useApi = () => {
     return { core, images }
   }
   const getSingleData = async (url:string) => {
-    const { data } = await useFetch(`/api/query?col=${url}`)
-    return { data }
+    return await $fetch(`/api/query?col=${url}`)
   }
   const postAddData = async (url:string, params:any) => {
     const { data } = await useFetch(`/api/add?col=${url}`, {

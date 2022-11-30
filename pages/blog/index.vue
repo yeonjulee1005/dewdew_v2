@@ -42,7 +42,7 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-import { BlogList, CreateArticle } from '~/interfaces/types'
+import { BlogData, BlogList, CreateArticle } from '~/interfaces/types'
 
 useHead({
   title: '블로그'
@@ -60,7 +60,7 @@ const adminConfirmDialogTrigger = ref(false)
 const createArticleTrigger = ref(false)
 
 await useApi().getSingleData('blog').then((res:any) => {
-  res.data.value.forEach((blog:any) => {
+  res.forEach((blog:BlogData) => {
     const processData = {
       id: blog.id,
       index: blog.article.index,
@@ -117,7 +117,7 @@ const closeCreateArticleDialog = () => {
 const reloadBlogData = async () => {
   blogData.value = []
   await useApi().getSingleData('blog').then((res:any) => {
-    res.data.value.forEach((blog:any) => {
+    res.forEach((blog:BlogData) => {
       const processData = {
         id: blog.id,
         index: blog.article.index,
