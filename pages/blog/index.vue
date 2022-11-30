@@ -9,7 +9,7 @@
           {{ writeButtonText }}
         </el-button>
       </div>
-      <el-timeline class="blog-timeline">
+      <el-timeline v-if="blogData.length" class="blog-timeline">
         <el-timeline-item
           v-for="item in blogData"
           :key="item.index"
@@ -24,6 +24,7 @@
           />
         </el-timeline-item>
       </el-timeline>
+      <el-empty v-else class="blog-timeline" description="글이 없네요..ㅠㅠ" />
     </div>
     <AtomBlogAdminCheckDialog
       :admin-trigger="adminConfirmDialogTrigger"
