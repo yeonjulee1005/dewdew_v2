@@ -49,7 +49,6 @@ useHead({
 })
 
 definePageMeta({
-  pageTransition: false,
   title: 'Blog'
 })
 
