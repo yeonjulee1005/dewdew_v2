@@ -59,24 +59,29 @@ const writeIndex = ref(0)
 const adminConfirmDialogTrigger = ref(false)
 const createArticleTrigger = ref(false)
 
-await useApi().getSingleData('blog').then((res:any) => {
-  res.forEach((blog:BlogData) => {
-    const processData = {
-      id: blog.id,
-      index: blog.article.index,
-      title: blog.article.title,
-      rawArticle: blog.article.rawArticle.slice(0, 160).concat('...'),
-      desc: blog.article.desc,
-      like: blog.article.like,
-      timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
-      createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
-      comment: blog.article.comment
-    }
-    blogData.value.push(processData)
-  })
-  writeIndex.value = blogData.value.length
+onMounted(() => {
+  loadBlogData()
 })
 
+const loadBlogData = async () => {
+  await useApi().getSingleData('blog').then((res:any) => {
+    res.forEach((blog:BlogData) => {
+      const processData = {
+        id: blog.id,
+        index: blog.article.index,
+        title: blog.article.title,
+        rawArticle: blog.article.rawArticle.slice(0, 160).concat('...'),
+        desc: blog.article.desc,
+        like: blog.article.like,
+        timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
+        createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
+        comment: blog.article.comment
+      }
+      blogData.value.push(processData)
+    })
+    writeIndex.value = blogData.value.length
+  })
+}
 const clickBlogArticle = (selectBlog:any) => {
   const id = selectBlog.id
   useRouter().push({
@@ -102,7 +107,7 @@ const writeArticle = async (data:CreateArticle) => {
   await useApi().postAddData('blog/', data).then((res:any) => {
     if (res.data.value.result.type) {
       useAlarm().notify('', 'success', '글이 작성되었네용!!', true, 3000, 0)
-      reloadBlogData()
+      loadBlogData()
       closeCreateArticleDialog()
     } else {
       useAlarm().notify('', 'error', '글 작성이 실패했넹??', true, 3000, 0)
@@ -114,25 +119,25 @@ const closeCreateArticleDialog = () => {
   createArticleTrigger.value = false
 }
 
-const reloadBlogData = async () => {
-  blogData.value = []
-  await useApi().getSingleData('blog').then((res:any) => {
-    res.forEach((blog:BlogData) => {
-      const processData = {
-        id: blog.id,
-        index: blog.article.index,
-        title: blog.article.title,
-        rawArticle: blog.article.rawArticle,
-        desc: blog.article.desc,
-        like: blog.article.like,
-        timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
-        createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
-        comment: blog.article.comment
-      }
-      blogData.value.push(processData)
-    })
-    writeIndex.value = blogData.value.length
-  })
-}
+// const reloadBlogData = async () => {
+//   blogData.value = []
+//   await useApi().getSingleData('blog').then((res:any) => {
+//     res.data.value.forEach((blog:BlogData) => {
+//       const processData = {
+//         id: blog.id,
+//         index: blog.article.index,
+//         title: blog.article.title,
+//         rawArticle: blog.article.rawArticle,
+//         desc: blog.article.desc,
+//         like: blog.article.like,
+//         timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
+//         createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
+//         comment: blog.article.comment
+//       }
+//       blogData.value.push(processData)
+//     })
+//     writeIndex.value = blogData.value.length
+//   })
+// }
 
 </script>
