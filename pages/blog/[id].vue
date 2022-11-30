@@ -55,7 +55,7 @@ const articleData = ref({
 const commentList = ref<any[]>([])
 
 await useApi().getSingleData('blog').then((res:any) => {
-  res.data.value.forEach((blog:BlogData) => {
+  res.forEach((blog:BlogData) => {
     if (blog.id === articleId) {
       articleData.value.title = blog.article.title
       articleData.value.desc = blog.article.desc
@@ -102,7 +102,7 @@ const updateArticle = (article:string, _rawArticle:string) => {
 const loadArticleData = async () => {
   commentList.value = []
   await useApi().getSingleData('blog').then((res:any) => {
-    res.data.value.forEach((blog:BlogData) => {
+    res.forEach((blog:BlogData) => {
       if (blog.id === articleId) {
         articleData.value.title = blog.article.title
         articleData.value.desc = blog.article.desc
