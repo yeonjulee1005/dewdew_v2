@@ -54,10 +54,50 @@ const articleData = ref({
 })
 const commentList = ref<any[]>([])
 
-onMounted(async () => {
-  await nextTick()
-  await loadArticleData()
+await useApi().getSingleData('blog').then((res:any) => {
+  res.data.value.forEach((blog:BlogData) => {
+    if (blog.id === articleId) {
+      articleData.value.title = blog.article.title
+      articleData.value.desc = blog.article.desc
+      articleData.value.like = blog.article.like
+      articleData.value.createdAt = new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000).toLocaleString('ko-KR', { timeZone: 'UTC' })
+      blog.article.comment.forEach((comment:any) => {
+        const commentData = {
+          index: comment.index,
+          name: comment.name,
+          message: comment.message,
+          password: comment.password,
+          timeAgo: useTimeAgo(new Date(comment.createdAt.seconds * 1000 + comment.createdAt.nanoseconds / 1000000)),
+          createdAt: new Date(comment.createdAt.seconds * 1000 + comment.createdAt.nanoseconds / 1000000)
+        }
+        commentList.value.push(commentData)
+      })
+    }
+  })
 })
+
+const updateLikeCount = async () => {
+  const updateData = {
+    method: 'increment',
+    root: 'article.like',
+    id: articleId,
+    data: 0
+  }
+  articleLike.value.trigger
+    ? updateData.data = -1
+    : updateData.data = 1
+  await useApi().postUpdateData('blog', updateData).then(() => {
+    loadArticleData()
+    articleLike.value.trigger
+      ? articleLike.value.trigger = false
+      : articleLike.value.trigger = true
+    useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
+  })
+}
+
+const updateArticle = (article:string, _rawArticle:string) => {
+  console.log(article)
+}
 
 const loadArticleData = async () => {
   commentList.value = []
@@ -82,29 +122,6 @@ const loadArticleData = async () => {
       }
     })
   })
-}
-
-const updateLikeCount = async () => {
-  const updateData = {
-    method: 'increment',
-    root: 'article.like',
-    id: articleId,
-    data: 0
-  }
-  articleLike.value.trigger
-    ? updateData.data = -1
-    : updateData.data = 1
-  await useApi().postUpdateData('blog', updateData).then(() => {
-    loadArticleData()
-    articleLike.value.trigger
-      ? articleLike.value.trigger = false
-      : articleLike.value.trigger = true
-    useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
-  })
-}
-
-const updateArticle = (article:string, _rawArticle:string) => {
-  console.log(article)
 }
 
 </script>
