@@ -56,12 +56,17 @@ onMounted(() => {
   loadArticleData()
 })
 
+/**
+ * !  이거에 뭔가 문제가 있다 찾아보자 !
+*/
 const initArticleConfig = () => {
   if (process.client) {
     getStorage(articleId)
       ? beforeParsingLike.value = getStorage(articleId)
       : articleLike.value = setStorage(articleId, false)
-    articleLike.value = JSON.parse(beforeParsingLike.value)
+    if (beforeParsingLike.value) {
+      articleLike.value = JSON.parse(beforeParsingLike.value)
+    }
   }
 }
 

@@ -41,7 +41,7 @@
     />
   </NuxtLayout>
 </template>
-<script setup lang="ts">
+<script setup lang="ts" nuxt:static>
 import { BlogData, BlogList, CreateArticle } from '~/interfaces/types'
 
 useHead({

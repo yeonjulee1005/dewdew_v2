@@ -19,7 +19,6 @@
     "@tiptap/extension-character-count": "^2.0.0-beta.204",
     "@tiptap/extension-code-block-lowlight": "^2.0.0-beta.204",
     "@tiptap/extension-focus": "^2.0.0-beta.204",
-    "@tiptap/extension-hard-break": "^2.0.0-beta.204",
     "@tiptap/extension-highlight": "^2.0.0-beta.204",
     "@tiptap/extension-paragraph": "^2.0.0-beta.204",
     "@tiptap/extension-task-item": "^2.0.0-beta.204",
