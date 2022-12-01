@@ -1,3 +1,5 @@
+import { useHttp } from '~/composables'
+
 export const useApi = () => {
   const getCoreData = async (coreUrl:string, imageUrl:string) => {
     const [{ data: core }, { data: images }] = await Promise.all([

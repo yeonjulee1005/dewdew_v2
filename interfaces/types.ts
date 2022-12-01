@@ -190,5 +190,14 @@ export interface CreateArticle {
   rawArticle: string,
   desc: string,
   like: number,
-  comment: []
+  comment: Comment[]
+}
+
+export interface CommentList {
+  index: number,
+  name: string,
+  message: string,
+  password: string,
+  timeAgo: any,
+  createdAt: Date
 }

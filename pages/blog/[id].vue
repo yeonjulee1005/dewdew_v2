@@ -7,34 +7,27 @@
       <AtomBlogArticleAddOn
         :article-id="String(articleId)"
         :data="articleData"
-        :activate-like="articleLike.trigger"
+        :activate-like="articleLike?.trigger"
         @update-count="updateLikeCount"
       />
       <div class="article-body mt-default" v-html="articleData.desc" />
-      <div class="article-comments mt-20">
-        <el-timeline v-if="commentList.length">
-          <el-timeline-item
-            v-for="(activity, index) in commentList"
-            :key="index"
-            center
-            :color="activity.timeAgo === 'just now' ? '#C74436' : '#D3E3D2'"
-            :timestamp="activity.timeAgo"
-          >
-            <p> {{ activity.name }} </p>
-            <p v-html="activity.message" />
-          </el-timeline-item>
-        </el-timeline>
-        <el-empty v-else class="blog-timeline" description="댓글이 없네요..ㅠㅠ" />
-      </div>
-      <AtomTiptapTextEditor
-        @update:model-value="updateArticle"
+      <AtomBlogArticleComments
+        :comment-title="commentTitle"
+        :comment-data="commentList"
       />
+      <div class="article-create flex flex-column flex-align-end mb-40">
+        <AtomTiptapTextEditor
+          @update:model-value="updateArticle"
+        />
+        <el-button class="mt-20">
+          {{ submitMessageButton }}
+        </el-button>
+      </div>
     </div>
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-import { useStorage } from '@vueuse/core'
-import { BlogData } from '~/interfaces/types'
+import { BlogData, CommentList } from '~/interfaces/types'
 
 useHead({
   title: 'Article'
@@ -45,18 +38,32 @@ definePageMeta({
 })
 
 const articleId = useRoute().params.id
-const articleLike = useStorage(String(articleId), { id: articleId, trigger: false }, sessionStorage)
+const beforeParsingLike = ref()
+const articleLike = ref()
+const commentTitle = ref('댓글')
+const submitMessageButton = ref('댓글쓰기')
+
 const articleData = ref({
   title: '',
   desc: '',
   like: 0,
   createdAt: ''
 })
-const commentList = ref<any[]>([])
+const commentList = ref<CommentList[]>([])
 
 onMounted(() => {
+  initArticleConfig()
   loadArticleData()
 })
+
+const initArticleConfig = () => {
+  if (process.client) {
+    getStorage(articleId)
+      ? beforeParsingLike.value = getStorage(articleId)
+      : articleLike.value = setStorage(articleId, false)
+    articleLike.value = JSON.parse(beforeParsingLike.value)
+  }
+}
 
 const updateLikeCount = async () => {
   const updateData = {
@@ -69,10 +76,11 @@ const updateLikeCount = async () => {
     ? updateData.data = -1
     : updateData.data = 1
   await useApi().postUpdateData('blog', updateData).then(() => {
-    loadArticleData()
     articleLike.value.trigger
-      ? articleLike.value.trigger = false
-      : articleLike.value.trigger = true
+      ? setStorage(articleId, false)
+      : setStorage(articleId, true)
+    loadArticleData()
+    initArticleConfig()
     useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
   })
 }
@@ -82,8 +90,8 @@ const updateArticle = (article:string, _rawArticle:string) => {
 }
 
 const loadArticleData = async () => {
-  commentList.value = []
   await useApi().getSingleData('blog').then((res:any) => {
+    commentList.value = []
     res.forEach((blog:BlogData) => {
       if (blog.id === articleId) {
         articleData.value.title = blog.title
@@ -91,7 +99,7 @@ const loadArticleData = async () => {
         articleData.value.like = blog.like
         articleData.value.createdAt = new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000).toLocaleString('ko-KR', { timeZone: 'UTC' })
         blog.comment.forEach((comment:any) => {
-          const commentData = {
+          const commentData:CommentList = {
             index: comment.index,
             name: comment.name,
             message: comment.message,
@@ -104,5 +112,13 @@ const loadArticleData = async () => {
       }
     })
   })
+}
+
+const getStorage = (articleId:string|string[]) => {
+  return sessionStorage.getItem(String(articleId))
+}
+
+const setStorage = (articleId:string|string[], value:boolean) => {
+  sessionStorage.setItem(String(articleId), JSON.stringify({ id: articleId, trigger: value }))
 }
 </script>

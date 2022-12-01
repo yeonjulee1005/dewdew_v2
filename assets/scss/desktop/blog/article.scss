@@ -75,5 +75,30 @@
   .article-comments {
     width: $space-80vw;
     max-width: $space-1000;
+    height: fit-content;
+    margin: $space-40 auto;
+    padding: $space-20 0;
+    border-top: 3px solid var(--d-text-dark-color);
+    border-bottom: 3px solid var(--d-text-dark-color);
+    .comments-title {
+      margin: $space-20 $space-default;
+      @include headline4;
+    }
+    .empty-comments {
+      height: $space-100;
+    }
+  }
+  .article-create {
+    width: $space-80vw;
+    max-width: $space-1000;
+    height: fit-content;
+    .tiptap-editor {
+      &__content {
+        height: $space-15vh;
+      }
+      .ProseMirror {
+        height: $space-10vh;
+      }
+    }
   }
 }
