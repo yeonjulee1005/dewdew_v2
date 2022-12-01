@@ -56,6 +56,9 @@ onMounted(() => {
   loadArticleData()
 })
 
+/**
+ * !  이거에 뭔가 문제가 있다 찾아보자 !
+*/
 const initArticleConfig = () => {
   if (process.client) {
     getStorage(articleId)
