@@ -64,7 +64,9 @@ const initArticleConfig = () => {
     getStorage(articleId)
       ? beforeParsingLike.value = getStorage(articleId)
       : articleLike.value = setStorage(articleId, false)
-    articleLike.value = JSON.parse(beforeParsingLike.value)
+    if (beforeParsingLike.value) {
+      articleLike.value = JSON.parse(beforeParsingLike.value)
+    }
   }
 }
 

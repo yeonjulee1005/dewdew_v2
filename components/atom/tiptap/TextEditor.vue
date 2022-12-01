@@ -262,7 +262,6 @@ import Highlight from '@tiptap/extension-highlight'
 import Focus from '@tiptap/extension-focus'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
-import HardBreak from '@tiptap/extension-hard-break'
 import css from 'highlight.js/lib/languages/css'
 import js from 'highlight.js/lib/languages/javascript'
 import ts from 'highlight.js/lib/languages/typescript'
@@ -305,8 +304,7 @@ const editor = useEditor({
     TaskItem.configure({
       nested: true
     }),
-    TaskList,
-    HardBreak
+    TaskList
   ],
   onUpdate: ({ editor }) => {
     textEditorEmits('update:model-value', editor.getHTML(), editor.state.doc.textContent)
