@@ -6,24 +6,6 @@ export const useApi = () => {
     ])
     return { core, images }
   }
-  const getSingleData = async (url:string) => {
-    return await $fetch(`/api/query?col=${url}`)
-    // return { data }
-  }
-  const postAddData = async (url:string, params:any) => {
-    const { data } = await useFetch(`/api/add?col=${url}`, {
-      method: 'POST',
-      body: { article: params }
-    })
-    return { data }
-  }
-  const postUpdateData = async (url:string, params:any) => {
-    const { data } = await useFetch(`/api/update?col=${url}`, {
-      method: 'POST',
-      body: params
-    })
-    return { data }
-  }
   const postSetData = async (url:string, id:string, params:any) => {
     const { data } = await useFetch(`/api/set?col=${url}`, {
       method: 'POST',
@@ -31,11 +13,20 @@ export const useApi = () => {
     })
     return { data }
   }
+  const getSingleData = (url:string) => {
+    return useHttp().get(url)
+  }
+  const postAddData = (url:string, params:any) => {
+    return useHttp().post(url, params)
+  }
+  const postUpdateData = (url:string, params:any) => {
+    return useHttp().patch(url, params)
+  }
   return {
     getCoreData,
+    postSetData,
     getSingleData,
     postAddData,
-    postUpdateData,
-    postSetData
+    postUpdateData
   }
 }

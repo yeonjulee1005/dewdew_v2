@@ -63,25 +63,6 @@ onMounted(() => {
   loadBlogData()
 })
 
-const loadBlogData = async () => {
-  await useApi().getSingleData('blog').then((res:any) => {
-    res.forEach((blog:BlogData) => {
-      const processData = {
-        id: blog.id,
-        index: blog.article.index,
-        title: blog.article.title,
-        rawArticle: blog.article.rawArticle.slice(0, 160).concat('...'),
-        desc: blog.article.desc,
-        like: blog.article.like,
-        timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
-        createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
-        comment: blog.article.comment
-      }
-      blogData.value.push(processData)
-    })
-    writeIndex.value = blogData.value.length
-  })
-}
 const clickBlogArticle = (selectBlog:any) => {
   const id = selectBlog.id
   useRouter().push({
@@ -105,7 +86,7 @@ const openCreateArticleDialog = () => {
 
 const writeArticle = async (data:CreateArticle) => {
   await useApi().postAddData('blog/', data).then((res:any) => {
-    if (res.data.value.result.type) {
+    if (res.id) {
       useAlarm().notify('', 'success', '글이 작성되었네용!!', true, 3000, 0)
       loadBlogData()
       closeCreateArticleDialog()
@@ -119,25 +100,25 @@ const closeCreateArticleDialog = () => {
   createArticleTrigger.value = false
 }
 
-// const reloadBlogData = async () => {
-//   blogData.value = []
-//   await useApi().getSingleData('blog').then((res:any) => {
-//     res.data.value.forEach((blog:BlogData) => {
-//       const processData = {
-//         id: blog.id,
-//         index: blog.article.index,
-//         title: blog.article.title,
-//         rawArticle: blog.article.rawArticle,
-//         desc: blog.article.desc,
-//         like: blog.article.like,
-//         timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
-//         createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
-//         comment: blog.article.comment
-//       }
-//       blogData.value.push(processData)
-//     })
-//     writeIndex.value = blogData.value.length
-//   })
-// }
+const loadBlogData = async () => {
+  await useApi().getSingleData('blog').then((res:any) => {
+    blogData.value = []
+    res.forEach((blog:BlogData) => {
+      const processData = {
+        id: blog.id,
+        index: blog.index,
+        title: blog.title,
+        rawArticle: blog.rawArticle.slice(0, 160).concat('...'),
+        desc: blog.desc,
+        like: blog.like,
+        timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
+        createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
+        comment: blog.comment
+      }
+      blogData.value.push(processData)
+    })
+    writeIndex.value = blogData.value.length
+  })
+}
 
 </script>
