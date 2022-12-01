@@ -40,12 +40,6 @@ definePageMeta({
 const articleId = useRoute().params.id
 const beforeParsingLike = ref()
 const articleLike = ref()
-if (process.client) {
-  sessionStorage.getItem(String(articleId))
-    ? beforeParsingLike.value = sessionStorage.getItem(String(articleId))
-    : articleLike.value = sessionStorage.setItem(String(articleId), JSON.stringify({ id: articleId, trigger: false }))
-  articleLike.value = JSON.parse(beforeParsingLike.value)
-}
 const commentTitle = ref('댓글')
 const submitMessageButton = ref('댓글쓰기')
 
