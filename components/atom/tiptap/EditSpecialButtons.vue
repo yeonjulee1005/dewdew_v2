@@ -11,7 +11,6 @@
 import { Icon } from '@iconify/vue'
 
 const editButtonProps = defineProps({
-  editor: { type: Object, default: () => null },
   disabled: { type: Boolean, default: false },
   type: { type: String, default: '' },
   action: { type: Function, default: null }
