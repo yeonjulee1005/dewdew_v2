@@ -15,7 +15,7 @@ import {
   serverTimestamp,
   increment
 } from 'firebase/firestore'
-import { firestoreDb } from './firebase'
+import { firestoreDb } from '~/composables/communication/lib/firebase'
 
 export const queryByCollection = async (col: string, sort:string) => {
   let queryText = null
@@ -62,10 +62,6 @@ export const update = async (col:string, id:string, root:string, method:string, 
       addData = incrementValue(root, document)
       break
   }
-  // const addData = {
-  //   ...document,
-  //   createdAt: serverTimestamp()
-  // }
   const colRef = doc(firestoreDb, col, id)
 
   const docRef = await updateDoc(colRef, addData)

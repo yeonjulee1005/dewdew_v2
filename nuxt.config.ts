@@ -46,14 +46,14 @@ export default {
   ],
   vite: {
     build: {
-      rollupOptions: {
-        output: {
-          chunkFileNames: '_nuxt/[hash].mjs'
-        }
+      // rollupOptions: {
+      //   output: {
+      //     chunkFileNames: '_nuxt/[hash].mjs'
+      //   }
       // },
-      // chunkSizeWarningLimit: 3000,
-      // commonjsOptions: {
-      //   esmExternals: true
+      chunkSizeWarningLimit: 5000,
+      commonjsOptions: {
+        esmExternals: true
       }
     }
   },
