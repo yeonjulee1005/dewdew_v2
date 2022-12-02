@@ -30,13 +30,13 @@ useHead({
   meta: [{ property: 'og:title', content: `개발자 이연주 | ${route.meta.title}` }]
 })
 
-const coreData = useDatabase().coreData.value
-const coreImages = useDatabase().imageData.value
-
 const assetsImageData = ref([])
 const leaveText = ref<Texts[]>([])
 const colors = ref<Colors[]>([])
 const idleTrigger = ref(false)
+
+const coreData = useDatabase().coreData.value
+const coreImages = useDatabase().imageData.value
 
 watch(idle, () => {
   idle.value ? idleTrigger.value = true : idleTrigger.value = false
