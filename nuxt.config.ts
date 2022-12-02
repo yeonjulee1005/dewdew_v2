@@ -4,7 +4,7 @@ const lifecycle = process.env.npm_lifecycle_event
 export default {
   routes: {
     // '/': { prerender: true }, // Once per build (via builder)
-    // '/layouts/**': { ssr: false },
+    // '/layouts/**': { ssr: false }, // Client-Side rendered
     '/blog/*/*': { static: true } // Once on-demand per build (via lambda)
     // '/stats/*': { swr: '10 min' }, // Once on-demand each 10 minutes (via lambda)
     // '/admin/*': { ssr: false }, // Client-Side rendered
@@ -45,12 +45,17 @@ export default {
   plugins: [
   ],
   vite: {
-    // build: {
-    //   chunkSizeWarningLimit: 3000,
-    //   commonjsOptions: {
-    //     esmExternals: true
-    //   }
-    // }
+    build: {
+      rollupOptions: {
+        output: {
+          chunkFileNames: '_nuxt/[hash].mjs'
+        }
+      // },
+      // chunkSizeWarningLimit: 3000,
+      // commonjsOptions: {
+      //   esmExternals: true
+      }
+    }
   },
   // build
   build: {
