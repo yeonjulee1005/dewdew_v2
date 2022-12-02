@@ -6,6 +6,7 @@ export const useDatabase = defineStore('database', () => {
   const imageData:any = {}
 
   const updateCoreData = async (data:any) => {
+    if (!data.core.length && !data.images.length) { return }
     coreData.value = {}
     imageData.value = {}
     coreData.value = await data.core
