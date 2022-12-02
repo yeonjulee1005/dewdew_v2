@@ -201,3 +201,9 @@ export interface CommentList {
   timeAgo: any,
   createdAt: Date
 }
+
+export interface CreateComment {
+  name: string,
+  message: string,
+  password: string
+}

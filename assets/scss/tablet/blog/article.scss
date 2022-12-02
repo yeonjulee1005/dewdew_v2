@@ -1,0 +1,192 @@
+/** Blog Article */
+.blog-article {
+  position: relative;
+  min-height: $space-80vh;
+  height: fit-content;
+  width: $space-100vw;
+  .article-header {
+    flex-direction: column;
+    width: $space-80vw;
+    max-width: $space-1000;
+    margin-top: $space-120;
+    .title {
+      @include headline3;
+      padding-left: $space-default;
+      border-left: $space-4 solid var(--d-bg-blue-color);
+    }
+    .time {
+      margin-top: $space-default;
+      @include headline7;
+    }
+  }
+  .article-add-on {
+    width: $space-80vw;
+    max-width: $space-1000;
+    .like {
+      cursor: pointer;
+    }
+  }
+  .article-body {
+    width: $space-80vw;
+    max-width: $space-1000;
+    height: fit-content;
+    padding: $space-30 $space-20;
+    background-color: var(--d-bg-main-color);
+    box-shadow: 1px 1px 2px var(--d-content-bg-color);
+    overflow-y: auto;
+    ul, ol {
+      padding: 0 1rem;
+    }
+    p {
+      line-height: 1.5;
+    }
+    ul[data-type="taskList"] {
+      list-style: none;
+      padding: 0;
+    
+      p {
+        margin: 0;
+      }
+    
+      li {
+        display: flex;
+    
+        > label {
+          flex: 0 0 auto;
+          margin-right: 0.5rem;
+          user-select: none;
+        }
+    
+        > div {
+          flex: 1 1 auto;
+        }
+      }
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.1;
+    }
+    code {
+      background-color: $d-bg-sub-origin-dark;
+      color: $d-bg-sub-origin-light;
+    }
+    pre {
+      background: $d-bg-origin-dark;
+      color: $d-bg-origin-light;
+      font-family: 'JetBrainsMono', monospace;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      code {
+        color: inherit;
+        padding: 0;
+        background: none;
+        font-size: 0.8rem;
+      }
+      .hljs-comment,
+      .hljs-quote {
+        color: $d-footer-color-dark-deep;
+      }
+
+      .hljs-variable,
+      .hljs-template-variable,
+      .hljs-attribute,
+      .hljs-tag,
+      .hljs-name,
+      .hljs-regexp,
+      .hljs-link,
+      .hljs-name,
+      .hljs-selector-id,
+      .hljs-selector-class {
+        color: $d-color-01-dark;
+      }
+
+      .hljs-number,
+      .hljs-meta,
+      .hljs-built_in,
+      .hljs-builtin-name,
+      .hljs-literal,
+      .hljs-type,
+      .hljs-params {
+        color: $d-color-02-light-deep;
+      }
+
+      .hljs-string,
+      .hljs-symbol,
+      .hljs-bullet {
+        color: $d-color-07-light-deep;
+      }
+
+      .hljs-title,
+      .hljs-section {
+        color: $d-color-15-light-deep;
+      }
+
+      .hljs-keyword,
+      .hljs-selector-tag {
+        color: $d-color-12-light-deep;
+      }
+
+      .hljs-emphasis {
+        font-style: italic;
+      }
+
+      .hljs-strong {
+        font-weight: 700;
+      }
+    }
+    img {
+      max-width: $space-percent-100;
+      height: auto;
+    }
+    blockquote {
+      padding-left: $space-8;
+      border-left: $space-4 solid var(--d-text-color);
+    }
+    hr {
+      border: none;
+      border-top: $space-2 solid var(--d-text-color);
+      margin: 2rem 0;
+    }
+  }
+  .character-count {
+    margin: 1rem;
+    text-align: right;
+    color: var(--d-text-dark-color-deep);
+  }
+  .article-comments {
+    width: $space-80vw;
+    max-width: $space-1000;
+    height: fit-content;
+    margin: $space-40 auto;
+    padding: $space-20 0;
+    border-top: 3px solid var(--d-text-dark-color);
+    border-bottom: 3px solid var(--d-text-dark-color);
+    .comments-title {
+      margin: $space-20 $space-default;
+      @include headline4;
+    }
+    .el-timeline-item {
+      .el-timeline-item__content {
+        @include tiptap-template;
+      }
+    }
+    .empty-comments {
+      height: $space-100;
+    }
+  }
+  .article-create-comment {
+    width: $space-80vw;
+    max-width: $space-1000;
+    height: fit-content;
+    .create-form {
+      width: $space-percent-100;
+      .tiptap-editor {
+        &__content {
+          height: $space-15vh;
+        }
+        .ProseMirror {
+          height: $space-10vh;
+        }
+      }
+    }
+  }
+}

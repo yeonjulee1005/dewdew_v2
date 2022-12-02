@@ -3,17 +3,15 @@ import {
   query,
   orderBy,
   getDocs,
-  // getDoc,
   addDoc,
   deleteDoc,
   doc,
-  // where,
-  setDoc,
   updateDoc,
-  // collectionGroup,
-  // Timestamp,
+  Timestamp,
   serverTimestamp,
-  increment
+  increment,
+  arrayUnion,
+  arrayRemove
 } from 'firebase/firestore'
 import { firestoreDb } from './firebase'
 
@@ -33,10 +31,6 @@ export const queryByCollection = async (col: string, sort:string) => {
   return docs
 }
 
-export const set = async (col:string, id:string, document:object) => {
-  await setDoc(doc(firestoreDb, col, id), document, { merge: true })
-}
-
 export const add = async (col:string, document:object) => {
   const addData = {
     ...document,
@@ -54,11 +48,14 @@ export const update = async (col:string, id:string, root:string, method:string, 
     case 'increment' :
       addData = incrementValue(root, document)
       break
+    case 'addArray' :
+      addData = addArray(root, document)
+      break
+    case 'removeArray' :
+      addData = removeArray(root, document)
+      break
   }
-  // const addData = {
-  //   ...document,
-  //   createdAt: serverTimestamp()
-  // }
+
   const colRef = doc(firestoreDb, col, id)
 
   const docRef = await updateDoc(colRef, addData)
@@ -68,6 +65,18 @@ export const update = async (col:string, id:string, root:string, method:string, 
 export const del = async (col:any, id:any) => {
   const docRef = doc(firestoreDb, col, id)
   return await deleteDoc(docRef)
+}
+
+function addArray (root:string, data:any) {
+  const arrayData = {
+    ...data,
+    createdAt: Timestamp.now()
+  }
+  return { [root]: arrayUnion(arrayData) }
+}
+
+function removeArray (root:string, data:any) {
+  return { [root]: arrayRemove(data) }
 }
 
 function incrementValue (root:string, data:any) {

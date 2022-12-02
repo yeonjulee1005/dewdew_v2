@@ -5,6 +5,8 @@
   height: fit-content;
   width: $space-100vw;
   .article-header {
+    flex-direction: column;
+    align-items: flex-start;
     width: $space-80vw;
     max-width: $space-1000;
     margin-top: $space-120;
@@ -14,10 +16,12 @@
       border-left: $space-4 solid var(--d-bg-blue-color);
     }
     .time {
+      margin-top: $space-default;
       @include headline7;
     }
   }
   .article-add-on {
+    
     width: $space-80vw;
     max-width: $space-1000;
     .like {
@@ -68,7 +72,7 @@
       width: $space-percent-100;
       .el-form-item__content {
         .el-input--suffix {
-          width: $space-30vw;
+          width: $space-percent-100;
         }
       }
       .tiptap-editor {

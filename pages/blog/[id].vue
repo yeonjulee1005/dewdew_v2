@@ -15,19 +15,14 @@
         :comment-title="commentTitle"
         :comment-data="commentList"
       />
-      <div class="article-create flex flex-column flex-align-end mb-40">
-        <AtomTiptapTextEditor
-          @update:model-value="updateArticle"
-        />
-        <el-button class="mt-20">
-          {{ submitMessageButton }}
-        </el-button>
-      </div>
+      <AtomBlogCreateComment
+        @create-comment="createComment"
+      />
     </div>
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-import { BlogData, CommentList } from '~/interfaces/types'
+import { BlogData, CommentList, CreateComment } from '~/interfaces/types'
 
 useHead({
   title: 'Article'
@@ -41,7 +36,7 @@ const articleId = useRoute().params.id
 const beforeParsingLike = ref()
 const articleLike = ref()
 const commentTitle = ref('댓글')
-const submitMessageButton = ref('댓글쓰기')
+const writeIndex = ref(0)
 
 const articleData = ref({
   title: '',
@@ -50,23 +45,21 @@ const articleData = ref({
   createdAt: ''
 })
 const commentList = ref<CommentList[]>([])
+// const createCommentData = ref<CreateComment>()
 
 onMounted(() => {
   initArticleConfig()
-  loadArticleData()
 })
 
-/**
- * !  이거에 뭔가 문제가 있다 찾아보자 !
-*/
-const initArticleConfig = () => {
+const initArticleConfig = async () => {
   if (process.client) {
-    getStorage(articleId)
+    await getStorage(articleId)
       ? beforeParsingLike.value = getStorage(articleId)
       : articleLike.value = setStorage(articleId, false)
     if (beforeParsingLike.value) {
       articleLike.value = JSON.parse(beforeParsingLike.value)
     }
+    loadArticleData()
   }
 }
 
@@ -84,14 +77,28 @@ const updateLikeCount = async () => {
     articleLike.value.trigger
       ? setStorage(articleId, false)
       : setStorage(articleId, true)
-    loadArticleData()
     initArticleConfig()
+    loadArticleData()
     useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
   })
 }
 
-const updateArticle = (article:string, _rawArticle:string) => {
-  console.log(article)
+const createComment = (comment:CreateComment) => {
+  const commentData = {
+    ...comment,
+    index: writeIndex.value
+  }
+  const updateData = {
+    method: 'addArray',
+    root: 'comment',
+    id: articleId,
+    data: commentData
+  }
+  useApi().postUpdateData('blog', updateData).then(() => {
+    initArticleConfig()
+    loadArticleData()
+    useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
+  })
 }
 
 const loadArticleData = async () => {
@@ -116,6 +123,7 @@ const loadArticleData = async () => {
         })
       }
     })
+    writeIndex.value = commentList.value.length
   })
 }
 
