@@ -52,10 +52,10 @@ export default {
       //     chunkFileNames: '_nuxt/[hash].mjs'
       //   }
       // },
-      // chunkSizeWarningLimit: 5000,
-      // commonjsOptions: {
-      //   esmExternals: true
-      // }
+      chunkSizeWarningLimit: 3000,
+      commonjsOptions: {
+        esmExternals: true
+      }
     }
   },
   // build
