@@ -5,7 +5,7 @@ export default {
   routes: {
     '/': { prerender: true }, // Once per build (via builder)
     // '/layouts/**': { ssr: false },
-    '/blog/*/*': { ssr: false } // Once on-demand per build (via lambda)
+    '/blog/*/*': { swr: true } // Once on-demand per build (via lambda)
     // '/stats/*': { swr: '10 min' }, // Once on-demand each 10 minutes (via lambda)
     // '/admin/*': { ssr: false }, // Client-Side rendered
     // '/react/*': { redirect: '/vue' } // Redirect Rules
