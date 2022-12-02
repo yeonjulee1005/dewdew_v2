@@ -19,10 +19,13 @@ useHead({
     return title
   }
 })
-
-!process.client
-  ? useDatabase().updateCoreData(await useApi().getSsrCoreData('core', 'images'))
+const coreLoadData = await useApi().getSsrCoreData('core', 'images')
+coreLoadData
+  ? useDatabase().updateCoreData(coreLoadData)
   : useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
+// !process.client
+//   ? useDatabase().updateCoreData(await useApi().getSsrCoreData('core', 'images'))
+//   : useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
 // 아래는 set으로 컬랙션 추가하는거
 // await useApi().postSetData('blog', 'article', { desc: '내용3', index: 0, title: '제11목이댱' })
 
