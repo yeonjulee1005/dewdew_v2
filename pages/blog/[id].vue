@@ -101,9 +101,7 @@ const createComment = (comment:CreateComment) => {
 }
 
 const loadArticleData = async () => {
-  console.log(articleLike.value)
-  await useApi().getSingleData('blog').then((res:any) => {
-    console.log(res)
+  await useApi().getSingleData('blog', 'client').then((res:any) => {
     commentList.value = []
     res.forEach((blog:BlogData) => {
       if (blog.id === articleId) {

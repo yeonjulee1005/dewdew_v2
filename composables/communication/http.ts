@@ -7,8 +7,8 @@ import {
 } from './lib/firestore'
 
 export const useHttp = () => {
-  const get = async (url:string) => {
-    return await queryByCollection(url, 'blog').then((res) => {
+  const get = async (url:string, sort:string) => {
+    return await queryByCollection(url, sort).then((res) => {
       return res
     })
   }
