@@ -42,6 +42,7 @@ watch(idle, () => {
   idle.value ? idleTrigger.value = true : idleTrigger.value = false
 })
 
+console.log('여긴가? 시작', console.log(coreData))
 coreData.forEach((core:any) => {
   switch (core.id) {
     case 'main' :
@@ -58,7 +59,7 @@ coreImages.forEach((image:any) => {
       break
   }
 })
-
+console.log('여긴가? 종료', console.log(coreImages))
 const dialogClose = (value:boolean) => {
   idleTrigger.value = value
 }
