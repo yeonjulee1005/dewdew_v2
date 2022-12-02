@@ -30,14 +30,8 @@ useHead({
   meta: [{ property: 'og:title', content: `개발자 이연주 | ${route.meta.title}` }]
 })
 
-let coreData = useDatabase().coreData.value
-let coreImages = useDatabase().imageData.value
-
-if (!coreData) {
-  await useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
-  coreData = useDatabase().coreData.value
-  coreImages = useDatabase().imageData.value
-}
+const coreData = useDatabase().coreData.value
+const coreImages = useDatabase().imageData.value
 
 const assetsImageData = ref([])
 const leaveText = ref<Texts[]>([])
