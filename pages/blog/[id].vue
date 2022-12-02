@@ -46,6 +46,21 @@ const articleData = ref({
 })
 const commentList = ref<CommentList[]>([])
 
+const router = useRouter()
+router.onError((error) => {
+  const messages = [
+    'Importing a module script failed', // safari
+    'Failed to fetch dynamically imported module' // edge & chrome
+  ]
+  if (messages.some(message => error?.message.includes(message))) {
+    (async () => {
+      // show some notification to the user if you want too.
+      // add some delay so that user can read the message in notification.
+      await router.go(0)
+    })()
+  }
+})
+
 onMounted(() => {
   initArticleConfig()
 })
@@ -73,12 +88,12 @@ const updateLikeCount = async () => {
     ? updateData.data = -1
     : updateData.data = 1
   await useApi().postUpdateData('blog', updateData).then(() => {
+    useAlarm().notify('', !articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
     articleLike.value.trigger
       ? setStorage(articleId, false)
       : setStorage(articleId, true)
     initArticleConfig()
     loadArticleData()
-    useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
   })
 }
 
@@ -94,9 +109,9 @@ const createComment = (comment:CreateComment) => {
     data: commentData
   }
   useApi().postUpdateData('blog', updateData).then(() => {
+    useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
     initArticleConfig()
     loadArticleData()
-    useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
   })
 }
 
