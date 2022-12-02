@@ -20,11 +20,9 @@ useHead({
   }
 })
 
+console.log('0')
 useDatabase().updateCoreData(await useApi().getCoreData('core', 'images'))
-
-onMounted(async () => {
-  useDatabase().updateCoreData(await useApi().getCoreData('core', 'images'))
-})
+console.log('2', useDatabase().imageData.value)
 // 아래는 set으로 컬랙션 추가하는거
 // await useApi().postSetData('blog', 'article', { desc: '내용3', index: 0, title: '제11목이댱' })
 

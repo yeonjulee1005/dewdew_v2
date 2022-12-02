@@ -101,9 +101,12 @@ const mainSkillsListTrigger = ref(false)
 const referenceListTrigger = ref(false)
 const contactTrigger = ref(false)
 
+console.log('3', coreImages, coreData)
 onMounted(() => {
+  console.log('4', coreImages, coreData)
   initData()
   window.addEventListener('scroll', handleScroll)
+  console.log('7', coreImages, coreData)
 })
 
 onBeforeUnmount(() => {
@@ -127,6 +130,7 @@ const initData = async () => {
         break
     }
   })
+  console.log('5', coreImages, coreData)
   await coreData.forEach((core:any) => {
     switch (core.id) {
       case 'main' :
@@ -138,6 +142,7 @@ const initData = async () => {
         break
     }
   })
+  console.log('6', coreImages, coreData)
 }
 
 const handleScroll = () => {
