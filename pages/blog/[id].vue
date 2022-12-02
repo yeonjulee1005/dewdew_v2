@@ -46,7 +46,7 @@ const articleData = ref({
 })
 const commentList = ref<CommentList[]>([])
 
-onMounted(() => {
+onBeforeMount(() => {
   initArticleConfig()
 })
 
