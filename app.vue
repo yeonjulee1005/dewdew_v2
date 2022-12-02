@@ -20,7 +20,8 @@ useHead({
   }
 })
 
-useDatabase().updateCoreData(await useApi().getSsrCoreData('core', 'images'))
+await useDatabase().updateCoreData(await useApi().getSsrCoreData('core', 'images'))
+console.log(useDatabase().coreData)
 if (!useDatabase().coreData) {
   useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
 }
