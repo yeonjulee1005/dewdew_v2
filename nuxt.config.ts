@@ -43,6 +43,7 @@ export default {
   css: ['~/assets/scss/style.scss'],
   // plugins
   plugins: [
+    { src: '~/plugins/vercel.ts', mode: 'client' }
   ],
   vite: {
     build: {
@@ -51,10 +52,10 @@ export default {
       //     chunkFileNames: '_nuxt/[hash].mjs'
       //   }
       // },
-      chunkSizeWarningLimit: 5000,
-      commonjsOptions: {
-        esmExternals: true
-      }
+      // chunkSizeWarningLimit: 5000,
+      // commonjsOptions: {
+      //   esmExternals: true
+      // }
     }
   },
   // build
