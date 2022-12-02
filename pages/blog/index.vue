@@ -101,7 +101,7 @@ const closeCreateArticleDialog = () => {
 }
 
 const loadBlogData = async () => {
-  await useApi().getSingleData('blog').then((res:any) => {
+  await useApi().getSingleData('blog', 'client').then((res:any) => {
     blogData.value = []
     res.forEach((blog:BlogData) => {
       const processData = {

@@ -15,8 +15,8 @@ export const useApi = () => {
     })
     return { data }
   }
-  const getSingleData = (url:string) => {
-    return useHttp().get(url)
+  const getSingleData = (url:string, sort:string) => {
+    return useHttp().get(url, sort)
   }
   const postAddData = (url:string, params:any) => {
     return useHttp().post(url, params)
