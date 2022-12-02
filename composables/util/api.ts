@@ -1,12 +1,18 @@
 import { useHttp } from '~/composables'
 
 export const useApi = () => {
-  const getCoreData = async (coreUrl:string, imageUrl:string) => {
+  const getSsrCoreData = async (coreUrl:string, imageUrl:string) => {
     const [{ data: core }, { data: images }] = await Promise.all([
       useFetch(`/api/query?col=${coreUrl}`),
       useFetch(`/api/query?col=${imageUrl}`)
     ])
     return { core, images }
+  }
+  const getClientCoreData = async (coreUrl:string, imageUrl:string) => {
+    const returnData = { core: <any[]>[], images: <any[]>[] }
+    returnData.core = await useHttp().get(coreUrl, '')
+    returnData.images = await useHttp().get(imageUrl, '')
+    return returnData
   }
   const postSetData = async (url:string, id:string, params:any) => {
     const { data } = await useFetch(`/api/set?col=${url}`, {
@@ -25,7 +31,8 @@ export const useApi = () => {
     return useHttp().patch(url, params)
   }
   return {
-    getCoreData,
+    getSsrCoreData,
+    getClientCoreData,
     postSetData,
     getSingleData,
     postAddData,

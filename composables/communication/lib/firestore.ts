@@ -17,7 +17,9 @@ import { firestoreDb } from './firebase'
 
 export const queryByCollection = async (col: string, sort:string) => {
   let queryText = null
-  sort ? queryText = query(collection(firestoreDb, col), orderBy('createdAt', 'desc')) : queryText = collection(firestoreDb, col)
+  sort
+    ? queryText = query(collection(firestoreDb, col), orderBy('createdAt', 'desc'))
+    : queryText = collection(firestoreDb, col)
 
   const snapshot = await getDocs(queryText)
 
