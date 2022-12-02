@@ -3,9 +3,9 @@ const lifecycle = process.env.npm_lifecycle_event
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default {
   routes: {
-    '/': { prerender: true }, // Once per build (via builder)
+    // '/': { prerender: true }, // Once per build (via builder)
     // '/layouts/**': { ssr: false },
-    '/blog/*/*': { swr: true } // Once on-demand per build (via lambda)
+    '/blog/*/*': { static: true } // Once on-demand per build (via lambda)
     // '/stats/*': { swr: '10 min' }, // Once on-demand each 10 minutes (via lambda)
     // '/admin/*': { ssr: false }, // Client-Side rendered
     // '/react/*': { redirect: '/vue' } // Redirect Rules

@@ -8,8 +8,8 @@
 /** el-backtop */
 
 .el-backtop {
-  width: 50px;
-  height: 50px;
+  width: $space-50;
+  height: $space-50;
   color: var(--d-bg-main-color);
   background-color: var(--d-green-color);
   transition: all 0.2s ease-in-out;
@@ -21,6 +21,13 @@
 
 .el-backtop:hover {
   background-color: var(--d-green-color-deep);
+}
+
+.el-notification {
+  width: fit-content;
+  .el-notification__group {
+    padding: 0 $space-20;
+  }
 }
 
 /** el-form */
