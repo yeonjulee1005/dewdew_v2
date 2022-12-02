@@ -35,9 +35,6 @@ const leaveText = ref<Texts[]>([])
 const colors = ref<Colors[]>([])
 const idleTrigger = ref(false)
 
-console.log('2', useDatabase().imageData.value)
-console.log('2', useDatabase().coreData.value)
-
 const coreData = useDatabase().coreData.value
 const coreImages = useDatabase().imageData.value
 
