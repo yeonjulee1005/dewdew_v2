@@ -27,8 +27,8 @@ console.log(useDatabase().coreData.value.length)
 console.log(typeof useDatabase().imageData.value)
 console.log(useDatabase().imageData.value)
 console.log(useDatabase().imageData.value.length)
-if (useDatabase().coreData.value.lengt > 1000) {
-  useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
+if (typeof useDatabase().coreData.value === 'string') {
+  await useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
 }
 
 // 아래는 set으로 컬랙션 추가하는거
