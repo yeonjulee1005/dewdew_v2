@@ -21,9 +21,7 @@ useHead({
 })
 
 await useDatabase().updateCoreData(await useApi().getSsrCoreData('core', 'images'))
-console.log('1', typeof (useDatabase().coreData))
-console.log('1-2', typeof (useDatabase().coreData.value))
-if (!useDatabase().coreData.value && !useDatabase().imageData.value) {
+if (!useDatabase().coreData.value) {
   await useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
 }
 
