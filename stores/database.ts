@@ -14,8 +14,7 @@ export const useDatabase = defineStore('database', () => {
   }
 
   const setPassword = (data:any) => {
-    console.log(data.length)
-    if (!data.length) { return }
+    if (data.length > 100) { return }
     data.forEach((core:any) => {
       if (core.id === 'admin') {
         adminPassword.value = core.password
