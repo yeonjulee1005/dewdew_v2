@@ -94,7 +94,7 @@ const createComment = (comment:CreateComment) => {
     data: commentData
   }
   useApi().postUpdateData('blog', updateData).then(() => {
-    useAlarm().notify('', articleLike.value.trigger ? 'success' : 'error', '❤️', true, 1000, 0)
+    useAlarm().notify('', 'success', '댓글 작성해주셔서 감사해요❤', true, 1000, 0)
     initArticleConfig()
     loadArticleData()
   })
