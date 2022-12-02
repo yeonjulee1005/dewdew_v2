@@ -21,12 +21,6 @@ useHead({
 })
 
 await useDatabase().updateCoreData(await useApi().getSsrCoreData('core', 'images'))
-console.log(typeof useDatabase().coreData.value)
-console.log(useDatabase().coreData.value)
-console.log(useDatabase().coreData.value.length)
-console.log(typeof useDatabase().imageData.value)
-console.log(useDatabase().imageData.value)
-console.log(useDatabase().imageData.value.length)
 if (typeof useDatabase().coreData.value === 'string') {
   await useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
 }
