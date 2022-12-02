@@ -45,7 +45,6 @@ const articleData = ref({
   createdAt: ''
 })
 const commentList = ref<CommentList[]>([])
-// const createCommentData = ref<CreateComment>()
 
 onMounted(() => {
   initArticleConfig()
