@@ -10,7 +10,7 @@ export const useDatabase = defineStore('database', () => {
     imageData.value = {}
     coreData.value = await data.core
     imageData.value = await data.images
-    setPassword(data.core.value)
+    data.core.value ? setPassword(data.core.value) : setPassword(data.core)
   }
 
   const setPassword = (data:any) => {
