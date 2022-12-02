@@ -20,9 +20,9 @@ useHead({
   }
 })
 
-useDatabase().updateCoreData(await useApi().getSsrCoreData('core', 'images'))
+await useDatabase().updateCoreData(await useApi().getSsrCoreData('core', 'images'))
 if (!useDatabase().coreData) {
-  useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
+  await useDatabase().updateCoreData(await useApi().getClientCoreData('core', 'images'))
 }
 
 // 아래는 set으로 컬랙션 추가하는거
