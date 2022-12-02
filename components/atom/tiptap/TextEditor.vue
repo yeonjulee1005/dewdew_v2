@@ -283,7 +283,7 @@ const textEditorEmits = defineEmits([
 ])
 
 const editor = useEditor({
-  content: '<p>I’m running Tiptap with Vue.js. 🎉</p>',
+  content: '<p>글을 작성해주시지요 🤨</p>',
   extensions: [
     StarterKit,
     CodeBlockLowlight.configure({
