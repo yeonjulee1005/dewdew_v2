@@ -6,7 +6,6 @@ export const useDatabase = defineStore('database', () => {
   const imageData:any = {}
 
   const updateCoreData = async (data:any) => {
-    if (!data.core && !data.images) { return }
     coreData.value = {}
     imageData.value = {}
     coreData.value = await data.core
@@ -15,6 +14,7 @@ export const useDatabase = defineStore('database', () => {
   }
 
   const setPassword = (data:any) => {
+    if (!data.length) { return }
     data.forEach((core:any) => {
       if (core.id === 'admin') {
         adminPassword.value = core.password
