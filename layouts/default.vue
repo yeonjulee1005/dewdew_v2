@@ -42,6 +42,21 @@ watch(idle, () => {
   idle.value ? idleTrigger.value = true : idleTrigger.value = false
 })
 
+const router = useRouter()
+router.onError((error) => {
+  const messages = [
+    'Importing a module script failed', // safari
+    'Failed to fetch dynamically imported module' // edge & chrome
+  ]
+  if (messages.some(message => error?.message.includes(message))) {
+    (async () => {
+      // show some notification to the user if you want too.
+      // add some delay so that user can read the message in notification.
+      await router.go(0)
+    })()
+  }
+})
+
 console.log('여긴가? 시작', coreData)
 coreData.forEach((core:any) => {
   switch (core.id) {
