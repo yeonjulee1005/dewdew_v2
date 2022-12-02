@@ -9,9 +9,10 @@ export const useApi = () => {
     return { core, images }
   }
   const getClientCoreData = async (coreUrl:string, imageUrl:string) => {
-    const returnData = { core: <any[]>[], images: <any[]>[] }
-    returnData.core = await useHttp().get(coreUrl, '')
-    returnData.images = await useHttp().get(imageUrl, '')
+    const returnData = {
+      core: await useHttp().get(coreUrl, ''),
+      images: await useHttp().get(imageUrl, '')
+    }
     return returnData
   }
   const postSetData = async (url:string, id:string, params:any) => {
