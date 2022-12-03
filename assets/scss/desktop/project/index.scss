@@ -1,23 +1,9 @@
 /** Project Index Page */
 .main-projects-container {
-  position: relative;
-  max-width: $space-800;
   width: $space-80vw;
-  height: $space-80vh;
-  margin: 0 auto;
-  overflow: auto;
   .project-list {
     width: $space-400;
     @include headline3;
     text-align: center;
-    text-decoration: none;
-    padding: $space-16;
-    border-radius: $space-16;
-    border: 3px solid var(--d-bg-blue-color-deep);
-    transition: border .5s;
-    cursor: pointer;
-    &:hover, &:focus {
-      border: 3px solid var(--d-bg-red-color-deep);
-    }
   }
 }

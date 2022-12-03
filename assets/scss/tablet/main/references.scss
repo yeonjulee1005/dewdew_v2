@@ -1,88 +1,18 @@
 /** References */
 .main-references {
-  position: relative;
-  max-width: $space-1200;
-  width: $space-90vw;
-  height: fit-content;
-  margin: $space-300 auto $space-300;
-  transition: opacity .9s;
-  opacity: 0;
-  .section-title {
-    @include headline1;
-  }
   .section-text {
-    width: fit-content;
     margin: $space-default 0 $space-default;
-    @include headline5;
-    border-bottom: $space-2 solid var(--d-bg-side-color);
-    border-spacing: $space-default;
-  }
-  .section-bg-text {
-    position: absolute;
-    top: $space-200;
-    left: $space--430;
-    font-size: $space-200;
-    font-weight: 900;
-    opacity: .1;
-    transform: rotateZ(90deg);
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-  }
-  .reference-background {
-    position: absolute;
-    top: $space--200;
-    left: $space--400;
-    width: $space-740;
-    height: $space-740;
-    opacity: 0.15;
-    background-color: var(--d-color-17);
-    border-radius: $space-percent-50;
-    z-index: -10;
-    &:last-child {
-      top: $space-250;
-      left: $space-740;
-      width: $space-400;
-      height: $space-400;
-      opacity: 0.15;
-      background-color: var(--d-color-09);
-      border-radius: $space-400;
-    }
   }
   .references-list {
     margin: 0 $space-default;
     .reference-item {
-      margin: $space-default;
       .reference-thumb {
         width: $space-160;
         height: $space-160;
-        cursor: pointer;
-        border-radius: $space-20;
-        border: $space-2 solid var(--d-bg-green-color-deep);
-        box-shadow: 6px 6px 12px var(--d-bg-main-color), -6px -6px 12px var(--d-bg-main-color);
-        transition: all 0.2s ease-in-out;
-        &:hover {
-          box-shadow: 1px 1px 5px var(--d-bg-main-color), -1px -1px 5px var(--d-bg-main-color);
-        }
       }
       .reference-text {
         @include headline6;
       }
     }
   }
-  .reference-dialog {
-    .title {
-      width: fit-content;
-      @include headline3;
-      border-bottom: 1px solid var(--d-text-color);
-    }
-    .description {
-      @include headline6;
-    }
-    .image {
-      cursor: pointer;
-    }
-  }
-}
-.main-references-on {
-  opacity: 1;
 }

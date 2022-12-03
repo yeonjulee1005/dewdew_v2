@@ -1,0 +1,28 @@
+/** Color Translate Page */
+.color-translate {
+  position: relative;
+  width: $space-100vw;
+  .color-translate-form {
+    .el-space {
+      width: $space-percent-100;
+    }
+  }
+  .upload-drag-files {
+    height: $space-220;
+    .image-preview {
+      width: $space-300;
+      height: $space-200;
+    }
+    .el-icon--upload {
+      .el-upload__text {
+        @include headline7;
+        text-align: center;
+        .accent {
+          @include headline6;
+          text-align: center;
+          color: var(--d-blue-color-deep)
+        }
+      }
+    }
+  }
+}
