@@ -19,6 +19,11 @@
       <AtomBlogCreateComment
         @create-comment="createComment"
       />
+      <AtomElementUiAffixButton
+        :trigger="displayFloatButtonTrigger"
+        :activate-like="articleLike?.trigger"
+        @click-affix="updateLikeCount"
+      />
     </div>
     <AtomBlogAuthCheckDialog
       :admin-trigger="deleteConfirmTrigger"
@@ -26,6 +31,7 @@
       @confirm-password="deleteComment"
       @close-dialog="closeAuthCheckDialog"
     />
+    <el-backtop :bottom="60" :right="30" />
   </NuxtLayout>
 </template>
 <script setup lang="ts">
@@ -47,6 +53,8 @@ definePageMeta({
   title: 'Article'
 })
 
+const { y } = useWindowScroll()
+
 const articleId = useRoute().params.id
 const beforeParsingLike = ref()
 const articleLike = ref()
@@ -61,10 +69,17 @@ const articleData = ref({
 })
 const commentList = ref<CommentList[]>([])
 const deleteCommentData = ref<CommentList>()
+const displayFloatButtonTrigger = ref(false)
 const deleteConfirmTrigger = ref(false)
 
 onBeforeMount(() => {
   initArticleConfig()
+})
+
+watch(y, () => {
+  y.value
+    ? displayFloatButtonTrigger.value = true
+    : displayFloatButtonTrigger.value = false
 })
 
 const initArticleConfig = async () => {

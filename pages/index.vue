@@ -103,11 +103,10 @@ const contactTrigger = ref(false)
 
 onMounted(() => {
   initData()
-  window.addEventListener('scroll', handleScroll)
 })
 
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
+watch(y, () => {
+  scrollDetect()
 })
 
 const initData = async () => {
@@ -140,7 +139,7 @@ const initData = async () => {
   })
 }
 
-const handleScroll = () => {
+const scrollDetect = () => {
   const scrollY = y.value
   const windowWidth = width.value
   const scrollValue = Math.min(Math.ceil(windowWidth / 500), 3) - 1

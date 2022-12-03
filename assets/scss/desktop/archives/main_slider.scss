@@ -26,7 +26,8 @@
   .carousel {
     display: flex;
     align-items: center;
-    height: $space-percent-100;
+    height: fit-content;
+    padding-top: $space-240;
   }
   .image-component {
     position: relative;

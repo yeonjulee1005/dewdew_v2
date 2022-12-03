@@ -6,7 +6,6 @@
 }
 
 /** el-backtop */
-
 .el-backtop {
   width: $space-50;
   height: $space-50;
@@ -23,11 +22,24 @@
   background-color: var(--d-green-color-deep);
 }
 
+/** el-notification */
 .el-notification {
   width: fit-content;
   .el-notification__group {
     padding: 0 $space-20;
   }
+}
+
+/** el-affix */
+.el-affix {
+  opacity: 0;
+  transition: opacity .5s;
+  .el-affix--fixed{
+    right: $space-36;
+  }
+}
+.el-affix-on {
+  opacity: 1;
 }
 
 /** el-form */

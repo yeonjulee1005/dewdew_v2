@@ -98,6 +98,9 @@
 }
 
 @mixin tiptap-template {
+  p {
+    line-height: 1.7rem;
+  }
   ul, ol {
     padding: 0 1rem;
   }
