@@ -39,7 +39,9 @@ const coreData = useDatabase().coreData.value
 const coreImages = useDatabase().imageData.value
 
 watch(idle, () => {
-  idle.value ? idleTrigger.value = true : idleTrigger.value = false
+  idle.value && useRoute().path !== '/'
+    ? idleTrigger.value = true
+    : idleTrigger.value = false
 })
 
 coreData.forEach((core:any) => {

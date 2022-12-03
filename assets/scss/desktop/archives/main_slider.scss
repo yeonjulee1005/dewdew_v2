@@ -9,6 +9,7 @@
 .prev-button {
   position: absolute;
   margin: $space-160 0 0 $space-160;
+  z-index: 10;
   &:focus, &:hover {
     color: var(--d-text-color);
     border: $space-1 solid var(--d-bg-main-color);

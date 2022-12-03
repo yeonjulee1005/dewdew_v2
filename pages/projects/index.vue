@@ -17,7 +17,13 @@ import { useDatabase } from '~/stores/database'
 import { Route } from '~/interfaces/types'
 
 useHead({
-  title: '프로젝트'
+  title: '프로젝트',
+  meta: [
+    { property: 'description', content: '토이 프로젝트 리스트 입니다.' },
+    { property: 'og:title', content: '개발자 이연주 | 프로젝트' },
+    { property: 'og:url', content: 'https://dewdew.kr/projects/' },
+    { property: 'og:description', content: '토이 프로젝트 리스트 입니다.' }
+  ]
 })
 
 definePageMeta({

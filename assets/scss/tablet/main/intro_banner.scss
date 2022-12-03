@@ -14,6 +14,10 @@
     font-size: 3.5em;
     font-weight: 800;
     text-align: left;
+    background-image: linear-gradient(120deg, $d-color-03-light, $d-color-15-dark-deep);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     transform: rotateZ(90deg);
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);

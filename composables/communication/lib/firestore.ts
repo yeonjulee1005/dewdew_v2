@@ -10,8 +10,8 @@ import {
   Timestamp,
   serverTimestamp,
   increment,
-  arrayUnion,
-  arrayRemove
+  arrayUnion
+  // arrayRemove
 } from 'firebase/firestore'
 import { firestoreDb } from './firebase'
 
@@ -53,8 +53,8 @@ export const update = async (col:string, id:string, root:string, method:string, 
     case 'addArray' :
       addData = addArray(root, document)
       break
-    case 'removeArray' :
-      addData = removeArray(root, document)
+    case 'addObject' :
+      addData = addObject(root, document)
       break
   }
 
@@ -77,8 +77,8 @@ function addArray (root:string, data:any) {
   return { [root]: arrayUnion(arrayData) }
 }
 
-function removeArray (root:string, data:any) {
-  return { [root]: arrayRemove(data) }
+function addObject (root:string, data:any) {
+  return { [root]: data }
 }
 
 function incrementValue (root:string, data:any) {

@@ -74,7 +74,13 @@ const { open } = useEyeDropper()
 const { copy, copied, isSupported } = useClipboard()
 
 useHead({
-  title: '내 색상 찾아줘..'
+  title: '내 색상 찾아줘..',
+  meta: [
+    { property: 'description', content: '잊고 지낸 색상코드를 찾아보세요.' },
+    { property: 'og:title', content: '개발자 이연주 | 내 색상 찾아줘..' },
+    { property: 'og:url', content: 'https://dewdew.kr/projects/colorTranslate/' },
+    { property: 'og:description', content: '잊고 지낸 색상코드를 찾아보세요.' }
+  ]
 })
 
 definePageMeta({

@@ -14,18 +14,33 @@
       <AtomBlogArticleComments
         :comment-title="commentTitle"
         :comment-data="commentList"
+        @delete-comment="openDeleteConfirmDialog"
       />
       <AtomBlogCreateComment
         @create-comment="createComment"
       />
     </div>
+    <AtomBlogAuthCheckDialog
+      :admin-trigger="deleteConfirmTrigger"
+      :title="'댓글 비밀번호를 입력해주세요!'"
+      @confirm-password="deleteComment"
+      @close-dialog="closeAuthCheckDialog"
+    />
   </NuxtLayout>
 </template>
 <script setup lang="ts">
 import { BlogData, CommentList, CreateComment } from '~/interfaces/types'
 
+const route = useRoute()
+
 useHead({
-  title: 'Article'
+  title: 'Article',
+  meta: [
+    { property: 'description', content: 'FE개발자 이연주의 개발 블로그 입니다.' },
+    { property: 'og:title', content: '개발자 이연주 | 블로그' },
+    { property: 'og:url', content: `https://dewdew.kr${route.path}` },
+    { property: 'og:description', content: 'FE개발자 이연주의 개발 블로그 입니다.' }
+  ]
 })
 
 definePageMeta({
@@ -45,6 +60,8 @@ const articleData = ref({
   createdAt: ''
 })
 const commentList = ref<CommentList[]>([])
+const deleteCommentData = ref<CommentList>()
+const deleteConfirmTrigger = ref(false)
 
 onBeforeMount(() => {
   initArticleConfig()
@@ -98,6 +115,42 @@ const createComment = (comment:CreateComment) => {
     initArticleConfig()
     loadArticleData()
   })
+}
+
+const openDeleteConfirmDialog = (comment:CommentList) => {
+  deleteCommentData.value = comment
+  deleteConfirmTrigger.value = true
+}
+
+const deleteComment = (password:string) => {
+  deleteCommentData.value?.password === password
+    ? deleteSequence(deleteCommentData.value.index)
+    : rejectDeleteSequence()
+}
+
+const deleteSequence = (commentIndex:number) => {
+  const copyComment = Object.assign([], commentList.value)
+  const removeComment = copyComment.filter((comment:any) => { return comment.index !== commentIndex })
+  const updateData = {
+    method: 'addObject',
+    root: 'comment',
+    id: articleId,
+    data: removeComment
+  }
+  useApi().postUpdateData('blog', updateData).then(() => {
+    useAlarm().notify('', 'success', '댓글을 삭제했어요..ㅠㅠ', true, 1000, 0)
+    initArticleConfig()
+    loadArticleData()
+  })
+}
+
+const rejectDeleteSequence = () => {
+  closeAuthCheckDialog()
+  useAlarm().notify('', 'error', '댓글 비밀번호가 틀립니다.', true, 1000, 0)
+}
+
+const closeAuthCheckDialog = () => {
+  deleteConfirmTrigger.value = false
 }
 
 const loadArticleData = async () => {

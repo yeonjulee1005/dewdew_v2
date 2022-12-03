@@ -3,12 +3,7 @@ const lifecycle = process.env.npm_lifecycle_event
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default {
   routes: {
-    // '/': { prerender: true }, // Once per build (via builder)
-    // '/layouts/**': { ssr: false }, // Client-Side rendered
-    '/blog/*/*': { static: true } // Once on-demand per build (via lambda)
-    // '/stats/*': { swr: '10 min' }, // Once on-demand each 10 minutes (via lambda)
-    // '/admin/*': { ssr: false }, // Client-Side rendered
-    // '/react/*': { redirect: '/vue' } // Redirect Rules
+    '/blog/*/*': { static: true }
   },
   app: {
     head: {
@@ -47,11 +42,6 @@ export default {
   ],
   vite: {
     build: {
-      // rollupOptions: {
-      //   output: {
-      //     chunkFileNames: '_nuxt/[hash].mjs'
-      //   }
-      // },
       chunkSizeWarningLimit: 3000,
       commonjsOptions: {
         esmExternals: true
@@ -96,10 +86,6 @@ export default {
   runtimeConfig: {
     public: {
       GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
-      // API_BASE_URL:
-      // lifecycle === 'build' || lifecycle === 'generate'
-      //   ? process.env.API_LIVE_URL
-      //   : process.env.API_BASE_URL
     }
   }
 }

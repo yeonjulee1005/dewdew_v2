@@ -1,32 +1,32 @@
 <template>
   <MoleculesADialog
-    :dialog-trigger="adminCheckProps.adminTrigger"
-    custom-class="admin-check-dialog"
+    :dialog-trigger="authCheckProps.adminTrigger"
+    custom-class="auth-check-dialog"
     top="30vh"
     :width="360"
-    @close-dialog="closeAdminCheckDialog"
+    @close-dialog="closeAuthCheckDialog"
   >
     <div class="title mb-20">
-      {{ adminCheckProps.title }}
+      {{ authCheckProps.title }}
     </div>
     <el-form
-      ref="adminKeyRef"
-      :model="adminKeyData"
-      :rules="adminKeyRules"
+      ref="authKeyRef"
+      :model="authKeyData"
+      :rules="authKeyRules"
       :label-width="80"
       @submit.prevent
     >
       <el-form-item label="비밀번호" prop="password">
         <el-input
-          v-model="adminKeyData.password"
+          v-model="authKeyData.password"
           type="password"
           show-password
           clearable
           class="mb-20"
-          @keyup.enter="checkPassword(adminKeyRef)"
+          @keyup.enter="checkPassword(authKeyRef)"
         >
           <template #append>
-            <el-button @click="checkPassword(adminKeyRef)">
+            <el-button @click="checkPassword(authKeyRef)">
               <el-icon><Lock /></el-icon>
             </el-button>
           </template>
@@ -37,20 +37,19 @@
 </template>
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
-import { useDatabase } from '~/stores/database'
 
-const adminCheckProps = defineProps({
+const authCheckProps = defineProps({
   adminTrigger: { type: Boolean, default: false },
   title: { type: String, default: '' }
 })
 
-const adminCheckEmits = defineEmits([
+const authCheckEmits = defineEmits([
   'confirm-password',
   'close-dialog'
 ])
 
-const adminKeyRef = ref<FormInstance>()
-const adminKeyData = reactive({
+const authKeyRef = ref<FormInstance>()
+const authKeyData = reactive({
   password: ''
 })
 
@@ -67,7 +66,7 @@ const validatePassword = (_rule:any, value:any, callback:any) => {
   }
 }
 
-const adminKeyRules = reactive<FormRules>({
+const authKeyRules = reactive<FormRules>({
   password: [{ required: true, validator: validatePassword, trigger: 'blur' }]
 })
 
@@ -75,17 +74,15 @@ const checkPassword = async (formEl:FormInstance|undefined) => {
   if (!formEl) { return }
   await formEl.validate((valid, _fields) => {
     if (valid) {
-      useDatabase().adminPassword.value === adminKeyData.password
-        ? adminCheckEmits('confirm-password')
-        : useAlarm().notify('', 'error', '어딜...감히..', true, 3000, 0)
+      authCheckEmits('confirm-password', authKeyData.password)
     } else {
-      useAlarm().notify('', 'warning', '비밀번호를 입력해주시죠..', true, 3000, 0)
+      useAlarm().notify('', 'warning', '비밀번호를 확인해주세요~', true, 3000, 0)
     }
   })
 }
 
-const closeAdminCheckDialog = () => {
-  adminCheckEmits('close-dialog')
+const closeAuthCheckDialog = () => {
+  authCheckEmits('close-dialog')
 }
 
 </script>
