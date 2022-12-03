@@ -26,7 +26,7 @@
       </el-timeline>
       <el-empty v-else class="blog-timeline" description="글이 없네요..ㅠㅠ" />
     </div>
-    <AtomBlogAdminCheckDialog
+    <AtomBlogAuthCheckDialog
       :admin-trigger="adminConfirmDialogTrigger"
       :title="'관리자 비밀번호를 입력해주세요!'"
       @confirm-password="openCreateArticleDialog"
@@ -43,9 +43,16 @@
 </template>
 <script setup lang="ts" nuxt:static>
 import { BlogData, BlogList, CreateArticle } from '~/interfaces/types'
+import { useDatabase } from '~/stores/database'
 
 useHead({
-  title: '블로그'
+  title: '블로그',
+  meta: [
+    { property: 'description', content: 'FE개발자 이연주의 개발 블로그 입니다.' },
+    { property: 'og:title', content: '개발자 이연주 | 블로그' },
+    { property: 'og:url', content: 'https://dewdew.kr/blog/' },
+    { property: 'og:description', content: 'FE개발자 이연주의 개발 블로그 입니다.' }
+  ]
 })
 
 definePageMeta({
@@ -79,9 +86,10 @@ const closeAdminCheckDialog = () => {
   adminConfirmDialogTrigger.value = false
 }
 
-const openCreateArticleDialog = () => {
-  createArticleTrigger.value = true
-  adminConfirmDialogTrigger.value = false
+const openCreateArticleDialog = (password:string) => {
+  useDatabase().adminPassword.value === password
+    ? createArticleTrigger.value = true
+    : useAlarm().notify('', 'error', '어딜...감히..', true, 3000, 0)
 }
 
 const writeArticle = async (data:CreateArticle) => {
@@ -89,6 +97,7 @@ const writeArticle = async (data:CreateArticle) => {
     if (res.id) {
       useAlarm().notify('', 'success', '글이 작성되었네용!!', true, 3000, 0)
       loadBlogData()
+      closeAdminCheckDialog()
       closeCreateArticleDialog()
     } else {
       useAlarm().notify('', 'error', '글 작성이 실패했넹??', true, 3000, 0)
@@ -105,15 +114,9 @@ const loadBlogData = async () => {
     blogData.value = []
     res.forEach((blog:BlogData) => {
       const processData = {
-        id: blog.id,
-        index: blog.index,
-        title: blog.title,
-        rawArticle: blog.rawArticle.slice(0, 160).concat('...'),
-        desc: blog.desc,
-        like: blog.like,
+        ...blog,
         timeAgo: useTimeAgo(new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)),
-        createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000),
-        comment: blog.comment
+        createdAt: new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000)
       }
       blogData.value.push(processData)
     })

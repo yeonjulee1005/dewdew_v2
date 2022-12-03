@@ -7,13 +7,14 @@
 
 ## 사용한 모듈은 아래와 같습니다.
 
-1. ElementPlus
+1. Element-Plus
 2. Sass
 3. Pinia
-4. Vueuse
+4. VueUse(hosting/analytics)
 5. Firebase
-
-아직 개발중으로~ 추가예정!🫣
+6. Tiptap
+7. Vue-gtag
+8. Iconfy
 
 ## Setup
 

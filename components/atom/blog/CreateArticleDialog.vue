@@ -16,7 +16,7 @@
       :label-width="80"
       @submit.prevent
     >
-      <el-form-item label="제목">
+      <el-form-item label="제목" prop="title">
         <el-input
           v-model="createArticleData.title"
         />
@@ -60,21 +60,8 @@ const createArticleData = reactive({
   comment: []
 })
 
-const validatePassword = (_rule:any, value:any, callback:any) => {
-  const number = value.search(/[0-9]/g)
-  const english = value.search(/[a-z]/g)
-  const special = value.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi)
-  if (value === '') {
-    callback(new Error('비밀번호를 입력해주세요!'))
-  } else if (number < 0 || english < 0 || special < 0) {
-    return callback(new Error('비밀번호는 숫자, 영문, 특수문자가 섞여있죠?'))
-  } else {
-    callback()
-  }
-}
-
 const createArticleRules = reactive<FormRules>({
-  password: [{ required: true, validator: validatePassword, trigger: 'blur' }]
+  title: [{ required: true, message: '입력해랑...', trigger: 'blur' }]
 })
 
 const updateArticle = (article:string, rawArticle:string) => {
@@ -89,7 +76,7 @@ const submitArticle = async (formEl:FormInstance|undefined) => {
     if (valid) {
       createArticleEmits('create-article', createArticleData)
     } else {
-      useAlarm().notify('', 'warning', '비밀번호를 입력해주시죠..', true, 3000, 0)
+      useAlarm().notify('', 'warning', '제목 입력해랑..', true, 3000, 0)
     }
   })
 }

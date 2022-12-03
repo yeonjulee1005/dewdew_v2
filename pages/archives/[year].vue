@@ -21,8 +21,16 @@
 import { ArchivesData, MassImages } from '~/interfaces/types'
 import { useDatabase } from '~/stores/database'
 
+const route = useRoute()
+
 useHead({
-  title: '추억'
+  title: '아카이브',
+  meta: [
+    { property: 'description', content: 'FE개발자 이연주의 사진기록 입니다.' },
+    { property: 'og:title', content: '개발자 이연주 | 아카이브' },
+    { property: 'og:url', content: `https://dewdew.kr${route.path}` },
+    { property: 'og:description', content: 'FE개발자 이연주의 사진기록 입니다.' }
+  ]
 })
 
 definePageMeta({
