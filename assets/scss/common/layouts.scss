@@ -51,12 +51,12 @@
             .el-sub-menu__icon-arrow {
               display: none;
             }
-          &:hover {
-            background-color: unset;
-            .el-icon {
-              font-size: $space-30;
+            &:hover {
+              background-color: unset;
+              .el-icon {
+                font-size: $space-30;
+              }
             }
-          }
           }
           .el-menu--inline {
             position: absolute;
@@ -124,6 +124,7 @@
       .copyright {
         @include headline7;
         text-align: center;
+        word-break: keep-all;
       }
     }
   }

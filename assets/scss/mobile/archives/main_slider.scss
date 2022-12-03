@@ -1,57 +1,32 @@
 /** Archives Page */
 .main-archives-title {
-  position: absolute;
   top: $space-160;
   left: $space-20;
   @include headline3;
 }
 
 .prev-button {
-  position: absolute;
   top: $space-100;
   left: $space-10vw;
-  z-index: 10;
-  &:focus, &:hover {
-    color: var(--d-text-color);
-    border: $space-1 solid var(--d-bg-main-color);
-    background-color: var(--d-footer-bg-color);
-  }
 }
 
 .main-slider-section {
-  position: relative;
-  max-width: $space-1000;
-  width: $space-90vw;
-  height: $space-80vh;
-  margin: 0 auto;
   .carousel {
-    display: flex;
-    align-items: center;
     height: $space-percent-100;
   }
   .image-component {
-    position: relative;
-    cursor: pointer;
     .image {
       width: $space-50vw;
       height: $space-50vw;
-      border-radius: $space-36;
     }
     .text-group {
-      position: absolute;
-      bottom: $space-20;
-      right: $space-default;
       .title {
         @include headline5;
-        color: $d-bg-color-00;
         text-align: right;
-        @include unset-margin;
       }
       .subtitle {
         @include headline5;
-        color: $d-bg-color-00;
         text-align: right;
-        @include unset-margin;
       }
     }
   }

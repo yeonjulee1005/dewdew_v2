@@ -1,9 +1,7 @@
 /** Color Translate Page */
 .color-translate {
-  position: relative;
   flex-direction: column;
   height: fit-content;
-  width: $space-100vw;
   .eye-dropper {
     margin-top: $space-80;
   }
@@ -11,31 +9,19 @@
     width: $space-80vw;
     @include unset-margin;
     margin: $space-80 0;
-    .el-space {
-      width: $space-percent-100;
-    }
   }
   .upload-drag-files {
     width: $space-80vw;
-    height: $space-220;
     .image-preview {
       width: $space-percent-80;
       height: $space-160;
     }
     .el-icon--upload {
-      height: unset;
       width: $space-percent-100;
       .el-upload__text {
         display: flex;
         flex-direction: column;
         width: $space-percent-90;
-        @include headline7;
-        text-align: center;
-        .accent {
-          @include headline6;
-          text-align: center;
-          color: var(--d-blue-color-deep)
-        }
       }
     }
   }

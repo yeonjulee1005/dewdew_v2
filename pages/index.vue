@@ -173,7 +173,7 @@ const tablet = (scrollY:number) => {
   mainTitleTrigger.value = scrollY < 300
   mainTextTrigger.value = scrollY < 500
   scrollDownTrigger.value = scrollY < 500
-  mainResumeTrigger.value = scrollY > 200 && scrollY < 1250
+  mainResumeTrigger.value = scrollY > 300 && scrollY < 1600
   mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
   mainSkillsBgTrigger.value = scrollY > 1200 && scrollY < 2600
   mainSkillsListTrigger.value = scrollY > 2700 && scrollY < 5100

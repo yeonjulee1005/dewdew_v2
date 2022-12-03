@@ -1,0 +1,45 @@
+/** Main Resume */
+.main-resume {
+  position: relative;
+  max-width: $space-1200;
+  width: 90vw;
+  height: fit-content;
+  transition: opacity .9s;
+  opacity: 0;
+  .resume-container {
+    width: $space-percent-100;
+    border-radius: $space-30;
+    background-color: var(--d-bg-blue-color);
+    .resume-image {
+      text-align: center;
+      img {
+        width: $space-percent-80;
+        height: auto;
+        border-radius: $space-percent-50;
+      }
+    }
+    .resume-texts {
+      p { @include unset-margin; }
+      .title-container {
+        width: fit-content;
+        padding-bottom: $space-4;
+        border-bottom:  $space-2 double var(--d-text-color);
+        .title {
+          margin-bottom: $space-default;
+        }
+      }
+      .career-container {
+        @include headline6;
+        .career-title {
+          font-weight: 700;
+        }
+        .career-desc {
+          margin-left: $space-20;
+        }
+      }
+    }
+  }
+}
+.main-resume-on {
+  opacity: 1;
+}

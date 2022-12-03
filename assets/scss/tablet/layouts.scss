@@ -1,129 +1,23 @@
 /* Layouts */
 .default-layout-container {
-  position: relative;
-  flex-direction: column;
-  height: $space-percent-100;
   .header {
-    position: fixed;
-    width: $space-100vw;
     height: $space-60;
-    align-items: center;
-    background-color: var(--d-header-bg-color);
-    filter: alpha(opacity=30);
-    z-index: 100;
     .header-container {
       width: $space-1000;
       .logo {
         width: $space-120;
-        margin: $space-default $space-20;
       }
-      .desktop-menu {
-        .menu-links {
-          @include headline4;
-          color: var(--d-text-dark-color);
-          text-decoration: none;
-          transition: all .1s ease-in-out;
-        }
-        .menu-links:hover {
-          scale: 1.1;
-          color: var(--d-text-dark-color-deep);
-        }
-      }
-      .github {
-        width: $space-30;
-        height: $space-30;
-        cursor: pointer;
-      }
-      .dark-mode-switch {
-        --el-switch-on-color: var(--d-footer-bg-color);
-        --el-switch-off-color: var(--d-footer-bg-color);
-      }
-      .mobile-menu {
-        position: relative;
-        background-color: transparent;
-        border: unset;
-        .el-sub-menu {
-          .el-sub-menu__title {
-            .el-icon {
-              @include unset-margin;
-              transition: all .3s ease-in-out;
-            }
-            .el-sub-menu__icon-arrow {
-              display: none;
-            }
+      .mobile-menu .el-sub-menu .el-menu--inline {
+        .el-menu-item {
+          .menu-links {
+            @include headline5;
+          }
           &:hover {
-            background-color: unset;
-            .el-icon {
-              font-size: $space-30;
-            }
-          }
-          }
-          .el-menu--inline {
-            position: absolute;
-            top: $space-68;
-            right: 0;
-            background-color: transparent;
-            .el-menu-item {
-              .menu-links {
-                @include headline5;
-                text-decoration: unset;
-                transition: all .3s ease-in-out;
-              }
-              &:hover {
-                background-color: unset;
-                .menu-links {
-                  @include headline4;
-                  text-decoration: unset;
-                }
-              }
+            .menu-links {
+              @include headline4;
             }
           }
         }
-      }
-    }
-  }
-  .main {
-    position: relative;
-    height: $space-percent-100;
-    overflow-x: hidden;
-    @include unset-padding;
-  }
-  .footer {
-    position: relative;
-    height: fit-content;
-    background-color: var(--d-footer-bg-color);
-    .footer-section {
-      height: $space-20vh;
-      font-weight: 400;
-      font-size: $space-16;
-      .footer-menu-container {
-        width: $space-300;
-        .footer-links {
-          @include headline6;
-          text-decoration: unset;
-          transition: all .1s ease-in-out;
-        }
-        .footer-links:hover {
-          color: var(--d-red-color);
-        }
-      }
-      .footer-sns-container {
-        width: $space-160;
-        .sns-links {
-          transition: all .1s ease-in-out;
-          width: $space-30;
-          height: fit-content;
-          margin: auto $space-8;
-          &:last-child {
-            width: $space-40;
-            height: fit-content;
-            margin: auto $space-4;
-          }
-        }
-      }
-      .copyright {
-        @include headline7;
-        text-align: center;
       }
     }
   }

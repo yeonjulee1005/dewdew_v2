@@ -9,14 +9,36 @@
 
 @use './foundation.scss' as *;
 
+/**
+* * Common Component SCSS *
+*/
+
+@import './basic/reset_element_ui_style.scss';
+
+@import './common/layouts.scss';
+@import './common/tiptap.scss';
+@import './common/404.scss';
+@import './common/dialogs.scss';
+
+@import './common/main/intro_banner.scss';
+@import './common/main/resume.scss';
+@import './common/main/skills.scss';
+@import './common/main/references.scss';
+@import './common/main/contact.scss';
+
+@import './common/archives/main_slider.scss';
+
+@import './common/project/index.scss';
+@import './common/project/color_translate.scss';
+
+@import './common/blog/index.scss';
+@import './common/blog/article.scss';
+
+/**
+* * Response Component SCSS *
+*/
+
 @include desktop {
-  @import './basic/reset_element_ui_style.scss';
-
-  @import './desktop/layouts.scss';
-  @import './desktop/dialogs.scss';
-  @import './desktop/tiptap.scss';
-  @import './desktop/404.scss';
-
   @import './desktop/main/intro_banner.scss';
   @import './desktop/main/resume.scss';
   @import './desktop/main/skills.scss';
@@ -33,11 +55,7 @@
 }
 
 @include tablet {
-  @import './basic/reset_element_ui_style.scss';
-
   @import './tablet/layouts.scss';
-  @import './tablet/dialogs.scss';
-  @import './tablet/tiptap.scss';
   @import './tablet/404.scss';
 
   @import './tablet/main/intro_banner.scss';
@@ -56,11 +74,7 @@
 }
 
 @include mobile {
-  @import './basic/reset_element_ui_style.scss';
-
   @import './mobile/layouts.scss';
-  @import './mobile/dialogs.scss';
-  @import './mobile/tiptap.scss';
   @import './mobile/404.scss';
 
   @import './mobile/main/intro_banner.scss';

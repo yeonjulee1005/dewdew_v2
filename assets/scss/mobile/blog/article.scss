@@ -1,91 +1,18 @@
 /** Blog Article */
 .blog-article {
-  position: relative;
-  min-height: $space-80vh;
-  height: fit-content;
-  width: $space-100vw;
   .article-header {
     flex-direction: column;
     align-items: flex-start;
-    width: $space-80vw;
-    max-width: $space-1000;
-    margin-top: $space-120;
-    .title {
-      @include headline3;
-      padding-left: $space-default;
-      border-left: $space-4 solid var(--d-bg-blue-color);
-    }
     .time {
       margin-top: $space-default;
-      @include headline7;
-    }
-  }
-  .article-add-on {
-    
-    width: $space-80vw;
-    max-width: $space-1000;
-    .like {
-      cursor: pointer;
-    }
-  }
-  .article-body {
-    width: $space-80vw;
-    max-width: $space-1000;
-    height: fit-content;
-    padding: $space-30 $space-20;
-    background-color: var(--d-bg-main-color);
-    box-shadow: 1px 1px 2px var(--d-content-bg-color);
-    overflow-y: auto;
-    @include tiptap-template;
-  }
-  .character-count {
-    margin: 1rem;
-    text-align: right;
-    color: var(--d-text-dark-color-deep);
-  }
-  .article-comments {
-    width: $space-80vw;
-    max-width: $space-1000;
-    height: fit-content;
-    margin: $space-40 auto;
-    padding: $space-20 0;
-    border-top: 3px solid var(--d-text-dark-color);
-    border-bottom: 3px solid var(--d-text-dark-color);
-    .comments-title {
-      margin: $space-20 $space-default;
-      @include headline4;
-    }
-    .el-timeline-item {
-      .el-timeline-item__content {
-        @include tiptap-template;
-      }
-    }
-    .empty-comments {
-      height: $space-100;
-      .el-empty__image {
-        width: $space-80;
-      }
     }
   }
   .article-create-comment {
     width: $space-80vw;
     max-width: $space-1000;
     height: fit-content;
-    .create-form {
+    .create-form .el-form-item__content .el-input--suffix {
       width: $space-percent-100;
-      .el-form-item__content {
-        .el-input--suffix {
-          width: $space-percent-100;
-        }
-      }
-      .tiptap-editor {
-        &__content {
-          height: $space-15vh;
-        }
-        .ProseMirror {
-          height: $space-10vh;
-        }
-      }
     }
   }
 }

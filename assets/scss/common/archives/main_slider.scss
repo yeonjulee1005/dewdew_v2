@@ -1,0 +1,49 @@
+/** Archives Page */
+.main-archives-title {
+  position: relative;
+  max-width: $space-1000;
+  width: $space-90vw;
+  margin: 0 auto;
+}
+
+.prev-button {
+  position: absolute;
+  z-index: 10;
+  &:focus, &:hover {
+    color: var(--d-text-color);
+    border: $space-1 solid var(--d-bg-main-color);
+    background-color: var(--d-footer-bg-color);
+  }
+}
+
+.main-slider-section {
+  position: relative;
+  max-width: $space-1000;
+  width: $space-90vw;
+  height: $space-80vh;
+  margin: 0 auto;
+  .carousel {
+    display: flex;
+    align-items: center;
+  }
+  .image-component {
+    position: relative;
+    cursor: pointer;
+    .image {
+      border-radius: $space-36;
+    }
+    .text-group {
+      position: absolute;
+      bottom: $space-20;
+      right: $space-default;
+      .title {
+        color: $d-bg-color-00;
+        @include unset-margin;
+      }
+      .subtitle {
+        color: $d-bg-color-00;
+        @include unset-margin;
+      }
+    }
+  }
+}
