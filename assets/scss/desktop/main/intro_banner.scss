@@ -54,7 +54,7 @@
   }
   .scroll-down {
     position: absolute;
-    width: $space-10vw;
+    width: fit-content;
     top: $space-percent-105;
     @include headline6;
     z-index: 10;
