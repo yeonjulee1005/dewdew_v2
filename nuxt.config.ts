@@ -55,9 +55,9 @@ export default {
   },
   // modules
   modules: [
-    '@nuxtjs/robots',
     '@pinia/nuxt',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    '@nuxtjs/robots'
   ],
   // build modules
   buildModules: [
@@ -87,5 +87,9 @@ export default {
     public: {
       GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
     }
+  },
+  robots: {
+    UserAgent: '*',
+    Allow: '/'
   }
 }
