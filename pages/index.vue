@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <div>
     <AtomMainIntroBanner
       :intro-text="introTextData"
       :banner-images="bannersImage"
@@ -30,7 +30,7 @@
       :contact-trigger="contactTrigger"
     />
     <el-backtop :bottom="60" :right="30" />
-  </NuxtLayout>
+  </div>
 </template>
 <script setup lang="ts">
 import { useDatabase } from '~/stores/database'

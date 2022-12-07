@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <div>
     <el-button class="prev-button" round @click="routerBack">
       {{ prev }}
     </el-button>
@@ -15,7 +15,7 @@
         :src="selectImageData?.url"
       />
     </MoleculesADialog>
-  </NuxtLayout>
+  </div>
 </template>
 <script setup lang="ts">
 import { ArchivesData, MassImages } from '~/interfaces/types'

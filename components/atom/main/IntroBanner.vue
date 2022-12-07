@@ -7,6 +7,7 @@
       {{ mainIntroProps.introText.mainTitle }}
     </div>
     <div
+      v-if="mainIntroProps.introText.subText"
       class="main-text"
       :class="{'main-text-on': mainIntroProps.mainTextTrigger}"
     >

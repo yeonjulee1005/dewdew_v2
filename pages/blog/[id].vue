@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <div>
     <div class="blog-article flex flex-column flex-align-center">
       <AtomBlogArticleHeader
         :data="articleData"
@@ -32,7 +32,7 @@
       @close-dialog="closeAuthCheckDialog"
     />
     <el-backtop :bottom="60" :right="30" />
-  </NuxtLayout>
+  </div>
 </template>
 <script setup lang="ts">
 import { BlogData, CommentList, CreateComment } from '~/interfaces/types'
