@@ -34,7 +34,8 @@ useHead({
 })
 
 definePageMeta({
-  title: 'Images'
+  title: 'Images',
+  pageTransition: false
 })
 
 const coreImages = useDatabase().imageData.value
@@ -45,7 +46,7 @@ const selectImageData = ref<MassImages>()
 const prev = ref('뒤로가기')
 const imageDialogTrigger = ref(false)
 
-onMounted(() => {
+onBeforeMount(() => {
   initImageData()
 })
 
