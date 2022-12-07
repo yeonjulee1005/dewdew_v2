@@ -24,14 +24,15 @@ useHead({
 })
 
 definePageMeta({
-  title: 'Archives'
+  title: 'Archives',
+  pageTransition: false
 })
 
 const title = ref('Dewdew History')
 const coreImages = useDatabase().imageData.value
 const thumbImageData = ref<ArchivesData[]>([])
 
-onMounted(() => {
+onBeforeMount(() => {
   initImageData()
 })
 
