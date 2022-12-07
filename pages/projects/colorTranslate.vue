@@ -1,72 +1,70 @@
 <template>
-  <NuxtLayout>
-    <div
-      class="color-translate flex flex-row flex-justify-center flex-align-center"
-      :style="backgroundColor"
-    >
-      <div class="flex flex-column">
-        <el-button class="eye-dropper mb-default" :icon="BrushFilled" @click="colorPicker">
-          {{ '스포이드' }}
-        </el-button>
-        <AtomElementUiUploadFile
-          :file-size-alarm="'파일사이즈는 2048*2048 이하만 가능해요!'"
-          :file-type-alarm="'파일 타입은 jpg,png,gif만 가능해요!'"
-          :limit-type="['image/jpeg', 'image/png', 'image/gif']"
-          :limit-height="2048"
-          :limit-width="2048"
-          :limit-size="10"
-        />
-      </div>
-      <el-form
-        class="color-translate-form ml-40"
-        label-position="top"
-      >
-        <el-space fill>
-          <el-form-item label="HEX Color">
-            <el-input v-model="hexColor" maxlength="7" clearable>
-              <template #append>
-                <el-button v-if="isSupported" @click="copy(hexColor)">
-                  <el-icon><DocumentCopy /></el-icon>
-                </el-button>
-              </template>
-            </el-input>
-          </el-form-item>
-          <el-alert type="info" show-icon :cloasble="false">
-            <p>
-              {{ '스포이드가 동작 안하는 환경일 경우, HEX 컬러를 입력하여 나머지 컬러 색을 확인하세요.' }}
-            </p>
-          </el-alert>
-        </el-space>
-        <el-form-item label="RGB Color">
-          <el-input v-model="rgbColor" readonly>
-            <template #append>
-              <el-button v-if="isSupported" @click="copy(rgbColor)">
-                <el-icon><DocumentCopy /></el-icon>
-              </el-button>
-            </template>
-          </el-input>
-        </el-form-item>
-        <el-form-item label="HSL Color">
-          <el-input v-model="hslColor" readonly>
-            <template #append>
-              <el-button v-if="isSupported" @click="copy(hslColor)">
-                <el-icon><DocumentCopy /></el-icon>
-              </el-button>
-            </template>
-          </el-input>
-        </el-form-item>
-        <el-form-item label="CMYK Color">
-          <el-input v-model="cmykColor" readonly>
-            <template #append>
-              <el-button v-if="isSupported" @click="copy(cmykColor)">
-                <el-icon><DocumentCopy /></el-icon>
-              </el-button>
-            </template>
-          </el-input>
-        </el-form-item>
-      </el-form>
+  <div
+    class="color-translate flex flex-row flex-justify-center flex-align-center"
+    :style="backgroundColor"
+  >
+    <div class="flex flex-column">
+      <el-button class="eye-dropper mb-default" :icon="BrushFilled" @click="colorPicker">
+        {{ '스포이드' }}
+      </el-button>
+      <AtomElementUiUploadFile
+        :file-size-alarm="'파일사이즈는 2048*2048 이하만 가능해요!'"
+        :file-type-alarm="'파일 타입은 jpg,png,gif만 가능해요!'"
+        :limit-type="['image/jpeg', 'image/png', 'image/gif']"
+        :limit-height="2048"
+        :limit-width="2048"
+        :limit-size="10"
+      />
     </div>
-  </NuxtLayout>
+    <el-form
+      class="color-translate-form ml-40"
+      label-position="top"
+    >
+      <el-space fill>
+        <el-form-item label="HEX Color">
+          <el-input v-model="hexColor" maxlength="7" clearable>
+            <template #append>
+              <el-button v-if="isSupported" @click="copy(hexColor)">
+                <el-icon><DocumentCopy /></el-icon>
+              </el-button>
+            </template>
+          </el-input>
+        </el-form-item>
+        <el-alert type="info" show-icon :cloasble="false">
+          <p>
+            {{ '스포이드가 동작 안하는 환경일 경우, HEX 컬러를 입력하여 나머지 컬러 색을 확인하세요.' }}
+          </p>
+        </el-alert>
+      </el-space>
+      <el-form-item label="RGB Color">
+        <el-input v-model="rgbColor" readonly>
+          <template #append>
+            <el-button v-if="isSupported" @click="copy(rgbColor)">
+              <el-icon><DocumentCopy /></el-icon>
+            </el-button>
+          </template>
+        </el-input>
+      </el-form-item>
+      <el-form-item label="HSL Color">
+        <el-input v-model="hslColor" readonly>
+          <template #append>
+            <el-button v-if="isSupported" @click="copy(hslColor)">
+              <el-icon><DocumentCopy /></el-icon>
+            </el-button>
+          </template>
+        </el-input>
+      </el-form-item>
+      <el-form-item label="CMYK Color">
+        <el-input v-model="cmykColor" readonly>
+          <template #append>
+            <el-button v-if="isSupported" @click="copy(cmykColor)">
+              <el-icon><DocumentCopy /></el-icon>
+            </el-button>
+          </template>
+        </el-input>
+      </el-form-item>
+    </el-form>
+  </div>
 </template>
 <script setup lang="ts">
 import { BrushFilled } from '@element-plus/icons-vue'

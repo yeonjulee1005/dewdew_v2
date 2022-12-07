@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <div>
     <div class="main-projects-container flex flex-column flex-justify-center flex-align-center">
       <nuxt-link
         v-for="project in projectLists"
@@ -10,7 +10,7 @@
         {{ project.title }}
       </nuxt-link>
     </div>
-  </NuxtLayout>
+  </div>
 </template>
 <script setup lang="ts">
 import { useDatabase } from '~/stores/database'

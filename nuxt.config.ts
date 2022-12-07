@@ -6,6 +6,7 @@ export default {
     '/blog/*/*': { static: true }
   },
   app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       charset: 'utf-16',
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0',

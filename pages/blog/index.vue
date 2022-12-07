@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <div>
     <div class="blog-lists flex flex-column flex-justify-center flex-align-center">
       <div class="write-button-container flex flex-justify-end">
         <el-button
@@ -39,7 +39,7 @@
       @create-article="writeArticle"
       @close-dialog="closeCreateArticleDialog"
     />
-  </NuxtLayout>
+  </div>
 </template>
 <script setup lang="ts" nuxt:static>
 import { BlogData, BlogList, CreateArticle } from '~/interfaces/types'
