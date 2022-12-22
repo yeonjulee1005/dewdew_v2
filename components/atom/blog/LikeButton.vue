@@ -1,10 +1,8 @@
 <template>
-  <el-affix
-    :class="{'el-affix-on': affixButtonProps.trigger}"
-    :position="affixButtonProps.position"
-    :offset="affixButtonProps.offset"
-  >
+  <div class="like-button flex flex-justify-end flex-align-center">
     <el-button
+      class="fixed-like"
+      :class="{'fixed-like-on': affixButtonProps.trigger}"
       circle
       size="large"
       :type="affixButtonProps.activateLike ? 'danger' : ''"
@@ -12,7 +10,7 @@
     >
       {{ affixButtonProps.buttonText }}
     </el-button>
-  </el-affix>
+  </div>
 </template>
 <script setup lang="ts">
 const affixButtonProps = defineProps({

@@ -19,7 +19,7 @@
       <AtomBlogCreateComment
         @create-comment="createComment"
       />
-      <AtomElementUiAffixButton
+      <AtomBlogLikeButton
         :trigger="displayFloatButtonTrigger"
         :activate-like="articleLike?.trigger"
         @click-affix="updateLikeCount"

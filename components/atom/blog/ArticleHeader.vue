@@ -1,5 +1,5 @@
 <template>
-  <div class="article-header flex flex-row flex-space-between flex-align-end mb-20">
+  <div class="article-header flex flex-column flex-space-between flex-align-end mb-20">
     <div class="title">
       {{ articleHeaderProps.data.title }}
     </div>

@@ -20,7 +20,7 @@
 
   &__content {
     height: $space-30vh;
-    padding: 1.25rem 1rem;
+    padding: 0 1rem;
     flex: 1 1 auto;
     overflow-x: hidden;
     overflow-y: auto;
@@ -94,7 +94,8 @@
   @include tiptap-template;
 }
 .character-count {
-  margin: 1rem;
+  margin: $space-4;
+  line-height: 1.2;
   text-align: right;
   color: var(--d-text-dark-color-deep);
 }
