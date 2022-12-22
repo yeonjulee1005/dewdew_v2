@@ -110,22 +110,7 @@ const initColorData = () => {
 
 const colorPicker = () => {
   open().then((res) => {
-    if (res) {
-      const rgbCode = res.sRGBHex.replace('rgb(', '').replace(')', '').split(', ')
-
-      let red = ''
-      let green = ''
-      let blue = ''
-
-      const r = rgbToHex(parseInt(rgbCode[0]))
-      const g = rgbToHex(parseInt(rgbCode[1]))
-      const b = rgbToHex(parseInt(rgbCode[2]))
-
-      r.length === 1 ? red = '0'.concat(String(r)) : red = String(r)
-      g.length === 1 ? green = '0'.concat(String(g)) : green = String(g)
-      b.length === 1 ? blue = '0'.concat(String(b)) : blue = String(g)
-      hexColor.value = '#'.concat(red, green, blue).toUpperCase()
-    }
+    if (res) { hexColor.value = res.sRGBHex }
   })
 }
 
@@ -143,10 +128,6 @@ watch(hexColor, () => {
     hexToHsl(hexColor.value)
   }
 })
-
-const rgbToHex = (value:number) => {
-  return value.toString(16)
-}
 
 const hexToRgb = (color:string) => {
   const initColor = color.split('#')[1].match(/.{1,2}/g)

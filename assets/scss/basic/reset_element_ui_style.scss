@@ -30,18 +30,6 @@
   }
 }
 
-/** el-affix */
-.el-affix {
-  opacity: 0;
-  transition: opacity .5s;
-  .el-affix--fixed{
-    right: $space-36;
-  }
-}
-.el-affix-on {
-  opacity: 1;
-}
-
 /** el-form */
 .el-input-group__append {
   margin-left: $space-1;

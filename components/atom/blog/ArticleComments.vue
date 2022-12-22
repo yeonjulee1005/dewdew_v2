@@ -11,7 +11,7 @@
         :color="comment.timeAgo === 'just now' ? '#C74436' : '#D3E3D2'"
         :timestamp="comment.timeAgo"
       >
-        <div class="comments-item flex flex-row flex-align-center">
+        <div class="comments-item flex flex-row flex-space-between flex-align-center">
           <div class="message-component mr-40">
             <p> {{ comment.name }} </p>
             <p v-html="comment.message" />
