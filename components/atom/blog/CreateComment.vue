@@ -14,7 +14,11 @@
           :maxlength="16"
           show-word-limit
           clearable
-        />
+        >
+          <template #append>
+            <el-button :icon="Refresh" @click="initCommentName" />
+          </template>
+        </el-input>
       </el-form-item>
       <el-form-item :label="createCommentProps.contentLabel">
         <AtomTiptapTextEditor
@@ -38,8 +42,10 @@
   </div>
 </template>
 <script setup lang="ts">
+import { Refresh } from '@element-plus/icons-vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import { CreateComment } from '~/interfaces/types'
+import { useDatabase } from '~/stores/database'
 
 const createCommentProps = defineProps({
   nameLabel: { type: String, default: '이름' },
@@ -54,7 +60,7 @@ const createCommentEmits = defineEmits([
 const createCommentRef = ref<FormInstance>()
 const submitCommentButton = ref('댓글쓰기')
 
-const createCommentData = reactive<CreateComment>({
+const createCommentData = ref<CreateComment>({
   name: '',
   message: '',
   password: ''
@@ -89,15 +95,23 @@ const createArticleRules = reactive<FormRules>({
   password: [{ required: true, validator: validatePassword, trigger: 'blur' }]
 })
 
+onMounted(() => {
+  initCommentName()
+})
+
+const initCommentName = () => {
+  createCommentData.value.name = useDatabase().generateCommentName()
+}
+
 const updateArticle = (article:string, _rawArticle:string) => {
-  createCommentData.message = article
+  createCommentData.value.message = article
 }
 
 const submitArticle = async (formEl:FormInstance|undefined) => {
   if (!formEl) { return }
   await formEl.validate((valid, _fields) => {
-    if (valid && createCommentData.message) {
-      createCommentEmits('create-comment', createCommentData)
+    if (valid && createCommentData.value.message) {
+      createCommentEmits('create-comment', createCommentData.value)
       setTimeout(() => {
         formEl.resetFields()
       }, 1000)
