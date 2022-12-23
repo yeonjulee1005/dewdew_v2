@@ -85,11 +85,8 @@ watch(y, () => {
 const initArticleConfig = async () => {
   if (process.client) {
     await getStorage(articleId)
-      ? beforeParsingLike.value = getStorage(articleId)
-      : articleLike.value = setStorage(articleId, false)
-    if (beforeParsingLike.value) {
-      articleLike.value = JSON.parse(beforeParsingLike.value)
-    }
+      ? updateLikeData()
+      : createLikeData()
     loadArticleData()
   }
 }
@@ -200,5 +197,15 @@ const getStorage = (articleId:string|string[]) => {
 
 const setStorage = (articleId:string|string[], value:boolean) => {
   sessionStorage.setItem(String(articleId), JSON.stringify({ id: articleId, trigger: value }))
+}
+
+const updateLikeData = () => {
+  beforeParsingLike.value = getStorage(articleId)
+  articleLike.value = JSON.parse(beforeParsingLike.value)
+}
+
+const createLikeData = () => {
+  setStorage(articleId, false)
+  updateLikeData()
 }
 </script>
