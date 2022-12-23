@@ -31,8 +31,9 @@
 }
 
 /** el-form */
-.el-input-group__append {
-  margin-left: $space-1;
+.el-input-group__append,
+.el-input-group__append .el-button:hover {
+  border-radius: 0 $space-4 $space-4 0;
 }
 
 .el-input__wrapper.is-focus,

@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import nameLists from '~/data/commentName'
 
 export const useDatabase = defineStore('database', () => {
   const adminPassword:any = {}
@@ -22,10 +23,21 @@ export const useDatabase = defineStore('database', () => {
     })
   }
 
+  const generateCommentName = () => {
+    const frontName = nameLists.commentNames.frontName
+    const backName = nameLists.commentNames.backName
+
+    const randomFront = frontName[Math.floor(Math.random() * frontName.length)]
+    const randomBack = backName[Math.floor(Math.random() * backName.length)]
+
+    return randomFront.concat(' ', randomBack)
+  }
+
   return {
     adminPassword,
     coreData,
     imageData,
-    updateCoreData
+    updateCoreData,
+    generateCommentName
   }
 })
