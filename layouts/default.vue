@@ -64,5 +64,4 @@ coreImages.forEach((image:any) => {
 const dialogClose = (value:boolean) => {
   idleTrigger.value = value
 }
-
 </script>
