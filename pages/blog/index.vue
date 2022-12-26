@@ -42,7 +42,7 @@
   </div>
 </template>
 <script setup lang="ts" nuxt:static>
-import { BlogData, BlogList, CreateArticle } from '~/interfaces/types'
+import { BlogData, BlogList, CreateArticle } from '~/types/interfaces'
 import { useDatabase } from '~/stores/database'
 
 useHead({

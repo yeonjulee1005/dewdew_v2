@@ -3,6 +3,7 @@ const lifecycle = process.env.npm_lifecycle_event
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default {
   routes: {
+    '/_nuxt/**': { Headers: { 'cache-control': 's-maxage=0' } },
     '/blog/*/*': { static: true }
   },
   app: {
@@ -92,5 +93,9 @@ export default {
   robots: {
     UserAgent: '*',
     Allow: '/'
+  },
+  sourcemap: {
+    server: true,
+    client: true
   }
 }

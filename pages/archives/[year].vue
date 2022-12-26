@@ -18,7 +18,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ArchivesData, MassImages } from '~/interfaces/types'
+import { ArchivesData, MassImages } from '~/types/interfaces'
 import { useDatabase } from '~/stores/database'
 
 const route = useRoute()

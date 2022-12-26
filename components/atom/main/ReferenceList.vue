@@ -57,7 +57,7 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { ReferenceImage } from '~/interfaces/types'
+import { ReferenceImage } from '~/types/interfaces'
 
 const selectReference = ref<ReferenceImage>({
   alt: '',

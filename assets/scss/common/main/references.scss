@@ -54,10 +54,10 @@
         cursor: pointer;
         border-radius: $space-20;
         border: $space-2 solid var(--d-bg-green-color-deep);
-        box-shadow: 6px 6px 12px var(--d-bg-main-color), -6px -6px 12px var(--d-bg-main-color);
+        box-shadow: $space-6 $space-6 $space-12 var(--d-bg-main-color), -6px -6px $space-12 var(--d-bg-main-color);
         transition: all 0.2s ease-in-out;
         &:hover {
-          box-shadow: 1px 1px 5px var(--d-bg-main-color), -1px -1px 5px var(--d-bg-main-color);
+          box-shadow: $space-1 $space-1 $space-5 var(--d-bg-main-color), -1px -1px $space-5 var(--d-bg-main-color);
         }
       }
     }
@@ -66,7 +66,7 @@
     .title {
       width: fit-content;
       @include headline3;
-      border-bottom: 1px solid var(--d-text-color);
+      border-bottom: $space-1 solid var(--d-text-color);
     }
     .description {
       @include headline6;

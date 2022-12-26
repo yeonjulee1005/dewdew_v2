@@ -6,7 +6,7 @@
   width: $space-percent-100;
   color: var(--d-text-dark-color);
   background-color: var(--d-bg-white-color);
-  border: 3px solid var(--d-text-dark-color);
+  border: $space-3 solid var(--d-text-dark-color);
   border-radius: 0.75rem;
 
   &__header {
@@ -15,7 +15,7 @@
     flex: 0 0 auto;
     flex-wrap: wrap;
     padding: 0.25rem;
-    border-bottom: 3px solid var(--d-text-dark-color);
+    border-bottom: $space-3 solid var(--d-text-dark-color);
   }
 
   &__content {
@@ -81,8 +81,8 @@
 }
 
 .has-focus {
-  border-radius: 3px;
-  box-shadow: 0 0 0 3px #68cef8;
+  border-radius: $space-3;
+  box-shadow: 0 0 0 $space-3 #68cef8;
 }
 
 .ProseMirror {

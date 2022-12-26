@@ -10,7 +10,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ArchivesData } from '~/interfaces/types'
+import { ArchivesData } from '~/types/interfaces'
 import { useDatabase } from '~/stores/database'
 
 useHead({
