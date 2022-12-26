@@ -13,7 +13,7 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { Images } from '~/interfaces/types'
+import { Images } from '~/types/interfaces'
 
 const skillsImageProps = defineProps({
   skillsImage: { type: Array as PropType<Images[]>, default: () => [] },

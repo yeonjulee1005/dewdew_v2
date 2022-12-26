@@ -46,7 +46,7 @@
 <script setup lang="ts">
 import { Carousel, Slide } from 'vue3-carousel'
 import { PropType } from 'vue'
-import { ArchivesData } from '~/interfaces/types'
+import { ArchivesData } from '~/types/interfaces'
 import 'vue3-carousel/dist/carousel.css'
 
 const { width } = useWindowSize()

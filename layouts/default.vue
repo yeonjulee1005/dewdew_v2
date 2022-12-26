@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { useDatabase } from '~/stores/database'
-import { Texts, Colors } from '~/interfaces/types'
+import { Texts, Colors } from '~/types/interfaces'
 
 const route = useRoute()
 const { idle } = useIdle(10 * 60 * 1000)

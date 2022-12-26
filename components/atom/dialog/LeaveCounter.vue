@@ -29,7 +29,7 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { Texts, Colors } from '~/interfaces/types'
+import { Texts, Colors } from '~/types/interfaces'
 
 const leaveCountProps = defineProps({
   idleTrigger: { type: Boolean, default: false },

@@ -30,7 +30,7 @@
     height: fit-content;
     padding: $space-30 $space-20;
     background-color: var(--d-bg-main-color);
-    box-shadow: 1px 1px 2px var(--d-content-bg-color);
+    box-shadow: $space-1 $space-1 $space-2 var(--d-content-bg-color);
     overflow-y: auto;
     @include tiptap-template;
   }
@@ -40,8 +40,8 @@
     height: fit-content;
     margin: $space-40 auto;
     padding: $space-20 0;
-    border-top: 3px solid var(--d-text-dark-color);
-    border-bottom: 3px solid var(--d-text-dark-color);
+    border-top: $space-3 solid var(--d-text-dark-color);
+    border-bottom: $space-3 solid var(--d-text-dark-color);
     .comments-title {
       margin: $space-20 $space-default;
       @include headline4;

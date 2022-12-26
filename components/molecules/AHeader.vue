@@ -64,7 +64,7 @@
 </template>
 <script setup lang="ts">
 import { Sunny, Moon } from '@element-plus/icons-vue'
-import { SnsLogo, Images } from '~/interfaces/types'
+import { SnsLogo, Images } from '~/types/interfaces'
 
 const headerProps = defineProps({
   coreData: { type: Object, default: () => null },
