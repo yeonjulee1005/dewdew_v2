@@ -8,6 +8,7 @@
       :key="image.index"
       :class="image.title"
       :src="image.url"
+      :alt="image.title"
     />
   </div>
 </template>

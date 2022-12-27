@@ -24,7 +24,7 @@
       </div>
       <client-only>
         <nuxt-link class="github mx-default" :to="snsData[0].route" target="_blank">
-          <el-image :src="snsData[0].url" />
+          <el-image :src="snsData[0].url" :alt="snsData[0].title" />
         </nuxt-link>
         <el-switch
           v-model="darkModeTrigger"

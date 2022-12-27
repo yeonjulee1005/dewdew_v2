@@ -21,6 +21,7 @@
             class="image"
             :src="item.url"
             fit="cover"
+            :alt="item.title"
           />
           <div class="text-group">
             <p class="title">
@@ -36,6 +37,7 @@
             class="image"
             :src="item.url"
             fit="cover"
+            :alt="item.title"
             @click="imageClick(item)"
           />
         </div>
