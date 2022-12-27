@@ -19,6 +19,7 @@
         :stroke-width="20"
         :percentage="displayCount(count)"
         :color="leaveCountProps.colors"
+        alt="leave"
       >
         <template #default>
           <span class="percentage-value">{{ count + ' S' }}</span>
