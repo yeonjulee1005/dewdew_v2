@@ -12,6 +12,7 @@
       :duration="progressProps.progressData.duration"
       class="progress"
       :style="progressProps.width"
+      alt="skills"
     >
       <span :style="progressProps.progressData.style">
         {{ progressProps.progressData.percentText }}

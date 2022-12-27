@@ -32,6 +32,7 @@
           inline-prompt
           :active-icon="Moon"
           :inactive-icon="Sunny"
+          label="theme-mode"
           @change="toggleDark()"
         />
       </client-only>
@@ -50,6 +51,7 @@
           <el-menu-item
             v-for="menu in menuData"
             :key="menu.index"
+            :label="menu.title"
             class="flex-justify-end"
             :index="menu.url"
           >
