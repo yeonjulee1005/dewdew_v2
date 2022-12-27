@@ -12,6 +12,7 @@
       :duration="progressProps.progressData.duration"
       class="progress"
       :style="progressProps.width"
+      alt="skills"
       aria-labelledby="skills"
     >
       <span :style="progressProps.progressData.style">
