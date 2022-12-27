@@ -2,9 +2,11 @@
   <el-header class="header flex flex-justify-center">
     <div class="header-container flex flex-row flex-align-center">
       <nuxt-link to="/">
-        <el-image
-          class="flex-fixed logo"
+        <nuxt-img
           :src="headerProps.images.logo.url"
+          class="flex-fixed logo"
+          height="40"
+          width="140"
           :alt="headerProps.images.logo.title"
         />
       </nuxt-link>
@@ -24,7 +26,12 @@
       </div>
       <client-only>
         <nuxt-link class="github mx-default" :to="snsData[0].route" target="_blank">
-          <el-image :src="snsData[0].url" :alt="snsData[0].title" />
+          <nuxt-img
+            :src="snsData[0].url"
+            width="24"
+            height="24"
+            :alt="snsData[0].title"
+          />
         </nuxt-link>
         <el-switch
           v-model="darkModeTrigger"
@@ -32,7 +39,7 @@
           inline-prompt
           :active-icon="Moon"
           :inactive-icon="Sunny"
-          label="theme-mode"
+          aria-labelledby="theme-mode"
           @change="toggleDark()"
         />
       </client-only>
@@ -44,14 +51,14 @@
         :router="true"
         menu-trigger="click"
       >
-        <el-sub-menu index="1">
+        <el-sub-menu index="1" label="menus">
           <template #title>
             <el-icon> <Grid /> </el-icon>
           </template>
           <el-menu-item
             v-for="menu in menuData"
             :key="menu.index"
-            :label="menu.title"
+            :aria-command-name="menu.title"
             class="flex-justify-end"
             :index="menu.url"
           >
