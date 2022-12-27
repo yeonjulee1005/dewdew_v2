@@ -59,6 +59,7 @@ export default {
   modules: [
     '@pinia/nuxt',
     '@vueuse/nuxt',
+    '@nuxt/image-edge',
     '@nuxtjs/robots'
   ],
   // build modules
@@ -67,8 +68,10 @@ export default {
     '@emailjs/browser',
     'unplugin-icons/nuxt'
   ],
-  typescript: {
-    shim: false
+  runtimeConfig: {
+    public: {
+      GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
+    }
   },
   // auto import components
   components: {
@@ -85,9 +88,21 @@ export default {
   vueuse: {
     ssrHandlers: false
   },
-  runtimeConfig: {
-    public: {
-      GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
+  image: {
+    screens: {
+      xs: 320,
+      sm: 500,
+      lg: 1000,
+      xl: 1200
+    },
+    presets: {
+      archives: {
+        modifiers: {
+          format: 'jpg',
+          width: 360,
+          height: 300
+        }
+      }
     }
   },
   robots: {
@@ -97,5 +112,8 @@ export default {
   sourcemap: {
     server: true,
     client: true
+  },
+  typescript: {
+    shim: false
   }
 }

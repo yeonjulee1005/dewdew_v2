@@ -7,11 +7,10 @@
     font-size: 3.5em;
   }
   .main-text {
-    top: $space-90vw;
+    top: calc($space-60vw + $space-80 );
     width: fit-content;
     height: $space-80;
     @include headline6;
-    background-color: unset;
     .sub-text {
       @include headline7;
     }
