@@ -28,7 +28,14 @@
     >
       {{ mainIntroProps.introText.scrollDown }}
     </div>
-    <el-image class="main-image" :src="mainIntroProps.bannerImages" fit="cover" alt="banner" />
+    <nuxt-picture
+      :src="mainIntroProps.bannerImages"
+      class="main-picture"
+      fit="contain"
+      height="auto"
+      sizes="xs:320 sm:500 lg:1000 xl:1200"
+      alt="main-banner"
+    />
   </div>
 </template>
 <script setup lang=ts>

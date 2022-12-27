@@ -101,14 +101,6 @@ const mainSkillsListTrigger = ref(false)
 const referenceListTrigger = ref(false)
 const contactTrigger = ref(false)
 
-onMounted(() => {
-  initData()
-})
-
-watch(y, () => {
-  scrollDetect()
-})
-
 const initData = async () => {
   await coreImages.forEach((image:any) => {
     switch (image.id) {
@@ -139,6 +131,12 @@ const initData = async () => {
   })
 }
 
+initData()
+
+watch(y, () => {
+  scrollDetect()
+})
+
 const scrollDetect = () => {
   const scrollY = y.value
   const windowWidth = width.value
@@ -160,7 +158,7 @@ const scrollDetect = () => {
 const mobile = (scrollY:number) => {
   mainTitleTrigger.value = scrollY < 200
   mainTextTrigger.value = scrollY < 350
-  scrollDownTrigger.value = scrollY < 200
+  scrollDownTrigger.value = scrollY < 440
   mainResumeTrigger.value = scrollY > 200 && scrollY < 1400
   mainSkillsTextTrigger.value = scrollY > 1500 && scrollY < 2600
   mainSkillsBgTrigger.value = scrollY > 1300 && scrollY < 2900
