@@ -14,7 +14,6 @@
     .header-container {
       width: $space-1000;
       .logo {
-        width: $space-200;
         margin: $space-default $space-20;
       }
       .desktop-menu {
@@ -30,8 +29,6 @@
         }
       }
       .github {
-        width: $space-30;
-        height: $space-30;
         cursor: pointer;
       }
       .dark-mode-switch {
