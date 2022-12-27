@@ -19,6 +19,7 @@
           <el-image
             class="image mt-default mb-20"
             :src="contactProps.kakaoImage"
+            :alt="contactProps.contactData.kakaoTalk.title"
           />
           <div class="desc mt-default mb-default">
             {{ contactProps.contactData.kakaoTalk.desc }}

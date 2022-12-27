@@ -28,7 +28,7 @@
     >
       {{ mainIntroProps.introText.scrollDown }}
     </div>
-    <el-image class="main-image" :src="mainIntroProps.bannerImages" fit="cover" />
+    <el-image class="main-image" :src="mainIntroProps.bannerImages" fit="cover" alt="banner" />
   </div>
 </template>
 <script setup lang=ts>

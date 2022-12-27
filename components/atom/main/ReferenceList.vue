@@ -26,6 +26,7 @@
             class="reference-thumb"
             :src="item.image"
             fit="cover"
+            :alt="item.alt"
           />
           <div class="reference-text mt-default">
             {{ item.title }}
@@ -50,6 +51,7 @@
         :src="selectReference.detailsImage"
         class="image"
         loading="eager"
+        :alt="selectReference.alt"
         @click="openReference"
       />
     </MoleculesADialog>

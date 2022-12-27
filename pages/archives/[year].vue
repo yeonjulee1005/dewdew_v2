@@ -13,6 +13,7 @@
     >
       <el-image
         :src="selectImageData?.url"
+        :alt="selectImageData?.title"
       />
     </MoleculesADialog>
   </div>
