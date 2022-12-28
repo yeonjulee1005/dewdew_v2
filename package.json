@@ -8,6 +8,7 @@
     "dev": "nuxt dev --port 4000",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "analyze": "nuxt analyze",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
