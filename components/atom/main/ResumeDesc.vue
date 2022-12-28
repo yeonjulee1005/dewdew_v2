@@ -4,14 +4,15 @@
     :class="{'main-resume-on': resumeProps.mainResumeTrigger}"
   >
     <div class="resume-container flex flex-row">
-      <div class="resume-image flex flex-justify-center flex-align-center">
-        <nuxt-img
-          :src="resumeProps.resumeImage"
-          height="350"
-          width="350"
-          alt="dewdew"
-        />
-      </div>
+      <nuxt-picture
+        class="resume-image flex flex-justify-center flex-align-center"
+        :src="resumeProps.resumeImage"
+        height="360"
+        width="360"
+        fit="cover"
+        :img-attrs="{class: 'dewdew'}"
+        alt="dewdew"
+      />
       <div class="resume-texts flex flex-column flex-justify-center">
         <div class="title-container mb-default">
           <p class="title">
