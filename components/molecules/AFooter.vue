@@ -23,6 +23,7 @@
             :src="image.url"
             width="30"
             height="30"
+            format="webp"
             :alt="image.title"
           />
         </nuxt-link>

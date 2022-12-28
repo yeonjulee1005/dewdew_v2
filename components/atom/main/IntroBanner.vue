@@ -33,6 +33,7 @@
       class="main-banner"
       width="2000"
       height="1333"
+      legacy-format="webp"
       fit="cover"
       alt="main-banner"
       :img-attrs="{class: 'banner'}"

@@ -9,6 +9,7 @@
         :src="resumeProps.resumeImage"
         height="360"
         width="360"
+        legacy-format="webp"
         fit="cover"
         :img-attrs="{class: 'dewdew'}"
         alt="dewdew"

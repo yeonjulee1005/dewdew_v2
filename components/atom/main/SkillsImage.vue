@@ -7,8 +7,9 @@
       v-for="image in skillsImageProps.skillsImage"
       :key="image.index"
       :class="image.title"
-      height="400"
-      width="400"
+      height="500"
+      width="500"
+      format="webp"
       :src="image.url"
       :alt="image.title"
     />

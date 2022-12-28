@@ -21,6 +21,7 @@
             :src="contactProps.kakaoImage"
             width="100"
             height="100"
+            format="webp"
             :alt="contactProps.contactData.kakaoTalk.title"
           />
           <div class="desc mt-default mb-default">
