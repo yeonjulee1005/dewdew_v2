@@ -21,8 +21,8 @@
         >
           <nuxt-img
             :src="image.url"
-            width="30"
-            height="30"
+            width="50"
+            height="50"
             format="webp"
             :alt="image.title"
           />
