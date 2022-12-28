@@ -8,6 +8,10 @@
     width: $space-80vw;
     max-width: $space-1000;
     margin-top: $space-120;
+    .route-back {
+      @include headline6;
+      text-decoration: none;
+    }
     .title {
       @include headline3;
       padding-left: $space-default;
