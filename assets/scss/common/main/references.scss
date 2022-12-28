@@ -71,8 +71,12 @@
     .description {
       @include headline6;
     }
-    .image {
+    .detail-image {
       cursor: pointer;
+      .image {
+        width: $space-percent-100;
+        height: auto;
+      }
     }
   }
 }

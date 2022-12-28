@@ -17,9 +17,12 @@
           class="image-component"
           :to="item.route"
         >
-          <el-image
+          <nuxt-img
             class="image"
             :src="item.url"
+            width="360"
+            height="300"
+            format="webp"
             fit="cover"
             :alt="item.title"
           />
@@ -33,9 +36,12 @@
           </div>
         </nuxt-link>
         <div v-else class="image-component">
-          <el-image
+          <nuxt-img
             class="image"
             :src="item.url"
+            width="360"
+            height="300"
+            format="webp"
             fit="cover"
             :alt="item.title"
             @click="imageClick(item)"

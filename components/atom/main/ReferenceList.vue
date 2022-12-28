@@ -50,11 +50,15 @@
       <div class="description mb-default">
         {{ selectReference.desc }}
       </div>
-      <el-image
+      <nuxt-picture
+        class="detail-image"
         :src="selectReference.detailsImage"
-        class="image"
-        loading="eager"
+        width="2000"
+        height="2400"
+        format="webp"
+        fit="cover"
         :alt="selectReference.alt"
+        :img-attrs="{class: 'image'}"
         @click="openReference"
       />
     </MoleculesADialog>

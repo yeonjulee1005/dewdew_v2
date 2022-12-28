@@ -15,10 +15,6 @@
     padding-top: $space-240;
   }
   .image-component {
-    .image {
-      width: $space-360;
-      height: $space-300;
-    }
     .text-group {
       .title {
         @include headline1;
