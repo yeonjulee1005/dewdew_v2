@@ -15,30 +15,6 @@
           height: auto;
         }
       }
-      .mobile-menu {
-        margin: 0 $space-default;
-        border: unset;
-        .el-sub-menu {
-          .el-sub-menu__title {
-            @include unset-padding;
-          }
-          .el-menu--inline {
-            top: $space-48;
-            right: 0;
-            .el-menu-item {
-              .menu-links {
-                @include headline5;
-              }
-              &:hover {
-                background-color: unset;
-                .menu-links {
-                  @include headline4;
-                }
-              }
-            }
-          }
-        }
-      }
     }
   }
   .footer .footer-section {

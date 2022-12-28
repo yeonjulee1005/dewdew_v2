@@ -43,46 +43,20 @@
         --el-switch-on-color: var(--d-footer-bg-color);
         --el-switch-off-color: var(--d-footer-bg-color);
       }
-      .mobile-menu {
-        position: relative;
-        background-color: transparent;
-        border: unset;
-        .el-sub-menu {
-          .el-sub-menu__title {
-            .el-icon {
-              @include unset-margin;
-              transition: all .3s ease-in-out;
-            }
-            .el-sub-menu__icon-arrow {
-              display: none;
-            }
-            &:hover {
-              background-color: unset;
-              .el-icon {
-                font-size: $space-30;
-              }
-            }
-          }
-          .el-menu--inline {
-            position: absolute;
-            top: $space-68;
-            right: 0;
-            background-color: transparent;
-            .el-menu-item {
-              .menu-links {
-                @include headline3;
-                text-decoration: unset;
-                transition: all .3s ease-in-out;
-              }
-              &:hover {
-                background-color: unset;
-                .menu-links {
-                  @include headline2;
-                  text-decoration: unset;
-                }
-              }
-            }
-          }
+      .float-mobile-menu {
+        position: fixed;
+        bottom: $space-25vh;
+        right: $space-30;
+        padding: $space-5 0;
+        opacity: .6;
+        width: $space-50;
+        height: $space-150;
+        border-radius: $space-default;
+        background-color: var(--d-bg-white-color);
+        .mobile-menu-links {
+          margin: $space-5 auto;
+          @include headline3;
+          color: var(--d-text-dark-color);
         }
       }
     }
