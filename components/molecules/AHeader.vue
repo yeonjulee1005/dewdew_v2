@@ -2,14 +2,14 @@
   <el-header class="header flex flex-justify-center">
     <div class="header-container flex flex-row flex-align-center">
       <nuxt-link to="/">
-        <div class="logo flex-fixed">
-          <nuxt-img
-            :src="headerProps.images.logo.url"
-            height="60"
-            width="210"
-            :alt="headerProps.images.logo.title"
-          />
-        </div>
+        <nuxt-picture
+          class="logo flex-fixed"
+          :src="headerProps.images.logo.url"
+          height="46"
+          width="160"
+          :img-attrs="{class: 'dewdew-logo'}"
+          :alt="headerProps.images.logo.title"
+        />
       </nuxt-link>
       <div class="flex-auto" />
       <div
@@ -29,8 +29,8 @@
         <nuxt-link class="github mx-default" :to="snsData[0].route" target="_blank">
           <nuxt-img
             :src="snsData[0].url"
-            width="50"
-            height="50"
+            width="30"
+            height="30"
             :alt="snsData[0].title"
           />
         </nuxt-link>
