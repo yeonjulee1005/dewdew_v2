@@ -7,8 +7,9 @@
     font-size: 2em;
   }
   .main-text {
-    top: $space-360;
+    top: $space-100vw;
     width: $space-percent-80;
+    margin-top: $space-50;
     @include headline7;
     background-color: unset;
     .sub-text {
@@ -17,7 +18,13 @@
     }
   }
   .scroll-down {
-    top: $space-550;
+    top: $space-70vh;
     @include headline7;
+  }
+  .main-banner {
+    img {
+      width: auto;
+      height: $space-100vw;
+    }
   }
 }

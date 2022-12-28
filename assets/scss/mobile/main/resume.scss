@@ -9,6 +9,11 @@
     .resume-image {
       width: $space-percent-80;
       margin: $space-20 auto;
+      img {
+        width: $space-percent-100;
+        height: $space-percent-100;
+        border-radius: $space-percent-50;
+      }
     }
     .resume-texts {
       width: $space-percent-80;

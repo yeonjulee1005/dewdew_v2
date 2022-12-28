@@ -9,10 +9,6 @@
   }
   .upload-drag-files {
     height: $space-220;
-    .image-preview {
-      width: $space-300;
-      height: $space-200;
-    }
     .el-icon--upload {
       .el-upload__text {
         @include headline7;

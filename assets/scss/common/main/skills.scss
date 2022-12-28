@@ -13,22 +13,26 @@
       top: $space-160;
       left: $space--50;
       width: $space-200;
+      height: auto;
     }
     .bitbucket {
       @include skills;
       top: $space-360;
       left: $space-240; 
       width: $space-50;
+      height: auto;
     }
     .css3 {
       @include skills;
       top: $space--400;
       left: $space-600;
+      height: auto;
     }
     .html5 {
       @include skills;
       top: $space-450;
       left: $space--50;
+      height: auto;
     }
     .github {
       @include skills;
@@ -36,23 +40,27 @@
       top: $space-600;
       left: $space-150;
       width: $space-250;
+      height: auto;
     }
     .node {
       @include skills;
       top: $space-650;
       left: $space-900;
       width: $space-200;
+      height: auto;
     }
     .illustration {
       @include skills;
       top: $space-500;
       left: $space-900;
       width: $space-50;
+      height: auto;
     }
     .xd {
       @include skills;
       top: $space--200;
       left: $space-1100;
+      height: auto;
     }
     .javaScript {
       @include skills;
@@ -60,6 +68,7 @@
       top: $space--170;
       left: $space--70;
       width: $space-200;
+      height: auto;
     }
     .typeScript {
       @include skills;
@@ -67,6 +76,7 @@
       top: $space--430;
       left: $space-200;
       width: $space-200;
+      height: auto;
     }
     .nuxt {
       @include skills;
@@ -74,21 +84,25 @@
       top: $space--250;
       left: $space-250;
       width: $space-400;
+      height: auto;
     }
     .pgadmin {
       @include skills;
       top: $space-360;
       left: $space-740;
+      height: auto;
     }
     .postman {
       @include skills;
       top: $space-160;
       left: $space-600;
+      height: auto;
     }
     .python {
       @include skills;
       top: $space-400; 
       left: $space-1100; 
+      height: auto;
     }
     .sass {
       @include skills;
@@ -96,24 +110,28 @@
       top: $space-250; 
       left: $space-360; 
       width: $space-300;
+      height: auto;
     }
     .vim {
       @include skills;
       opacity: var(--d-bg-opacity-02);
       top: $space-160;
-      left: $space-240; 
+      left: $space-240;
+      height: auto;
     }
     .vscode {
       @include skills;
       top: $space--150; 
       left: $space-740; 
       width: $space-80;
+      height: auto;
     }
     .jira {
       @include skills;
       top: $space--400; 
       left: $space--50; 
       width: $space-80;
+      height: auto;
     }
     .vue {
       @include skills;
@@ -121,6 +139,7 @@
       top: $space-650;
       left: $space-480; 
       width: $space-300;
+      height: auto;
     }
     .firebase {
       @include skills;
@@ -128,6 +147,7 @@
       top: $space--450;
       left: $space-800;
       width: $space-300;
+      height: auto;
     }
   }
   .skill-images-on {

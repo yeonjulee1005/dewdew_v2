@@ -5,7 +5,12 @@
   >
     <div class="resume-container flex flex-row">
       <div class="resume-image flex flex-justify-center flex-align-center">
-        <el-image :src="resumeProps.resumeImage" alt="dewdew" />
+        <nuxt-img
+          :src="resumeProps.resumeImage"
+          height="350"
+          width="350"
+          alt="dewdew"
+        />
       </div>
       <div class="resume-texts flex flex-column flex-justify-center">
         <div class="title-container mb-default">

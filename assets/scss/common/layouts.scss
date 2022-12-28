@@ -15,6 +15,10 @@
       width: $space-1000;
       .logo {
         margin: $space-default $space-20;
+        img {
+          width: $space-160;
+          height: auto;
+        }
       }
       .desktop-menu {
         .menu-links {
@@ -30,6 +34,10 @@
       }
       .github {
         cursor: pointer;
+        img {
+          width: $space-30;
+          height: auto;
+        }
       }
       .dark-mode-switch {
         --el-switch-on-color: var(--d-footer-bg-color);
@@ -111,10 +119,9 @@
           width: $space-30;
           height: fit-content;
           margin: auto $space-8;
-          &:last-child {
-            width: $space-40;
-            height: fit-content;
-            margin: auto $space-4;
+          img {
+            width: $space-30;
+            height: auto;
           }
         }
       }

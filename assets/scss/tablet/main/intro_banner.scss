@@ -15,4 +15,10 @@
       @include headline7;
     }
   }
+  .main-banner {
+    img {
+      width: auto;
+      height: $space-100vw;
+    }
+  }
 }

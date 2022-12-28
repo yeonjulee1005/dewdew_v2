@@ -19,7 +19,12 @@
           :to="image.route"
           target="_blank"
         >
-          <el-image :src="image.url" :alt="image.title" />
+          <nuxt-img
+            :src="image.url"
+            width="50"
+            height="50"
+            :alt="image.title"
+          />
         </nuxt-link>
       </div>
       <div class="flex copyright">

@@ -16,9 +16,11 @@
           class="image-group flex flex-column flex-align-center"
           target="_blank"
         >
-          <el-image
-            class="image mt-default mb-20"
+          <nuxt-img
+            class="mt-default mb-20"
             :src="contactProps.kakaoImage"
+            width="100"
+            height="100"
             :alt="contactProps.contactData.kakaoTalk.title"
           />
           <div class="desc mt-default mb-default">

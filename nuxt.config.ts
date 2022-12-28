@@ -88,23 +88,6 @@ export default {
   vueuse: {
     ssrHandlers: false
   },
-  image: {
-    screens: {
-      xs: 320,
-      sm: 500,
-      lg: 1000,
-      xl: 1200
-    },
-    presets: {
-      archives: {
-        modifiers: {
-          format: 'jpg',
-          width: 360,
-          height: 300
-        }
-      }
-    }
-  },
   robots: {
     UserAgent: '*',
     Allow: '/'
