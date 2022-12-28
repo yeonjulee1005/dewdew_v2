@@ -30,8 +30,8 @@
         <nuxt-link class="github mx-default" :to="snsData[0].route" target="_blank">
           <nuxt-img
             :src="snsData[0].url"
-            width="30"
-            height="30"
+            width="50"
+            height="50"
             format="webp"
             :alt="snsData[0].title"
           />
