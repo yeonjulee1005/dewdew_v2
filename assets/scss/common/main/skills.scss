@@ -149,6 +149,22 @@
       width: $space-300;
       height: auto;
     }
+    .figma {
+      @include skills;
+      opacity: var(--d-bg-opacity-02);
+      top: $space-650;
+      left: $space--50;
+      width: $space-160;
+      height: auto;
+    }
+    .vercel {
+      @include skills;
+      opacity: var(--d-bg-opacity-02);
+      top: $space--450;
+      left: $space-1200;
+      width: $space-200;
+      height: auto;
+    }
   }
   .skill-images-on {
     opacity: 1;

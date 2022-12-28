@@ -7,6 +7,7 @@
           :src="headerProps.images.logo.url"
           height="46"
           width="160"
+          legacy-format="webp"
           :img-attrs="{class: 'dewdew-logo'}"
           :alt="headerProps.images.logo.title"
         />
@@ -31,6 +32,7 @@
             :src="snsData[0].url"
             width="30"
             height="30"
+            format="webp"
             :alt="snsData[0].title"
           />
         </nuxt-link>
