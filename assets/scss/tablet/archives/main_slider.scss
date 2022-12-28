@@ -6,18 +6,21 @@
 }
 
 .prev-button {
-  top: $space-100;
+  top: $space-120;
   left: $space-10vw;
 }
 
 .main-slider-section {
   .carousel {
     height: $space-percent-100;
+    .carousel__viewport {
+      margin-top: $space-160;
+    }
   }
   .image-component {
-    .image {
-      width: $space-30vw;
-      height: $space-30vw;
+    .thumbnail {
+      width: $space-40vw;
+      height: $space-40vw;
     }
     .text-group {
       .title {
