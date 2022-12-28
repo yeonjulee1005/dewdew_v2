@@ -25,6 +25,7 @@ export interface Colors {
 
 export interface Images {
   index?: number,
+  icon?: string,
   title: string,
   url: string
 }
@@ -45,12 +46,8 @@ export interface Texts {
   text: string
 }
 
-export interface SalesStatsData {
-  [key: string]: number|string,
-  salesDate: string,
-  planName: string,
-  totalCount: number,
-  totalAmount: number
+export interface IndexSignature {
+  [key: string]: string
 }
 
 /** Interfaces */

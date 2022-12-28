@@ -4,18 +4,6 @@
     height: $space-60;
     .header-container {
       width: $space-1000;
-      .mobile-menu .el-sub-menu .el-menu--inline {
-        .el-menu-item {
-          .menu-links {
-            @include headline5;
-          }
-          &:hover {
-            .menu-links {
-              @include headline4;
-            }
-          }
-        }
-      }
     }
   }
 }
