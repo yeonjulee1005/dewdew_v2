@@ -3,10 +3,12 @@
     class="skill-images"
     :class="{'skill-images-on': skillsImageProps.skillsBgTrigger}"
   >
-    <el-image
+    <nuxt-img
       v-for="image in skillsImageProps.skillsImage"
       :key="image.index"
       :class="image.title"
+      height="400"
+      width="400"
       :src="image.url"
       :alt="image.title"
     />

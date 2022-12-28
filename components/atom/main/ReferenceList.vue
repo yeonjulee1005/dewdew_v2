@@ -22,9 +22,11 @@
           class="reference-item flex flex-column flex-align-center"
           @click="clickReference(item)"
         >
-          <el-image
+          <nuxt-img
             class="reference-thumb"
             :src="item.image"
+            width="200"
+            height="200"
             fit="cover"
             :alt="item.alt"
           />

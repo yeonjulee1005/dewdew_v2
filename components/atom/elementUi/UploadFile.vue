@@ -10,7 +10,14 @@
     :on-change="changeBadgeImage"
   >
     <div v-if="previewFile">
-      <el-image class="image-preview" :src="previewFile" fit="cover" alt="image-prev" />
+      <nuxt-img
+        class="image-preview"
+        :src="previewFile"
+        width="300"
+        height="200"
+        fit="cover"
+        alt="image-prev"
+      />
     </div>
     <el-icon
       v-else

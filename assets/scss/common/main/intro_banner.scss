@@ -62,8 +62,12 @@
   .main-scroll-on {
     opacity: 1;
   }
-  .main-picture {
+  .main-banner {
     height: $space-740;
     overflow: hidden;
+    img {
+      width: $space-100vw;
+      height: auto;
+    }
   }
 }

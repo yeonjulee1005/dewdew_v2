@@ -3,6 +3,18 @@
   .header {
     height: $space-60;
     .header-container {
+      .logo {
+        img {
+          width: $space-100;
+          height: auto;
+        }
+      }
+      .github {
+        img {
+          width: $space-24;
+          height: auto;
+        }
+      }
       .mobile-menu {
         margin: 0 $space-default;
         border: unset;

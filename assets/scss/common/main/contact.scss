@@ -18,11 +18,6 @@
       }
       .image-group {
         text-decoration: none;
-        .image {
-          width: $space-100;
-          height: auto;
-          cursor: pointer;
-        }
         .desc {
           @include headline6;
         }
