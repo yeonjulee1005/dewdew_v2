@@ -84,7 +84,7 @@ onMounted(() => {
 
 const handleResize = (width:number) => {
   const showCount = [1.5, 1.75, 2.5]
-  const caseWidth = Math.floor(width / 500)
+  const caseWidth = Math.min(Math.floor(width / 500), 2)
   sliderShowCount.value = showCount[caseWidth]
 }
 
