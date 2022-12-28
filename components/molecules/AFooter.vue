@@ -15,7 +15,7 @@
         <nuxt-link
           v-for="image in snsData"
           :key="image.title"
-          class="sns-links"
+          class="sns-links flex flex-justify-center"
           :to="image.route"
           target="_blank"
         >

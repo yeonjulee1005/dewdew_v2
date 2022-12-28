@@ -11,8 +11,11 @@
       :dialog-trigger="imageDialogTrigger"
       @close-dialog="closeImageDialog"
     >
-      <el-image
+      <nuxt-picture
         :src="selectImageData?.url"
+        format="webp"
+        fit="cover"
+        :img-attrs="{style: 'width: 100%'}"
         :alt="selectImageData?.title"
       />
     </MoleculesADialog>
