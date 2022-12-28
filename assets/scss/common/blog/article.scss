@@ -84,6 +84,7 @@
     width: fit-content;
     bottom: $space-17vh;
     right: $space-36;
+    z-index: 10;
     .fixed-like {
       opacity: 0;
       transition: opacity .5s;

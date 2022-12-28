@@ -6,6 +6,7 @@
       :model="createCommentData"
       :rules="createArticleRules"
       :label-width="80"
+      label-position="top"
       @submit.prevent
     >
       <el-form-item :label="createCommentProps.nameLabel" prop="name">
@@ -31,12 +32,13 @@
           type="password"
           show-password
           clearable
-        />
-      </el-form-item>
-      <el-form-item class="submit-form-item">
-        <el-button class="submit-button mt-20" type="primary" @click="submitArticle(createCommentRef)">
-          {{ submitCommentButton }}
-        </el-button>
+        >
+          <template #append>
+            <el-button class="submit-button mt-20" @click="submitArticle(createCommentRef)">
+              {{ submitCommentButton }}
+            </el-button>
+          </template>
+        </el-input>
       </el-form-item>
     </el-form>
   </div>
