@@ -141,7 +141,7 @@ export interface CoreData {
 
 /** Archives Page */
 export interface ArchivesData {
-  title: string,
+  title?: string,
   year: string,
   url: string,
   route: string

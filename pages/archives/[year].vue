@@ -5,6 +5,7 @@
     </el-button>
     <AtomArchivesImageSlider
       :image-data="imageData"
+      :inner-archive-trigger="true"
       @open-dialog="openImageDialog"
     />
     <MoleculesADialog

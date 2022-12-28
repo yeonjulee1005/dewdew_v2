@@ -6,7 +6,7 @@
 }
 
 .prev-button {
-  top: $space-100;
+  top: $space-120;
   left: $space-10vw;
 }
 
@@ -15,7 +15,7 @@
     height: $space-percent-100;
   }
   .image-component {
-    .image {
+    .thumbnail {
       width: $space-50vw;
       height: $space-50vw;
     }

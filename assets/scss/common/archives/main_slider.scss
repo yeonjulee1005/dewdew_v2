@@ -20,16 +20,22 @@
   position: relative;
   max-width: $space-1000;
   width: $space-90vw;
-  height: $space-80vh;
+  height: calc($space-100vh - $space-160);
   margin: $space--50 auto 0;
   .carousel {
     display: flex;
     align-items: center;
+    .carousel__viewport {
+      margin-top: $space-60;
+    }
   }
   .image-component {
     position: relative;
     cursor: pointer;
-    .image {
+    .thumbnail {
+      width: $space-360;
+      height: $space-300;
+      object-fit: cover;
       border-radius: $space-36;
     }
     .text-group {
@@ -46,4 +52,7 @@
       }
     }
   }
+}
+.inner-slider-section {
+  height: calc($space-100vh - $space-120);
 }
