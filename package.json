@@ -2,7 +2,7 @@
   "name": "dewdew_page",
   "author": "Yeonju Lee",
   "private": true,
-  "version": "1.2.18",
+  "version": "1.2.19",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 4000",
