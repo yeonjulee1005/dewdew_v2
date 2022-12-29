@@ -55,13 +55,7 @@
             class="mobile-menu-links flex flex-justify-center"
             :to="menu.url"
           >
-            <el-tooltip
-              effect="dark"
-              :content="menu.title"
-              placement="right-start"
-            >
-              <Icon :icon="`ep:${menu.icon}`" />
-            </el-tooltip>
+            <Icon :icon="`ep:${menu.icon}`" />
           </nuxt-link>
         </div>
       </client-only>
