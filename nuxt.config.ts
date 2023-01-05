@@ -102,6 +102,7 @@ export default {
   },
   pwa: {
     workbox: {
+      templatePath: '~/public/sw.js',
       mobileAppIOS: true,
       enabled: true
     }
