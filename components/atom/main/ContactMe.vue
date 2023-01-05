@@ -14,6 +14,7 @@
         <nuxt-link
           :to="contactProps.contactData.kakaoTalk.url"
           class="image-group flex flex-column flex-align-center"
+          :external="true"
           target="_blank"
         >
           <nuxt-img

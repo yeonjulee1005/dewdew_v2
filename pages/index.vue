@@ -7,24 +7,24 @@
       :main-text-trigger="mainTextTrigger"
       :scroll-down-trigger="scrollDownTrigger"
     />
-    <LazyAtomMainResumeDesc
+    <AtomMainResumeDesc
       :resume-text="resumeTextData"
       :resume-image="resumeImage"
       :main-resume-trigger="mainResumeTrigger"
     />
-    <LazyAtomMainSkillContents
+    <AtomMainSkillContents
       :skills-text="skillsTextData"
       :skills-image="skillsImageData"
       :skills-text-trigger="mainSkillsTextTrigger"
       :skills-bg-trigger="mainSkillsBgTrigger"
       :skills-list-trigger="mainSkillsListTrigger"
     />
-    <LazyAtomMainReferenceList
+    <AtomMainReferenceList
       :reference-text-data="referenceTextData"
       :reference-image-data="referencesImageData"
       :reference-list-trigger="referenceListTrigger"
     />
-    <LazyAtomMainContactMe
+    <AtomMainContactMe
       :contact-data="contactTextData"
       :kakao-image="kakaoImage"
       :contact-trigger="contactTrigger"
