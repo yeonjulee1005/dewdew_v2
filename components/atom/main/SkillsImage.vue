@@ -7,10 +7,11 @@
       v-for="image in skillsImageProps.skillsImage"
       :key="image.index"
       :class="image.title"
+      :src="image.url"
       height="400"
       width="400"
+      loading="lazy"
       format="webp"
-      :src="image.url"
       :alt="image.title"
     />
   </div>

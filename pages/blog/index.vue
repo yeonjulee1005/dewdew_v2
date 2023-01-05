@@ -26,7 +26,7 @@
       </el-timeline>
       <el-empty v-else class="blog-timeline" description="글이 없네요..ㅠㅠ" />
     </div>
-    <AtomBlogAuthCheckDialog
+    <LazyAtomBlogAuthCheckDialog
       :admin-trigger="adminConfirmDialogTrigger"
       :title="'관리자 비밀번호를 입력해주세요!'"
       @confirm-password="openCreateArticleDialog"

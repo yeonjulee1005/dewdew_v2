@@ -25,7 +25,7 @@
         @click-affix="updateLikeCount"
       />
     </div>
-    <AtomBlogAuthCheckDialog
+    <LazyAtomBlogAuthCheckDialog
       :admin-trigger="deleteConfirmTrigger"
       :title="'댓글 비밀번호를 입력해주세요!'"
       @confirm-password="deleteComment"
