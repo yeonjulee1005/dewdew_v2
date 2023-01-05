@@ -57,6 +57,7 @@ export default {
   },
   // modules
   modules: [
+    '@kevinmarrec/nuxt-pwa',
     '@pinia/nuxt',
     '@vueuse/nuxt',
     '@nuxt/image-edge',
@@ -98,5 +99,12 @@ export default {
   },
   typescript: {
     shim: false
+  },
+  pwa: {
+    workbox: {
+      templatePath: '~/public/sw.js',
+      mobileAppIOS: true,
+      enabled: true
+    }
   }
 }
