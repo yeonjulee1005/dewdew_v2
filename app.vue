@@ -10,15 +10,6 @@
 import { ID_INJECTION_KEY } from 'element-plus'
 import { useDatabase } from '~/stores/database'
 
-if (process.client) {
-  window.addEventListener('load', () => {
-    if (!('serviceWorker' in navigator)) {
-      throw new Error('현재 브라우저는 서비스워커를 지원하지 않아요!')
-    }
-    navigator.serviceWorker.register('/sw.js')
-  })
-}
-
 provide(ID_INJECTION_KEY, {
   prefix: 100,
   current: 0
