@@ -64,6 +64,7 @@ export default {
   ],
   // build modules
   buildModules: [
+    '@nuxtjs/pwa',
     'vue3-carousel',
     '@emailjs/browser',
     'unplugin-icons/nuxt'
@@ -98,5 +99,39 @@ export default {
   },
   typescript: {
     shim: false
+  },
+  pwa: {
+    meta: {
+      title: 'Dewdew',
+      description: 'FE개발자 이연주 입니다.',
+      author: '이연주',
+      theme_color: '#35453e'
+    },
+    manifest: {
+      id: '/',
+      name: 'Dewdew',
+      short_name: 'Dewdew',
+      description: 'FE개발자 이연주 입니다.',
+      lang: 'ko',
+      icons: [],
+      useWebmanifestExtension: true,
+      display: 'standalone',
+      background_color: '#35453e'
+    },
+    icon: {
+      source: 'public/favicon_black.png',
+      purpose: 'any'
+    },
+    workbox: {
+      autoRegister: true,
+      offlineAnalytics: true,
+      runtimeCaching: [
+        {
+          urlPattern: '/',
+          handler: 'networkFirst',
+          method: 'GET'
+        }
+      ]
+    }
   }
 }
