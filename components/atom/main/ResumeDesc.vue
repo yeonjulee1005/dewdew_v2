@@ -10,6 +10,7 @@
         height="360"
         width="360"
         legacy-format="webp"
+        loading="lazy"
         fit="cover"
         :img-attrs="{class: 'dewdew'}"
         alt="dewdew"

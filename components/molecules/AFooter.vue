@@ -24,6 +24,7 @@
             width="50"
             height="50"
             format="webp"
+            loading="lazy"
             :alt="image.title"
           />
         </nuxt-link>

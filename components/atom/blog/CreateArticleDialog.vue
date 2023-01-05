@@ -22,7 +22,7 @@
         />
       </el-form-item>
       <el-form-item label="컨텐츠">
-        <AtomTiptapTextEditor
+        <LazyAtomTiptapTextEditor
           :text-limit="300000"
           :full-option="true"
           @update:model-value="updateArticle"
