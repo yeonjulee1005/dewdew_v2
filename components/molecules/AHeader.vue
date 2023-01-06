@@ -43,8 +43,6 @@
           :active-icon="Moon"
           :inactive-icon="Sunny"
           name="theme-mode"
-          label="theme-mode"
-          aria-labelledby="theme-mode"
           @change="toggleDark()"
         />
         <div
