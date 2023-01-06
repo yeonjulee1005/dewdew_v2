@@ -13,7 +13,7 @@
       class="progress"
       :style="progressProps.width"
       alt="skills"
-      aria-labelledby="skills"
+      aria-progressbar-name="skills"
     >
       <span :style="progressProps.progressData.style">
         {{ progressProps.progressData.percentText }}
