@@ -10,7 +10,7 @@ export default {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       charset: 'utf-16',
-      viewport: 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0',
+      viewport: 'width=device-width, initial-scale=1, maximum-scale=1.0',
       title: 'Dewdew',
       htmlAttrs: {
         lang: 'ko'
