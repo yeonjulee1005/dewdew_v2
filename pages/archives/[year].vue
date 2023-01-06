@@ -3,7 +3,7 @@
     <el-button class="prev-button" round @click="routerBack">
       {{ prev }}
     </el-button>
-    <LazyAtomArchivesImageSlider
+    <AtomArchivesImageSlider
       :image-data="imageData"
       :inner-archive-trigger="true"
       @open-dialog="openImageDialog"
