@@ -42,7 +42,7 @@
           inline-prompt
           :active-icon="Moon"
           :inactive-icon="Sunny"
-          name="theme-mode"
+          aria-label="theme-mode"
           @change="toggleDark()"
         />
         <div
