@@ -97,12 +97,11 @@ export default {
     server: true,
     client: true
   },
-  typescript: {
-    shim: false
-  },
+  // typescript: {
+  //   shim: false
+  // },
   pwa: {
     workbox: {
-      mobileAppIOS: true,
       enabled: true
     }
   }

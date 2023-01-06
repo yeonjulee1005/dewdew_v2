@@ -12,7 +12,7 @@
           {{ contactProps.contactData.kakaoTalk.title }}
         </div>
         <nuxt-link
-          :to="contactProps.contactData.kakaoTalk.url"
+          :to="contactProps.contactData.kakaoTalk.url || 'https://namecard.kakao.com/dewdew'"
           class="image-group flex flex-column flex-align-center"
           :external="true"
           target="_blank"
