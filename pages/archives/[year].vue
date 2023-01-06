@@ -3,12 +3,12 @@
     <el-button class="prev-button" round @click="routerBack">
       {{ prev }}
     </el-button>
-    <AtomArchivesImageSlider
+    <LazyAtomArchivesImageSlider
       :image-data="imageData"
       :inner-archive-trigger="true"
       @open-dialog="openImageDialog"
     />
-    <MoleculesADialog
+    <LazyMoleculesADialog
       :dialog-trigger="imageDialogTrigger"
       @close-dialog="closeImageDialog"
     >
@@ -19,7 +19,7 @@
         :img-attrs="{style: 'width: 100%'}"
         :alt="selectImageData?.title"
       />
-    </MoleculesADialog>
+    </LazyMoleculesADialog>
   </div>
 </template>
 <script setup lang="ts">

@@ -1,10 +1,10 @@
 <template>
   <div class="main-skills flex flex-column">
-    <AtomMainSkillsDescriptions
+    <LazyAtomMainSkillsDescriptions
       :skills-text="skillsProps.skillsText"
       :skills-text-trigger="skillsProps.skillsTextTrigger"
     />
-    <AtomMainSkillsImage
+    <LazyAtomMainSkillsImage
       :skills-image="skillsProps.skillsImage"
       :skills-bg-trigger="skillsProps.skillsBgTrigger"
     />
@@ -21,7 +21,7 @@
             v-for="item in frontEndData"
             :key="item.title"
           >
-            <AtomElementUiSkillProgress :progress-data="item" />
+            <LazyAtomElementUiSkillProgress :progress-data="item" />
           </div>
         </div>
         <div class="backend-list flex flex-column flex-justify-center mb-40">
@@ -32,7 +32,7 @@
             v-for="item in backEndData"
             :key="item.title"
           >
-            <AtomElementUiSkillProgress :progress-data="item" />
+            <LazyAtomElementUiSkillProgress :progress-data="item" />
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
           v-for="item in toolsData"
           :key="item.title"
         >
-          <AtomElementUiSkillProgress :progress-data="item" />
+          <LazyAtomElementUiSkillProgress :progress-data="item" />
         </div>
       </div>
     </div>

@@ -1,25 +1,25 @@
 <template>
   <div>
     <div class="blog-article flex flex-column flex-align-center">
-      <AtomBlogArticleHeader
+      <LazyAtomBlogArticleHeader
         :data="articleData"
       />
-      <AtomBlogArticleAddOn
+      <LazyAtomBlogArticleAddOn
         :article-id="String(articleId)"
         :data="articleData"
         :activate-like="articleLike?.trigger"
         @update-count="updateLikeCount"
       />
       <div class="article-body mt-default" v-html="articleData.desc" />
-      <AtomBlogArticleComments
+      <LazyAtomBlogArticleComments
         :comment-title="commentTitle"
         :comment-data="commentList"
         @delete-comment="openDeleteConfirmDialog"
       />
-      <AtomBlogCreateComment
+      <LazyAtomBlogCreateComment
         @create-comment="createComment"
       />
-      <AtomBlogLikeButton
+      <LazyAtomBlogLikeButton
         :trigger="displayFloatButtonTrigger"
         :activate-like="articleLike?.trigger"
         @click-affix="updateLikeCount"
