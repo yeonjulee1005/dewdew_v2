@@ -19,7 +19,7 @@
           placement="top"
           @click="clickBlogArticle(item)"
         >
-          <AtomBlogCardComponent
+          <LazyAtomBlogCardComponent
             :card-item="item"
           />
         </el-timeline-item>
@@ -32,7 +32,7 @@
       @confirm-password="openCreateArticleDialog"
       @close-dialog="closeAdminCheckDialog"
     />
-    <AtomBlogCreateArticleDialog
+    <LazyAtomBlogCreateArticleDialog
       :create-article-trigger="createArticleTrigger"
       :title="'글을 써보자!'"
       :article-index="writeIndex"

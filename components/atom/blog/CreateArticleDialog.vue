@@ -1,5 +1,5 @@
 <template>
-  <MoleculesADialog
+  <LazyMoleculesADialog
     :dialog-trigger="createArticleProps.createArticleTrigger"
     custom-class="create-article-dialog"
     top="15vh"
@@ -34,7 +34,7 @@
         </el-button>
       </el-form-item>
     </el-form>
-  </MoleculesADialog>
+  </LazyMoleculesADialog>
 </template>
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'

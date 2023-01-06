@@ -1,16 +1,16 @@
 <template>
   <el-container class="default-layout-container">
-    <MoleculesAHeader
+    <LazyMoleculesAHeader
       :core-data="coreData"
       :images="assetsImageData"
     />
     <el-main class="main">
       <slot />
     </el-main>
-    <MoleculesAFooter
+    <LazyMoleculesAFooter
       :core-data="coreData"
     />
-    <AtomDialogLeaveCounter
+    <LazyAtomDialogLeaveCounter
       :idle-trigger="idleTrigger"
       :texts="leaveText"
       :colors="colors"

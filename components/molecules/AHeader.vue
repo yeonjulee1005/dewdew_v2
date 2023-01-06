@@ -42,7 +42,7 @@
           inline-prompt
           :active-icon="Moon"
           :inactive-icon="Sunny"
-          alt="theme-mode"
+          name="theme-mode"
           @change="toggleDark()"
         />
         <div

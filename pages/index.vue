@@ -1,30 +1,30 @@
 <template>
   <div>
-    <AtomMainIntroBanner
+    <LazyAtomMainIntroBanner
       :intro-text="introTextData"
       :banner-images="bannersImage"
       :main-title-trigger="mainTitleTrigger"
       :main-text-trigger="mainTextTrigger"
       :scroll-down-trigger="scrollDownTrigger"
     />
-    <AtomMainResumeDesc
+    <LazyAtomMainResumeDesc
       :resume-text="resumeTextData"
       :resume-image="resumeImage"
       :main-resume-trigger="mainResumeTrigger"
     />
-    <AtomMainSkillContents
+    <LazyAtomMainSkillContents
       :skills-text="skillsTextData"
       :skills-image="skillsImageData"
       :skills-text-trigger="mainSkillsTextTrigger"
       :skills-bg-trigger="mainSkillsBgTrigger"
       :skills-list-trigger="mainSkillsListTrigger"
     />
-    <AtomMainReferenceList
+    <LazyAtomMainReferenceList
       :reference-text-data="referenceTextData"
       :reference-image-data="referencesImageData"
       :reference-list-trigger="referenceListTrigger"
     />
-    <AtomMainContactMe
+    <LazyAtomMainContactMe
       :contact-data="contactTextData"
       :kakao-image="kakaoImage"
       :contact-trigger="contactTrigger"
