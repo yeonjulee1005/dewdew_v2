@@ -53,6 +53,7 @@
             v-for="menu in menuData"
             :key="menu.index"
             class="mobile-menu-links flex flex-justify-center"
+            :aria-label="menu.title"
             :to="menu.url"
           >
             <Icon :icon="`ep:${menu.icon}`" />

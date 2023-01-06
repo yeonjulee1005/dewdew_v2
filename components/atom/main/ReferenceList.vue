@@ -28,6 +28,7 @@
             width="200"
             height="200"
             format="webp"
+            loading="lazy"
             fit="cover"
             :alt="item.alt"
           />
