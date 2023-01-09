@@ -1,5 +1,5 @@
 <template>
-  <LazyMoleculesADialog
+  <LazyADialog
     :dialog-trigger="createArticleProps.createArticleTrigger"
     custom-class="create-article-dialog"
     top="15vh"
@@ -22,7 +22,7 @@
         />
       </el-form-item>
       <el-form-item label="컨텐츠">
-        <LazyAtomTiptapTextEditor
+        <LazyTextEditor
           :text-limit="300000"
           :full-option="true"
           @update:model-value="updateArticle"
@@ -34,7 +34,7 @@
         </el-button>
       </el-form-item>
     </el-form>
-  </LazyMoleculesADialog>
+  </LazyADialog>
 </template>
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'

@@ -44,7 +44,7 @@ export default {
   ],
   vite: {
     build: {
-      chunkSizeWarningLimit: 3000,
+      chunkSizeWarningLimit: 4000,
       commonjsOptions: {
         esmExternals: true
       }
@@ -74,12 +74,29 @@ export default {
       GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
     }
   },
-  // auto import components
-  components: {
-    dirs: [
-      '~/components'
-    ]
+  webpack: {
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        maxSize: 300000,
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|vue)$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    }
   },
+  // auto import components
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false
+    }
+  ],
   imports: {
     dirs: [
       'composables/**'

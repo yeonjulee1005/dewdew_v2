@@ -2,150 +2,150 @@
   <client-only>
     <div v-if="editor" class="tiptap-editor">
       <div class="tiptap-editor__header">
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('bold') : null"
           :action="() => editor ? editor.chain().focus().toggleBold().run() : null"
           type="bold"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('italic') : null"
           :action="() => editor ? editor.chain().focus().toggleItalic().run() : null"
           type="italic"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('underline') : null"
           :action="() => editor ? editor.chain().focus().toggleUnderline().run() : null"
           type="underline"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('strike') : null"
           :action="() => editor ? editor.chain().focus().toggleStrike().run() : null"
           type="strikethrough-2"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('highlight') : null"
           :action="() => editor ? editor.chain().focus().toggleHighlight().run() : null"
           type="mark-pen-fill"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('highlight', { color: '#ffc078' }) : null"
           :action="() => editor ? editor.chain().focus().toggleHighlight({ color: '#ffc078' }).run() : null"
           type="mark-pen-line"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'left' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('left').run() : null"
           type="align-left"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'center' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('center').run() : null"
           type="align-center"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'right' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('right').run() : null"
           type="align-right"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'justify' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('justify').run() : null"
           type="align-justify"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('paragraph') : null"
           :action="() => editor ? editor.chain().focus().setParagraph().run() : null"
           type="paragraph"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('heading', { level: 1 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 1 }).run() : null"
           type="h-1"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('heading', { level: 2 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 2 }).run() : null"
           type="h-2"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('heading', { level: 3 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 3 }).run() : null"
           type="h-3"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('heading', { level: 4 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 4 }).run() : null"
           type="h-4"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('heading', { level: 5 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 5 }).run() : null"
           type="h-5"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :editor="editor"
           :is-active="() => editor ? editor.isActive('heading', { level: 6 }) : null"
           :action="() => editor ? editor.chain().focus().toggleHeading({ level: 6 }).run() : null"
           type="h-6"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('bulletList') : null"
           :action="() => editor ? editor.chain().focus().toggleBulletList().run() : null"
           type="list-unordered"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('orderedList') : null"
           :action="() => editor ? editor.chain().focus().toggleOrderedList().run() : null"
           type="list-ordered"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('taskList') : null"
           :action="() => editor ? editor.chain().focus().toggleTaskList().run() : null"
           type="task-line"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('codeBlock') : null"
           :action="() => editor ? editor.chain().focus().toggleCodeBlock().run() : null"
           type="code-box-line"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive('blockquote') : null"
           :action="() => editor ? editor.chain().focus().toggleBlockquote().run() : null"
           type="double-quotes-l"
         />
-        <AtomTiptapEditSpecialButtons
+        <LazyEditSpecialButtons
           v-if="textEditorProps.fullOption"
           :action="() => editor ? editor.chain().focus().setHorizontalRule().run() : null"
           type="separator"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :action="() => editor ? editor.chain().focus().setHardBreak().run() : null"
           type="more-line"
         />
-        <AtomTiptapEditSpecialButtons
+        <LazyEditSpecialButtons
           v-if="textEditorProps.fullOption"
           :disabled="!editor.can().chain().focus().undo().run()"
           :action="() => editor ? editor.chain().focus().undo().run() : null"
           type="arrow-go-back-line"
         />
-        <AtomTiptapEditSpecialButtons
+        <LazyEditSpecialButtons
           v-if="textEditorProps.fullOption"
           :disabled="!editor.can().chain().focus().redo().run()"
           :action="() => editor ? editor.chain().focus().redo().run() : null"
@@ -157,40 +157,40 @@
         :tippy-options="{ duration: 100 }"
         :editor="editor"
       >
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('bold') : null"
           :action="() => editor ? editor.chain().focus().toggleBold().run() : null"
           type="bold"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('underline') : null"
           :action="() => editor ? editor.chain().focus().toggleUnderline().run() : null"
           type="underline"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('highlight') : null"
           :action="() => editor ? editor.chain().focus().toggleHighlight().run() : null"
           type="mark-pen-fill"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'left' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('left').run() : null"
           type="align-left"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'center' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('center').run() : null"
           type="align-center"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'right' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('right').run() : null"
           type="align-right"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('codeBlock') : null"
           :action="() => editor ? editor.chain().focus().toggleCodeBlock().run() : null"
           type="code-box-line"
@@ -202,40 +202,40 @@
         :tippy-options="{ duration: 100 }"
         :editor="editor"
       >
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('bold') : null"
           :action="() => editor ? editor.chain().focus().toggleBold().run() : null"
           type="bold"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('underline') : null"
           :action="() => editor ? editor.chain().focus().toggleUnderline().run() : null"
           type="underline"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('highlight') : null"
           :action="() => editor ? editor.chain().focus().toggleHighlight().run() : null"
           type="mark-pen-fill"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'left' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('left').run() : null"
           type="align-left"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'center' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('center').run() : null"
           type="align-center"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           v-if="textEditorProps.fullOption"
           :is-active="() => editor ? editor.isActive({ textAlign: 'right' }) : null"
           :action="() => editor ? editor.chain().focus().setTextAlign('right').run() : null"
           type="align-right"
         />
-        <LazyAtomTiptapEditNormalButtons
+        <LazyEditNormalButtons
           :is-active="() => editor ? editor.isActive('codeBlock') : null"
           :action="() => editor ? editor.chain().focus().toggleCodeBlock().run() : null"
           type="code-box-line"

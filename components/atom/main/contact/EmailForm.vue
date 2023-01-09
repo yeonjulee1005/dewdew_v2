@@ -49,7 +49,7 @@
           type="primary"
           @click="submitForm(contactRuleFormRef)"
         >
-          Create
+          {{ createButtonText }}
         </el-button>
       </el-form-item>
     </el-form>
@@ -59,6 +59,7 @@
 import { send } from '@emailjs/browser'
 import type { FormInstance, FormRules } from 'element-plus'
 
+const createButtonText = ref('Create')
 const contactRuleFormRef = ref<FormInstance>()
 const contactRuleForm = reactive({
   name: '',

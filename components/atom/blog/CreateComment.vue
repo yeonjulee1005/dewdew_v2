@@ -22,7 +22,7 @@
         </el-input>
       </el-form-item>
       <el-form-item :label="createCommentProps.contentLabel">
-        <LazyAtomTiptapTextEditor
+        <LazyTextEditor
           @update:model-value="updateArticle"
         />
       </el-form-item>
