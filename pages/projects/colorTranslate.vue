@@ -7,7 +7,7 @@
       <el-button class="eye-dropper mb-default" :icon="BrushFilled" @click="colorPicker">
         {{ '스포이드' }}
       </el-button>
-      <LazyAtomElementUiUploadFile
+      <LazyUploadFile
         :file-size-alarm="'파일사이즈는 2048*2048 이하만 가능해요!'"
         :file-type-alarm="'파일 타입은 jpg,png,gif만 가능해요!'"
         :limit-type="['image/jpeg', 'image/png', 'image/gif']"

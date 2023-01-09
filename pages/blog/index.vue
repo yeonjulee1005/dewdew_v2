@@ -19,20 +19,20 @@
           placement="top"
           @click="clickBlogArticle(item)"
         >
-          <LazyAtomBlogCardComponent
+          <LazyCardComponent
             :card-item="item"
           />
         </el-timeline-item>
       </el-timeline>
       <el-empty v-else class="blog-timeline" description="글이 없네요..ㅠㅠ" />
     </div>
-    <LazyAtomBlogAuthCheckDialog
+    <LazyAuthCheckDialog
       :admin-trigger="adminConfirmDialogTrigger"
       :title="'관리자 비밀번호를 입력해주세요!'"
       @confirm-password="openCreateArticleDialog"
       @close-dialog="closeAdminCheckDialog"
     />
-    <LazyAtomBlogCreateArticleDialog
+    <LazyCreateArticleDialog
       :create-article-trigger="createArticleTrigger"
       :title="'글을 써보자!'"
       :article-index="writeIndex"

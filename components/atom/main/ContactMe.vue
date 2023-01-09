@@ -32,7 +32,7 @@
         </nuxt-link>
         <div />
       </div>
-      <LazyAtomMainContactEmailForm
+      <LazyEmailForm
         :form-title="contactProps.contactData.email.title"
         :email-key="contactProps.contactData.email.key"
         :email-template="contactProps.contactData.email.template"

@@ -1,5 +1,5 @@
 <template>
-  <LazyMoleculesADialog
+  <LazyADialog
     :dialog-trigger="authCheckProps.adminTrigger"
     custom-class="auth-check-dialog"
     top="30vh"
@@ -33,7 +33,7 @@
         </el-input>
       </el-form-item>
     </el-form>
-  </LazyMoleculesADialog>
+  </LazyADialog>
 </template>
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'

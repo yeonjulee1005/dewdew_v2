@@ -1,31 +1,31 @@
 <template>
   <div>
     <div class="blog-article flex flex-column flex-align-center">
-      <LazyAtomBlogArticleHeader
+      <LazyArticleHeader
         :data="articleData"
       />
-      <LazyAtomBlogArticleAddOn
+      <LazyArticleAddOn
         :article-id="String(articleId)"
         :data="articleData"
         :activate-like="articleLike?.trigger"
         @update-count="updateLikeCount"
       />
       <div class="article-body mt-default" v-html="articleData.desc" />
-      <LazyAtomBlogArticleComments
+      <LazyArticleComments
         :comment-title="commentTitle"
         :comment-data="commentList"
         @delete-comment="openDeleteConfirmDialog"
       />
-      <LazyAtomBlogCreateComment
+      <LazyCreateComment
         @create-comment="createComment"
       />
-      <LazyAtomBlogLikeButton
+      <LazyLikeButton
         :trigger="displayFloatButtonTrigger"
         :activate-like="articleLike?.trigger"
         @click-affix="updateLikeCount"
       />
     </div>
-    <LazyAtomBlogAuthCheckDialog
+    <LazyAuthCheckDialog
       :admin-trigger="deleteConfirmTrigger"
       :title="'댓글 비밀번호를 입력해주세요!'"
       @confirm-password="deleteComment"

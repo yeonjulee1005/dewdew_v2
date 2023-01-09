@@ -1,5 +1,5 @@
 <template>
-  <LazyMoleculesADialog
+  <LazyADialog
     :dialog-trigger="leaveDialogTrigger"
     top="30vh"
     :width="300"
@@ -26,7 +26,7 @@
         </template>
       </el-progress>
     </div>
-  </LazyMoleculesADialog>
+  </LazyADialog>
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue'

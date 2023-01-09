@@ -3,7 +3,7 @@
     <div class="main-archives-title">
       {{ title }}
     </div>
-    <AtomArchivesImageSlider
+    <LazyImageSlider
       :image-data="thumbImageData"
       :main-slider-trigger="true"
     />

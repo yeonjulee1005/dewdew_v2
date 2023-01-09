@@ -40,7 +40,7 @@
     </div>
     <div class="reference-background" />
     <div class="reference-background" />
-    <LazyMoleculesADialog
+    <LazyADialog
       :dialog-trigger="referenceDialogTrigger"
       custom-class="reference-dialog"
       @close-dialog="closeReferenceDialog"
@@ -62,7 +62,7 @@
         :img-attrs="{class: 'image'}"
         @click="openReference"
       />
-    </LazyMoleculesADialog>
+    </LazyADialog>
   </div>
 </template>
 <script setup lang="ts">
