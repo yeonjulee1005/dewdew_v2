@@ -9,7 +9,8 @@
     "generate": "nuxi generate",
     "preview": "nuxi preview",
     "analyze": "nuxi analyze",
-    "postinstall": "nuxi prepare"
+    "postinstall": "nuxi prepare",
+    "upgrade:force": "nuxt upgrade --force"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
