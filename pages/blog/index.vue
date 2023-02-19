@@ -41,9 +41,8 @@
     />
   </div>
 </template>
+
 <script setup lang="ts" nuxt:static>
-import { BlogData, BlogList, CreateArticle } from '~/types/interfaces'
-import { useDatabase } from '~/stores/database'
 
 useHead({
   title: '블로그',
@@ -71,11 +70,7 @@ onMounted(() => {
 })
 
 const clickBlogArticle = (selectBlog:any) => {
-  const id = selectBlog.id
-  useRouter().push({
-    name: 'blog-id',
-    params: { id }
-  })
+  navigateTo(`/blog/${selectBlog.id}`)
 }
 
 const openAdminCheckDialog = () => {

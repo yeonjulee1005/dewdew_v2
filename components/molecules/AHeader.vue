@@ -66,7 +66,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { Sunny, Moon } from '@element-plus/icons-vue'
-import { SnsLogo, Images, IndexSignature } from '~/types/interfaces'
 
 const headerProps = defineProps({
   coreData: { type: Object, default: () => null },

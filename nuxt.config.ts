@@ -1,4 +1,3 @@
-const lifecycle = process.env.npm_lifecycle_event
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default {
@@ -50,14 +49,19 @@ export default {
       }
     }
   },
-  // build
-  build: {
-    transpile:
-      lifecycle === 'build' || lifecycle === 'generate' ? ['element-plus'] : []
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext'
+      }
+    },
+    prerender: {
+      routes: ['/', '/about']
+    }
   },
   // modules
   modules: [
-    '@kevinmarrec/nuxt-pwa',
+    '@vite-pwa/nuxt',
     '@pinia/nuxt',
     '@vueuse/nuxt',
     '@nuxt/image-edge',
@@ -74,22 +78,22 @@ export default {
       GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
     }
   },
-  webpack: {
-    extractCSS: true,
-    optimization: {
-      splitChunks: {
-        maxSize: 300000,
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.(css|vue)$/,
-            chunks: 'all',
-            enforce: true
-          }
-        }
-      }
-    }
-  },
+  // webpack: {
+  //   extractCSS: true,
+  //   optimization: {
+  //     splitChunks: {
+  //       maxSize: 300000,
+  //       cacheGroups: {
+  //         styles: {
+  //           name: 'styles',
+  //           test: /\.(css|vue)$/,
+  //           chunks: 'all',
+  //           enforce: true
+  //         }
+  //       }
+  //     }
+  //   }
+  // },
   // auto import components
   components: [
     {
@@ -99,7 +103,8 @@ export default {
   ],
   imports: {
     dirs: [
-      'composables/**'
+      'composables/**',
+      'stores'
     ]
   },
   // vueuse
@@ -118,8 +123,29 @@ export default {
     shim: false
   },
   pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Dev Dewdew',
+      short_name: 'Dev Dewdew',
+      theme_color: '#ffffff',
+      icons: [
+        {
+          src: 'favicon_black.png',
+          sizes: '512x512',
+          type: 'image/png'
+        }
+      ]
+    },
     workbox: {
-      enabled: true
+      navigateFallback: '/'
+    },
+    client: {
+      installPrompt: true,
+      periodicSyncForUpdates: 20
+    },
+    devOptions: {
+      enabled: true,
+      type: 'module'
     }
   }
 }

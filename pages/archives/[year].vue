@@ -23,8 +23,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ArchivesData, MassImages } from '~/types/interfaces'
-import { useDatabase } from '~/stores/database'
 
 const route = useRoute()
 
