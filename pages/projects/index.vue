@@ -13,8 +13,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useDatabase } from '~/stores/database'
-import { Route } from '~/types/interfaces'
 
 useHead({
   title: '프로젝트',

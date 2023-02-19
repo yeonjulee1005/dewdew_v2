@@ -2,34 +2,34 @@
   <div class="main-intro flex flex-justify-center">
     <div
       class="main-title"
-      :class="{'main-title-on': mainIntroProps.mainTitleTrigger}"
+      :class="{'main-title-on': mainTitleTrigger}"
     >
-      {{ mainIntroProps.introText.mainTitle }}
+      {{ introText.mainTitle }}
     </div>
     <div
-      v-if="mainIntroProps.introText.subText"
+      v-if="introText.subText"
       class="main-text"
-      :class="{'main-text-on': mainIntroProps.mainTextTrigger}"
+      :class="{'main-text-on': mainTextTrigger}"
     >
       <p
-        v-for="item in mainIntroProps.introText.mainText"
+        v-for="item in introText.mainText"
         :key="item.index"
       >
         {{ item.text }}
       </p>
       <p class="sub-text">
-        {{ mainIntroProps.introText.subText }}
+        {{ introText.subText }}
       </p>
     </div>
     <div
       ref="scrollDown"
       class="scroll-down"
-      :class="{'main-scroll-on': mainIntroProps.scrollDownTrigger}"
+      :class="{'main-scroll-on': scrollDownTrigger}"
     >
-      {{ mainIntroProps.introText.scrollDown }}
+      {{ introText.scrollDown }}
     </div>
     <nuxt-picture
-      :src="mainIntroProps.bannerImages"
+      :src="bannerImages"
       class="main-banner"
       width="2000"
       height="1333"
@@ -42,9 +42,8 @@
 </template>
 <script setup lang=ts>
 import { PropType } from 'vue'
-import { IntroData } from '~/types/interfaces'
 
-const mainIntroProps = defineProps({
+defineProps({
   introText: { type: Object as PropType<IntroData>, default: () => null },
   bannerImages: { type: String, default: '' },
   mainTitleTrigger: { type: Boolean, default: false },

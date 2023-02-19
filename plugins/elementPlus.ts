@@ -1,4 +1,3 @@
-import { defineNuxtPlugin } from 'nuxt/app'
 import ElementPlus from 'element-plus'
 import ko from 'element-plus/es/locale/lang/ko'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'

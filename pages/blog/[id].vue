@@ -34,8 +34,8 @@
     <el-backtop :bottom="60" :right="30" />
   </div>
 </template>
+
 <script setup lang="ts">
-import { BlogData, CommentList, CreateComment } from '~/types/interfaces'
 
 const route = useRoute()
 

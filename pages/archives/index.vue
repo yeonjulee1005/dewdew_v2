@@ -10,8 +10,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ArchivesData } from '~/types/interfaces'
-import { useDatabase } from '~/stores/database'
 
 useHead({
   title: '아카이브',
