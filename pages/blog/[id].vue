@@ -31,7 +31,7 @@
       @confirm-password="deleteComment"
       @close-dialog="closeAuthCheckDialog"
     />
-    <el-backtop :bottom="60" :right="30" />
+    <el-backtop :bottom="120" :right="30" />
   </div>
 </template>
 
