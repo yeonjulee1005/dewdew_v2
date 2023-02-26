@@ -31,7 +31,7 @@
             />
             <div class="text-group">
               <p class="title">
-                {{ title }}
+                {{ $t('archives.historyTitle') }}
               </p>
               <p class="subtitle">
                 {{ item.year }}
@@ -54,6 +54,7 @@
     </client-only>
   </div>
 </template>
+
 <script setup lang="ts">
 import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
@@ -71,7 +72,6 @@ const imageSliderEmits = defineEmits([
   'open-dialog'
 ])
 
-const title = ref('HISTORY OF')
 const sliderShowCount = ref(0)
 
 watch(width, () => { handleResize(width.value) })

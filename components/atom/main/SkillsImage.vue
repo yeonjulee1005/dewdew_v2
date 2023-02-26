@@ -16,10 +16,12 @@
     />
   </div>
 </template>
+
 <script setup lang="ts">
 
 const skillsImageProps = defineProps({
   skillsImage: { type: Array as PropType<Images[]>, default: () => [] },
   skillsBgTrigger: { type: Boolean, default: false }
 })
+
 </script>

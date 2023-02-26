@@ -32,10 +32,11 @@
     <el-backtop :bottom="120" :right="30" />
   </div>
 </template>
+
 <script setup lang="ts">
 
 definePageMeta({
-  title: 'Main'
+  layout: 'default'
 })
 
 const { width } = useWindowSize()

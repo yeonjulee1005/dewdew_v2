@@ -18,6 +18,7 @@
     </el-tooltip>
   </client-only>
 </template>
+
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 

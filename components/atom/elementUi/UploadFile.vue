@@ -25,16 +25,16 @@
     >
       <Upload-filled />
       <div class="el-upload__text">
-        {{ '파일을 올려주세요.' }}
+        {{ $t('colorsTranslate.uploadFile') }}
         <span class="accent">
-          {{ '그리고 스포이드로 컬러를' }}
+          {{ $t('colorsTranslate.dropperDesc') }}
         </span>
-        {{ '확인해주세요.' }}
+        {{ $t('colorsTranslate.checkDropper') }}
       </div>
     </el-icon>
     <template #tip>
       <div class="el-upload__tip">
-        {{ uploadFileProps.fileTypeAlarm + ', ' + uploadFileProps.fileSizeAlarm }}
+        {{ uploadFileProps.fileTypeAlarm.concat(', ', uploadFileProps.fileSizeAlarm) }}
       </div>
     </template>
   </el-upload>

@@ -5,6 +5,7 @@ export default {
     '/blog/*/*': { static: true }
   },
   app: {
+    keepalive: true,
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       charset: 'utf-16',
@@ -52,6 +53,7 @@ export default {
   modules: [
     '@vite-pwa/nuxt',
     '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@nuxt/image-edge',
@@ -80,6 +82,10 @@ export default {
         '/'
       ]
     }
+  },
+  experimental: {
+    payloadExtraction: false
+    // inlineSSRStyles: false,
   },
   // auto import components
   components: [
@@ -142,6 +148,10 @@ export default {
     },
     workbox: {
       navigateFallback: '/'
+    },
+    injectManifest: {
+      globPatterns: ['**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}'],
+      globIgnores: ['emojis/**', 'shiki/**', 'manifest**.webmanifest']
     },
     client: {
       installPrompt: true,

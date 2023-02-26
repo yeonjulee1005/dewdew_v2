@@ -28,7 +28,10 @@
     </div>
   </LazyADialog>
 </template>
+
 <script setup lang="ts">
+
+const { t } = useLocale()
 
 const leaveCountProps = defineProps({
   idleTrigger: { type: Boolean, default: false },
@@ -67,9 +70,9 @@ const countDisplay = (index: number, _count: number): void => {
   if (!index) {
     closeLeaveDialog()
     useRoute().path === '/'
-      ? useAlarm().notify('', 'info', '페이지를 이용해주세요:(', true, 3000, 0)
-      : useAlarm().notify('', 'info', '메인페이지로 이동되었습니다.', true, 3000, 0)
-    useRouter().push('/')
+      ? useAlarm().notify('', 'info', t('message.usePage'), true, 3000, 0)
+      : useAlarm().notify('', 'info', t('message.moveToMain'), true, 3000, 0)
+    navigateTo('/')
   }
   count.value = index
 }

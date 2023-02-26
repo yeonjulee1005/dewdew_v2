@@ -40,10 +40,13 @@
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
+
 const resumeProps = defineProps({
   resumeText: { type: Object, default: () => null },
   resumeImage: { type: String, default: '' },
   mainResumeTrigger: { type: Boolean, default: false }
 })
+
 </script>

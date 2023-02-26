@@ -12,7 +12,7 @@
       />
       <div class="article-body mt-default" v-html="articleData.desc" />
       <LazyArticleComments
-        :comment-title="commentTitle"
+        :comment-title="$t('blog.commentTitle')"
         :comment-data="commentList"
         @delete-comment="openDeleteConfirmDialog"
       />
@@ -27,7 +27,7 @@
     </div>
     <LazyAuthCheckDialog
       :admin-trigger="deleteConfirmTrigger"
-      :title="'댓글 비밀번호를 입력해주세요!'"
+      :title="$t('messages.enterCommentPassword')"
       @confirm-password="deleteComment"
       @close-dialog="closeAuthCheckDialog"
     />
@@ -37,20 +37,21 @@
 
 <script setup lang="ts">
 
+const { t } = useLocale()
 const route = useRoute()
 
 useHead({
   title: 'Article',
   meta: [
-    { property: 'description', content: 'FE개발자 이연주의 개발 블로그 입니다.' },
-    { property: 'og:title', content: '개발자 이연주 | 블로그' },
+    { property: 'description', content: t('pageTitle.blogDesc') },
+    { property: 'og:title', content: t('pageTitle.blogOgTitle') },
     { property: 'og:url', content: `https://dewdew.kr${route.path}` },
-    { property: 'og:description', content: 'FE개발자 이연주의 개발 블로그 입니다.' }
+    { property: 'og:description', content: t('pageTitle.blogDesc') }
   ]
 })
 
 definePageMeta({
-  title: 'Article'
+  layout: 'default'
 })
 
 const { y } = useWindowScroll()
@@ -69,7 +70,6 @@ const displayFloatButtonTrigger = ref(false)
 const deleteConfirmTrigger = ref(false)
 const beforeParsingLike = ref('')
 const articleLike = ref()
-const commentTitle = ref('댓글')
 const writeIndex = ref(0)
 
 onBeforeMount(() => {
@@ -123,7 +123,7 @@ const createComment = (comment:CreateComment) => {
     data: commentData
   }
   useApi().postUpdateData('blog', updateData).then(() => {
-    useAlarm().notify('', 'success', '댓글 작성해주셔서 감사해요❤', true, 1000, 0)
+    useAlarm().notify('', 'success', t('messages.commentWriteSuccess'), true, 1000, 0)
     initArticleConfig()
     loadArticleData()
   })
@@ -150,7 +150,7 @@ const deleteSequence = (commentIndex:number) => {
     data: removeComment
   }
   useApi().postUpdateData('blog', updateData).then(() => {
-    useAlarm().notify('', 'success', '댓글을 삭제했어요..ㅠㅠ', true, 1000, 0)
+    useAlarm().notify('', 'success', t('messages.commentDelete'), true, 1000, 0)
     initArticleConfig()
     loadArticleData()
   })
@@ -158,7 +158,7 @@ const deleteSequence = (commentIndex:number) => {
 
 const rejectDeleteSequence = () => {
   closeAuthCheckDialog()
-  useAlarm().notify('', 'error', '댓글 비밀번호가 틀립니다.', true, 1000, 0)
+  useAlarm().notify('', 'error', t('messages.unAuthorizedComment'), true, 1000, 0)
 }
 
 const closeAuthCheckDialog = () => {
@@ -208,4 +208,5 @@ const createLikeData = () => {
   setStorage(articleId, false)
   updateLikeData()
 }
+
 </script>

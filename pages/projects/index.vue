@@ -12,20 +12,23 @@
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
 
+const { t } = useLocale()
+
 useHead({
-  title: '프로젝트',
+  title: t('pageTitle.project'),
   meta: [
-    { property: 'description', content: '토이 프로젝트 리스트 입니다.' },
-    { property: 'og:title', content: '개발자 이연주 | 프로젝트' },
+    { property: 'description', content: t('openGraph.projectDesc') },
+    { property: 'og:title', content: t('openGraph.projectOgTitle') },
     { property: 'og:url', content: 'https://dewdew.kr/projects/' },
-    { property: 'og:description', content: '토이 프로젝트 리스트 입니다.' }
+    { property: 'og:description', content: t('openGraph.projectDesc') }
   ]
 })
 
 definePageMeta({
-  title: 'Project'
+  layout: 'default'
 })
 
 const coreData = useDatabase().coreData.value
@@ -39,4 +42,5 @@ coreData.forEach((core:any) => {
       break
   }
 })
+
 </script>

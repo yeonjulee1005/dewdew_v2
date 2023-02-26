@@ -12,6 +12,8 @@
 <script setup lang="ts">
 import { ID_INJECTION_KEY } from 'element-plus'
 
+const { t } = useLocale()
+
 provide(ID_INJECTION_KEY, {
   prefix: 100,
   current: 0
@@ -20,8 +22,8 @@ provide(ID_INJECTION_KEY, {
 useHead({
   titleTemplate: (titleChunk:any) => {
     let title = titleChunk
-    if (!titleChunk.includes('개발자 이연주 |')) {
-      title = `개발자 이연주 | ${titleChunk}`
+    if (!titleChunk.includes(t('pageTitle.yeonju').concat(' | '))) {
+      title = t('pageTitle.yeonju').concat(' | ', titleChunk)
     }
     return title
   }

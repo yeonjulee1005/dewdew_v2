@@ -6,7 +6,7 @@
           class="write-blog"
           @click="openAdminCheckDialog"
         >
-          {{ writeButtonText }}
+          {{ $t('blog.write') }}
         </el-button>
       </div>
       <el-timeline v-if="blogData.length" class="blog-timeline">
@@ -24,17 +24,17 @@
           />
         </el-timeline-item>
       </el-timeline>
-      <el-empty v-else class="blog-timeline" description="글이 없네요..ㅠㅠ" />
+      <el-empty v-else class="blog-timeline" :description="$t('messages.emptyArticle')" />
     </div>
     <LazyAuthCheckDialog
       :admin-trigger="adminConfirmDialogTrigger"
-      :title="'관리자 비밀번호를 입력해주세요!'"
+      :title="$t('messages.enterPassword')"
       @confirm-password="openCreateArticleDialog"
       @close-dialog="closeAdminCheckDialog"
     />
     <LazyCreateArticleDialog
       :create-article-trigger="createArticleTrigger"
-      :title="'글을 써보자!'"
+      :title="$t('messages.writeArticle')"
       :article-index="writeIndex"
       @create-article="writeArticle"
       @close-dialog="closeCreateArticleDialog"
@@ -44,23 +44,24 @@
 
 <script setup lang="ts" nuxt:static>
 
+const { t } = useLocale()
+
 useHead({
-  title: '블로그',
+  title: t('pageTitle.blog'),
   meta: [
-    { property: 'description', content: 'FE개발자 이연주의 개발 블로그 입니다.' },
-    { property: 'og:title', content: '개발자 이연주 | 블로그' },
+    { property: 'description', content: t('pageTitle.blogDesc') },
+    { property: 'og:title', content: t('pageTitle.blogOgTitle') },
     { property: 'og:url', content: 'https://dewdew.kr/blog/' },
-    { property: 'og:description', content: 'FE개발자 이연주의 개발 블로그 입니다.' }
+    { property: 'og:description', content: t('pageTitle.blogDesc') }
   ]
 })
 
 definePageMeta({
-  title: 'Blog'
+  layout: 'default'
 })
 
 const blogData = ref<BlogList[]>([])
 
-const writeButtonText = ref('Write')
 const writeIndex = ref(0)
 const adminConfirmDialogTrigger = ref(false)
 const createArticleTrigger = ref(false)
@@ -84,18 +85,18 @@ const closeAdminCheckDialog = () => {
 const openCreateArticleDialog = (password:string) => {
   useDatabase().adminPassword.value === password
     ? createArticleTrigger.value = true
-    : useAlarm().notify('', 'error', '어딜...감히..', true, 3000, 0)
+    : useAlarm().notify('', 'error', t('messages.unAuthorizedWrite'), true, 3000, 0)
 }
 
 const writeArticle = async (data:CreateArticle) => {
   await useApi().postAddData('blog/', data).then((res:any) => {
     if (res.id) {
-      useAlarm().notify('', 'success', '글이 작성되었네용!!', true, 3000, 0)
+      useAlarm().notify('', 'success', t('messages.writeSuccess'), true, 3000, 0)
       loadBlogData()
       closeAdminCheckDialog()
       closeCreateArticleDialog()
     } else {
-      useAlarm().notify('', 'error', '글 작성이 실패했넹??', true, 3000, 0)
+      useAlarm().notify('', 'error', t('messages.writeFailed'), true, 3000, 0)
     }
   })
 }
