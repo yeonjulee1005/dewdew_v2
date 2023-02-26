@@ -34,6 +34,7 @@
     <el-backtop :bottom="60" :right="30" />
   </div>
 </template>
+
 <script setup lang="ts">
 
 const route = useRoute()
@@ -55,10 +56,6 @@ definePageMeta({
 const { y } = useWindowScroll()
 
 const articleId = useRoute().params.id
-const beforeParsingLike = ref()
-const articleLike = ref()
-const commentTitle = ref('댓글')
-const writeIndex = ref(0)
 
 const articleData = ref({
   title: '',
@@ -70,6 +67,10 @@ const commentList = ref<CommentList[]>([])
 const deleteCommentData = ref<CommentList>()
 const displayFloatButtonTrigger = ref(false)
 const deleteConfirmTrigger = ref(false)
+const beforeParsingLike = ref('')
+const articleLike = ref()
+const commentTitle = ref('댓글')
+const writeIndex = ref(0)
 
 onBeforeMount(() => {
   initArticleConfig()
@@ -199,7 +200,7 @@ const setStorage = (articleId:string|string[], value:boolean) => {
 }
 
 const updateLikeData = () => {
-  beforeParsingLike.value = getStorage(articleId)
+  beforeParsingLike.value = getStorage(articleId) ?? ''
   articleLike.value = JSON.parse(beforeParsingLike.value)
 }
 

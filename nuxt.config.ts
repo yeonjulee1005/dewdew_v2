@@ -141,8 +141,7 @@ export default {
       ]
     },
     workbox: {
-      navigateFallback: '/',
-      globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+      navigateFallback: '/'
     },
     client: {
       installPrompt: true,

@@ -5,6 +5,7 @@
       :images="assetsImageData"
     />
     <el-main class="main">
+      <InstallPwa />
       <slot />
     </el-main>
     <LazyAFooter

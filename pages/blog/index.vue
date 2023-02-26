@@ -41,6 +41,7 @@
     />
   </div>
 </template>
+
 <script setup lang="ts" nuxt:static>
 
 useHead({
@@ -69,11 +70,7 @@ onMounted(() => {
 })
 
 const clickBlogArticle = (selectBlog:any) => {
-  const id = selectBlog.id
-  useRouter().push({
-    name: 'blog-id',
-    params: { id }
-  })
+  navigateTo(`/blog/${selectBlog.id}`)
 }
 
 const openAdminCheckDialog = () => {

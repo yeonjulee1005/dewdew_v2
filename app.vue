@@ -1,7 +1,7 @@
 <template>
   <div>
+    <VitePwaManifest />
     <NuxtLayout>
-      <PwaInstallDialog />
       <NuxtLoadingIndicator
         :height="5"
       />
