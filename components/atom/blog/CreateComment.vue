@@ -46,8 +46,6 @@
 <script setup lang="ts">
 import { Refresh } from '@element-plus/icons-vue'
 import type { FormInstance, FormRules } from 'element-plus'
-import { CreateComment } from '~/types/interfaces'
-import { useDatabase } from '~/stores/database'
 
 const createCommentProps = defineProps({
   nameLabel: { type: String, default: '이름' },

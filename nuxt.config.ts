@@ -1,5 +1,3 @@
-const lifecycle = process.env.npm_lifecycle_event
-
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default {
   routes: {
@@ -50,15 +48,11 @@ export default {
       }
     }
   },
-  // build
-  build: {
-    transpile:
-      lifecycle === 'build' || lifecycle === 'generate' ? ['element-plus'] : []
-  },
   // modules
   modules: [
-    '@kevinmarrec/nuxt-pwa',
+    '@vite-pwa/nuxt',
     '@pinia/nuxt',
+    '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@nuxt/image-edge',
     '@nuxtjs/robots'
@@ -74,20 +68,17 @@ export default {
       GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
     }
   },
-  webpack: {
-    extractCSS: true,
-    optimization: {
-      splitChunks: {
-        maxSize: 300000,
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.(css|vue)$/,
-            chunks: 'all',
-            enforce: true
-          }
-        }
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext'
       }
+    },
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/'
+      ]
     }
   },
   // auto import components
@@ -99,8 +90,26 @@ export default {
   ],
   imports: {
     dirs: [
-      'composables/**'
+      'composables/**',
+      'stores'
     ]
+  },
+  i18n: {
+    locales: [
+      {
+        code: 'ko',
+        iso: 'ko-KR',
+        file: 'ko.json'
+      }
+    ],
+    lazy: true,
+    langDir: 'locales',
+    strategy: 'no_prefix',
+    defaultLocale: 'ko',
+    vueI18n: {
+      legacy: false,
+      locale: 'ko'
+    }
   },
   // vueuse
   vueuse: {
@@ -118,8 +127,30 @@ export default {
     shim: false
   },
   pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Dewdew',
+      short_name: 'Dewdew',
+      theme_color: '#fa7474',
+      icons: [
+        {
+          src: 'icon.png',
+          sizes: '512x512',
+          type: 'image/png'
+        }
+      ]
+    },
     workbox: {
-      enabled: true
+      navigateFallback: '/',
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+    },
+    client: {
+      installPrompt: true,
+      periodicSyncForUpdates: 20
+    },
+    devOptions: {
+      enabled: true,
+      type: 'module'
     }
   }
 }

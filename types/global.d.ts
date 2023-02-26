@@ -1,89 +1,89 @@
 
 /** Global Interfaces */
 
-export interface Label<L, V> {
+interface Label<L, V> {
   label: L,
   value: V
 }
 
-export interface SnsLogo {
+interface SnsLogo {
   title: string,
   route: string,
   url: string
 }
 
-export interface Route {
+interface Route {
   index: number,
   title: string,
   route: string
 }
 
-export interface Colors {
+interface Colors {
   color: string,
   percentage: number
 }
 
-export interface Images {
+interface Images {
   index?: number,
   icon?: string,
   title: string,
   url: string
 }
 
-export interface MassImages {
+interface MassImages {
   title: string,
   url: string
 }
 
-export interface listTexts {
+interface listTexts {
   index: number,
   title: string,
   desc: string
 }
 
-export interface Texts {
+interface Texts {
   index: number,
   text: string
 }
 
-export interface IndexSignature {
+interface IndexSignature {
   [key: string]: string
 }
 
 /** Interfaces */
-export interface Footer {
+interface Footer {
   id: string,
   copyright: string,
   designed: string
 }
 
-export interface IntroData {
+interface IntroData {
   mainTitle: string,
   mainText: Texts[],
   subText: string,
   scrollDown: string
 }
 
-export interface ResumeData {
+interface ResumeData {
   title: string,
   educate: string,
   career: listTexts[]
 }
 
-export interface SkillsData {
+interface SkillsData {
   title: Texts[],
   firstDesc: Texts[],
   secondDesc: Texts[],
   thirdDesc: Texts[]
 }
 
-export interface ReferenceData {
+interface ReferenceData {
   title: string,
   desc: string,
   background: string
 }
 
-export interface ReferenceImage {
+interface ReferenceImage {
   alt: string,
   index: number,
   title: string,
@@ -93,51 +93,51 @@ export interface ReferenceImage {
   detailsImage: string,
 }
 
-export interface EmailSend {
+interface EmailSend {
   key: string,
   template: string,
   title: string
 }
 
-export interface Kakao {
+interface Kakao {
   title: string,
   desc: string,
   url: string
 }
 
-export interface ContactData {
+interface ContactData {
   id: string,
   title: string
   email: EmailSend,
   kakaoTalk: Kakao
 }
 
-export interface Main {
+interface Main {
   id: string,
   intro: IntroData,
   resume: ResumeData,
   skills: SkillsData
 }
 
-export interface Information {
+interface Information {
   author: string,
   createdAt: Date
 }
 
-export interface Pages {
+interface Pages {
   id: string,
   info: Information,
   menu: Images[]
 }
 
-export interface CoreData {
+interface CoreData {
   footer: Footer[],
   main: Main[],
   pages: Pages[],
 }
 
 /** Archives Page */
-export interface ArchivesData {
+interface ArchivesData {
   title?: string,
   year: string,
   url: string,
@@ -146,12 +146,12 @@ export interface ArchivesData {
 
 /** Blog Page */
 
-export interface TimeStamp {
+interface TimeStamp {
   seconds: number,
   nanoseconds: number
 }
 
-export interface Comment {
+interface Comment {
   index: number,
   name: string,
   message: string,
@@ -159,7 +159,7 @@ export interface Comment {
   createdAt: TimeStamp
 }
 
-export interface BlogList {
+interface BlogList {
   id?: string,
   index: number,
   title: string,
@@ -171,7 +171,7 @@ export interface BlogList {
   comment: Comment[]
 }
 
-export interface BlogData {
+interface BlogData {
   id: string,
   createdAt: TimeStamp,
   index: number,
@@ -182,7 +182,7 @@ export interface BlogData {
   comment: Comment[]
 }
 
-export interface CreateArticle {
+interface CreateArticle {
   index: number,
   title: string,
   rawArticle: string,
@@ -191,7 +191,7 @@ export interface CreateArticle {
   comment: Comment[]
 }
 
-export interface CommentList {
+interface CommentList {
   index: number,
   name: string,
   message: string,
@@ -200,7 +200,7 @@ export interface CommentList {
   createdAt: Date
 }
 
-export interface CreateComment {
+interface CreateComment {
   name: string,
   message: string,
   password: string

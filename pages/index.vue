@@ -33,8 +33,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useDatabase } from '~/stores/database'
-import { CoreData, Images, IntroData, ResumeData, SkillsData, ReferenceData, ReferenceImage, ContactData } from '~/types/interfaces'
 
 definePageMeta({
   title: 'Main'

@@ -1,14 +1,16 @@
 <template>
-  <NuxtLayout>
-    <NuxtLoadingIndicator
-      :height="5"
-    />
-    <NuxtPage />
-  </NuxtLayout>
+  <div>
+    <NuxtLayout>
+      <PwaInstallDialog />
+      <NuxtLoadingIndicator
+        :height="5"
+      />
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
 </template>
 <script setup lang="ts">
 import { ID_INJECTION_KEY } from 'element-plus'
-import { useDatabase } from '~/stores/database'
 
 provide(ID_INJECTION_KEY, {
   prefix: 100,

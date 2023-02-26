@@ -41,8 +41,6 @@
   </div>
 </template>
 <script setup lang=ts>
-import { PropType } from 'vue'
-import { IntroData } from '~/types/interfaces'
 
 const mainIntroProps = defineProps({
   introText: { type: Object as PropType<IntroData>, default: () => null },
