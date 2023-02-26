@@ -2084,6 +2084,14 @@
     "@nuxt/kit" "^3.0.0"
     h3 "^1.0.1"
 
+"@pinia-plugin-persistedstate/nuxt@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pinia-plugin-persistedstate/nuxt/-/nuxt-1.0.0.tgz#057fd3b0649e9c4ce90f60e3fc136eeef50c0777"
+  integrity sha512-oBLnkFXy0mcP9wCR0NQj1SguhgalEoubDF302gpRr1lh0V34vSL2Nlw8XDwRrULq5v3eHt4da632YSjNny1+BA==
+  dependencies:
+    "@nuxt/kit" "^3.0.0"
+    pinia-plugin-persistedstate ">=3.0.0"
+
 "@pinia/nuxt@^0.4.6":
   version "0.4.7"
   resolved "https://registry.yarnpkg.com/@pinia/nuxt/-/nuxt-0.4.7.tgz#dc1bd597869043fc4ef8c14977454c7b909ba5d0"
@@ -7790,7 +7798,12 @@ pify@^2.3.0:
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
   integrity sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==
 
-pinia@>=2.0.31, pinia@^2.0.28:
+pinia-plugin-persistedstate@>=3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/pinia-plugin-persistedstate/-/pinia-plugin-persistedstate-3.1.0.tgz#eada2b61ecd478fce88e490a685210415cd7a1b4"
+  integrity sha512-8UN+vYMEPBdgNLwceY08mi5olI0wkYaEb8b6hD6xW7SnBRuPydWHlEhZvUWgNb/ibuf4PvufpvtS+dmhYjJQOw==
+
+pinia@>=2.0.31:
   version "2.0.32"
   resolved "https://registry.yarnpkg.com/pinia/-/pinia-2.0.32.tgz#93a12df4416566c1bb49225a078fe20b982350be"
   integrity sha512-8Tw4OrpCSJ028UUyp0gYPP/wyjigLoEceuO/x1G+FlHVf73337e5vLm4uDmrRIoBG1hvaed/eSHnrCFjOc4nkA==
@@ -9954,7 +9967,7 @@ vue3-carousel@^0.2.5:
   resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.2.11.tgz#37ceb5109d75acca0721abc067664ef6826582fd"
   integrity sha512-VUKdJ7EmAhulCxfowtlyvo5U8f70Fp3BWVcv7azn6Y2P8bFiasd2RMlollAFY4lrkHPitmw0FoT8CEVZCWD4lw==
 
-vue@^3.2.45, vue@^3.2.47:
+vue@^3.2.47:
   version "3.2.47"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.47.tgz#3eb736cbc606fc87038dbba6a154707c8a34cff0"
   integrity sha512-60188y/9Dc9WVrAZeUVSDxRQOZ+z+y5nO2ts9jWXSTkMvayiWxCWOWtBQoYjLeccfXkiiPZWAHcV+WTPhkqJHQ==

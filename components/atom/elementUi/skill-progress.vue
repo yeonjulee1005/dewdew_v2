@@ -22,6 +22,7 @@
 </template>
 
 <script setup lang="ts">
+
 const progressProps = defineProps({
   progressData: { type: Object, default: () => null },
   width: { type: String, default: 'width: 360px;' }

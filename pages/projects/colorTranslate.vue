@@ -5,11 +5,11 @@
   >
     <div class="flex flex-column">
       <el-button class="eye-dropper mb-default" :icon="BrushFilled" @click="colorPicker">
-        {{ '스포이드' }}
+        {{ $t('colorsTranslate.dropper') }}
       </el-button>
       <LazyUploadFile
-        :file-size-alarm="'파일사이즈는 2048*2048 이하만 가능해요!'"
-        :file-type-alarm="'파일 타입은 jpg,png,gif만 가능해요!'"
+        :file-size-alarm="$t('colorsTranslate.fileSize')"
+        :file-type-alarm="$t('colorsTranslate.fileType')"
         :limit-type="['image/jpeg', 'image/png', 'image/gif']"
         :limit-height="2048"
         :limit-width="2048"
@@ -21,7 +21,7 @@
       label-position="top"
     >
       <el-space fill>
-        <el-form-item label="HEX Color">
+        <el-form-item :label="$t('colorsTranslate.hexLabel')">
           <el-input v-model="hexColor" maxlength="7" clearable>
             <template #append>
               <el-button v-if="isSupported" @click="copy(hexColor)">
@@ -32,11 +32,11 @@
         </el-form-item>
         <el-alert type="info" show-icon :cloasble="false">
           <p>
-            {{ '스포이드가 동작 안하는 환경일 경우, HEX 컬러를 입력하여 나머지 컬러 색을 확인하세요.' }}
+            {{ $t('colorsTranslate.dropperEnv') }}
           </p>
         </el-alert>
       </el-space>
-      <el-form-item label="RGB Color">
+      <el-form-item :label="$t('colorsTranslate.rgbLabel')">
         <el-input v-model="rgbColor" readonly>
           <template #append>
             <el-button v-if="isSupported" @click="copy(rgbColor)">
@@ -45,7 +45,7 @@
           </template>
         </el-input>
       </el-form-item>
-      <el-form-item label="HSL Color">
+      <el-form-item :label="$t('colorsTranslate.hslLabel')">
         <el-input v-model="hslColor" readonly>
           <template #append>
             <el-button v-if="isSupported" @click="copy(hslColor)">
@@ -54,7 +54,7 @@
           </template>
         </el-input>
       </el-form-item>
-      <el-form-item label="CMYK Color">
+      <el-form-item :label="$t('colorsTranslate.cmykLabel')">
         <el-input v-model="cmykColor" readonly>
           <template #append>
             <el-button v-if="isSupported" @click="copy(cmykColor)">
@@ -66,23 +66,26 @@
     </el-form>
   </div>
 </template>
+
 <script setup lang="ts">
 import { BrushFilled } from '@element-plus/icons-vue'
+
+const { t } = useLocale()
 const { open } = useEyeDropper()
 const { copy, copied, isSupported } = useClipboard()
 
 useHead({
-  title: '내 색상 찾아줘..',
+  title: t('pageTitle.colorsTranslate'),
   meta: [
-    { property: 'description', content: '잊고 지낸 색상코드를 찾아보세요.' },
-    { property: 'og:title', content: '개발자 이연주 | 내 색상 찾아줘..' },
+    { property: 'description', content: t('openGraph.colorsTranslateDesc') },
+    { property: 'og:title', content: t('openGraph.colorsTranslateOgTitle') },
     { property: 'og:url', content: 'https://dewdew.kr/projects/colorTranslate/' },
-    { property: 'og:description', content: '잊고 지낸 색상코드를 찾아보세요.' }
+    { property: 'og:description', content: t('openGraph.colorsTranslateDesc') }
   ]
 })
 
 definePageMeta({
-  title: 'Color Change'
+  layout: 'default'
 })
 
 const initColor = ref('')
@@ -94,7 +97,7 @@ const cmykColor = ref('')
 
 watch(copied, () => {
   if (copied.value) {
-    useAlarm().notify('', 'success', '복사 했어요!!', true, 1000, 0)
+    useAlarm().notify('', 'success', t('message.copy'), true, 1000, 0)
   }
 })
 
@@ -132,7 +135,7 @@ watch(hexColor, () => {
 const hexToRgb = (color:string) => {
   const initColor = color.split('#')[1].match(/.{1,2}/g)
   if (!initColor?.length) { return }
-  const rgb = 'rgb('.concat(String(parseInt(initColor[0], 16)), ', ', String(parseInt(initColor[1], 16)), ', ', String(parseInt(initColor[2], 16)), ')')
+  const rgb = 'rgb('.concat(String(parseInt(initColor[0], 16)), ',', String(parseInt(initColor[1], 16)), ',', String(parseInt(initColor[2], 16)), ')')
   rgbToCmyk(parseInt(initColor[0], 16), parseInt(initColor[1], 16), parseInt(initColor[2], 16))
   rgbColor.value = rgb
 }
@@ -152,7 +155,7 @@ const hexToHsl = (color:string) => {
   let l = h
 
   if (max === min) {
-    hslColor.value = 'hsl('.concat('0, 0% ,', String(l), '% )')
+    hslColor.value = 'hsl('.concat('0, 0%,', String(l), '%)')
     return
   }
 
@@ -176,7 +179,7 @@ const hexToHsl = (color:string) => {
   l = l * 100
   l = Math.round(l)
   h = Math.round(360 * h)
-  hslColor.value = 'hsl('.concat(String(h), ', ', String(s), '% ,', String(l), '% )')
+  hslColor.value = 'hsl('.concat(String(h), ',', String(s), '%,', String(l), '%)')
 }
 
 const rgbToCmyk = (red:number, green:number, blue:number) => {
@@ -199,7 +202,7 @@ const rgbToCmyk = (red:number, green:number, blue:number) => {
   y = isNaN(y) ? 0 : y
   k = isNaN(k) ? 0 : k
 
-  cmykColor.value = 'cmyk('.concat(String(c), ', ', String(m), ', ', String(y), ', ', String(k), ')')
+  cmykColor.value = 'cmyk('.concat(String(c), ',', String(m), ',', String(y), ',', String(k), ')')
 }
 
 const textInclude = (text:string, search:string) => {

@@ -34,9 +34,12 @@
     <div class="skills-title-box" />
   </div>
 </template>
+
 <script setup lang="ts">
+
 const skillsDescProps = defineProps({
   skillsText: { type: Object, default: () => null },
   skillsTextTrigger: { type: Boolean, default: false }
 })
+
 </script>

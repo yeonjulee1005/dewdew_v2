@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main-archives-title">
-      {{ title }}
+      {{ $t('archives.title') }}
     </div>
     <LazyImageSlider
       :image-data="thumbImageData"
@@ -9,24 +9,26 @@
     />
   </div>
 </template>
+
 <script setup lang="ts">
 
+const { t } = useLocale()
+
 useHead({
-  title: '아카이브',
+  title: t('title.archives'),
   meta: [
-    { property: 'description', content: 'FE개발자 이연주의 사진기록 입니다.' },
-    { property: 'og:title', content: '개발자 이연주 | 아카이브' },
+    { property: 'description', content: t('title.archivesDesc') },
+    { property: 'og:title', content: t('title.archivesOgTitle') },
     { property: 'og:url', content: 'https://dewdew.kr/archives/' },
-    { property: 'og:description', content: 'FE개발자 이연주의 사진기록 입니다.' }
+    { property: 'og:description', content: t('title.archivesDesc') }
   ]
 })
 
 definePageMeta({
-  title: 'Archives',
-  pageTransition: false
+  pageTransition: false,
+  layout: 'default'
 })
 
-const title = ref('Dewdew History')
 const coreImages = useDatabase().imageData.value
 const thumbImageData = ref<ArchivesData[]>([])
 

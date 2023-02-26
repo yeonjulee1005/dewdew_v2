@@ -16,7 +16,7 @@
       :label-width="80"
       @submit.prevent
     >
-      <el-form-item label="비밀번호" prop="password">
+      <el-form-item :label="$t('blog.password')" prop="password">
         <el-input
           v-model="authKeyData.password"
           type="password"
@@ -35,8 +35,12 @@
     </el-form>
   </LazyADialog>
 </template>
+
 <script setup lang="ts">
+
 import type { FormInstance, FormRules } from 'element-plus'
+
+const { t } = useLocale()
 
 const authCheckProps = defineProps({
   adminTrigger: { type: Boolean, default: false },
@@ -58,9 +62,9 @@ const validatePassword = (_rule:any, value:any, callback:any) => {
   const english = value.search(/[a-z]/g)
   const special = value.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi)
   if (value === '') {
-    callback(new Error('비밀번호를 입력해주세요!'))
+    callback(new Error(t('validate.passwordEmpty')))
   } else if (number < 0 || english < 0 || special < 0) {
-    return callback(new Error('비밀번호는 숫자, 영문, 특수문자가 섞여있죠?'))
+    return callback(new Error(t('validate.passwordFormat')))
   } else {
     callback()
   }
@@ -76,7 +80,7 @@ const checkPassword = async (formEl:FormInstance|undefined) => {
     if (valid) {
       authCheckEmits('confirm-password', authKeyData.password)
     } else {
-      useAlarm().notify('', 'warning', '비밀번호를 확인해주세요~', true, 3000, 0)
+      useAlarm().notify('', 'warning', t('validate.passwordCheck'), true, 3000, 0)
     }
   })
 }

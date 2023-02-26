@@ -25,6 +25,7 @@
     <el-empty v-else class="empty-comments" :description="articleCommentsProps.emptyText" />
   </div>
 </template>
+
 <script setup lang="ts">
 
 const articleCommentsProps = defineProps({

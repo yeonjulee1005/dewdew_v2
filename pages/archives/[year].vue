@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-button class="prev-button" round @click="routerBack">
-      {{ prev }}
+      {{ $t('archives.back') }}
     </el-button>
     <LazyImageSlider
       :image-data="imageData"
@@ -22,23 +22,25 @@
     </ADialog>
   </div>
 </template>
+
 <script setup lang="ts">
 
+const { t } = useLocale()
 const route = useRoute()
 
 useHead({
-  title: '아카이브',
+  title: t('title.archives'),
   meta: [
-    { property: 'description', content: 'FE개발자 이연주의 사진기록 입니다.' },
-    { property: 'og:title', content: '개발자 이연주 | 아카이브' },
+    { property: 'description', content: t('title.archivesDesc') },
+    { property: 'og:title', content: t('title.archivesOgTitle') },
     { property: 'og:url', content: `https://dewdew.kr${route.path}` },
-    { property: 'og:description', content: 'FE개발자 이연주의 사진기록 입니다.' }
+    { property: 'og:description', content: t('title.archivesDesc') }
   ]
 })
 
 definePageMeta({
-  title: 'Images',
-  pageTransition: false
+  pageTransition: false,
+  layout: 'default'
 })
 
 const coreImages = useDatabase().imageData.value
@@ -46,7 +48,6 @@ const routeUrl = useRoute().path
 
 const imageData = ref<ArchivesData[]>([])
 const selectImageData = ref<MassImages>()
-const prev = ref('뒤로가기')
 const imageDialogTrigger = ref(false)
 
 onBeforeMount(() => {
@@ -55,7 +56,7 @@ onBeforeMount(() => {
 
 const initImageData = () => {
   if (!coreImages.length) {
-    useRouter().push('/')
+    navigateTo('/')
   }
   imageData.value = []
   coreImages.forEach((images:any) => {
@@ -75,7 +76,7 @@ const closeImageDialog = () => {
 }
 
 const routerBack = () => {
-  useRouter().push('/'.concat(routeUrl.split('/')[1]))
+  navigateTo('/archives')
 }
 
 </script>

@@ -16,12 +16,12 @@
       :label-width="80"
       @submit.prevent
     >
-      <el-form-item label="제목" prop="title">
+      <el-form-item :label="$t('blog.articleTitle')" prop="title">
         <el-input
           v-model="createArticleData.title"
         />
       </el-form-item>
-      <el-form-item label="컨텐츠">
+      <el-form-item :label="$t('blog.article')">
         <LazyTextEditor
           :text-limit="300000"
           :full-option="true"
@@ -30,14 +30,17 @@
       </el-form-item>
       <el-form-item class="submit-form-item">
         <el-button class="submit-button" type="primary" @click="submitArticle(createArticleRef)">
-          {{ submitButtonText }}
+          {{ $t('blog.write') }}
         </el-button>
       </el-form-item>
     </el-form>
   </LazyADialog>
 </template>
+
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
+
+const { t } = useLocale()
 
 const createArticleProps = defineProps({
   createArticleTrigger: { type: Boolean, default: false },
@@ -50,7 +53,6 @@ const createArticleEmits = defineEmits([
   'close-dialog'
 ])
 
-const submitButtonText = ref('글쓰기!')
 const createArticleRef = ref<FormInstance>()
 const createArticleData = reactive({
   title: '',
@@ -62,7 +64,7 @@ const createArticleData = reactive({
 })
 
 const createArticleRules = reactive<FormRules>({
-  title: [{ required: true, message: '입력해랑...', trigger: 'blur' }]
+  title: [{ required: true, message: t('validate.articleEmpty'), trigger: 'blur' }]
 })
 
 const updateArticle = (article:string, rawArticle:string) => {
@@ -77,7 +79,7 @@ const submitArticle = async (formEl:FormInstance|undefined) => {
     if (valid) {
       createArticleEmits('create-article', createArticleData)
     } else {
-      useAlarm().notify('', 'warning', '제목 입력해랑..', true, 3000, 0)
+      useAlarm().notify('', 'warning', t('validate.titleEmpty'), true, 3000, 0)
     }
   })
 }

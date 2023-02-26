@@ -9,7 +9,9 @@
     </el-tag>
   </div>
 </template>
+
 <script setup lang="ts">
+
 const articleAddOnProps = defineProps({
   articleId: { type: String, default: '' },
   data: { type: Object, default: () => null },

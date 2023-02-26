@@ -12,7 +12,9 @@
     </el-button>
   </div>
 </template>
+
 <script setup lang="ts">
+
 const affixButtonProps = defineProps({
   trigger: { type: Boolean, default: false },
   position: { type: String, default: 'bottom' },

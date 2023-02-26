@@ -40,7 +40,9 @@
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
+
 const contactProps = defineProps({
   contactData: { type: Object, default: () => null },
   kakaoImage: { type: String, default: '' },

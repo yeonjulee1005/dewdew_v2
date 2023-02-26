@@ -1,4 +1,72 @@
 {
+  "pageTitle": {
+    "yeonju": "개발자 이연주",
+    "project": "프로젝트",
+    "colorsTranslate": "내 색상 찾아줘..",
+    "blog": "블로그",
+    "archives": "아카이브"
+  },
+  "openGraph": {
+    "projectDesc": "토이 프로젝트 리스트 입니다.",
+    "projectOgTitle": "개발자 이연주 | 프로젝트",
+    "colorsTranslateDesc": "잊고 지낸 색상코드를 찾아보세요.",
+    "colorsTranslateOgTitle": "개발자 이연주 | 내 색상 찾아줘..",
+    "blogDesc": "FE개발자 이연주의 개발 블로그 입니다.",
+    "blogOgTitle": "개발자 이연주 | 블로그",
+    "archivesDesc": "FE개발자 이연주의 사진기록 입니다.",
+    "archivesOgTitle": "개발자 이연주 | 아카이브"
+  },
+  "blog": {
+    "write": "글쓰기",
+    "writeComment": "댓글쓰기",
+    "articleTitle": "글제목",
+    "article": "컨텐츠",
+    "commentTitle": "댓글",
+    "password": "비밀번호"
+  },
+  "archives": {
+    "title": "Dewdew History",
+    "back": "Back",
+    "historyTitle": "HISTORY OF"
+  },
+  "colorsTranslate": {
+    "dropper": "스포이드",
+    "fileSize": "파일사이즈는 2048*2048 이하만 가능해요!",
+    "fileType": "파일 타입은 jpg,png,gif만 가능해요!",
+    "dropperEnv": "스포이드가 동작 안하는 환경일 경우, HEX 컬러를 입력하여 나머지 컬러 색을 확인하세요.",
+    "hexLabel": "HEX Color",
+    "rgbLabel": "RGB Color",
+    "hslLabel": "HSL Color",
+    "cmykLabel": "CMYK Color",
+    "uploadFile": "파일을 올려주세요.",
+    "dropperDesc": "그리고 스포이드로 컬러를",
+    "checkDropper": "확인해주세요."
+  },
+  "validate": {
+    "articleEmpty": "입력해랑...",
+    "titleEmpty": "제목 입력해랑...",
+    "commentEmpty": "내용을 입력해주세요!",
+    "nameEmpty": "이름을 입력해주세요!",
+    "nameFormat": "이름은 2자 이상 입력해주세요!",
+    "passwordEmpty": "비밀번호를 입력해주세요!",
+    "passwordFormat": "비밀번호는 숫자, 영문, 특수문자가 섞여있죠?",
+    "passwordCheck": "비밀번호를 확인해주세요~"
+  },
+  "messages": {
+    "copy": "복사 했어요!",
+    "emptyArticle": "글이 없네요..ㅜㅜ",
+    "enterPassword": "관리자 비밀번호를 입력해주세요!",
+    "writeArticle": "글을 써보자!",
+    "unAuthorizedWrite": "어딜...감히..",
+    "writeSuccess": "글이 작성되었네용!!",
+    "writeFailed": "글 작성이 실패했넹??",
+    "enterCommentPassword": "댓글 비밀번호를 입력해주세요!",
+    "commentWriteSuccess": "댓글 작성해주셔서 감사해요❤",
+    "commentDelete": "댓글을 삭제했어요..ㅠㅠ",
+    "unAuthorizedComment": "댓글 비밀번호가 틀립니다.",
+    "usePage": "페이지를 이용해주세요:(",
+    "moveToMain": "메인페이지로 이동되었습니다:)"
+  },
   "pwa": {
     "readyPwa": "PWA를 사용할 준비가 됬어요!",
     "newContent": "새로운 컨첸츠가 있어요! 업데이트 해주세요!",

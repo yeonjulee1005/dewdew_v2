@@ -35,7 +35,7 @@
         >
           <template #append>
             <el-button class="submit-button mt-20" @click="submitArticle(createCommentRef)">
-              {{ submitCommentButton }}
+              {{ $t('blog.writeComment') }}
             </el-button>
           </template>
         </el-input>
@@ -43,9 +43,12 @@
     </el-form>
   </div>
 </template>
+
 <script setup lang="ts">
 import { Refresh } from '@element-plus/icons-vue'
 import type { FormInstance, FormRules } from 'element-plus'
+
+const { t } = useLocale()
 
 const createCommentProps = defineProps({
   nameLabel: { type: String, default: '이름' },
@@ -58,7 +61,6 @@ const createCommentEmits = defineEmits([
 ])
 
 const createCommentRef = ref<FormInstance>()
-const submitCommentButton = ref('댓글쓰기')
 
 const createCommentData = ref<CreateComment>({
   name: '',
@@ -68,10 +70,10 @@ const createCommentData = ref<CreateComment>({
 
 const validateName = (_rule:any, value:any, callback:any) => {
   if (value === '') {
-    callback(new Error('이름을 입력해주세요!'))
+    callback(new Error(t('validate.nameEmpty')))
   } else {
     if (value < 2) {
-      return callback(new Error('이름은 2자 이상 입력해주세요!'))
+      return callback(new Error(t('validate.nameFormat')))
     }
     callback()
   }
@@ -82,9 +84,9 @@ const validatePassword = (_rule:any, value:any, callback:any) => {
   const english = value.search(/[a-z]/g)
   const special = value.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi)
   if (value === '') {
-    callback(new Error('비밀번호를 입력해주세요!'))
+    callback(new Error(t('validate.passwordEmpty')))
   } else if (number < 0 || english < 0 || special < 0) {
-    return callback(new Error('비밀번호는 숫자, 영문, 특수문자가 섞여있죠?'))
+    return callback(new Error(t('validate.passwordFormat')))
   } else {
     callback()
   }
@@ -116,7 +118,7 @@ const submitArticle = async (formEl:FormInstance|undefined) => {
         formEl.resetFields()
       }, 1000)
     } else {
-      useAlarm().notify('', 'warning', '내용을 입력해주시죠..', true, 3000, 0)
+      useAlarm().notify('', 'warning', t('validate.commentEmpty'), true, 3000, 0)
     }
   })
 }
