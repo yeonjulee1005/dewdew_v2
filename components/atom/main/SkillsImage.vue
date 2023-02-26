@@ -17,7 +17,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { PropType } from 'vue'
 
 const skillsImageProps = defineProps({
   skillsImage: { type: Array as PropType<Images[]>, default: () => [] },

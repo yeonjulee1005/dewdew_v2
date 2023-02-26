@@ -1,4 +1,4 @@
-import { useHttp } from '~/composables'
+import { useHttp } from '~/composables/communication/http'
 
 export const useApi = () => {
   const getSsrCoreData = async (coreUrl:string, imageUrl:string) => {

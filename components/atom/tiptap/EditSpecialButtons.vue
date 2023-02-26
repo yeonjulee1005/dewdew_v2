@@ -1,18 +1,34 @@
 <template>
-  <el-button
-    class="menu-item"
-    :disabled="editButtonProps.disabled"
-    @click="editButtonProps.action"
-  >
-    <Icon :icon="`ri:${type}`" />
-  </el-button>
+  <client-only>
+    <el-tooltip
+      :visible="visible"
+      effect="dark"
+      placement="bottom"
+      :content="tooltipText"
+    >
+      <el-button
+        class="menu-item"
+        :disabled="disabled"
+        @mouseenter="!tooltipTrigger ? visible = false : visible = true"
+        @mouseleave="visible = false"
+        @click="action"
+      >
+        <Icon :icon="iconType" />
+      </el-button>
+    </el-tooltip>
+  </client-only>
 </template>
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 
-const editButtonProps = defineProps({
+defineProps({
+  iconType: { type: String, default: '' },
+  action: { type: Function, default: null },
   disabled: { type: Boolean, default: false },
-  type: { type: String, default: '' },
-  action: { type: Function, default: null }
+  tooltipTrigger: { type: Boolean, default: true },
+  tooltipText: { type: String, default: '' }
 })
+
+const visible = ref(false)
+
 </script>

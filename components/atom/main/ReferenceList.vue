@@ -66,7 +66,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { PropType } from 'vue'
 
 const selectReference = ref<ReferenceImage>({
   alt: '',

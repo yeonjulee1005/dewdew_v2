@@ -51,7 +51,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { PropType } from 'vue'
 
 const skillsProps = defineProps({
   skillsText: { type: Object, default: () => null },

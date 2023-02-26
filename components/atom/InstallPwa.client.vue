@@ -7,42 +7,48 @@
     >
       <div class="message">
         <span v-if="$pwa.offlineReady">
-          App ready to work offline
+          {{ $t('pwa.readyPwa') }}
         </span>
         <span v-else>
-          New content available, click on reload button to update.
+          {{ $t('pwa.newContent') }}
         </span>
       </div>
-      <button
+      <el-button
         v-if="$pwa.needRefresh"
         @click="$pwa.updateServiceWorker()"
       >
-        Reload
-      </button>
-      <button @click="$pwa.cancelPrompt()">
-        Close
-      </button>
+        {{ $t('pwa.reload') }}
+      </el-button>
+      <el-button @click="$pwa.cancelPrompt()">
+        {{ $t('pwa.close') }}
+      </el-button>
     </div>
     <div
       v-if="$pwa?.showInstallPrompt && !$pwa?.offlineReady && !$pwa?.needRefresh"
-      class="pwa-toast"
+      class="pwa-toast flex"
       role="alert"
     >
-      <div class="message">
-        <span>
-          Install PWA
-        </span>
+      <div class="flex flex-column flex-align-center">
+        <div class="message">
+          <span>
+            {{ $t('pwa.installPwa') }}
+          </span>
+        </div>
+        <div>
+          <el-button @click="$pwa.install()">
+            {{ $t('pwa.install') }}
+          </el-button>
+          <el-button @click="$pwa.cancelInstall()">
+            {{ $t('pwa.cancel') }}
+          </el-button>
+        </div>
       </div>
-      <button @click="$pwa.install()">
-        Install
-      </button>
-      <button @click="$pwa.cancelInstall()">
-        Cancel
-      </button>
+      <Icon :width="60" :height="60" icon="ic:round-install-desktop" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
 
 </script>

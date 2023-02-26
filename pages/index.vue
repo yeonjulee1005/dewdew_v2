@@ -29,7 +29,7 @@
       :kakao-image="kakaoImage"
       :contact-trigger="contactTrigger"
     />
-    <el-backtop :bottom="60" :right="30" />
+    <el-backtop :bottom="120" :right="30" />
   </div>
 </template>
 <script setup lang="ts">

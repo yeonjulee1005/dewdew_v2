@@ -107,19 +107,17 @@ headerProps.coreData.forEach((core:any) => {
   }
 })
 
-onMounted(() => {
-  darkModeTrigger.value = isDarkTrigger.value
-  handleResize(width.value)
-})
-
-watch(width, () => { handleResize(width.value) })
-watch(darkModeTrigger, () => {
-  darkModeTrigger.value ? favicon.value = 'favicon_black.png' : favicon.value = 'favicon_white.png'
-})
-useFavicon(favicon)
+darkModeTrigger.value = isDarkTrigger.value
 
 const handleResize = (width:number) => {
   width < 800 ? desktopModeTrigger.value = false : desktopModeTrigger.value = true
 }
 
+watch(width, () => { handleResize(width.value) })
+watch(darkModeTrigger, () => {
+  darkModeTrigger.value ? favicon.value = 'favicon_black.png' : favicon.value = 'favicon_white.png'
+})
+
+useFavicon(favicon)
+handleResize(width.value)
 </script>

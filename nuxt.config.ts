@@ -1,4 +1,3 @@
-
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default {
   routes: {
@@ -49,20 +48,11 @@ export default {
       }
     }
   },
-  nitro: {
-    esbuild: {
-      options: {
-        target: 'esnext'
-      }
-    },
-    prerender: {
-      routes: ['/', '/about']
-    }
-  },
   // modules
   modules: [
     '@vite-pwa/nuxt',
     '@pinia/nuxt',
+    '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@nuxt/image-edge',
     '@nuxtjs/robots'
@@ -78,22 +68,19 @@ export default {
       GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
     }
   },
-  // webpack: {
-  //   extractCSS: true,
-  //   optimization: {
-  //     splitChunks: {
-  //       maxSize: 300000,
-  //       cacheGroups: {
-  //         styles: {
-  //           name: 'styles',
-  //           test: /\.(css|vue)$/,
-  //           chunks: 'all',
-  //           enforce: true
-  //         }
-  //       }
-  //     }
-  //   }
-  // },
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext'
+      }
+    },
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/'
+      ]
+    }
+  },
   // auto import components
   components: [
     {
@@ -106,6 +93,23 @@ export default {
       'composables/**',
       'stores'
     ]
+  },
+  i18n: {
+    locales: [
+      {
+        code: 'ko',
+        iso: 'ko-KR',
+        file: 'ko.json'
+      }
+    ],
+    lazy: true,
+    langDir: 'locales',
+    strategy: 'no_prefix',
+    defaultLocale: 'ko',
+    vueI18n: {
+      legacy: false,
+      locale: 'ko'
+    }
   },
   // vueuse
   vueuse: {
@@ -125,12 +129,12 @@ export default {
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
-      name: 'Dev Dewdew',
-      short_name: 'Dev Dewdew',
-      theme_color: '#ffffff',
+      name: 'Dewdew',
+      short_name: 'Dewdew',
+      theme_color: '#fa7474',
       icons: [
         {
-          src: 'favicon_black.png',
+          src: 'icon.png',
           sizes: '512x512',
           type: 'image/png'
         }

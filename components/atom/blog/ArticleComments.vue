@@ -26,7 +26,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { PropType } from 'vue'
 
 const articleCommentsProps = defineProps({
   commentTitle: { type: String, default: '' },
