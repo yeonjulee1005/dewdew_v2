@@ -101,6 +101,21 @@ watch(copied, () => {
   }
 })
 
+watch(hexColor, () => {
+  if (textInclude(hexColor.value, 'rgb') || textInclude(hexColor.value, 'hls') || textInclude(hexColor.value, 'cmyk')) {
+    hexColor.value = ''
+    return
+  }
+  if (!textInclude(hexColor.value, '#')) {
+    hexColor.value = '#'.concat(hexColor.value)
+  }
+  if (hexColor.value.length === 7) {
+    backgroundColor.value = 'background: '.concat(hexColor.value)
+    hexToRgb(hexColor.value)
+    hexToHsl(hexColor.value)
+  }
+})
+
 onMounted(() => {
   initColorData()
 })
@@ -116,21 +131,6 @@ const colorPicker = () => {
     if (res) { hexColor.value = res.sRGBHex }
   })
 }
-
-watch(hexColor, () => {
-  if (textInclude(hexColor.value, 'rgb') || textInclude(hexColor.value, 'hls') || textInclude(hexColor.value, 'cmyk')) {
-    hexColor.value = ''
-    return
-  }
-  if (!textInclude(hexColor.value, '#')) {
-    hexColor.value = '#'.concat(hexColor.value)
-  }
-  if (hexColor.value.length === 7) {
-    backgroundColor.value = 'background: '.concat(hexColor.value)
-    hexToRgb(hexColor.value)
-    hexToHsl(hexColor.value)
-  }
-})
 
 const hexToRgb = (color:string) => {
   const initColor = color.split('#')[1].match(/.{1,2}/g)

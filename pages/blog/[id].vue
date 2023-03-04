@@ -1,30 +1,28 @@
 <template>
-  <div>
-    <div class="blog-article flex flex-column flex-align-center">
-      <LazyArticleHeader
-        :data="articleData"
-      />
-      <LazyArticleAddOn
-        :article-id="String(articleId)"
-        :data="articleData"
-        :activate-like="articleLike?.trigger"
-        @update-count="updateLikeCount"
-      />
-      <div class="article-body mt-default" v-html="articleData.desc" />
-      <LazyArticleComments
-        :comment-title="$t('blog.commentTitle')"
-        :comment-data="commentList"
-        @delete-comment="openDeleteConfirmDialog"
-      />
-      <LazyCreateComment
-        @create-comment="createComment"
-      />
-      <LazyLikeButton
-        :trigger="displayFloatButtonTrigger"
-        :activate-like="articleLike?.trigger"
-        @click-affix="updateLikeCount"
-      />
-    </div>
+  <div class="blog-article flex flex-column flex-align-center">
+    <LazyArticleHeader
+      :data="articleData"
+    />
+    <LazyArticleAddOn
+      :article-id="String(articleId)"
+      :data="articleData"
+      :activate-like="articleLike?.trigger"
+      @update-count="updateLikeCount"
+    />
+    <div class="article-body mt-default" v-html="articleData.desc" />
+    <LazyArticleComments
+      :comment-title="$t('blog.commentTitle')"
+      :comment-data="commentList"
+      @delete-comment="openDeleteConfirmDialog"
+    />
+    <LazyCreateComment
+      @create-comment="createComment"
+    />
+    <LazyLikeButton
+      :trigger="displayFloatButtonTrigger"
+      :activate-like="articleLike?.trigger"
+      @click-affix="updateLikeCount"
+    />
     <LazyAuthCheckDialog
       :admin-trigger="deleteConfirmTrigger"
       :title="$t('messages.enterCommentPassword')"
@@ -38,7 +36,9 @@
 <script setup lang="ts">
 
 const { t } = useLocale()
+const { y } = useWindowScroll()
 const route = useRoute()
+const articleId = useRoute().params.id
 
 const articleData = ref({
   title: '',
@@ -60,10 +60,6 @@ useHead({
 definePageMeta({
   layout: 'default'
 })
-
-const { y } = useWindowScroll()
-
-const articleId = useRoute().params.id
 
 const commentList = ref<CommentList[]>([])
 const deleteCommentData = ref<CommentList>()

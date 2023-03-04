@@ -30,9 +30,14 @@ interface Images {
   url: string
 }
 
-interface MassImages {
+interface MassImage {
   title: string,
   url: string
+}
+
+interface MassImageData {
+  data: MassImage,
+  id: string
 }
 
 interface listTexts {
