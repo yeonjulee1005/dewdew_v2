@@ -38,6 +38,7 @@
     </div>
   </el-footer>
 </template>
+
 <script setup type="ts">
 
 const footerProps = defineProps({

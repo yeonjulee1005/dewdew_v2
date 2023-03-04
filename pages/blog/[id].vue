@@ -40,13 +40,20 @@
 const { t } = useLocale()
 const route = useRoute()
 
+const articleData = ref({
+  title: '',
+  desc: '',
+  like: 0,
+  createdAt: ''
+})
+
 useHead({
   title: 'Article',
   meta: [
-    { property: 'description', content: t('pageTitle.blogDesc') },
-    { property: 'og:title', content: t('pageTitle.blogOgTitle') },
+    { property: 'description', content: articleData.value.desc },
+    { property: 'og:title', content: articleData.value.title },
     { property: 'og:url', content: `https://dewdew.kr${route.path}` },
-    { property: 'og:description', content: t('pageTitle.blogDesc') }
+    { property: 'og:description', content: articleData.value.desc }
   ]
 })
 
@@ -58,12 +65,6 @@ const { y } = useWindowScroll()
 
 const articleId = useRoute().params.id
 
-const articleData = ref({
-  title: '',
-  desc: '',
-  like: 0,
-  createdAt: ''
-})
 const commentList = ref<CommentList[]>([])
 const deleteCommentData = ref<CommentList>()
 const displayFloatButtonTrigger = ref(false)
@@ -71,10 +72,6 @@ const deleteConfirmTrigger = ref(false)
 const beforeParsingLike = ref('')
 const articleLike = ref()
 const writeIndex = ref(0)
-
-onBeforeMount(() => {
-  initArticleConfig()
-})
 
 watch(y, () => {
   y.value
@@ -165,8 +162,8 @@ const closeAuthCheckDialog = () => {
   deleteConfirmTrigger.value = false
 }
 
-const loadArticleData = async () => {
-  await useApi().getSingleData('blog', 'client').then((res:any) => {
+const loadArticleData = () => {
+  useApi().getSingleData('blog', 'client').then((res:any) => {
     commentList.value = []
     res.forEach((blog:BlogData) => {
       if (blog.id === articleId) {
@@ -174,14 +171,11 @@ const loadArticleData = async () => {
         articleData.value.desc = blog.desc
         articleData.value.like = blog.like
         articleData.value.createdAt = new Date(blog.createdAt.seconds * 1000 + blog.createdAt.nanoseconds / 1000000).toLocaleString('ko-KR', { timeZone: 'UTC' })
-        blog.comment.forEach((comment:any) => {
+        blog.comment.forEach((comment:CommentList) => {
           const commentData:CommentList = {
-            index: comment.index,
-            name: comment.name,
-            message: comment.message,
-            password: comment.password,
+            ...comment,
             timeAgo: useTimeAgo(new Date(comment.createdAt.seconds * 1000 + comment.createdAt.nanoseconds / 1000000)),
-            createdAt: new Date(comment.createdAt.seconds * 1000 + comment.createdAt.nanoseconds / 1000000)
+            createdDate: new Date(comment.createdAt.seconds * 1000 + comment.createdAt.nanoseconds / 1000000)
           }
           commentList.value.push(commentData)
         })
@@ -208,5 +202,7 @@ const createLikeData = () => {
   setStorage(articleId, false)
   updateLikeData()
 }
+
+initArticleConfig()
 
 </script>

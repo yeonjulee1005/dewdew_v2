@@ -9,7 +9,7 @@
       label-position="top"
       @submit.prevent
     >
-      <el-form-item :label="createCommentProps.nameLabel" prop="name">
+      <el-form-item :label="nameLabel" prop="name">
         <el-input
           v-model="createCommentData.name"
           :maxlength="16"
@@ -21,12 +21,12 @@
           </template>
         </el-input>
       </el-form-item>
-      <el-form-item :label="createCommentProps.contentLabel">
+      <el-form-item :label="contentLabel">
         <LazyTextEditor
           @update:model-value="updateArticle"
         />
       </el-form-item>
-      <el-form-item :label="createCommentProps.passwordLabel" prop="password">
+      <el-form-item :label="passwordLabel" prop="password">
         <el-input
           v-model="createCommentData.password"
           type="password"
@@ -50,7 +50,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 
 const { t } = useLocale()
 
-const createCommentProps = defineProps({
+defineProps({
   nameLabel: { type: String, default: '이름' },
   contentLabel: { type: String, default: '내용' },
   passwordLabel: { type: String, default: '비밀번호' }

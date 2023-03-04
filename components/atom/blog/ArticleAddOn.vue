@@ -2,17 +2,17 @@
   <div class="article-add-on flex flex-justify-end mt-default mb-default">
     <el-tag
       class="like"
-      :effect="articleAddOnProps.activateLike ? 'light' : 'plain'"
+      :effect="activateLike ? 'light' : 'plain'"
       @click="updateLikeCount"
     >
-      {{ articleAddOnProps.data.like + ' ❤️' }}
+      {{ data.like + ' ❤️' }}
     </el-tag>
   </div>
 </template>
 
 <script setup lang="ts">
 
-const articleAddOnProps = defineProps({
+defineProps({
   articleId: { type: String, default: '' },
   data: { type: Object, default: () => null },
   activateLike: { type: Boolean, default: false }

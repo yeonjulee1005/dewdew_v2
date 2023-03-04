@@ -1,13 +1,13 @@
 <template>
   <client-only>
     <el-dialog
-      :model-value="dialogProps.dialogTrigger"
-      :show-close="dialogProps.showClose"
-      :class="dialogProps.customClass"
-      :top="dialogProps.top"
-      :width="dialogProps.width"
-      :open-delay="dialogProps.openDelay"
-      :close-delay="dialogProps.closeDelay"
+      :model-value="dialogTrigger"
+      :show-close="showClose"
+      :class="customClass"
+      :top="top"
+      :width="width"
+      :open-delay="openDelay"
+      :close-delay="closeDelay"
       close-on-click-modal
       close-on-press-escape
       destroy-on-close
@@ -18,9 +18,10 @@
     </el-dialog>
   </client-only>
 </template>
+
 <script setup lang="ts">
 
-const dialogProps = defineProps({
+defineProps({
   dialogTrigger: { type: Boolean, default: false },
   showClose: { type: Boolean, default: true },
   customClass: { type: String, default: '' },
