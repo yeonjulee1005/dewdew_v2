@@ -82,7 +82,7 @@ const contactTextData = ref<ContactData>({
   }
 })
 
-const imageData = ref<any[]>([])
+const imageData = ref<MassImageData[]>([])
 const bannersImage = ref('')
 const resumeImage = ref('')
 const kakaoImage = ref('')
@@ -99,6 +99,10 @@ const mainSkillsBgTrigger = ref(false)
 const mainSkillsListTrigger = ref(false)
 const referenceListTrigger = ref(false)
 const contactTrigger = ref(false)
+
+watch(y, () => {
+  scrollDetect()
+})
 
 const initData = async () => {
   await coreImages.forEach((image:any) => {
@@ -131,10 +135,6 @@ const initData = async () => {
 }
 
 initData()
-
-watch(y, () => {
-  scrollDetect()
-})
 
 const scrollDetect = () => {
   const scrollY = y.value

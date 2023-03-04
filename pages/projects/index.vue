@@ -32,7 +32,6 @@ definePageMeta({
 })
 
 const coreData = useDatabase().coreData.value
-
 const projectLists = ref<Route[]>([])
 
 coreData.forEach((core:any) => {

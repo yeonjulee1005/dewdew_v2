@@ -8,7 +8,10 @@
         {{ $t('blog.write') }}
       </el-button>
     </div>
-    <el-timeline v-if="blogData.length" class="blog-timeline">
+    <el-timeline
+      v-if="blogData.length"
+      class="blog-timeline"
+    >
       <el-timeline-item
         v-for="item in blogData"
         :key="item.index"
@@ -22,13 +25,13 @@
           :card-item="item"
         />
       </el-timeline-item>
-      <el-backtop target=".blog-timeline" :bottom="120" :right="30" />
     </el-timeline>
     <el-empty
       v-else
       class="blog-timeline"
       :description="$t('messages.emptyArticle')"
     />
+    <el-backtop target=".blog-lists" :bottom="120" :right="30" />
     <LazyAuthCheckDialog
       :admin-trigger="adminConfirmDialogTrigger"
       :title="$t('messages.enterPassword')"
@@ -45,7 +48,7 @@
   </div>
 </template>
 
-<script setup lang="ts" nuxt:static>
+<script setup lang="ts">
 
 const { t } = useLocale()
 

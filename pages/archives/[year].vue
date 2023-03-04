@@ -47,7 +47,7 @@ const coreImages = useDatabase().imageData.value
 const routeUrl = useRoute().path
 
 const imageData = ref<ArchivesData[]>([])
-const selectImageData = ref<MassImages>()
+const selectImageData = ref<MassImage>()
 const imageDialogTrigger = ref(false)
 
 onBeforeMount(() => {
@@ -66,7 +66,7 @@ const initImageData = () => {
   })
 }
 
-const openImageDialog = (imageData:MassImages) => {
+const openImageDialog = (imageData:MassImage) => {
   selectImageData.value = imageData
   imageDialogTrigger.value = true
 }
