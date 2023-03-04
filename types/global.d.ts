@@ -196,8 +196,9 @@ interface CommentList {
   name: string,
   message: string,
   password: string,
-  timeAgo: any,
-  createdAt: Date
+  timeAgo?: any,
+  createdDate?: Date,
+  createdAt: TimeStamp
 }
 
 interface CreateComment {

@@ -55,6 +55,7 @@
     </el-form>
   </div>
 </template>
+
 <script setup lang="ts">
 import { send } from '@emailjs/browser'
 import type { FormInstance, FormRules } from 'element-plus'

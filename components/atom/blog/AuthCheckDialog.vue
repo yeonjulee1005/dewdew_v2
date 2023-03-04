@@ -1,13 +1,13 @@
 <template>
   <LazyADialog
-    :dialog-trigger="authCheckProps.adminTrigger"
+    :dialog-trigger="adminTrigger"
     custom-class="auth-check-dialog"
     top="30vh"
     :width="360"
     @close-dialog="closeAuthCheckDialog"
   >
     <div class="title mb-20">
-      {{ authCheckProps.title }}
+      {{ title }}
     </div>
     <el-form
       ref="authKeyRef"
@@ -42,7 +42,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 
 const { t } = useLocale()
 
-const authCheckProps = defineProps({
+defineProps({
   adminTrigger: { type: Boolean, default: false },
   title: { type: String, default: '' }
 })

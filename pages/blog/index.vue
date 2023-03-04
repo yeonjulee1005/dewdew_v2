@@ -1,31 +1,34 @@
 <template>
-  <div>
-    <div class="blog-lists flex flex-column flex-justify-center flex-align-center">
-      <div class="write-button-container flex flex-justify-end">
-        <el-button
-          class="write-blog"
-          @click="openAdminCheckDialog"
-        >
-          {{ $t('blog.write') }}
-        </el-button>
-      </div>
-      <el-timeline v-if="blogData.length" class="blog-timeline">
-        <el-timeline-item
-          v-for="item in blogData"
-          :key="item.index"
-          center
-          :timestamp="item.timeAgo"
-          :color="item.like > 10 ? '#C74436' : '#D3E3D2'"
-          placement="top"
-          @click="clickBlogArticle(item)"
-        >
-          <LazyCardComponent
-            :card-item="item"
-          />
-        </el-timeline-item>
-      </el-timeline>
-      <el-empty v-else class="blog-timeline" :description="$t('messages.emptyArticle')" />
+  <div class="blog-lists flex flex-column flex-justify-center flex-align-center">
+    <div class="write-button-container flex flex-justify-end">
+      <el-button
+        class="write-blog"
+        @click="openAdminCheckDialog"
+      >
+        {{ $t('blog.write') }}
+      </el-button>
     </div>
+    <el-timeline v-if="blogData.length" class="blog-timeline">
+      <el-timeline-item
+        v-for="item in blogData"
+        :key="item.index"
+        center
+        :timestamp="item.timeAgo"
+        :color="item.like > 10 ? '#C74436' : '#D3E3D2'"
+        placement="top"
+        @click="clickBlogArticle(item)"
+      >
+        <LazyCardComponent
+          :card-item="item"
+        />
+      </el-timeline-item>
+      <el-backtop target=".blog-timeline" :bottom="120" :right="30" />
+    </el-timeline>
+    <el-empty
+      v-else
+      class="blog-timeline"
+      :description="$t('messages.emptyArticle')"
+    />
     <LazyAuthCheckDialog
       :admin-trigger="adminConfirmDialogTrigger"
       :title="$t('messages.enterPassword')"

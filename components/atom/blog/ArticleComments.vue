@@ -1,11 +1,11 @@
 <template>
   <div class="article-comments">
     <div class="comments-title">
-      {{ articleCommentsProps.commentTitle }}
+      {{ commentTitle }}
     </div>
-    <el-timeline v-if="articleCommentsProps.commentData.length">
+    <el-timeline v-if="commentData.length">
       <el-timeline-item
-        v-for="(comment, index) in articleCommentsProps.commentData"
+        v-for="(comment, index) in commentData"
         :key="index"
         center
         :color="comment.timeAgo === 'just now' ? '#C74436' : '#D3E3D2'"
@@ -16,19 +16,27 @@
             <p> {{ comment.name }} </p>
             <p v-html="comment.message" />
           </div>
-          <el-button circle size="small" @click="deleteComment(comment)">
+          <el-button
+            circle
+            size="small"
+            @click="deleteComment(comment)"
+          >
             <el-icon><Close /></el-icon>
           </el-button>
         </div>
       </el-timeline-item>
     </el-timeline>
-    <el-empty v-else class="empty-comments" :description="articleCommentsProps.emptyText" />
+    <el-empty
+      v-else
+      class="empty-comments"
+      :description="emptyText"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 
-const articleCommentsProps = defineProps({
+defineProps({
   commentTitle: { type: String, default: '' },
   commentData: { type: Array as PropType<CommentList[]>, default: () => [] },
   emptyText: { type: String, default: '댓글이 없네요..ㅠㅠ' }

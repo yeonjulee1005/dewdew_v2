@@ -1,16 +1,16 @@
 <template>
   <div class="main-skills flex flex-column">
     <LazySkillsDescriptions
-      :skills-text="skillsProps.skillsText"
-      :skills-text-trigger="skillsProps.skillsTextTrigger"
+      :skills-text="skillsText"
+      :skills-text-trigger="skillsTextTrigger"
     />
     <LazySkillsImage
-      :skills-image="skillsProps.skillsImage"
-      :skills-bg-trigger="skillsProps.skillsBgTrigger"
+      :skills-image="skillsImage"
+      :skills-bg-trigger="skillsBgTrigger"
     />
     <div
       class="skill-list flex flex-row flex-space-evenly flex-align-center"
-      :class="{'skill-list-on': skillsProps.skillsListTrigger}"
+      :class="{'skill-list-on': skillsListTrigger}"
     >
       <div class="main-skill-list flex flex-column">
         <div class="frontend-list flex flex-column flex-justify-center mb-40">
@@ -53,7 +53,7 @@
 
 <script setup lang="ts">
 
-const skillsProps = defineProps({
+defineProps({
   skillsText: { type: Object, default: () => null },
   skillsImage: { type: Array as PropType<Images[]>, default: () => [] },
   skillsTextTrigger: { type: Boolean, default: false },

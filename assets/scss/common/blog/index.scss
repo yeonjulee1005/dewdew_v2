@@ -3,6 +3,7 @@
   position: relative;
   height: $space-80vh;
   width: $space-100vw;
+  overflow-x: hidden;
   .write-button-container {
     width: $space-80vw;
     margin-top: $space-100;
@@ -12,6 +13,7 @@
     height: 60vh;
     width: $space-80vw;
     scrollbar-width: none;
+    overflow-x: hidden;
     ::-webkit-scrollbar {
       display: none;
     }

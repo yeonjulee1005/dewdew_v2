@@ -7,17 +7,17 @@
       </p>
     </nuxt-link>
     <div class="title">
-      {{ articleHeaderProps.data.title }}
+      {{ data.title }}
     </div>
     <div class="time flex flex-justify-end mt-default">
-      {{ articleHeaderProps.data.createdAt }}
+      {{ data.createdAt }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 
-const articleHeaderProps = defineProps({
+defineProps({
   data: { type: Object, default: () => null }
 })
 

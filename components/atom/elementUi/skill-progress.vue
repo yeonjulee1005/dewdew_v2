@@ -1,21 +1,21 @@
 <template>
   <div class="flex-align-center">
     <span class="skills-text">
-      {{ progressProps.progressData.title }}
+      {{ progressData.title }}
     </span>
     <el-progress
       :text-inside="true"
       :stroke-width="23"
-      :percentage="progressProps.progressData.percent"
-      :color="progressProps.progressData.color"
+      :percentage="progressData.percent"
+      :color="progressData.color"
       :indeterminate="true"
-      :duration="progressProps.progressData.duration"
+      :duration="progressData.duration"
       class="progress"
-      :style="progressProps.width"
+      :style="width"
       title="skills"
     >
-      <span :style="progressProps.progressData.style">
-        {{ progressProps.progressData.percentText }}
+      <span :style="progressData.style">
+        {{ progressData.percentText }}
       </span>
     </el-progress>
   </div>
@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 
-const progressProps = defineProps({
+defineProps({
   progressData: { type: Object, default: () => null },
   width: { type: String, default: 'width: 360px;' }
 })

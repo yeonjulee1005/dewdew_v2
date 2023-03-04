@@ -1,10 +1,10 @@
 <template>
   <div
     class="skill-images"
-    :class="{'skill-images-on': skillsImageProps.skillsBgTrigger}"
+    :class="{'skill-images-on': skillsBgTrigger}"
   >
     <nuxt-img
-      v-for="image in skillsImageProps.skillsImage"
+      v-for="image in skillsImage"
       :key="image.index"
       :class="image.title"
       :src="image.url"
@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 
-const skillsImageProps = defineProps({
+defineProps({
   skillsImage: { type: Array as PropType<Images[]>, default: () => [] },
   skillsBgTrigger: { type: Boolean, default: false }
 })

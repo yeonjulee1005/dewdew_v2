@@ -1,7 +1,7 @@
 <template>
   <div
     class="main-references flex flex-column flex-justify-center"
-    :class="{'main-references-on': referenceProps.referenceListTrigger}"
+    :class="{'main-references-on': referenceListTrigger}"
   >
     <div class="section-title">
       {{ referenceTextData.title }}
@@ -14,7 +14,7 @@
     </div>
     <div class="references-list flex flex-row flex-wrap flex-justify-center flex-align-center mx-80">
       <div
-        v-for="item in referenceProps.referenceImageData"
+        v-for="item in referenceImageData"
         :key="item.index"
         class="reference-item flex flex-column"
       >
@@ -79,7 +79,7 @@ const selectReference = ref<ReferenceImage>({
 })
 const referenceDialogTrigger = ref(false)
 
-const referenceProps = defineProps({
+defineProps({
   referenceTextData: { type: Object, default: () => null },
   referenceImageData: { type: Array as PropType<ReferenceImage[]>, default: () => [] },
   referenceListTrigger: { type: Boolean, default: false }

@@ -1,12 +1,12 @@
 <template>
   <div
     class="main-resume flex flex-justify-center flex-align-center"
-    :class="{'main-resume-on': resumeProps.mainResumeTrigger}"
+    :class="{'main-resume-on': mainResumeTrigger}"
   >
     <div class="resume-container flex flex-row">
       <nuxt-picture
         class="resume-image flex flex-justify-center flex-align-center"
-        :src="resumeProps.resumeImage"
+        :src="resumeImage"
         height="360"
         width="360"
         legacy-format="webp"
@@ -18,14 +18,14 @@
       <div class="resume-texts flex flex-column flex-justify-center">
         <div class="title-container mb-default">
           <p class="title">
-            {{ resumeProps.resumeText.title }}
+            {{ resumeText.title }}
           </p>
           <p class="educate">
-            {{ resumeProps.resumeText.educate }}
+            {{ resumeText.educate }}
           </p>
         </div>
         <div
-          v-for="content in resumeProps.resumeText.career"
+          v-for="content in resumeText.career"
           :key="content.index"
           class="career-container mt-5"
         >
@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 
-const resumeProps = defineProps({
+defineProps({
   resumeText: { type: Object, default: () => null },
   resumeImage: { type: String, default: '' },
   mainResumeTrigger: { type: Boolean, default: false }
