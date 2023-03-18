@@ -31,7 +31,11 @@
       class="blog-timeline"
       :description="$t('messages.emptyArticle')"
     />
-    <el-backtop target=".blog-lists" :bottom="120" :right="30" />
+    <el-backtop
+      target=".blog-lists"
+      :bottom="120"
+      :right="30"
+    />
     <LazyAuthCheckDialog
       :admin-trigger="adminConfirmDialogTrigger"
       :title="$t('messages.enterPassword')"
@@ -63,6 +67,7 @@ useHead({
 })
 
 definePageMeta({
+  pageTransition: false,
   layout: 'default'
 })
 

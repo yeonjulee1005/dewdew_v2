@@ -58,6 +58,7 @@ useHead({
 })
 
 definePageMeta({
+  pageTransition: false,
   layout: 'default'
 })
 
