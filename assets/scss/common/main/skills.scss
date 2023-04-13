@@ -11,7 +11,7 @@
     .azure {
       @include skills;
       top: $space-160;
-      left: $space--50;
+      left: $space-minus-50;
       width: $space-200;
       height: auto;
     }
@@ -24,14 +24,14 @@
     }
     .css3 {
       @include skills;
-      top: $space--400;
+      top: $space-minus-400;
       left: $space-600;
       height: auto;
     }
     .html5 {
       @include skills;
       top: $space-450;
-      left: $space--50;
+      left: $space-minus-50;
       height: auto;
     }
     .github {
@@ -58,22 +58,22 @@
     }
     .xd {
       @include skills;
-      top: $space--200;
+      top: $space-minus-200;
       left: $space-1100;
       height: auto;
     }
     .javaScript {
       @include skills;
       opacity: var(--d-bg-opacity-02);
-      top: $space--170;
-      left: $space--70;
+      top: $space-minus-170;
+      left: $space-minus-70;
       width: $space-200;
       height: auto;
     }
     .typeScript {
       @include skills;
       opacity: var(--d-bg-opacity-02);
-      top: $space--430;
+      top: $space-minus-430;
       left: $space-200;
       width: $space-200;
       height: auto;
@@ -81,7 +81,7 @@
     .nuxt {
       @include skills;
       opacity: var(--d-bg-opacity-02);
-      top: $space--250;
+      top: $space-minus-250;
       left: $space-250;
       width: $space-400;
       height: auto;
@@ -121,15 +121,15 @@
     }
     .vscode {
       @include skills;
-      top: $space--150; 
+      top: $space-minus-150; 
       left: $space-740; 
       width: $space-80;
       height: auto;
     }
     .jira {
       @include skills;
-      top: $space--400; 
-      left: $space--50; 
+      top: $space-minus-400; 
+      left: $space-minus-50; 
       width: $space-80;
       height: auto;
     }
@@ -144,7 +144,7 @@
     .firebase {
       @include skills;
       opacity: var(--d-bg-opacity-02);
-      top: $space--450;
+      top: $space-minus-450;
       left: $space-800;
       width: $space-300;
       height: auto;
@@ -153,14 +153,14 @@
       @include skills;
       opacity: var(--d-bg-opacity-02);
       top: $space-650;
-      left: $space--50;
+      left: $space-minus-50;
       width: $space-160;
       height: auto;
     }
     .vercel {
       @include skills;
       opacity: var(--d-bg-opacity-02);
-      top: $space--450;
+      top: $space-minus-450;
       left: $space-1200;
       width: $space-200;
       height: auto;

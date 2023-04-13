@@ -57,6 +57,7 @@ export default {
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@nuxt/image-edge',
+    '@nuxtjs/stylelint-module',
     '@nuxtjs/robots'
   ],
   // build modules
@@ -84,8 +85,9 @@ export default {
     }
   },
   experimental: {
+    viewTransition: true,
+    renderJsonPayloads: true,
     payloadExtraction: false
-    // inlineSSRStyles: false,
   },
   // auto import components
   components: [
@@ -100,22 +102,19 @@ export default {
       'stores'
     ]
   },
+  stylelint: {
+    lintOnStart: true
+  },
   i18n: {
+    langDir: './locales',
     locales: [
       {
         code: 'ko',
-        iso: 'ko-KR',
-        file: 'ko.json'
+        file: 'ko.ts'
       }
     ],
-    lazy: true,
-    langDir: 'locales',
-    strategy: 'no_prefix',
     defaultLocale: 'ko',
-    vueI18n: {
-      legacy: false,
-      locale: 'ko'
-    }
+    strategy: 'no_prefix'
   },
   // vueuse
   vueuse: {
@@ -150,8 +149,9 @@ export default {
       navigateFallback: '/'
     },
     injectManifest: {
+      globDirectory: './.nuxt/dev-sw-dist',
       globPatterns: ['**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}'],
-      globIgnores: ['emojis/**', 'shiki/**', 'manifest**.webmanifest']
+      globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js']
     },
     client: {
       installPrompt: true,

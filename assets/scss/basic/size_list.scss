@@ -1,26 +1,24 @@
-/* Size Lists */
-
-/* Device */
+/**
+* ? Size Lists ?
+*
+* ? Device ?
+*/
 $breakpoint-mobile: 500px;
 $breakpoint-desktop: 1000px;
 
-/* Space */
-$space-unset: unset;
-$space-fit-content: fit-content;
-
-$space--50: -50px;
-$space--70: -70px;
-$space--100: -100px;
-$space--130: -130px;
-$space--150: -150px;
-$space--170: -170px;
-$space--200: -200px;
-$space--250: -250px;
-$space--400: -400px;
-$space--430: -430px;
-$space--450: -450px;
-
-$space-0: 0px;
+/**
+* ? Space Pixel ?
+*/
+$space-minus-50: -50px;
+$space-minus-70: -70px;
+$space-minus-100: -100px;
+$space-minus-150: -150px;
+$space-minus-170: -170px;
+$space-minus-200: -200px;
+$space-minus-250: -250px;
+$space-minus-400: -400px;
+$space-minus-430: -430px;
+$space-minus-450: -450px;
 $space-1: 1px;
 $space-2: 2px;
 $space-3: 3px;
@@ -76,6 +74,9 @@ $space-1100: 1100px;
 $space-1200: 1200px;
 $space-1600: 1600px;
 
+/**
+* ? Space Height Ratio ?
+*/
 $space-10vh: 10vh;
 $space-15vh: 15vh;
 $space-17vh: 17vh;
@@ -90,6 +91,9 @@ $space-80vh: 80vh;
 $space-85vh: 85vh;
 $space-100vh: 100vh;
 
+/**
+* ? Space Width Ratio ?
+*/
 $space-10vw: 10vw;
 $space-20vw: 20vw;
 $space-30vw: 30vw;
@@ -101,6 +105,9 @@ $space-80vw: 80vw;
 $space-90vw: 90vw;
 $space-100vw: 100vw;
 
+/**
+* ? Space Percent ?
+*/
 $space-percent-40: 40%;
 $space-percent-50: 50%;
 $space-percent-60: 60%;
@@ -110,7 +117,9 @@ $space-percent-90: 90%;
 $space-percent-100: 100%;
 $space-percent-105: 105%;
 
-/* Opacity */
+/**
+* ? Space Opacity ?
+*/
 :root {
   --d-bg-opacity-01: .1;
   --d-bg-opacity-02: .25;

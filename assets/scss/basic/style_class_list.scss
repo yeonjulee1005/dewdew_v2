@@ -83,8 +83,8 @@
 
 /* Reset Style */
 @mixin unset-color { color: unset; }
-@mixin unset-padding { padding: $space-unset; }
-@mixin unset-margin { margin: $space-unset; }
+@mixin unset-padding { padding: unset; }
+@mixin unset-margin { margin: unset; }
 @mixin unset-border { border: unset; }
 @mixin unset-bg-color { background-color: unset; }
 @mixin unset-box-shadow { box-shadow: unset; }
@@ -96,7 +96,6 @@
   width: $space-100;
   opacity: var(--d-bg-opacity-01);
 }
-
 @mixin tiptap-template {
   p {
     line-height: 1.7rem;
@@ -132,7 +131,7 @@
   pre {
     background: $d-bg-origin-dark;
     color: $d-bg-origin-light;
-    font-family: 'JetBrainsMono', monospace;
+    font-family: JetBrainsMono, monospace;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
     code {
@@ -152,7 +151,6 @@
     .hljs-name,
     .hljs-regexp,
     .hljs-link,
-    .hljs-name,
     .hljs-selector-id,
     .hljs-selector-class {
       color: $d-color-01-dark;
@@ -222,11 +220,10 @@
       text-align: left;
       background-color: #f1f3f5;
     }
-    .selectedCell:after {
+    .selectedCell::after {
       z-index: 2;
       position: absolute;
       content: "";
-      left: 0; right: 0; top: 0; bottom: 0;
       background: var(--el-menu-hover-border-color);
       pointer-events: none;
     }

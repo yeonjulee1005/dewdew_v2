@@ -12,7 +12,7 @@
     width: $space-300;
     text-align: center;
     background-color: var(--el-color-warning-light-9);
-    box-shadow: $space-2 rgba($color: var(--el-color-warning-light-9), $alpha: .5);
+    box-shadow: $space-2 rgba($color: var(--el-color-warning-light-9), $alpha: $space-percent-50);
     border: $space-1 solid var(--el-color-warning-dark-2);
     border-radius: $space-8;
     z-index: 100;
@@ -28,7 +28,7 @@
       color: var(--el-fill-color-lighter);
       border: $space-1 solid var(--el-color-warning-dark-1);
       background-color: var(--el-color-warning-dark-2);
-      box-shadow: $space-2 rgba($color: var(--el-color-warning-dark-2), $alpha: .5);
+      box-shadow: $space-2 rgba($color: var(--el-color-warning-dark-2), $alpha: $space-percent-50);
       border-radius: $space-4;
     }
   }
