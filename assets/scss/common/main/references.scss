@@ -19,7 +19,7 @@
   .section-bg-text {
     position: absolute;
     top: $space-200;
-    left: $space--430;
+    left: $space-minus-430;
     font-size: $space-200;
     font-weight: 900;
     opacity: .1;
@@ -29,8 +29,8 @@
   }
   .reference-background {
     position: absolute;
-    top: $space--200;
-    left: $space--400;
+    top: $space-minus-200;
+    left: $space-minus-400;
     width: $space-740;
     height: $space-740;
     opacity: 0.15;
