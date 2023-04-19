@@ -39,6 +39,10 @@ definePageMeta({
   layout: 'default'
 })
 
+useHead({
+  meta: [{ property: 'og:title', content: '개발자 이연주 | dewdew' }]
+})
+
 const { width } = useWindowSize()
 const { y } = useWindowScroll()
 

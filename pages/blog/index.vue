@@ -77,10 +77,6 @@ const writeIndex = ref(0)
 const adminConfirmDialogTrigger = ref(false)
 const createArticleTrigger = ref(false)
 
-onMounted(() => {
-  loadBlogData()
-})
-
 const clickBlogArticle = (selectBlog:any) => {
   navigateTo(`/blog/${selectBlog.id}`)
 }
@@ -130,5 +126,7 @@ const loadBlogData = async () => {
     writeIndex.value = blogData.value.length
   })
 }
+
+loadBlogData()
 
 </script>
