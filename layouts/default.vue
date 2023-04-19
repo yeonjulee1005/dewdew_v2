@@ -22,12 +22,7 @@
 
 <script setup lang="ts">
 
-const route = useRoute()
 const { idle } = useIdle(10 * 60 * 1000)
-
-useHead({
-  meta: [{ property: 'og:title', content: `개발자 이연주 | ${route.meta.title}` }]
-})
 
 const assetsImageData = ref([])
 const leaveText = ref<Texts[]>([])

@@ -5,7 +5,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(vueGtag, {
     config: {
       id: config.public.GOOGLE_FIREBASE_ID
-    },
-    appName: 'createdoodle'
-  }, nuxtApp.$router)
+    }
+  })
 })

@@ -23,7 +23,7 @@ export default {
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: 'FE 개발자 이연주' },
         { property: 'og:url', content: 'https://dewdew.kr' },
-        { property: 'og:image', content: 'https://dewdew.kr/img/resume_img.cde4e42c.jpg' },
+        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/dewdew-4c122.appspot.com/o/images%2Fassets%2Fmain_banner.webp?alt=media&token=71fc7e16-243f-498d-ad64-aa9fb0b80fdd' },
         { property: 'og:description', content: '안녕하세요. FE 개발자 이연주입니다.' },
         { property: 'Imagetoolbar', content: 'no' }
       ],
@@ -85,7 +85,7 @@ export default {
     }
   },
   experimental: {
-    viewTransition: true,
+    // viewTransition: true,
     renderJsonPayloads: true,
     payloadExtraction: false
   },
@@ -146,13 +146,14 @@ export default {
       ]
     },
     workbox: {
-      navigateFallback: '/'
+      navigateFallback: '/',
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}']
     },
-    injectManifest: {
-      globDirectory: './.nuxt/dev-sw-dist',
-      globPatterns: ['**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}'],
-      globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js']
-    },
+    // injectManifest: {
+    //   globDirectory: './.nuxt/dev-sw-dist',
+    //   globPatterns: ['**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}'],
+    //   globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js']
+    // },
     client: {
       installPrompt: true,
       periodicSyncForUpdates: 20
