@@ -4,10 +4,10 @@
     :class="{'main-references-on': referenceListTrigger}"
   >
     <div class="section-title">
-      {{ referenceTextData.title }}
+      {{ locale === 'ko' ? referenceTextData.title.textKo : referenceTextData.title.textEn }}
     </div>
     <div class="section-text">
-      {{ referenceTextData.desc }}
+      {{ locale === 'ko' ? referenceTextData.desc.textKo : referenceTextData.desc.textEn }}
     </div>
     <div class="section-bg-text">
       {{ referenceTextData.background }}
@@ -67,6 +67,8 @@
 </template>
 
 <script setup lang="ts">
+
+const { locale } = useLocale()
 
 const selectReference = ref<ReferenceImage>({
   alt: '',

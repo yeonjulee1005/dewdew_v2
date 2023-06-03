@@ -1,8 +1,6 @@
 @use './basic/fonts.scss' as *;
-@use './basic/size_list.scss' as *;
-@use './basic/color_list.scss' as *;
-@use './basic/font_variables.scss' as *;
-@use './basic/style_class_list.scss' as *;
+@use './basic/b_index.scss' as *;
+@use './foundation.scss' as *;
 @use './_mixin.scss' as *;
 
 /**
@@ -10,26 +8,12 @@
 */
 @use "element-plus/dist/index.css" as *;
 @use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
-@use './foundation.scss' as *;
 
 /**
 * * Common Component SCSS *
 */
+@use './common/c_index' as *;
 @import './basic/reset_element_ui_style.scss';
-@import './common/layouts.scss';
-@import './common/tiptap.scss';
-@import './common/404.scss';
-@import './common/dialogs.scss';
-@import './common/main/intro_banner.scss';
-@import './common/main/resume.scss';
-@import './common/main/skills.scss';
-@import './common/main/references.scss';
-@import './common/main/contact.scss';
-@import './common/archives/main_slider.scss';
-@import './common/project/index.scss';
-@import './common/project/color_translate.scss';
-@import './common/blog/index.scss';
-@import './common/blog/article.scss';
 
 /**
 * ?  Breakpoint Desktop Style ?

@@ -1,3 +1,5 @@
+@use '../../basic/b_index.scss' as *;
+
 /** Main Skills */
 .main-skills {
   position: relative;
@@ -14,9 +16,9 @@
       left: $space-minus-50;
       width: $space-200;
       height: auto;
-      animation: bubbleAzure 3s ease-in-out infinite;
+      animation: bubble-azure 3s ease-in-out infinite;
     }
-    @keyframes bubbleAzure {
+    @keyframes bubble-azure {
       0% { width: $space-200; }
       50% { width: calc($space-200 + $space-5); }
       100% { width: $space-200; }
@@ -27,9 +29,9 @@
       left: $space-240; 
       width: $space-50;
       height: auto;
-      animation: bubbleBitbucket 3s ease-in-out infinite;
+      animation: bubble-bitbucket 3s ease-in-out infinite;
     }
-    @keyframes bubbleBitbucket {
+    @keyframes bubble-bitbucket {
       0% { width: calc($space-50 + $space-5); }
       50% { width: $space-50; }
       100% { width: calc($space-50 + $space-5); }
@@ -39,9 +41,9 @@
       top: $space-minus-400;
       left: $space-600;
       height: auto;
-      animation: bubbleCss3 3s ease-in-out infinite;
+      animation: bubble-css3 3s ease-in-out infinite;
     }
-    @keyframes bubbleCss3 {
+    @keyframes bubble-css3 {
       0% { width: $space-100; }
       50% { width: calc($space-100 + $space-5); }
       100% { width: $space-100; }
@@ -51,9 +53,9 @@
       top: $space-450;
       left: $space-minus-50;
       height: auto;
-      animation: bubbleHtml5 3s ease-in-out infinite;
+      animation: bubble-html5 3s ease-in-out infinite;
     }
-    @keyframes bubbleHtml5 {
+    @keyframes bubble-html5 {
       0% { width: calc($space-100 + $space-5); }
       50% { width: $space-100; }
       100% { width: calc($space-100 + $space-5); }
@@ -65,9 +67,9 @@
       left: $space-150;
       width: $space-250;
       height: auto;
-      animation: bubbleGitHub 3s ease-in-out infinite;
+      animation: bubble-git-hub 3s ease-in-out infinite;
     }
-    @keyframes bubbleGitHub {
+    @keyframes bubble-git-hub {
       0% { width: $space-250; }
       50% { width: calc($space-250 + $space-5); }
       100% { width: $space-250; }

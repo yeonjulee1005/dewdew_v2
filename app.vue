@@ -1,7 +1,7 @@
 <template>
   <div>
     <VitePwaManifest />
-    <NuxtLayout>
+    <NuxtLayout name="default">
       <NuxtLoadingIndicator
         :height="5"
       />

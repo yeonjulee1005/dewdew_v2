@@ -17,7 +17,7 @@
       >
         <el-input
           v-model="contactRuleForm.name"
-          placeholder="성함을 입력해주세요."
+          :placeholder="$t('placeholder.inputName')"
         />
       </el-form-item>
       <el-form-item
@@ -26,7 +26,7 @@
       >
         <el-input
           v-model="contactRuleForm.email"
-          placeholder="이메일을 입력해주세요."
+          :placeholder="$t('placeholder.inputEmail')"
           type="email"
         />
       </el-form-item>
@@ -36,7 +36,7 @@
       >
         <el-input
           v-model="contactRuleForm.message"
-          placeholder="내용을 입력해주세요."
+          :placeholder="$t('placeholder.inputContent')"
           :rows="5"
           :maxlength="2000"
           show-word-limit

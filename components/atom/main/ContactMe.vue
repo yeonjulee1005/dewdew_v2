@@ -27,7 +27,7 @@
             :alt="contactData.kakaoTalk.title"
           />
           <div class="desc mt-default mb-default">
-            {{ contactData.kakaoTalk.desc }}
+            {{ $t('main.contactKakao') }}
           </div>
         </nuxt-link>
         <div />

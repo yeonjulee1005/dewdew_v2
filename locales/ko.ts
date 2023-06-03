@@ -16,6 +16,9 @@ export default {
     archivesDesc: 'FE개발자 이연주의 사진기록 입니다.',
     archivesOgTitle: '개발자 이연주 | 아카이브'
   },
+  main: {
+    contactKakao: '카카오톡으로 연락하기'
+  },
   blog: {
     write: '글쓰기',
     writeComment: '댓글쓰기',
@@ -41,6 +44,11 @@ export default {
     uploadFile: '파일을 올려주세요.',
     dropperDesc: '그리고 스포이드로 컬러를',
     checkDropper: '확인해주세요.'
+  },
+  placeholder: {
+    inputName: '성함을 입력해주세요.',
+    inputEmail: '이메일을 입력해주세요.',
+    inputContent: '내용을 입력해주세요.'
   },
   validate: {
     articleEmpty: '입력해랑...',
@@ -117,5 +125,9 @@ export default {
     deleteTable: '표삭제',
     goBack: '실행취소',
     goForward: '재실행'
+  },
+  localeMenu: {
+    korean: '한국어',
+    english: '영어'
   }
 }

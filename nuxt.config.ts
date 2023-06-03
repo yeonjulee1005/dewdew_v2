@@ -58,7 +58,8 @@ export default {
     '@vueuse/nuxt',
     '@nuxt/image-edge',
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    'nuxt-simple-sitemap'
   ],
   // build modules
   buildModules: [
@@ -107,10 +108,19 @@ export default {
   },
   i18n: {
     langDir: './locales',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    },
     locales: [
       {
         code: 'ko',
         file: 'ko.ts'
+      },
+      {
+        code: 'en',
+        file: 'en.ts'
       }
     ],
     defaultLocale: 'ko',
@@ -149,11 +159,11 @@ export default {
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,png,svg,ico}']
     },
-    // injectManifest: {
-    //   globDirectory: './.nuxt/dev-sw-dist',
-    //   globPatterns: ['**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}'],
-    //   globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js']
-    // },
+    injectManifest: {
+      globDirectory: './.nuxt/dev-sw-dist',
+      globPatterns: ['**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}'],
+      globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js']
+    },
     client: {
       installPrompt: true,
       periodicSyncForUpdates: 20
@@ -162,5 +172,8 @@ export default {
       enabled: true,
       type: 'module'
     }
+  },
+  sitemap: {
+    siteUrl: 'https://example.com'
   }
 }

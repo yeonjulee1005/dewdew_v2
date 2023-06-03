@@ -7,7 +7,6 @@
       {{ introText.mainTitle }}
     </div>
     <div
-      v-if="introText.subText"
       class="main-text"
       :class="{'main-text-on': mainTextTrigger}"
     >
@@ -15,11 +14,11 @@
         v-for="item in introText.mainText"
         :key="item.index"
       >
-        {{ item.text }}
+        {{ locale === 'ko' ? item.textKo : item.textEn }}
       </p>
-      <p class="sub-text">
-        {{ introText.subText }}
-      </p>
+      <div class="sub-text">
+        {{ locale === 'ko' ? introText.subText.textKo : introText.subText.textEn }}
+      </div>
     </div>
     <div
       ref="scrollDown"
@@ -42,6 +41,8 @@
 </template>
 
 <script setup lang=ts>
+
+const { locale } = useLocale()
 
 defineProps({
   introText: { type: Object as PropType<IntroData>, default: () => null },

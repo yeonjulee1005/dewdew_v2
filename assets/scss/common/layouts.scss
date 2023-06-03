@@ -1,3 +1,5 @@
+@use '../basic/b_index.scss' as *;
+
 /* Layouts */
 .default-layout-container {
   position: relative;
@@ -37,6 +39,20 @@
         img {
           width: $space-30;
           height: auto;
+        }
+      }
+      .select-language {
+        width: $space-80;
+        border-radius: $space-8;
+        background-color: var(--d-footer-bg-color);
+        
+        --el-select-border-color-hover: var(--d-footer-bg-color-deep);
+        .select-trigger {
+          .el-input {
+            .el-input__wrapper {
+              border-radius: $space-8;
+            }
+          }
         }
       }
       .dark-mode-switch {

@@ -18,10 +18,10 @@
       <div class="resume-texts flex flex-column flex-justify-center">
         <div class="title-container mb-default">
           <p class="title">
-            {{ resumeText.title }}
+            {{ locale === 'ko' ? resumeText.title.textKo : resumeText.title.textEn }}
           </p>
           <p class="educate">
-            {{ resumeText.educate }}
+            {{ locale === 'ko' ? resumeText.educate.textKo : resumeText.educate.textEn }}
           </p>
         </div>
         <div
@@ -30,10 +30,10 @@
           class="career-container mt-5"
         >
           <p class="career-title">
-            {{ content.title }}
+            {{ locale === 'ko' ? content.title.textKo : content.title.textEn }}
           </p>
           <p class="career-desc">
-            {{ content.desc }}
+            {{ locale === 'ko' ? content.desc.textKo : content.desc.textEn }}
           </p>
         </div>
       </div>
@@ -42,6 +42,8 @@
 </template>
 
 <script setup lang="ts">
+
+const { locale } = useLocale()
 
 defineProps({
   resumeText: { type: Object, default: () => null },
