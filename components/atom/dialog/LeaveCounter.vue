@@ -11,7 +11,7 @@
         :key="item.index"
         class="leave-texts mt-5 mb-5"
       >
-        {{ item.text }}
+        {{ locale === 'ko' ? item.textKo : item.textEn }}
       </div>
       <el-progress
         type="dashboard"
@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 
-const { t } = useLocale()
+const { t, locale } = useLocale()
 
 const leaveCountProps = defineProps({
   idleTrigger: { type: Boolean, default: false },
@@ -70,8 +70,8 @@ const countDisplay = (index: number, _count: number): void => {
   if (!index) {
     closeLeaveDialog()
     useRoute().path === '/'
-      ? useAlarm().notify('', 'info', t('message.usePage'), true, 3000, 0)
-      : useAlarm().notify('', 'info', t('message.moveToMain'), true, 3000, 0)
+      ? useAlarm().notify('', 'info', t('messages.usePage'), true, 3000, 0)
+      : useAlarm().notify('', 'info', t('messages.moveToMain'), true, 3000, 0)
     navigateTo('/')
   }
   count.value = index

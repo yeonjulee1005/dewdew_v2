@@ -36,6 +36,15 @@
         />
       </nuxt-link>
       <client-only>
+        <el-select
+          v-model="locale"
+          class="select-language ml-default w-80"
+          size="small"
+          @change="languageSwitcher"
+        >
+          <el-option :label="$t('localeMenu.korean')" value="ko" />
+          <el-option :label="$t('localeMenu.english')" value="en" />
+        </el-select>
         <el-switch
           v-model="darkModeTrigger"
           class="dark-mode-switch flex-end mx-default"
@@ -67,6 +76,8 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { Sunny, Moon } from '@element-plus/icons-vue'
+
+const { locale, setLocaleCookie } = useLocale()
 
 const headerProps = defineProps({
   coreData: { type: Object, default: () => null },
@@ -119,6 +130,11 @@ watch(darkModeTrigger, () => {
   darkModeTrigger.value ? favicon.value = 'favicon_black.png' : favicon.value = 'favicon_white.png'
 })
 
+const languageSwitcher = (locale:string) => {
+  setLocaleCookie(locale)
+}
+
 useFavicon(favicon)
 handleResize(width.value)
+
 </script>

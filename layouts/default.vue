@@ -33,7 +33,7 @@ const coreData = useDatabase().coreData.value
 const coreImages = useDatabase().imageData.value
 
 watch(idle, () => {
-  idle.value && useRoute().path !== '/'
+  idle.value
     ? idleTrigger.value = true
     : idleTrigger.value = false
 })

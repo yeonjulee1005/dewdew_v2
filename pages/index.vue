@@ -52,12 +52,12 @@ const coreImages = useDatabase().imageData.value
 const introTextData = ref<IntroData>({
   mainText: [],
   mainTitle: '',
-  subText: '',
+  subText: { textKo: '', textEn: '' },
   scrollDown: ''
 })
 const resumeTextData = ref<ResumeData>({
-  title: '',
-  educate: '',
+  title: { textKo: '', textEn: '' },
+  educate: { textKo: '', textEn: '' },
   career: []
 })
 const skillsTextData = ref<SkillsData>({
@@ -67,8 +67,8 @@ const skillsTextData = ref<SkillsData>({
   thirdDesc: []
 })
 const referenceTextData = ref<ReferenceData>({
-  title: '',
-  desc: '',
+  title: { textKo: '', textEn: '' },
+  desc: { textKo: '', textEn: '' },
   background: ''
 })
 const contactTextData = ref<ContactData>({

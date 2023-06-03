@@ -1,5 +1,6 @@
-/** 404 Page */
+@use '../basic/b_index.scss' as *;
 
+/** 404 Page */
 .not-found {
   position: absolute;
   width: $space-percent-100;

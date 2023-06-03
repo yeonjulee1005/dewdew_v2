@@ -11,10 +11,22 @@
 
 /* Layouts */
 .m-auto { margin: auto; }
-.mx-auto { margin-left: auto; margin-right: auto; }
-.mx-default { margin-left: $space-default; margin-right: $space-default; }
-.mx-20 { margin-left: $space-20; margin-right: $space-20; }
-.mx-80 { margin-left: $space-80; margin-right: $space-80; }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mx-default {
+  margin-left: $space-default;
+  margin-right: $space-default;
+}
+.mx-20 {
+  margin-left: $space-20;
+  margin-right: $space-20;
+}
+.mx-80 {
+  margin-left: $space-80;
+  margin-right: $space-80;
+}
 
 .mt-5 { margin-top: $space-5; }
 .mb-5 { margin-bottom: $space-5; }
@@ -79,7 +91,10 @@
 .w-full { width: $space-percent-100; }
 .w-half { width: $space-percent-50; }
 .h-full { height: $space-percent-100; }
-.size-full { width: $space-percent-100; height: $space-percent-100; }
+.size-full {
+  width: $space-percent-100;
+  height: $space-percent-100;
+}
 
 /* Reset Style */
 @mixin unset-color { color: unset; }

@@ -13,9 +13,10 @@ interface SnsLogo {
 }
 
 interface Route {
-  index: number,
+  index?: number,
   title: string,
-  route: string
+  route: string,
+  url: string
 }
 
 interface Colors {
@@ -40,15 +41,20 @@ interface MassImageData {
   id: string
 }
 
-interface listTexts {
-  index: number,
-  title: string,
-  desc: string
+interface TextsWord {
+  textKo: string,
+  textEn: string
 }
 
-interface Texts {
+interface listTexts {
   index: number,
-  text: string
+  title: TextsWord,
+  desc: TextsWord
+}
+
+interface Texts extends TextsWord {
+  index: number,
+  text?: string
 }
 
 interface IndexSignature {
@@ -65,13 +71,13 @@ interface Footer {
 interface IntroData {
   mainTitle: string,
   mainText: Texts[],
-  subText: string,
+  subText: TextsWord,
   scrollDown: string
 }
 
 interface ResumeData {
-  title: string,
-  educate: string,
+  title: TextsWord,
+  educate: TextsWord,
   career: listTexts[]
 }
 
@@ -83,8 +89,8 @@ interface SkillsData {
 }
 
 interface ReferenceData {
-  title: string,
-  desc: string,
+  title: TextsWord,
+  desc: TextsWord,
   background: string
 }
 
@@ -132,7 +138,7 @@ interface Information {
 interface Pages {
   id: string,
   info: Information,
-  menu: Images[]
+  menu: Route[]
 }
 
 interface CoreData {
