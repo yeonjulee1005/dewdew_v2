@@ -1,0 +1,185 @@
+/**
+* ? Styles Forward Lists ?
+*/
+@forward 'basic/color_list';
+@forward 'basic/size_list';
+@forward 'basic/font_variables';
+
+/**
+* ? Foundation Lists ?
+*/
+@use 'basic/color_list' as *;
+@use 'basic/size_list' as *;
+@use 'basic/font_variables' as *;
+
+/**
+* ? Reset Styling ?
+*/
+@mixin unset-color { color: unset; }
+@mixin unset-padding { padding: unset; }
+@mixin unset-margin { margin: unset; }
+@mixin unset-border { border: unset; }
+@mixin unset-bg-color { background-color: unset; }
+@mixin unset-box-shadow { box-shadow: unset; }
+@mixin hidden-overflow { overflow: hidden; }
+
+/**
+* ? Mixin Styling ?
+*/
+@mixin skills {
+  position: absolute;
+  width: $space-100;
+  opacity: var(--d-bg-opacity-01);
+}
+@mixin tiptap-template {
+  p {
+    line-height: 1.7rem;
+  }
+  ul, ol {
+    padding: 0 1rem;
+  }
+  ul[data-type="taskList"] {
+    list-style: none;
+    padding: 0;
+    p {
+      margin: 0;
+    }
+    li {
+      display: flex;
+      > label {
+        flex: 0 0 auto;
+        margin-right: 0.5rem;
+        user-select: none;
+      }
+      > div {
+        flex: 1 1 auto;
+      }
+    }
+  }
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+  }
+  code {
+    background-color: $d-bg-sub-origin-dark;
+    color: $d-bg-sub-origin-dark;
+  }
+  pre {
+    background: $d-bg-origin-dark;
+    color: $d-bg-origin-light;
+    font-family: JetBrainsMono, monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+    .hljs-comment,
+    .hljs-quote {
+      color: $d-footer-color-dark-deep;
+    }
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-attribute,
+    .hljs-tag,
+    .hljs-name,
+    .hljs-regexp,
+    .hljs-link,
+    .hljs-selector-id,
+    .hljs-selector-class {
+      color: $d-color-01-dark;
+    }
+    .hljs-number,
+    .hljs-meta,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-literal,
+    .hljs-type,
+    .hljs-params {
+      color: $d-color-02-light-deep;
+    }
+    .hljs-string,
+    .hljs-symbol,
+    .hljs-bullet {
+      color: $d-color-07-light-deep;
+    }
+    .hljs-title,
+    .hljs-section {
+      color: $d-color-15-light-deep;
+    }
+    .hljs-keyword,
+    .hljs-selector-tag {
+      color: $d-color-12-light-deep;
+    }
+    .hljs-emphasis {
+      font-style: italic;
+    }
+    .hljs-strong {
+      font-weight: 700;
+    }
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  blockquote {
+    padding-left: $space-8;
+    border-left: $space-4 solid var(--d-text-color);
+  }
+  hr {
+    border: none;
+    border-top: $space-2 solid var(--d-text-color);
+    margin: 2rem 0;
+  }
+  table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: $space-percent-50;
+    margin: 0;
+    overflow: hidden;
+    td,
+    th {
+      min-width: 1em;
+      border: 2px solid var(--el-border-color);
+      padding: 3px 5px;
+      vertical-align: top;
+      box-sizing: border-box;
+      position: relative;
+      > * {
+        margin-bottom: 0;
+      }
+    }
+    th {
+      font-weight: bold;
+      text-align: left;
+      background-color: #f1f3f5;
+    }
+    .selectedCell::after {
+      z-index: 2;
+      position: absolute;
+      content: "";
+      background: var(--el-menu-hover-border-color);
+      pointer-events: none;
+    }
+    .column-resize-handle {
+      position: absolute;
+      right: -2px;
+      top: 0;
+      bottom: -2px;
+      width: 4px;
+      background-color: var(--el-menu-active-color);
+      pointer-events: none;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    color: #adb5bd;
+    pointer-events: none;
+    height: 0;
+  }
+}

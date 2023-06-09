@@ -1,5 +1,5 @@
-@use './size_list.scss' as *;
-@use './color_list.scss' as *;
+@use 'size_list' as *;
+@use 'color_list' as *;
 
 /* fonts-variables */
 @mixin headline1 {
