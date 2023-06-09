@@ -1,5 +1,6 @@
-/** 404 Page */
+@use '../variables' as *;
 
+/** 404 Page */
 .not-found {
   .desc {
     width: $space-percent-75;

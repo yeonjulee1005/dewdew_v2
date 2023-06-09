@@ -1,3 +1,5 @@
+@use '../../variables' as *;
+
 /** Blog Article */
 .blog-article .article-create-comment .create-form .el-form-item__content .el-input--suffix {
   width: $space-30vw;

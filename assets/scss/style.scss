@@ -1,68 +1,70 @@
-@use './basic/fonts.scss' as *;
-@use './basic/b_index.scss' as *;
-@use './foundation.scss' as *;
-@use './_mixin.scss' as *;
+@use 'sass:meta';
+@use 'basic/fonts' as *;
+@use 'variables' as *;
+@use 'foundation' as *;
+@use '_mixin' as *;
 
 /**
 * ?  Shared Style ?
 */
 @use "element-plus/dist/index.css" as *;
-@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
+@use "element-plus/theme-chalk/src/dark/css-vars" as *;
 
 /**
 * * Common Component SCSS *
 */
-@use './common/c_index' as *;
-@import './basic/reset_element_ui_style.scss';
+@use 'basic/style_class_list' as *;
+@use 'basic/reset_element_ui_style' as *;
+@use 'common/c_index' as *;
 
 /**
 * ?  Breakpoint Desktop Style ?
 */
 @include desktop {
-  @import './desktop/main/intro_banner.scss';
-  @import './desktop/main/resume.scss';
-  @import './desktop/main/skills.scss';
-  @import './desktop/main/references.scss';
-  @import './desktop//main/contact.scss';
-  @import './desktop/archives/main_slider.scss';
-  @import './desktop/project/index.scss';
-  @import './desktop/project/color_translate.scss';
-  @import './desktop/blog/index.scss';
-  @import './desktop/blog/article.scss';
+  @include meta.load-css('desktop/main/intro_banner');
+  @include meta.load-css('desktop/main/resume');
+  @include meta.load-css('desktop/main/skills');
+  @include meta.load-css('desktop/main/references');
+  @include meta.load-css('desktop//main/contact');
+  @include meta.load-css('desktop/archives/main_slider');
+  @include meta.load-css('desktop/project/index');
+  @include meta.load-css('desktop/project/color_translate');
+  @include meta.load-css('desktop/blog/index');
+  @include meta.load-css('desktop/blog/article');
 }
 
 /**
 * ?  Breakpoint Tablet Style ?
 */
 @include tablet {
-  @import './tablet/layouts.scss';
-  @import './tablet/404.scss';
-  @import './tablet/main/intro_banner.scss';
-  @import './tablet/main/resume.scss';
-  @import './tablet/main/skills.scss';
-  @import './tablet/main/references.scss';
-  @import './tablet//main/contact.scss';
-  @import './tablet/archives/main_slider.scss';
-  @import './tablet/project/index.scss';
-  @import './tablet/project/color_translate.scss';
-  @import './tablet/blog/index.scss';
-  @import './tablet/blog/article.scss';
+  @include meta.load-css('tablet/layouts');
+  @include meta.load-css('tablet/404');
+  @include meta.load-css('tablet/main/intro_banner');
+  @include meta.load-css('tablet/main/resume');
+  @include meta.load-css('tablet/main/skills');
+  @include meta.load-css('tablet/main/references');
+  @include meta.load-css('tablet//main/contact');
+  @include meta.load-css('tablet/archives/main_slider');
+  @include meta.load-css('tablet/project/index');
+  @include meta.load-css('tablet/project/color_translate');
+  @include meta.load-css('tablet/blog/index');
+  @include meta.load-css('tablet/blog/article');
 }
 
 /**
 * ?  Breakpoint Mobile Style ?
 */
 @include mobile {
-  @import './mobile/layouts.scss';
-  @import './mobile/404.scss';
-  @import './mobile/main/intro_banner.scss';
-  @import './mobile/main/resume.scss';
-  @import './mobile/main/skills.scss';
-  @import './mobile/main/references.scss';
-  @import './mobile//main/contact.scss';
-  @import './mobile/archives/main_slider.scss';
-  @import './mobile/project/index.scss';
-  @import './mobile/project/color_translate.scss'; 
-  @import './mobile/blog/index.scss';
-  @import './mobile/blog/article.scss';
+  @include meta.load-css('mobile/layouts');
+  @include meta.load-css('mobile/404');
+  @include meta.load-css('mobile/main/intro_banner');
+  @include meta.load-css('mobile/main/resume');
+  @include meta.load-css('mobile/main/skills');
+  @include meta.load-css('mobile/main/references');
+  @include meta.load-css('mobile//main/contact');
+  @include meta.load-css('mobile/archives/main_slider');
+  @include meta.load-css('mobile/project/index');
+  @include meta.load-css('mobile/project/color_translate'); 
+  @include meta.load-css('mobile/blog/index');
+  @include meta.load-css('mobile/blog/article');
 }

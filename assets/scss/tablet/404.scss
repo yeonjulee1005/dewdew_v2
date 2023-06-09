@@ -1,5 +1,6 @@
-/** 404 Page */
+@use '../variables' as *;
 
+/** 404 Page */
 .not-found {
   .page-404 {
     top: $space-60vh;
