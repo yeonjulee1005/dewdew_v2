@@ -5,6 +5,7 @@
         v-for="project in projectLists"
         :key="project.index"
         :to="project.route"
+        :target="project.route.includes('https') ? '_blank' : '_self'"
         class="project-list mb-20"
       >
         {{ project.title }}
