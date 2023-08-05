@@ -10,19 +10,37 @@
         class="edit-color-input"
         type="color"
         :value="colorValue"
-        @input="tiptapEditor ? tiptapEditor.chain().focus().setColor($event.target.value).run() : null"
+        @input="tiptapEditor.chain().focus().setColor(imageColor($event)).run()"
       >
     </el-tooltip>
   </client-only>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
-defineProps({
-  colorValue: { type: String, default: '#ffffff' },
-  tiptapEditor: { type: Object, default: null },
-  tooltipText: { type: String, default: '' },
-  tooltipTrigger: { type: Boolean, default: false }
-})
+import { Editor } from '@tiptap/vue-3'
+
+withDefaults(
+  defineProps<{
+    colorValue?: string,
+    tiptapEditor: Editor,
+    tooltipText?: string,
+    tooltipTrigger?: boolean
+  }>(),
+  {
+    colorValue: '#ffffff',
+    tooltipText: '',
+    tooltipTrigger: false
+  }
+)
+
+const imageColor = (event:Event) => {
+  const target = event.target as HTMLButtonElement
+  let color = ''
+  target
+    ? color = target.value
+    : color = ''
+  return color
+}
 
 </script>

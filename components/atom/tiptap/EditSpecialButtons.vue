@@ -11,7 +11,7 @@
         :disabled="disabled"
         @mouseenter="!tooltipTrigger ? visible = false : visible = true"
         @mouseleave="visible = false"
-        @click="action"
+        @click="clickAction"
       >
         <Icon :icon="iconType" />
       </el-button>
@@ -22,14 +22,30 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 
-defineProps({
-  iconType: { type: String, default: '' },
-  action: { type: Function, default: null },
-  disabled: { type: Boolean, default: false },
-  tooltipTrigger: { type: Boolean, default: true },
-  tooltipText: { type: String, default: '' }
-})
-
 const visible = ref(false)
+
+const editSpecialButtonProps = withDefaults(
+  defineProps<{
+    iconType: string,
+    action: Function,
+    disabled?: boolean,
+    tooltipTrigger?: boolean,
+    tooltipText?: string
+  }>(),
+  {
+    disabled: false,
+    tooltipTrigger: true,
+    tooltipText: ''
+  }
+)
+
+const editSpecialButtonsEmits = defineEmits([
+  'select-button'
+])
+
+const clickAction = () => {
+  editSpecialButtonProps.action()
+  editSpecialButtonsEmits('select-button')
+}
 
 </script>

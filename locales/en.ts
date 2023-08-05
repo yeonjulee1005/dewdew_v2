@@ -16,6 +16,14 @@ export default {
     archivesDesc: 'FE개발자 이연주의 사진기록 입니다.',
     archivesOgTitle: '개발자 이연주 | 아카이브'
   },
+  texts: {
+    upload: 'Upload',
+    insertLink: 'Insert link',
+    noUse: 'No use',
+    save: 'Save',
+    cancel: 'Cancel',
+    close: 'Close'
+  },
   main: {
     contactKakao: 'Contact to kakao'
   },
@@ -46,6 +54,8 @@ export default {
     checkDropper: 'Check.'
   },
   placeholder: {
+    inputYoutube: 'Input youtube link.',
+    inputLink: 'Input link.',
     inputName: 'Input name.',
     inputEmail: 'Input email.',
     inputContent: 'Input content.'
@@ -58,10 +68,17 @@ export default {
     nameFormat: 'Enter at least 2 characters!',
     passwordEmpty: 'Input password!',
     passwordFormat: 'Password a mix of numbers, letters, and special characters??',
-    passwordCheck: 'Please check password~'
+    passwordCheck: 'Please check password~',
+    linkRequire: 'Input link!',
+    linkFormat: 'Link format is incorrect!',
+    imageUploadFormat: 'Only image file types can be uploaded.',
+    imageUploadSmallSize: 'The size can\' exceed 5Mb.',
+    youtubeRequire: 'Input youtube link.',
+    youtubeFormat: 'Check youtube link format.'
   },
   messages: {
     copy: 'Copy!',
+    failed: 'Failed..ㅠㅠ',
     emptyArticle: 'Empty article..ㅜㅜ',
     enterPassword: 'Enter admin password!',
     writeArticle: 'Write article!',
@@ -99,8 +116,16 @@ export default {
     alignCenter: 'Center align',
     alignRight: 'Right align',
     alignJustify: 'Justify align',
+    image: 'Image',
     link: 'Link',
     unlink: 'Unlink',
+    code: 'Code',
+    youtube: 'Youtube',
+    pretendard: 'Pretendard',
+    dungGeunMo: 'DungGeunMo',
+    shillaCulture: 'ShillaCulture',
+    eliceDigital: 'EliceDigital',
+    kotraHope: 'KotraHope',
     paragraph: 'Paragraph',
     h1: 'H1',
     h2: 'H2',
@@ -124,7 +149,12 @@ export default {
     mergeOrSplit: 'Merge/Split',
     deleteTable: 'Delete table',
     goBack: 'Go back',
-    goForward: 'Go forward'
+    goForward: 'Go forward',
+    dialog: {
+      hyperLinkTitle: 'Input hyper link',
+      youtubeLinkTitle: 'Input youtube link',
+      imageUploadTitle: 'Upload image'
+    }
   },
   localeMenu: {
     korean: 'Korean',

@@ -9,7 +9,7 @@
       :activate-like="articleLike?.trigger"
       @update-count="updateLikeCount"
     />
-    <div class="article-body mt-default" v-html="articleData.desc" />
+    <div v-dompurify-html="articleData.desc" class="article-body mt-default" />
     <LazyArticleComments
       :comment-title="$t('blog.commentTitle')"
       :comment-data="commentList"
@@ -40,7 +40,7 @@ const { y } = useWindowScroll()
 const route = useRoute()
 const articleId = useRoute().params.id
 
-const articleData = ref({
+const articleData = ref<BlogCoreData>({
   title: '',
   desc: '',
   like: 0,

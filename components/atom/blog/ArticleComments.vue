@@ -14,12 +14,12 @@
         <div class="comments-item flex flex-row flex-space-between flex-align-center">
           <div class="message-component mr-40">
             <p> {{ comment.name }} </p>
-            <p v-html="comment.message" />
+            <p v-dompurify-html="comment.message" />
           </div>
           <el-button
             circle
             size="small"
-            @click="deleteComment(comment)"
+            @click="$emit('delete-comment', comment)"
           >
             <el-icon><Close /></el-icon>
           </el-button>
@@ -36,17 +36,19 @@
 
 <script setup lang="ts">
 
-defineProps({
-  commentTitle: { type: String, default: '' },
-  commentData: { type: Array as PropType<CommentList[]>, default: () => [] },
-  emptyText: { type: String, default: '댓글이 없네요..ㅠㅠ' }
-})
+withDefaults(
+  defineProps<{
+    commentTitle: string,
+    commentData: CommentList[],
+    emptyText?: string
+  }>(),
+  {
+    emptyText: '댓글이 없네요..ㅠㅠ'
+  }
+)
 
-const articleCommentsEmits = defineEmits([
+defineEmits([
   'delete-comment'
 ])
 
-const deleteComment = (comment:CommentList) => {
-  articleCommentsEmits('delete-comment', comment)
-}
 </script>

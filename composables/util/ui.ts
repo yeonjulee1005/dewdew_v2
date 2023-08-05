@@ -20,6 +20,26 @@ export const useUi = () => {
     return String(val).replace(/[^\d]+/g, '')
   }
 
+  const checkHyperLink = (link:string) => {
+    const regLink = /(mailto:[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)|(((?:https?)|(?:ftp)):\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gm
+    let returnValue = false
+
+    !regLink.test(link)
+      ? returnValue = false
+      : returnValue = true
+    return returnValue
+  }
+
+  const checkYoutubeLink = (link:string) => {
+    const regLink = /(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|playlist\?|watch\?v=|watch\?.+(?:&|&#38;);v=))([a-zA-Z0-9\-_]{11})?(?:(?:\?|&|&#38;)index=((?:\d){1,3}))?(?:(?:\?|&|&#38;)?list=([a-zA-Z\-_0-9]{34}))?(?:\S+)?/g
+    let returnValue = false
+
+    !regLink.test(link)
+      ? returnValue = false
+      : returnValue = true
+    return returnValue
+  }
+
   const checkEmail = (val:string) => {
     const regEmail = /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
     if (!regEmail.test(val)) {
@@ -133,6 +153,8 @@ export const useUi = () => {
     diffRatio,
     comma,
     uncomma,
+    checkHyperLink,
+    checkYoutubeLink,
     checkEmail,
     nameMasking,
     emailMasking,

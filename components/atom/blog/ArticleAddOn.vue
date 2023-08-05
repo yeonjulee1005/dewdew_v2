@@ -3,7 +3,7 @@
     <el-tag
       class="like"
       :effect="activateLike ? 'light' : 'plain'"
-      @click="updateLikeCount"
+      @click="$emit('update-count')"
     >
       {{ data.like + ' ❤️' }}
     </el-tag>
@@ -12,17 +12,19 @@
 
 <script setup lang="ts">
 
-defineProps({
-  articleId: { type: String, default: '' },
-  data: { type: Object, default: () => null },
-  activateLike: { type: Boolean, default: false }
-})
+withDefaults(
+  defineProps<{
+    articleId: string,
+    data: BlogCoreData,
+    activateLike?: boolean
+  }>(),
+  {
+    activateLike: false
+  }
+)
 
-const articleAddOnEmits = defineEmits([
+defineEmits([
   'update-count'
 ])
 
-const updateLikeCount = () => {
-  articleAddOnEmits('update-count')
-}
 </script>

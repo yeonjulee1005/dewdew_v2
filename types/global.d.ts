@@ -19,6 +19,15 @@ interface Route {
   url: string
 }
 
+interface ProgressData {
+  color: string,
+  duration: number,
+  percent: number,
+  percentText: string,
+  style: string,
+  title: string
+}
+
 interface Colors {
   color: string,
   percentage: number
@@ -182,14 +191,17 @@ interface BlogList {
   comment: Comment[]
 }
 
-interface BlogData {
-  id: string,
-  createdAt: TimeStamp,
-  index: number,
+interface BlogCoreData {
   title: string,
-  rawArticle: string,
   desc: string,
   like: number,
+  createdAt: TimeStamp | nanoseconds | string,
+}
+
+interface BlogData extends BlogCoreData {
+  id: string,
+  index: number,
+  rawArticle: string,
   comment: Comment[]
 }
 

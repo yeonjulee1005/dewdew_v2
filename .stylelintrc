@@ -11,10 +11,11 @@
         "no-invalid-position-at-import-rule": null,
         "font-family-no-missing-generic-family-keyword": true,
         "block-no-empty": null,
+        "property-no-vendor-prefix": null,
+        "declaration-block-no-redundant-longhand-properties": null,
         "selector-class-pattern": null, 
         "color-no-invalid-hex": true,
         "hue-degree-notation": "number",
-        "property-no-vendor-prefix": null,
         "value-no-vendor-prefix": null,
         "color-function-notation": "modern",
         "font-family-no-duplicate-names": true,
@@ -25,6 +26,8 @@
         "rule-empty-line-before": null,
         "declaration-empty-line-before": "never",
         "at-rule-empty-line-before": "never",
+        "function-url-quotes": "never",
+        "selector-not-notation": "simple",
         "scss/at-import-partial-extension": ["always", { "except": ["scss"] }]
       }
     }

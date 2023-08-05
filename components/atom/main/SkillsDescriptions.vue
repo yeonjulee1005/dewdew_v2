@@ -39,9 +39,14 @@
 
 const { locale } = useLocale()
 
-defineProps({
-  skillsText: { type: Object, default: () => null },
-  skillsTextTrigger: { type: Boolean, default: false }
-})
+withDefaults(
+  defineProps<{
+    skillsText: SkillsData,
+    skillsTextTrigger?: boolean
+  }>(),
+  {
+    skillsTextTrigger: false
+  }
+)
 
 </script>

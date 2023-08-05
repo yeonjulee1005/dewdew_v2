@@ -41,7 +41,7 @@
 
 <script setup type="ts">
 
-const footerProps = defineProps({
+const props = defineProps({
   coreData: { type: Object, default: () => null }
 })
 
@@ -49,7 +49,7 @@ const menuData = ref([])
 const snsData = ref([])
 const staticTexts = ref({})
 
-footerProps.coreData.forEach((core) => {
+props.coreData.forEach((core) => {
   switch (core.id) {
     case 'footer' :
       staticTexts.value = core

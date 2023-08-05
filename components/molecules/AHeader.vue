@@ -4,12 +4,12 @@
       <nuxt-link to="/">
         <nuxt-picture
           class="logo flex-fixed"
-          :src="headerProps.images.logo.url"
+          :src="props.images.logo.url"
           height="46"
           width="160"
           legacy-format="webp"
           :img-attrs="{class: 'dewdew-logo'}"
-          :alt="headerProps.images.logo.title"
+          :alt="props.images.logo.title"
         />
       </nuxt-link>
       <div class="flex-auto" />
@@ -79,7 +79,7 @@ import { Sunny, Moon } from '@element-plus/icons-vue'
 
 const { locale, setLocaleCookie } = useLocale()
 
-const headerProps = defineProps({
+const props = defineProps({
   coreData: { type: Object, default: () => null },
   images: { type: Object, default: () => null }
 })
@@ -109,7 +109,7 @@ const initMenuData = (data:Images[]) => {
   })
 }
 
-headerProps.coreData.forEach((core:any) => {
+props.coreData.forEach((core:any) => {
   switch (core.id) {
     case 'pages' :
       // menuData.value = core.menu

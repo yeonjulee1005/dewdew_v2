@@ -23,9 +23,14 @@
 
 <script setup lang="ts">
 
-defineProps({
-  progressData: { type: Object, default: () => null },
-  width: { type: String, default: 'width: 360px;' }
-})
+withDefaults(
+  defineProps<{
+    progressData: ProgressData,
+    width?: string
+  }>(),
+  {
+    width: 'width: 360px;'
+  }
+)
 
 </script>

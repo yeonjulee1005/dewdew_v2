@@ -1,21 +1,3 @@
-## 기능
-
-- #### 메인페이지
-> 자기소개 및 작업물 소개, 연락방법 등을 간단히 표현
-
-- #### 블로그
-> 블로그 리스트목록, 블로그 글 읽기, 블로그 좋아요 누르기, 블로그 작현,
-> 댓글 달기, 댓글 삭제 기능구현
-
-- #### 프로젝트
-> 토이토이한 프로젝트 들을 넣어놓는 공간
-> (실제 서비스 제작시 필요로 하는 기능을 지속적으로 넣을 예정)
-
-- #### 아카이브
-> 사진 기록을 담아두는 공간
-> (이미지 슬라이더 활용)
-
-___
 
 ## 기본 셋업 방법
 
@@ -45,6 +27,8 @@ yarn build
 Locally preview production build:
 
 ```bash
+yarn preview
+또는
 yarn generate
 ```
 
@@ -60,3 +44,35 @@ rm -rf .nuxt
 yarn cache clean
 yarn install
 ```
+
+## Supabase Cli 셋업
+```
+패키지 설치
+```
+> `yarn add supabase@">=1.8.1" --dev`
+
+```
+로그인 및 토큰 확인 url
+https://supabase.com/dashboard/account/tokens
+```
+> `yarn supabase:login`
+
+```
+Typescript 자동생성
+```
+> `yarn supabase gen types typescript --project-id "PROJECT Reference ID" --schema public > types/supabase.ts`
+
+
+## Nuxt 패키지 정보확인
+> `npx nuxi info`
+
+## Code-Server 포트 설정방법(devTool 내 vscode 실행방법)
+> `PORT=3080 code-server`
+
+## Code-Server 설치 방법
+> `brew install code-server` 및 하단 링크 참조
+> [참조링크1:vscode server](https://code.visualstudio.com/docs/remote/vscode-server)
+> [참조링크2:tunnels](https://code.visualstudio.com/docs/remote/tunnels#_using-the-vs-code-ui)
+
+## Nuxt3 Edge Channel 설정법
+> `package.json` 내에 `"nuxt": "npm:nuxt3@latest"` 처리

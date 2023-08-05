@@ -42,6 +42,8 @@
     <div class="reference-background" />
     <LazyADialog
       :dialog-trigger="referenceDialogTrigger"
+      :hide-double-button="true"
+      :hide-single-button="true"
       custom-class="reference-dialog"
       @close-dialog="closeReferenceDialog"
     >
@@ -81,11 +83,16 @@ const selectReference = ref<ReferenceImage>({
 })
 const referenceDialogTrigger = ref(false)
 
-defineProps({
-  referenceTextData: { type: Object, default: () => null },
-  referenceImageData: { type: Array as PropType<ReferenceImage[]>, default: () => [] },
-  referenceListTrigger: { type: Boolean, default: false }
-})
+withDefaults(
+  defineProps<{
+    referenceTextData: ReferenceData,
+    referenceImageData: ReferenceImage[],
+    referenceListTrigger?: boolean
+  }>(),
+  {
+    referenceListTrigger: false
+  }
+)
 
 const openReference = () => {
   window.open(selectReference.value.url, '_blank')

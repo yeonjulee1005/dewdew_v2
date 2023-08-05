@@ -8,10 +8,10 @@
     >
       <el-button
         class="menu-item"
-        :class="{'is-active': isActive ? isActive() : null}"
+        :class="{'is-active': isActive}"
         @mouseenter="!tooltipTrigger ? visible = false : visible = true"
         @mouseleave="visible = false"
-        @click="action"
+        @click="clickAction"
       >
         <Icon :icon="iconType" />
       </el-button>
@@ -22,14 +22,30 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 
-defineProps({
-  iconType: { type: String, default: '' },
-  isActive: { type: Function, default: null },
-  action: { type: Function, default: null },
-  tooltipTrigger: { type: Boolean, default: true },
-  tooltipText: { type: String, default: '' }
-})
-
 const visible = ref(false)
+
+const editNormalButtonProps = withDefaults(
+  defineProps<{
+    iconType: string,
+    isActive?: boolean,
+    action: Function,
+    tooltipTrigger?: boolean,
+    tooltipText?: string
+  }>(),
+  {
+    isActive: false,
+    tooltipTrigger: true,
+    tooltipText: ''
+  }
+)
+
+const editNormalButtonsEmits = defineEmits([
+  'select-button'
+])
+
+const clickAction = () => {
+  editNormalButtonProps.action()
+  editNormalButtonsEmits('select-button')
+}
 
 </script>

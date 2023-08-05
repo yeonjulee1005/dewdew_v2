@@ -1,13 +1,15 @@
 <template>
   <LazyADialog
     :dialog-trigger="leaveDialogTrigger"
+    :hide-double-button="true"
+    :hide-single-button="true"
     top="30vh"
-    :width="300"
+    width="300px"
     @close-dialog="closeLeaveDialog"
   >
     <div class="leave-dialog flex flex-column flex-justify-center flex-align-center">
       <div
-        v-for="item in leaveCountProps.texts"
+        v-for="item in props.texts"
         :key="item.index"
         class="leave-texts mt-5 mb-5"
       >
@@ -18,7 +20,7 @@
         class="mt-20"
         :stroke-width="20"
         :percentage="displayCount(count)"
-        :color="leaveCountProps.colors"
+        :color="props.colors"
         alt="leave"
       >
         <template #default>
@@ -33,13 +35,18 @@
 
 const { t, locale } = useLocale()
 
-const leaveCountProps = defineProps({
-  idleTrigger: { type: Boolean, default: false },
-  texts: { type: Array as PropType<Texts[]>, default: () => [] },
-  colors: { type: Array as PropType<Colors[]>, default: () => [] }
-})
+const props = withDefaults(
+  defineProps<{
+    idleTrigger?: boolean,
+    texts: Texts[],
+    colors: Colors[]
+  }>(),
+  {
+    idleTrigger: false
+  }
+)
 
-const leaveCounterEmits = defineEmits([
+const emits = defineEmits([
   'dialog-close'
 ])
 
@@ -47,7 +54,7 @@ const leaveDialogTrigger = ref(false)
 const count = ref(60)
 
 onUpdated(() => {
-  leaveDialogTrigger.value = leaveCountProps.idleTrigger
+  leaveDialogTrigger.value = props.idleTrigger
 })
 
 watch(leaveDialogTrigger, () => {
@@ -83,7 +90,7 @@ const displayCount = (value:number) => {
 
 const closeLeaveDialog = () => {
   leaveDialogTrigger.value = false
-  leaveCounterEmits('dialog-close', false)
+  emits('dialog-close', false)
 }
 
 </script>

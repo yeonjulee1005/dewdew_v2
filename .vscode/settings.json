@@ -27,6 +27,7 @@
     "danger",
     "dare",
     "deep",
+    "Defaults",
     "designed",
     "dewdew",
     "dialogs",
@@ -136,6 +137,11 @@
     "wild",
     "workbox",
     "wrapper",
-    "Yeonju"
-  ]
+    "Yeonju",
+    "Youtube"
+  ],
+  "i18n-ally.localesPaths": [
+    "locales"
+  ],
+  "i18n-ally.keystyle": "nested"
 }

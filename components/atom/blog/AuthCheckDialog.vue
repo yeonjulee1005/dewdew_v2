@@ -1,10 +1,12 @@
 <template>
   <LazyADialog
     :dialog-trigger="adminTrigger"
+    :hide-double-button="true"
+    :hide-single-button="true"
     custom-class="auth-check-dialog"
     top="30vh"
-    :width="360"
-    @close-dialog="closeAuthCheckDialog"
+    width="360px"
+    @close-dialog="emits('close-dialog')"
   >
     <div class="title mb-20">
       {{ title }}
@@ -47,7 +49,7 @@ defineProps({
   title: { type: String, default: '' }
 })
 
-const authCheckEmits = defineEmits([
+const emits = defineEmits([
   'confirm-password',
   'close-dialog'
 ])
@@ -78,15 +80,11 @@ const checkPassword = async (formEl:FormInstance|undefined) => {
   if (!formEl) { return }
   await formEl.validate((valid, _fields) => {
     if (valid) {
-      authCheckEmits('confirm-password', authKeyData.password)
+      emits('confirm-password', authKeyData.password)
     } else {
       useAlarm().notify('', 'warning', t('validate.passwordCheck'), true, 3000, 0)
     }
   })
-}
-
-const closeAuthCheckDialog = () => {
-  authCheckEmits('close-dialog')
 }
 
 </script>

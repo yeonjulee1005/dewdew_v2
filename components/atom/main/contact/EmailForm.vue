@@ -1,7 +1,7 @@
 <template>
   <div class="email flex flex-column flex-align-center">
     <div class="email-title">
-      {{ emailFormProps.formTitle }}
+      {{ props.formTitle }}
     </div>
     <el-form
       ref="contactRuleFormRef"
@@ -68,11 +68,18 @@ const contactRuleForm = reactive({
   message: ''
 })
 
-const emailFormProps = defineProps({
-  formTitle: { type: String, default: '' },
-  emailTemplate: { type: String, default: '' },
-  emailKey: { type: String, default: '' }
-})
+const props = withDefaults(
+  defineProps<{
+    formTitle?: string,
+    emailTemplate?: string,
+    emailKey?: string
+  }>(),
+  {
+    formTitle: '',
+    emailTemplate: '',
+    emailKey: ''
+  }
+)
 
 const validateEmail = (_rule:any, value:any, callback:any) => {
   if (value === '') {
@@ -102,7 +109,7 @@ const submitForm = async (formEl:FormInstance|undefined) => {
   if (!formEl) { return }
   await formEl.validate((valid) => {
     if (valid) {
-      send('dewdew', emailFormProps.emailTemplate, contactRuleForm, emailFormProps.emailKey).then(() => {
+      send('dewdew', props.emailTemplate, contactRuleForm, props.emailKey).then(() => {
         useAlarm().notify('', 'success', '이메일 발송에 성공하였습니다.', true, 3000, 0)
       }).catch(() => {
         useAlarm().notify('', 'error', '이메일 발송에 실패하였습니다.', true, 3000, 0)

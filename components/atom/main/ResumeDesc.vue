@@ -45,10 +45,16 @@
 
 const { locale } = useLocale()
 
-defineProps({
-  resumeText: { type: Object, default: () => null },
-  resumeImage: { type: String, default: '' },
-  mainResumeTrigger: { type: Boolean, default: false }
-})
+withDefaults(
+  defineProps<{
+    resumeText: ResumeData,
+    resumeImage?: string,
+    mainResumeTrigger?: boolean
+  }>(),
+  {
+    resumeImage: '',
+    mainResumeTrigger: false
+  }
+)
 
 </script>

@@ -50,6 +50,7 @@
     }
   }
   .references-list {
+    z-index: 100;
     .reference-item {
       margin: $space-default;
       .reference-thumb {
