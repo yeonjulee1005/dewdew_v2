@@ -59,10 +59,10 @@ const { t } = useLocale()
 useHead({
   title: t('pageTitle.blog'),
   meta: [
-    { property: 'description', content: t('pageTitle.blogDesc') },
-    { property: 'og:title', content: t('pageTitle.blogOgTitle') },
+    { property: 'description', content: t('openGraph.blogDesc') },
+    { property: 'og:title', content: t('openGraph.blogOgTitle') },
     { property: 'og:url', content: 'https://dewdew.kr/blog/' },
-    { property: 'og:description', content: t('pageTitle.blogDesc') }
+    { property: 'og:description', content: t('openGraph.blogDesc') }
   ]
 })
 

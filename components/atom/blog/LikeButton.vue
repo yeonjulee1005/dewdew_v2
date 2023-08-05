@@ -6,7 +6,7 @@
       circle
       size="large"
       :type="activateLike ? 'danger' : ''"
-      @click="clickAffixButton"
+      @click="$emit('click-affix')"
     >
       {{ buttonText }}
     </el-button>
@@ -15,18 +15,20 @@
 
 <script setup lang="ts">
 
-defineProps({
-  trigger: { type: Boolean, default: false },
-  buttonText: { type: String, default: '❤️' },
-  activateLike: { type: Boolean, default: false }
-})
+withDefaults(
+  defineProps<{
+    trigger: boolean,
+    buttonText?: string,
+    activateLike?: boolean
+  }>(),
+  {
+    buttonText: '❤️',
+    activateLike: false
+  }
+)
 
-const affixButtonEmits = defineEmits([
+defineEmits([
   'click-affix'
 ])
-
-const clickAffixButton = () => {
-  affixButtonEmits('click-affix')
-}
 
 </script>

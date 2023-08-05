@@ -1,13 +1,15 @@
 <template>
   <LazyADialog
-    :dialog-trigger="createArticleProps.createArticleTrigger"
+    :dialog-trigger="props.createArticleTrigger"
+    :hide-double-button="true"
+    :hide-single-button="true"
     custom-class="create-article-dialog"
     top="15vh"
     width="80vw"
-    @close-dialog="closeCreateArticleDialog"
+    @close-dialog="emits('close-dialog')"
   >
     <div class="title ml-40 mb-20">
-      {{ createArticleProps.title }}
+      {{ props.title }}
     </div>
     <el-form
       ref="createArticleRef"
@@ -42,13 +44,20 @@ import type { FormInstance, FormRules } from 'element-plus'
 
 const { t } = useLocale()
 
-const createArticleProps = defineProps({
-  createArticleTrigger: { type: Boolean, default: false },
-  title: { type: String, default: '' },
-  articleIndex: { type: Number, default: 0 }
-})
+const props = withDefaults(
+  defineProps<{
+    createArticleTrigger?: boolean,
+    title?: string,
+    articleIndex?: number
+  }>(),
+  {
+    createArticleTrigger: false,
+    title: '',
+    articleIndex: 0
+  }
+)
 
-const createArticleEmits = defineEmits([
+const emits = defineEmits([
   'create-article',
   'close-dialog'
 ])
@@ -70,22 +79,18 @@ const createArticleRules = reactive<FormRules>({
 const updateArticle = (article:string, rawArticle:string) => {
   createArticleData.desc = article
   createArticleData.rawArticle = rawArticle
-  createArticleData.index = createArticleProps.articleIndex
+  createArticleData.index = props.articleIndex
 }
 
 const submitArticle = async (formEl:FormInstance|undefined) => {
   if (!formEl) { return }
   await formEl.validate((valid, _fields) => {
     if (valid) {
-      createArticleEmits('create-article', createArticleData)
+      emits('create-article', createArticleData)
     } else {
       useAlarm().notify('', 'warning', t('validate.titleEmpty'), true, 3000, 0)
     }
   })
-}
-
-const closeCreateArticleDialog = () => {
-  createArticleEmits('close-dialog')
 }
 
 </script>

@@ -1,8 +1,7 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default {
-  routes: {
-    '/_nuxt/**': { Headers: { 'cache-control': 's-maxage=0' } },
-    '/blog/*/*': { static: true }
+  routeRules: {
+    '/**': { prerender: true, headers: { 's-maxage': '1', 'stale-while-revalidate': '59', 'x-magic-of': 'nuxt and vercel' } }
   },
   app: {
     keepalive: true,
@@ -43,9 +42,18 @@ export default {
   ],
   vite: {
     build: {
-      chunkSizeWarningLimit: 4000,
+      chunkSizeWarningLimit: 1000,
       commonjsOptions: {
         esmExternals: true
+      },
+      rollupOptions: {
+        output: {
+          manualChunks: (id:string) => {
+            if (id.includes('node_modules')) {
+              return id.toString().split('node_modules/')[1].split('/')[0].toString()
+            }
+          }
+        }
       }
     }
   },
@@ -56,10 +64,11 @@ export default {
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
-    '@nuxt/image-edge',
+    '@nuxt/image',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/robots',
-    'nuxt-simple-sitemap'
+    'nuxt-simple-sitemap',
+    'nuxt-vercel-analytics'
   ],
   // build modules
   buildModules: [
@@ -85,12 +94,6 @@ export default {
       ]
     }
   },
-  experimental: {
-    // viewTransition: true,
-    renderJsonPayloads: true,
-    payloadExtraction: false
-  },
-  // auto import components
   components: [
     {
       path: '~/components',
@@ -141,8 +144,18 @@ export default {
   typescript: {
     shim: false
   },
+  cssMining: true,
+  rollupOptions: {
+    output: {
+      manualChunks: {
+        'element-plus': ['element-plus']
+      }
+    }
+  },
   pwa: {
     registerType: 'autoUpdate',
+    srcDir: './public/worker',
+    filename: 'sw.ts',
     manifest: {
       name: 'Dewdew',
       short_name: 'Dewdew',
@@ -170,10 +183,12 @@ export default {
     },
     devOptions: {
       enabled: true,
+      suppressWarnings: true,
+      navigateFallbackAllowlist: [/^\/$/],
       type: 'module'
     }
   },
   sitemap: {
-    siteUrl: 'https://example.com'
+    siteUrl: 'https://www.dewdew.kr'
   }
 }

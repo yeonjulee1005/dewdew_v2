@@ -44,12 +44,20 @@
 
 const { locale } = useLocale()
 
-defineProps({
-  introText: { type: Object as PropType<IntroData>, default: () => null },
-  bannerImages: { type: String, default: '' },
-  mainTitleTrigger: { type: Boolean, default: false },
-  mainTextTrigger: { type: Boolean, default: false },
-  scrollDownTrigger: { type: Boolean, default: false }
-})
+withDefaults(
+  defineProps<{
+    introText: IntroData,
+    bannerImages?: string,
+    mainTitleTrigger?: boolean,
+    mainTextTrigger?: boolean,
+    scrollDownTrigger?: boolean
+  }>(),
+  {
+    bannerImages: '',
+    mainTitleTrigger: false,
+    mainTextTrigger: false,
+    scrollDownTrigger: false
+  }
+)
 
 </script>

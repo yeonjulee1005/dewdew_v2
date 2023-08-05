@@ -43,10 +43,16 @@
 
 <script setup lang="ts">
 
-defineProps({
-  contactData: { type: Object, default: () => null },
-  kakaoImage: { type: String, default: '' },
-  contactTrigger: { type: Boolean, default: false }
-})
+withDefaults(
+  defineProps<{
+    contactData: ContactData,
+    kakaoImage?: string,
+    contactTrigger?: boolean
+  }>(),
+  {
+    kakaoImage: '',
+    contactTrigger: false
+  }
+)
 
 </script>

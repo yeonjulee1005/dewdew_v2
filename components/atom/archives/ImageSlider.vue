@@ -1,7 +1,7 @@
 <template>
   <div
     class="main-slider-section"
-    :class="{'inner-slider-section': imageSliderProps.innerArchiveTrigger}"
+    :class="{'inner-slider-section': props.innerArchiveTrigger}"
   >
     <client-only>
       <Carousel
@@ -13,11 +13,11 @@
         :mouse-drag="mouseDrag"
       >
         <Slide
-          v-for="item in imageSliderProps.imageData"
+          v-for="item in props.imageData"
           :key="item.year"
         >
           <nuxt-link
-            v-if="imageSliderProps.mainSliderTrigger"
+            v-if="props.mainSliderTrigger"
             class="image-component"
             :to="item.route"
           >
@@ -46,7 +46,7 @@
               format="webp"
               :img-attrs="{class: 'thumbnail'}"
               :alt="item.title"
-              @click="imageClick(item)"
+              @click="$emit('open-dialog', item)"
             />
           </div>
         </Slide>
@@ -60,19 +60,28 @@ import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
 const { width } = useWindowSize()
-const imageSliderProps = defineProps({
-  imageData: { type: Array as PropType<ArchivesData[]>, default: () => [] },
-  touchDrag: { type: Boolean, default: true },
-  mouseDrag: { type: Boolean, default: false },
-  mainSliderTrigger: { type: Boolean, default: false },
-  innerArchiveTrigger: { type: Boolean, default: false }
-})
-
-const imageSliderEmits = defineEmits([
-  'open-dialog'
-])
 
 const sliderShowCount = ref(0)
+
+const props = withDefaults(
+  defineProps<{
+    imageData: ArchivesData[],
+    touchDrag?: boolean,
+    mouseDrag?: boolean,
+    mainSliderTrigger?: boolean,
+    innerArchiveTrigger?: boolean
+  }>(),
+  {
+    touchDrag: true,
+    mouseDrag: false,
+    mainSliderTrigger: false,
+    innerArchiveTrigger: false
+  }
+)
+
+defineEmits([
+  'open-dialog'
+])
 
 watch(width, () => { handleResize(width.value) })
 
@@ -86,7 +95,4 @@ const handleResize = (width:number) => {
   sliderShowCount.value = showCount[caseWidth]
 }
 
-const imageClick = (imageData:ArchivesData) => {
-  imageSliderEmits('open-dialog', imageData)
-}
 </script>

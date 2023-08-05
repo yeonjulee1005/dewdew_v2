@@ -60,6 +60,10 @@
     line-height: 1.1;
   }
   code {
+    font-size: 0.9rem;
+    padding: 0.25em;
+    border-radius: 0.25em;
+    box-decoration-break: clone;
     background-color: $d-bg-sub-origin-dark;
     color: $d-bg-sub-origin-dark;
   }
@@ -124,6 +128,7 @@
     height: auto;
   }
   blockquote {
+    margin: 0 $space-default;
     padding-left: $space-8;
     border-left: $space-4 solid var(--d-text-color);
   }
@@ -181,5 +186,21 @@
     color: #adb5bd;
     pointer-events: none;
     height: 0;
+  }
+
+  iframe {
+    border: $space-4 solid var(--el-border-color);
+    border-radius: $space-4;
+    min-width: $space-160;
+    min-height: $space-160;
+    display: block;
+    outline: $space-2 solid transparent;
+  }
+  div[data-youtube-video] {
+    cursor: move;
+  }
+  .ProseMirror-selectednode iframe {
+    transition: outline 0.15s;
+    outline: $space-2 solid var(--el-error-color);
   }
 }

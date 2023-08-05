@@ -10,6 +10,8 @@
     />
     <ADialog
       :dialog-trigger="imageDialogTrigger"
+      :hide-double-button="true"
+      :hide-single-button="true"
       @close-dialog="closeImageDialog"
     >
       <nuxt-picture

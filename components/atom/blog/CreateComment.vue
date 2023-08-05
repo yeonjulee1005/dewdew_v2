@@ -23,6 +23,7 @@
       </el-form-item>
       <el-form-item :label="contentLabel">
         <LazyTextEditor
+          :comment-option="true"
           @update:model-value="updateArticle"
         />
       </el-form-item>
@@ -50,13 +51,20 @@ import type { FormInstance, FormRules } from 'element-plus'
 
 const { t } = useLocale()
 
-defineProps({
-  nameLabel: { type: String, default: '이름' },
-  contentLabel: { type: String, default: '내용' },
-  passwordLabel: { type: String, default: '비밀번호' }
-})
+withDefaults(
+  defineProps<{
+    nameLabel?: string,
+    contentLabel?: string,
+    passwordLabel?: string
+  }>(),
+  {
+    nameLabel: '이름',
+    contentLabel: '내용',
+    passwordLabel: '비밀번호'
+  }
+)
 
-const createCommentEmits = defineEmits([
+const emits = defineEmits([
   'create-comment'
 ])
 
@@ -113,7 +121,7 @@ const submitArticle = async (formEl:FormInstance|undefined) => {
   if (!formEl) { return }
   await formEl.validate((valid, _fields) => {
     if (valid && createCommentData.value.message) {
-      createCommentEmits('create-comment', createCommentData.value)
+      emits('create-comment', createCommentData.value)
       setTimeout(() => {
         formEl.resetFields()
       }, 1000)

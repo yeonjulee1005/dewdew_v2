@@ -19,9 +19,14 @@
 
 <script setup lang="ts">
 
-defineProps({
-  skillsImage: { type: Array as PropType<Images[]>, default: () => [] },
-  skillsBgTrigger: { type: Boolean, default: false }
-})
+withDefaults(
+  defineProps<{
+    skillsImage: Images[],
+    skillsBgTrigger?: boolean
+  }>(),
+  {
+    skillsBgTrigger: false
+  }
+)
 
 </script>

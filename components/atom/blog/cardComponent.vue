@@ -20,8 +20,8 @@
 
 <script setup lang="ts">
 
-defineProps({
-  cardItem: { type: Object, default: () => null }
-})
+defineProps<{
+  cardItem: BlogList
+}>()
 
 </script>

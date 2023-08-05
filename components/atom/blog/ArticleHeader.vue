@@ -17,8 +17,8 @@
 
 <script setup lang="ts">
 
-defineProps({
-  data: { type: Object, default: () => null }
-})
+defineProps<{
+  data: BlogCoreData
+}>()
 
 </script>

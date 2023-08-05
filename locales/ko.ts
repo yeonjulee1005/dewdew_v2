@@ -16,6 +16,14 @@ export default {
     archivesDesc: 'FE개발자 이연주의 사진기록 입니다.',
     archivesOgTitle: '개발자 이연주 | 아카이브'
   },
+  texts: {
+    upload: '업로드',
+    insertLink: '링크사용',
+    noUse: '사용안함',
+    save: '저장',
+    cancel: '취소',
+    close: '닫기'
+  },
   main: {
     contactKakao: '카카오톡으로 연락하기'
   },
@@ -46,6 +54,8 @@ export default {
     checkDropper: '확인해주세요.'
   },
   placeholder: {
+    inputYoutube: '유튜브 링크를 입력해주세요.',
+    inputLink: '링크를 입력해주세요.',
     inputName: '성함을 입력해주세요.',
     inputEmail: '이메일을 입력해주세요.',
     inputContent: '내용을 입력해주세요.'
@@ -58,10 +68,17 @@ export default {
     nameFormat: '이름은 2자 이상 입력해주세요!',
     passwordEmpty: '비밀번호를 입력해주세요!',
     passwordFormat: '비밀번호는 숫자, 영문, 특수문자가 섞여있죠?',
-    passwordCheck: '비밀번호를 확인해주세요~'
+    passwordCheck: '비밀번호를 확인해주세요~',
+    linkRequire: '링크를 입력해주세요!',
+    linkFormat: '링크 형식이 잘못되었습니다!',
+    imageUploadFormat: '이미지 파일 형식만 업로드 가능해요.',
+    imageUploadSmallSize: '5Mb를 초과 할 수 없어요.',
+    youtubeRequire: '유튜브링크를 입력해주세요.',
+    youtubeFormat: '유튜브링크 형식을 확인해주세요.'
   },
   messages: {
     copy: '복사 했어요!',
+    failed: '실패했어요..ㅠㅠ',
     emptyArticle: '글이 없네요..ㅜㅜ',
     enterPassword: '관리자 비밀번호를 입력해주세요!',
     writeArticle: '글을 써보자!',
@@ -99,8 +116,16 @@ export default {
     alignCenter: '중앙정렬',
     alignRight: '우측정렬',
     alignJustify: '전체정렬',
+    image: '이미지',
     link: '링크',
     unlink: '링크해제',
+    code: '코드',
+    youtube: '유튜브',
+    pretendard: '프리텐다드',
+    dungGeunMo: '둥근모꼴',
+    shillaCulture: '신라 문화체',
+    eliceDigital: '엘리스 코딩체',
+    kotraHope: '코트라 희망체',
     paragraph: '문단',
     h1: 'H1',
     h2: 'H2',
@@ -124,7 +149,12 @@ export default {
     mergeOrSplit: '셀병합/해제',
     deleteTable: '표삭제',
     goBack: '실행취소',
-    goForward: '재실행'
+    goForward: '재실행',
+    dialog: {
+      hyperLinkTitle: '링크를 입력해주세요.',
+      youtubeLinkTitle: '유튜브 링크를 입력해주세요.',
+      imageUploadTitle: '이미지를 선택해주세요.'
+    }
   },
   localeMenu: {
     korean: '한국어',
