@@ -29,17 +29,22 @@
           />
         </nuxt-link>
       </div>
-      <div class="flex copyright">
+      <el-text class="flex copyright">
         {{ staticTexts.copyright }}
-      </div>
-      <div class="flex copyright">
+      </el-text>
+      <el-text class="flex copyright">
         {{ staticTexts.designed }}
-      </div>
+      </el-text>
+      <el-text class="flex copyright">
+        {{ $t('texts.version', { version: config.public.appVersion.replaceAll('"', '') }) }}
+      </el-text>
     </div>
   </el-footer>
 </template>
 
 <script setup type="ts">
+
+const config = useRuntimeConfig()
 
 const props = defineProps({
   coreData: { type: Object, default: () => null }

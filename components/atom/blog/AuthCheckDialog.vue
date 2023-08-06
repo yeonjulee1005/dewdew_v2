@@ -6,7 +6,7 @@
     custom-class="auth-check-dialog"
     top="30vh"
     width="360px"
-    @close-dialog="emits('close-dialog')"
+    @close-dialog="closeDialog"
   >
     <div class="title mb-20">
       {{ title }}
@@ -55,7 +55,7 @@ const emits = defineEmits([
 ])
 
 const authKeyRef = ref<FormInstance>()
-const authKeyData = reactive({
+const authKeyData = ref({
   password: ''
 })
 
@@ -80,11 +80,16 @@ const checkPassword = async (formEl:FormInstance|undefined) => {
   if (!formEl) { return }
   await formEl.validate((valid, _fields) => {
     if (valid) {
-      emits('confirm-password', authKeyData.password)
+      emits('confirm-password', authKeyData.value.password)
     } else {
       useAlarm().notify('', 'warning', t('validate.passwordCheck'), true, 3000, 0)
     }
   })
+}
+
+const closeDialog = () => {
+  authKeyData.value.password = ''
+  emits('close-dialog')
 }
 
 </script>

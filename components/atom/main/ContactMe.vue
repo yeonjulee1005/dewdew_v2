@@ -12,7 +12,7 @@
           {{ contactData.kakaoTalk.title }}
         </div>
         <nuxt-link
-          :to="contactData.kakaoTalk.url || 'https://namecard.kakao.com/dewdew'"
+          :to="contactData.kakaoTalk.url || 'https://open.kakao.com/o/subhorMe'"
           class="image-group flex flex-column flex-align-center"
           :external="true"
           target="_blank"

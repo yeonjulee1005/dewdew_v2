@@ -22,7 +22,8 @@ export default {
     noUse: '사용안함',
     save: '저장',
     cancel: '취소',
-    close: '닫기'
+    close: '닫기',
+    version: '버전 {version}'
   },
   main: {
     contactKakao: '카카오톡으로 연락하기'
