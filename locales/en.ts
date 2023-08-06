@@ -22,7 +22,8 @@ export default {
     noUse: 'No use',
     save: 'Save',
     cancel: 'Cancel',
-    close: 'Close'
+    close: 'Close',
+    version: 'Version {version}'
   },
   main: {
     contactKakao: 'Contact to kakao'

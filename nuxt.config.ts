@@ -1,4 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
+import packageJson from './package.json'
+
 export default {
   routeRules: {
     '/**': { prerender: true, headers: { 's-maxage': '1', 'stale-while-revalidate': '59', 'x-magic-of': 'nuxt and vercel' } }
@@ -78,6 +80,7 @@ export default {
   ],
   runtimeConfig: {
     public: {
+      appVersion: JSON.stringify(packageJson.version),
       GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
     }
   },
