@@ -12,6 +12,15 @@
 <script setup lang="ts">
 import { ID_INJECTION_KEY } from 'element-plus'
 
+const client = useSupabaseClient()
+
+const test = async () => {
+  const data = await client.from('profiles').select('*')
+  console.log(data)
+}
+
+test()
+
 const { t } = useLocale()
 
 provide(ID_INJECTION_KEY, {

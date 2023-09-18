@@ -77,9 +77,27 @@ export default {
     '@emailjs/browser',
     'unplugin-icons/nuxt'
   ],
-  runtimeConfig: {
-    public: {
-      appVersion: JSON.stringify(packageJson.version)
+  supabase: {
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      exclude: [
+        '/',
+        '/blog',
+        '/blog/*',
+        '/projects',
+        '/projects/*',
+        '/archives',
+        '/archives/*'
+      ]
+    },
+    clientOptions: {
+      auth: {
+        flowType: 'pkce',
+        detectSessionInUrl: true,
+        persistSession: true,
+        autoRefreshToken: true
+      }
     }
   },
   nitro: {
@@ -191,5 +209,10 @@ export default {
   },
   sitemap: {
     siteUrl: 'https://www.dewdew.kr'
+  },
+  runtimeConfig: {
+    public: {
+      appVersion: JSON.stringify(packageJson.version)
+    }
   }
 }
