@@ -2,9 +2,6 @@
 import packageJson from './package.json'
 
 export default {
-  routeRules: {
-    '/**': { prerender: true, headers: { 's-maxage': '1', 'stale-while-revalidate': '59', 'x-magic-of': 'nuxt and vercel' } }
-  },
   app: {
     keepalive: true,
     pageTransition: { name: 'page', mode: 'out-in' },
@@ -63,6 +60,8 @@ export default {
   modules: [
     '@vite-pwa/nuxt',
     '@pinia/nuxt',
+    '@nuxt/devtools',
+    '@nuxtjs/supabase',
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
@@ -80,8 +79,7 @@ export default {
   ],
   runtimeConfig: {
     public: {
-      appVersion: JSON.stringify(packageJson.version),
-      GOOGLE_FIREBASE_ID: process.env.GOOGLE_FIREBASE_ID
+      appVersion: JSON.stringify(packageJson.version)
     }
   },
   nitro: {

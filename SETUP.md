@@ -6,14 +6,14 @@
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
+# bun
+bun install
 ```
 
 ## Development Server
 
 ```bash
-yarn dev
+bun dev
 ```
 
 ## Production
@@ -21,46 +21,44 @@ yarn dev
 Build the application for production:
 
 ```bash
-yarn build
+bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-yarn preview
-또는
-yarn generate
+bun preview
 ```
 
 ## 셋업이 진행 안될 경우 조치사항
 ```
-yarn.lock, node_modules 삭제, .nuxt 삭제, yarn 캐시클린 진행 
--> yarn or yarn install 진행
+bun.lockb, node_modules 삭제, .nuxt 삭제 
+-> bun install 진행
 ```
 ```
 rm -rf node_modules
 rm -rf yarn.lock
 rm -rf .nuxt
-yarn cache clean
-yarn install
+bun pm cache rm
+bun install
 ```
 
 ## Supabase Cli 셋업
 ```
 패키지 설치
 ```
-> `yarn add supabase@">=1.8.1" --dev`
+> `bun add supabase@`
 
 ```
 로그인 및 토큰 확인 url
 https://supabase.com/dashboard/account/tokens
 ```
-> `yarn supabase:login`
+> `bun supabase:login`
 
 ```
 Typescript 자동생성
 ```
-> `yarn supabase gen types typescript --project-id "PROJECT Reference ID" --schema public > types/supabase.ts`
+> `bun supabase gen types typescript --project-id "PROJECT Reference ID" --schema public > types/supabase.ts`
 
 
 ## Nuxt 패키지 정보확인
