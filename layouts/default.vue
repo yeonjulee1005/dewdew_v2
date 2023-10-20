@@ -15,7 +15,7 @@
       :idle-trigger="idleTrigger"
       :texts="leaveText"
       :colors="colors"
-      @dialog-close="dialogClose"
+      @dialog-close="(trigger:boolean) => idleTrigger = trigger"
     />
   </el-container>
 </template>
@@ -55,7 +55,4 @@ coreImages.forEach((image:any) => {
   }
 })
 
-const dialogClose = (value:boolean) => {
-  idleTrigger.value = value
-}
 </script>

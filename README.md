@@ -8,14 +8,17 @@
 ## 사용한 모듈은 아래와 같습니다.
 
 1. Element-Plus
-2. Sass
-3. Pinia
-4. VueUse
-5. Vercen(hosting/analytics)
-6. Firebase
+2. Supabase
+3. Sass
+4. Pinia
+5. VueUse
+6. Vercen(hosting/analytics)
 7. Tiptap
-8. Vue-gtag
-9. Iconfy
+8. Iconfy
+
+## Package manager
+
+### Bun
 
 ___
 

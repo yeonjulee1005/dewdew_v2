@@ -99,7 +99,7 @@
           :tooltip-trigger="false"
         />
         <LazyEditNormalButtons
-          v-if="textEditorProps.fullOption"
+          v-if="fullOption"
           :is-active="editor.isActive({ textAlign: 'center' })"
           :action="() => editor ? editor.chain().focus().setTextAlign('center').run() : null"
           icon-type="ri:align-center"
@@ -110,7 +110,7 @@
       <editor-content class="tiptap-editor__content" :editor="editor" />
       <div v-if="editor" class="character-count flex flex-column">
         <el-text>
-          {{ editor.storage.characterCount.characters() + ' / '.concat(String(textEditorProps.textLimit), $t('tiptap.characters')) }}
+          {{ editor.storage.characterCount.characters() + ' / '.concat(String(textLimit), $t('tiptap.characters')) }}
         </el-text>
         <el-text>
           {{ editor.storage.characterCount.words() + ' '.concat($t('tiptap.words')) }}
@@ -148,7 +148,7 @@
 </template>
 
 <script setup lang="ts">
-import { useEditor, EditorContent, BubbleMenu } from '@tiptap/vue-3'
+import { Editor, EditorContent, BubbleMenu } from '@tiptap/vue-3'
 import starterKit from '@tiptap/starter-kit'
 import textStyle from '@tiptap/extension-text-style'
 import { Youtube } from '@tiptap/extension-youtube'
@@ -171,7 +171,7 @@ import tableRow from '@tiptap/extension-table-row'
 const { t } = useLocale()
 const { width: windowWidth } = useWindowSize()
 
-const textEditorProps = withDefaults(
+const props = withDefaults(
   defineProps<{
     textData?: string,
     textLimit?: number,
@@ -186,66 +186,85 @@ const textEditorProps = withDefaults(
   }
 )
 
-const textEditorEmits = defineEmits([
+const emits = defineEmits([
   'update:model-value'
 ])
+
+const editor = ref()
 
 const hyperLinkDialogTrigger = ref(false)
 const youtubeLinkDialogTrigger = ref(false)
 const imageUploadDialogTrigger = ref(false)
 
-const editor = useEditor({
-  content: textEditorProps.textData,
-  extensions: [
-    starterKit,
-    placeholder.configure({
-      placeholder: t('tiptap.placeholder')
-    }),
-    characterCount.configure({
-      limit: textEditorProps.textLimit
-    }),
-    underline,
-    textAlign.configure({
-      types: ['heading', 'paragraph']
-    }),
-    highlight.configure({ multicolor: true }),
-    focus.configure({
-      className: 'has-focus',
-      mode: 'all'
-    }),
-    taskItem.configure({
-      nested: true
-    }),
-    taskList,
-    link.configure({
-      HTMLAttributes: {
-        rel: 'noopener noreferrer',
-        target: '_blank'
-      },
-      protocols: ['ftp', 'mailto'],
-      openOnClick: true
-    }),
-    table.configure({
-      resizable: true
-    }),
-    tableRow,
-    tableHeader,
-    tableCell,
-    textStyle,
-    FontFamily,
-    Youtube.configure({
-      progressBarColor: 'white',
-      interfaceLanguage: 'ko',
-      modestBranding: true,
-      width: 400,
-      height: 280
-    }),
-    useTiptapImage().BaseCustomMediaNode,
-    Color
-  ],
-  onUpdate: ({ editor }) => {
-    textEditorEmits('update:model-value', editor.getHTML(), editor.state.doc.textContent)
+onMounted(() => {
+  editor.value = new Editor({
+    content: props.textData,
+    extensions: [
+      starterKit,
+      placeholder.configure({
+        placeholder: t('tiptap.placeholder')
+      }),
+      characterCount.configure({
+        limit: props.textLimit
+      }),
+      underline,
+      textAlign.configure({
+        types: ['heading', 'paragraph']
+      }),
+      highlight.configure({ multicolor: true }),
+      focus.configure({
+        className: 'has-focus',
+        mode: 'all'
+      }),
+      taskItem.configure({
+        nested: true
+      }),
+      taskList,
+      link.configure({
+        HTMLAttributes: {
+          rel: 'noopener noreferrer',
+          target: '_blank'
+        },
+        protocols: ['ftp', 'mailto'],
+        openOnClick: true
+      }),
+      table.configure({
+        resizable: true
+      }),
+      tableRow,
+      tableHeader,
+      tableCell,
+      textStyle,
+      FontFamily,
+      Youtube.configure({
+        progressBarColor: 'white',
+        interfaceLanguage: 'ko',
+        modestBranding: true,
+        width: 400,
+        height: 280
+      }),
+      useTiptapImage().BaseCustomMediaNode,
+      Color
+    ],
+    onUpdate: () => {
+      emits('update:model-value', editor.value?.getHTML())
+    }
+  })
+})
+
+watch(
+  () => props.textData,
+  (value) => {
+    const isSame = editor.value?.getHTML() === value
+    if (!isSame) {
+      editor.value?.commands.setContent(value, false)
+    }
   }
+)
+
+onBeforeUnmount(() => {
+  editor.value.destroy()
+  editor.value = null
 })
 
 const submitHyperLink = (link:string) => {
