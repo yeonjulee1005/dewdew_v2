@@ -2,7 +2,7 @@
   "name": "dewdew_page",
   "author": "Yeonju Lee",
   "private": true,
-  "version": "1.7.0",
+  "version": "1.8.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 4400",
@@ -62,7 +62,7 @@
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
     "firebase": "^10.4.0",
-    "nuxt": "^3.7.3",
+    "nuxt": "^3.8.0",
     "nuxt-simple-sitemap": "^3.3.3",
     "nuxt-vercel-analytics": "^0.2.2",
     "postcss-html": "^1.5.0",
