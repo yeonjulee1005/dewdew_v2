@@ -78,27 +78,27 @@ export default {
     'unplugin-icons/nuxt'
   ],
   supabase: {
-    redirectOptions: {
-      login: '/login',
-      callback: '/confirm',
-      exclude: [
-        '/',
-        '/blog',
-        '/blog/*',
-        '/projects',
-        '/projects/*',
-        '/archives',
-        '/archives/*'
-      ]
-    },
-    clientOptions: {
-      auth: {
-        flowType: 'pkce',
-        detectSessionInUrl: true,
-        persistSession: true,
-        autoRefreshToken: true
-      }
-    }
+    // redirectOptions: {
+    //   login: '/login',
+    //   callback: '/confirm',
+    //   exclude: [
+    //     '/',
+    //     '/blog',
+    //     '/blog/*',
+    //     '/projects',
+    //     '/projects/*',
+    //     '/archives',
+    //     '/archives/*'
+    //   ]
+    // },
+    // clientOptions: {
+    //   auth: {
+    //     flowType: 'pkce',
+    //     detectSessionInUrl: true,
+    //     persistSession: true,
+    //     autoRefreshToken: true
+    //   }
+    // }
   },
   nitro: {
     esbuild: {
